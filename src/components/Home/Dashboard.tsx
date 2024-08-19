@@ -11,7 +11,7 @@ import {
   TMP_ROUND_SUMMARY_DATA_COLLECTION,
 } from '@/data/temp-data';
 
-interface Props {}
+// interface Props {}
 
 const Dashboard = () => {
   const cx = classNames.bind(classes);

@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import classNames from 'classnames/bind';
-import classes from './Dashboard.module.scss';
+// import classNames from 'classnames/bind';
+// import classes from './Dashboard.module.scss';
 import Flex from '@/components/UI/Flex';
 import Text from '@/components/UI/Text';
 import Button from '@/components/UI/Button';
@@ -13,7 +12,7 @@ interface Props {
 }
 
 const DashboardItemHeader = ({ children, description }: Props) => {
-  const cx = classNames.bind(classes);
+  // const cx = classNames.bind(classes);
 
   return (
     <div>

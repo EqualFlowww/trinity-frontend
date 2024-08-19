@@ -1,11 +1,11 @@
-import classNames from 'classnames/bind';
-import classes from './CartEntity.module.scss';
+// import classNames from 'classnames/bind';
+// import classes from './CartEntity.module.scss';
 import Flex from '@/components/UI/Flex';
 
-interface Props {}
+// interface Props {}
 
 const CartEntity = () => {
-  const cx = classNames.bind(classes);
+  // const cx = classNames.bind(classes);
 
   return <Flex width="full" direction="column" gap="2" paddingX="2"></Flex>;
 };

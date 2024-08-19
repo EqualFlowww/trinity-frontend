@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import classes from './IconArrow.module.scss';
 import SvgArrow from '@/assets/svgs/arrow.svg?react';
-import { ContentColorProps, ContentProps, IconProps } from '@/types/props';
+import { IconProps } from '@/types/props';
 import Icon from '@/components/UI/Icon';
 
 // svg 파일 가져옴

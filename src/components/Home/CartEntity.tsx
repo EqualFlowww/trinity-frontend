@@ -9,7 +9,7 @@ import IconStatusOmega from '@/components/Icon/IconStatusOmega';
 import IconStatusWarning from '@/components/Icon/IconStatusWarning';
 import IconStatusBatteryAlert from '@/components/Icon/IconStatusBatteryAlert';
 import Button from '@/components/UI/Button';
-import Wrapper from '@/components/UI/Wrapper';
+// import Wrapper from '@/components/UI/Wrapper';
 import Text from '@/components/UI/Text';
 
 interface Props {

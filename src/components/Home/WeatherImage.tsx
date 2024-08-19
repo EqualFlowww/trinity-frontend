@@ -3,7 +3,7 @@ import Image from '@/components/UI/Image';
 import classes from './WeatherImage.module.scss';
 import clearDayImage from '@/assets/images/weather-clear-day.png';
 import clearNightImage from '@/assets/images/weather-clear-night.png';
-import { Weather } from '@/types/dashboard';
+import { Weather } from '@/types/home';
 
 interface Props {
   type: Weather;
