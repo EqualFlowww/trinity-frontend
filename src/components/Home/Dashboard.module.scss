@@ -1,0 +1,40 @@
+.dashboard-header {
+  width: 100%;
+  height: 10.6rem;
+}
+
+.dashboard-list {
+  width: 100%;
+  height: calc(100% - 10.6rem);
+}
+
+.info-box {
+  display: flex;
+  width: 20.5rem;
+  height: 5.2rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--sp-1, 0.8rem);
+  background: var(--Neutral-Surface-Container-01, #fff);
+
+  .info-text {
+    width: 16.7rem;
+    height: auto;
+    color: var(--Neutral-On-Surface-Variant, #636670);
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02rem;
+  }
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.6rem;
+}

@@ -1,0 +1,151 @@
+@use '@/styles/_themes.scss' as *;
+
+:root {
+  --primary: #{$light-primary};
+  --on-primary: #{$light-on-primary};
+  --primary-container: #{$light-primary-container};
+  --on-primary-container: #{$light-on-primary-container};
+
+  --secondary: #{$light-secondary};
+  --on-secondary: #{$light-on-secondary};
+  --secondary-container: #{$light-secondary-container};
+  --on-secondary-container: #{$light-on-secondary-container};
+
+  --tertiary: #{$light-tertiary};
+  --on-tertiary: #{$light-on-tertiary};
+  --tertiary-container: #{$light-tertiary-container};
+  --on-tertiary-container: #{$light-on-tertiary-container};
+
+  --neutral-surface: #{$light-neutral-surface};
+  --neutral-surface-container-01: #{$light-neutral-surface-container-01};
+  --neutral-surface-container-02: #{$light-neutral-surface-container-02};
+  --neutral-surface-container-03: #{$light-neutral-surface-container-03};
+  --neutral-surface-container-04: #{$light-neutral-surface-container-04};
+  --neutral-surface-container-05: #{$light-neutral-surface-container-05};
+  --neutral-on-surface: #{$light-neutral-on-surface};
+  --neutral-on-surface-variant: #{$light-neutral-on-surface-variant};
+  --neutral-outline: #{$light-neutral-outline};
+  --neutral-outline-variant: #{$light-neutral-outline-variant};
+  --neutral-scrim: #{$light-neutral-scrim};
+
+  --states-error: #{$light-states-error};
+  --states-on-error: #{$light-states-on-error};
+  --states-error-container: #{$light-states-error-container};
+  --states-on-error-container: #{$light-states-on-error-container};
+
+  --states-warning: #{$light-states-warning};
+  --states-on-warning: #{$light-states-on-warning};
+  --states-warning-container: #{$light-states-warning-container};
+  --states-on-warning-container: #{$light-states-on-warning-container};
+
+  --states-success: #{$light-states-success};
+  --states-on-success: #{$light-states-on-success};
+  --states-success-container: #{$light-states-success-container};
+  --states-on-success-container: #{$light-states-on-success-container};
+
+  --states-alert: #{$light-states-alert};
+  --states-on-alert: #{$light-states-on-alert};
+  --states-alert-container: #{$light-states-alert-container};
+  --states-on-alert-container: #{$light-states-on-alert-container};
+}
+
+:root[data-theme='dark'] {
+  --primary: #{$dark-primary};
+  --on-primary: #{$dark-on-primary};
+  --primary-container: #{$dark-primary-container};
+  --on-primary-container: #{$dark-on-primary-container};
+
+  --secondary: #{$dark-secondary};
+  --on-secondary: #{$dark-on-secondary};
+  --secondary-container: #{$dark-secondary-container};
+  --on-secondary-container: #{$dark-on-secondary-container};
+
+  --tertiary: #{$dark-tertiary};
+  --on-tertiary: #{$dark-on-tertiary};
+  --tertiary-container: #{$dark-tertiary-container};
+  --on-tertiary-container: #{$dark-on-tertiary-container};
+
+  --neutral-surface: #{$dark-neutral-surface};
+  --neutral-surface-container-01: #{$dark-neutral-surface-container-01};
+  --neutral-surface-container-02: #{$dark-neutral-surface-container-02};
+  --neutral-surface-container-03: #{$dark-neutral-surface-container-03};
+  --neutral-surface-container-04: #{$dark-neutral-surface-container-04};
+  --neutral-surface-container-05: #{$dark-neutral-surface-container-05};
+  --neutral-on-surface: #{$dark-neutral-on-surface};
+  --neutral-on-surface-variant: #{$dark-neutral-on-surface-variant};
+  --neutral-outline: #{$dark-neutral-outline};
+  --neutral-outline-variant: #{$dark-neutral-outline-variant};
+  --neutral-scrim: #{$dark-neutral-scrim};
+
+  --states-error: #{$dark-states-error};
+  --states-on-error: #{$dark-states-on-error};
+  --states-error-container: #{$dark-states-error-container};
+  --states-on-error-container: #{$dark-states-on-error-container};
+
+  --states-warning: #{$dark-states-warning};
+  --states-on-warning: #{$dark-states-on-warning};
+  --states-warning-container: #{$dark-states-warning-container};
+  --states-on-warning-container: #{$dark-states-on-warning-container};
+
+  --states-success: #{$dark-states-success};
+  --states-on-success: #{$dark-states-on-success};
+  --states-success-container: #{$dark-states-success-container};
+  --states-on-success-container: #{$dark-states-on-success-container};
+
+  --states-alert: #{$dark-states-alert};
+  --states-on-alert: #{$dark-states-on-alert};
+  --states-alert-container: #{$dark-states-alert-container};
+  --states-on-alert-container: #{$dark-states-on-alert-container};
+}
+
+// 사용자의 시스템 설정에 따라 웹 사이트의 기본 테마 감지
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #{$dark-primary};
+    --on-primary: #{$dark-on-primary};
+    --primary-container: #{$dark-primary-container};
+    --on-primary-container: #{$dark-on-primary-container};
+
+    --secondary: #{$dark-secondary};
+    --on-secondary: #{$dark-on-secondary};
+    --secondary-container: #{$dark-secondary-container};
+    --on-secondary-container: #{$dark-on-secondary-container};
+
+    --tertiary: #{$dark-tertiary};
+    --on-tertiary: #{$dark-on-tertiary};
+    --tertiary-container: #{$dark-tertiary-container};
+    --on-tertiary-container: #{$dark-on-tertiary-container};
+
+    --neutral-surface: #{$dark-neutral-surface};
+    --neutral-surface-container-01: #{$dark-neutral-surface-container-01};
+    --neutral-surface-container-02: #{$dark-neutral-surface-container-02};
+    --neutral-surface-container-03: #{$dark-neutral-surface-container-03};
+    --neutral-surface-container-04: #{$dark-neutral-surface-container-04};
+    --neutral-surface-container-05: #{$dark-neutral-surface-container-05};
+    --neutral-on-surface: #{$dark-neutral-on-surface};
+    --neutral-on-surface-variant: #{$dark-neutral-on-surface-variant};
+    --neutral-outline: #{$dark-neutral-outline};
+    --neutral-outline-variant: #{$dark-neutral-outline-variant};
+    --neutral-scrim: #{$dark-neutral-scrim};
+
+    --states-error: #{$dark-states-error};
+    --states-on-error: #{$dark-states-on-error};
+    --states-error-container: #{$dark-states-error-container};
+    --states-on-error-container: #{$dark-states-on-error-container};
+
+    --states-warning: #{$dark-states-warning};
+    --states-on-warning: #{$dark-states-on-warning};
+    --states-warning-container: #{$dark-states-warning-container};
+    --states-on-warning-container: #{$dark-states-on-warning-container};
+
+    --states-success: #{$dark-states-success};
+    --states-on-success: #{$dark-states-on-success};
+    --states-success-container: #{$dark-states-success-container};
+    --states-on-success-container: #{$dark-states-on-success-container};
+
+    --states-alert: #{$dark-states-alert};
+    --states-on-alert: #{$dark-states-on-alert};
+    --states-alert-container: #{$dark-states-alert-container};
+    --states-on-alert-container: #{$dark-states-on-alert-container};
+  }
+}

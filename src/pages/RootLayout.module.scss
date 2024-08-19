@@ -1,0 +1,11 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  max-height: 100vh;
+  height: 100vh;
+  background-color: var(--neutral-surface-container-01);
+}
+
+.main {
+  flex-grow: 1;
+}

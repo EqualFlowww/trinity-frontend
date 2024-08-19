@@ -1,0 +1,24 @@
+.flex {
+  /* flex */
+
+  @include flex;
+
+  /* color */
+
+  @include container-color;
+
+  /* hover */
+
+  &.hover-on {
+    cursor: pointer;
+    &:hover {
+      @include container-color-hover;
+    }
+  }
+  &.hover-off {
+    cursor: default;
+  }
+
+  /* box-shadow */
+  @include box-shadow;
+}

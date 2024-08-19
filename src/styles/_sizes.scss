@@ -1,0 +1,77 @@
+$font-medium: 1.6rem;
+$font-large: 2.4rem;
+
+:root {
+  /*----------sizing----------*/
+  // width, height
+
+  --sz-0: 0;
+  --sz-0-eighth: 0.1rem;
+  --sz-0-quarter: 0.2rem;
+  --sz-0-half: 0.4rem;
+  --sz-1: 0.8rem;
+  --sz-1-half: 1.2rem;
+  --sz-2: 1.6rem;
+  --sz-2-half: 2rem;
+  --sz-3: 2.4rem;
+  --sz-3-half: 2.8rem;
+  --sz-4: 3.2rem;
+  --sz-4-half: 3.6rem;
+  --sz-5: 4rem;
+  --sz-5-half: 4.4rem;
+  --sz-6: 4.8rem;
+  --sz-6-half: 5.2rem;
+  --sz-7: 5.6rem;
+  --sz-7-half: 6rem;
+  --sz-8: 6.4rem;
+  --sz-8-half: 6.8rem;
+  --sz-9: 7.2rem;
+  --sz-9-half: 7.6rem;
+  --sz-10: 8rem;
+
+  /*----------spacing----------*/
+  // margin, padding, gap
+
+  --sp-0: 0;
+  --sp-0-eighth: 0.1rem;
+  --sp-0-quarter: 0.2rem;
+  --sp-0-half: 0.4rem;
+  --sp-1: 0.8rem;
+  --sp-1-half: 1.2rem;
+  --sp-2: 1.6rem;
+  --sp-2-half: 2rem;
+  --sp-3: 2.4rem;
+  --sp-3-half: 2.8rem;
+  --sp-4: 3.2rem;
+  --sp-4-half: 3.6rem;
+  --sp-5: 4rem;
+  --sp-5-half: 4.4rem;
+  --sp-6: 4.8rem;
+  --sp-6-half: 5.2rem;
+  --sp-7: 5.6rem;
+  --sp-7-half: 6rem;
+  --sp-8: 6.4rem;
+  --sp-8-half: 6.8rem;
+  --sp-9: 7.2rem;
+  --sp-9-half: 7.6rem;
+  --sp-10: 8rem;
+
+  /*----------border-width----------*/
+
+  --bw-0: 0;
+  --bw-0-eighth: 0.1rem;
+  --bw-0-quarter: 0.2rem;
+  --bw-0-half: 0.4rem;
+
+  /*----------border-radius----------*/
+
+  --r-0: 0;
+  --r-0-quarter: 0.2rem;
+  --r-0-half: 0.4rem;
+  --r-1: 0.8rem;
+  --r-1-half: 1.2rem;
+  --r-2: 1.6rem;
+  --r-2-half: 2rem;
+  --r-3: 2.4rem;
+  --r-circle: 50%;
+}

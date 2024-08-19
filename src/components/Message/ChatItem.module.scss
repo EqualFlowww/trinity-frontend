@@ -1,0 +1,42 @@
+.chat-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--1x);
+  border-radius: var(--1x);
+  gap: var(--1x);
+  cursor: pointer;
+  background-color: var(--neutral-surface-container-02);
+}
+
+.message-content-container {
+  display: flex;
+  gap: var(--1x);
+  flex-grow: 1;
+}
+
+.profile-image {
+  width: var(--4x-half);
+  height: var(--4x-half);
+  border-radius: 50%;
+  background-color: var(--neutral-surface-container-03);
+  flex-shrink: 0;
+}
+
+.message-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.unread-message-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--quarter) var(--half);
+  background-color: var(--states-error);
+  color: var(--states-on-error);
+  border-radius: var(--2x);
+  flex-shrink: 0;
+}

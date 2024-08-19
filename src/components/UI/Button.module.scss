@@ -1,0 +1,46 @@
+.button {
+  width: 100%;
+  cursor: pointer;
+
+  /* flex */
+
+  @include flex;
+
+  /* form */
+
+  &.form-filled {
+    border: none;
+    box-shadow: none;
+
+    /* color */
+
+    @include container-color;
+    @include container-color-hover;
+  }
+  &.form-outlined {
+    border: 1px solid;
+    box-shadow: none;
+
+    /* color */
+
+    @include content-color;
+    @include content-color-hover;
+    @include border-color;
+    @include border-color-hover;
+  }
+  &.form-text {
+    border: none;
+    box-shadow: none;
+
+    /* color */
+
+    @include content-color;
+    @include content-color-hover;
+  }
+
+  /* box-shadow */
+  @include box-shadow;
+
+  /* border */
+  @include border;
+}

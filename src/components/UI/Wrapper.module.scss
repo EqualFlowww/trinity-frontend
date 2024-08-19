@@ -1,0 +1,12 @@
+.wrapper {
+  /* container */
+
+  @include container;
+
+  /* color */
+
+  @include container-color;
+
+  /* box-shadow */
+  @include box-shadow;
+}

@@ -1,0 +1,29 @@
+@use '@/styles/_colors.scss' as *;
+
+:root {
+  /*----------body----------*/
+  --body-bg-color: var(--neutral-surface);
+
+  /*----------size----------*/
+  --quarter: 0.2rem;
+  --half: 0.4rem;
+  --1x: 0.8rem;
+  --1x-half: 1.2rem;
+  --2x: 1.6rem;
+  --2x-half: 2rem;
+  --3x: 2.4rem;
+  --3x-half: 2.8rem;
+  --4x: 3.2rem;
+  --4x-half: 3.6rem;
+  --5x: 4rem;
+  --5x-half: 4.4rem;
+  --6x: 4.8rem;
+  --6x-half: 5.2rem;
+  --7x: 5.6rem;
+  --7x-half: 6rem;
+  --8x: 6.4rem;
+  --8x-half: 6.8rem;
+  --9x: 7.2rem;
+  --9x-half: 7.6rem;
+  --10x: 8rem;
+}

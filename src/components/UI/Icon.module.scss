@@ -1,0 +1,12 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* size */
+  @include content;
+  /* color */
+  @include content-color;
+  /* svg-shadow */
+  @include svg-shadow;
+}
