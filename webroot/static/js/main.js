@@ -15,6 +15,6 @@ var main = () => {
 
 window.common.init(() => {
 	window.common.auth.login(main, () => { // login failed
-		console.error("index.html login error");
+		console.error("login error");
 	});
 });
