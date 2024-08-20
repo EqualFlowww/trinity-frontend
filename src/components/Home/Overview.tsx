@@ -32,8 +32,13 @@ const Overview = () => {
     extraMapToMapWidthRatio: 4,
     extraMapToMapHeightRatio: 3,
   });
-
-  let entireMapBoxStyle;
+  const [entireMapBoxStyle, setEntireMapBoxStyle] = useState({
+    width: 0,
+    height: 0,
+    transform: '',
+  });
+  const [mapScale, setMapScale] = useState(1.5);
+  const [currentPosition, setCurrentPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleLoadMap = () => {
@@ -89,25 +94,48 @@ const Overview = () => {
 
   useEffect(() => {
     console.log('viewBoxSize', viewBoxSize);
+    console.log(
+      naturlMapSize.heightToWidthRatio <= viewBoxSize.heightToWidthRatio
+    );
     if (naturlMapSize.heightToWidthRatio <= viewBoxSize.heightToWidthRatio) {
-      entireMapBoxStyle = {
-        width: viewBoxSize.width * naturlMapSize.extraMapToMapWidthRatio,
+      // viewBox의 세로비가 map의 세로비보다 더 긴 경우
+      setEntireMapBoxStyle((prev) => ({
+        ...prev,
+        width:
+          viewBoxSize.width * naturlMapSize.extraMapToMapWidthRatio * mapScale,
         height:
           viewBoxSize.width *
           naturlMapSize.heightToWidthRatio *
-          naturlMapSize.extraMapToMapHeightRatio,
-        transform: `translate(-${((naturlMapSize.extraMapToMapWidthRatio - 1) / 2 / naturlMapSize.extraMapToMapWidthRatio) * 100}%,
-         -${((naturlMapSize.extraMapToMapHeightRatio - 1) / 2 / naturlMapSize.extraMapToMapHeightRatio) * 100}%)`,
-      };
+          naturlMapSize.extraMapToMapHeightRatio *
+          mapScale,
+        // top: `calc(${50 * mapScale}%)`,
+        // left: `calc(${50 * mapScale}%)`,
+        top: '0%',
+        left: '0%',
+        // transform: `translate(calc(-50% + ${currentPosition.x}px), calc(-50% + ${currentPosition.y}px))`,
+        // transform: 'translate(-50%, -50%)',
+      }));
     } else {
-      entireMapBoxStyle = {
+      setEntireMapBoxStyle((prev) => ({
+        // viewBox의 가로비가 map의 가로비보다 더 긴 경우
+        ...prev,
         width:
           (viewBoxSize.height / naturlMapSize.heightToWidthRatio) *
-          naturlMapSize.extraMapToMapWidthRatio,
-        height: viewBoxSize.height * naturlMapSize.extraMapToMapHeightRatio,
-      };
+          naturlMapSize.extraMapToMapWidthRatio *
+          mapScale,
+        height:
+          viewBoxSize.height *
+          naturlMapSize.extraMapToMapHeightRatio *
+          mapScale,
+        // top: `calc(${50 * mapScale}%)`,
+        // left: `calc(${50 * mapScale}%)`,
+        top: '50%',
+        left: '50%',
+        // transform: `translate(calc(-50% + ${currentPosition.x}px), calc(-50% + ${currentPosition.y}px))`,
+        transform: 'translate(-50%, -50%)',
+      }));
     }
-  }, [viewBoxSize]);
+  }, [viewBoxSize, naturlMapSize]);
 
   return (
     <div className={cx('overview')}>
