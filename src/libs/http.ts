@@ -35,7 +35,7 @@ export async function fetchCarts({ signal }: FetchCartParams) {
 }
 
 export async function fetchRounds({ signal }: FetchCartParams) {
-  let url = '/uerp/v1/demo/opertaion/round?$archive&$size=100';
+  let url = '/uerp/v1/demo/operation/round?$archive&$size=100';
 
   const data = await fetchData(url, {
     signal: signal,

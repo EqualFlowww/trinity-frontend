@@ -7,17 +7,20 @@ import DashboardItemHeader from '@/components/Home/DashboardItemHeader';
 import DashboardRoundList from '@/components/Home/DashboardRoundList';
 import DashboardCartList from '@/components/Home/DashboardCartList';
 import {
-  TMP_CART_SUMMARY_DATA_COLLECTION,
-  TMP_ROUND_SUMMARY_DATA_COLLECTION,
-} from '@/data/temp-data';
+  CartSummaryDataCollection,
+  RoundSummaryDataCollection,
+} from '@/types/home';
 
-// interface Props {}
+interface Props {
+  roundCollection: RoundSummaryDataCollection;
+  cartCollection: CartSummaryDataCollection;
+}
 
-const Dashboard = () => {
+const Dashboard = ({ roundCollection, cartCollection }: Props) => {
   const cx = classNames.bind(classes);
 
-  const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
-  const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
+  // const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
+  // const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
 
   return (
     <Flex
@@ -40,15 +43,15 @@ const Dashboard = () => {
             라운드 현황
           </DashboardItemHeader>
           <DashboardRoundList
-            cartCollection={tmpCartSummaryDataCollection}
-            roundCollection={tmpRoundSummaryDataCollection}
+            cartCollection={cartCollection}
+            roundCollection={roundCollection}
           />
           <DashboardItemHeader description="Dashboard">
             카트 현황
           </DashboardItemHeader>
           <DashboardCartList
-            cartCollection={tmpCartSummaryDataCollection}
-            roundCollection={tmpRoundSummaryDataCollection}
+            cartCollection={cartCollection}
+            roundCollection={roundCollection}
           ></DashboardCartList>
         </Scroll>
       </div>

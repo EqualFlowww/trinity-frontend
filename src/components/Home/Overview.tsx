@@ -6,6 +6,10 @@ import classes from './Overview.module.scss';
 // } from '@/data/temp-data';
 import courseMapImage from '@/assets/images/trinity-map.webp';
 import { useEffect, useRef, useState } from 'react';
+import {
+  CartSummaryDataCollection,
+  RoundSummaryDataCollection,
+} from '@/types/home';
 
 interface ViewBoxSize {
   width: number;
@@ -30,9 +34,17 @@ interface MapBoxStyle {
   left: string;
 }
 
-// interface Props {}
+interface Props {
+  roundCollection: RoundSummaryDataCollection;
+  cartCollection: CartSummaryDataCollection;
+}
 
-const Overview = () => {
+const Overview = (
+  {
+    // roundCollection,
+    // cartCollection
+  }: Props
+) => {
   const cx = classNames.bind(classes);
 
   // const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
