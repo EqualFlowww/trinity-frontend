@@ -8,6 +8,29 @@ import Flex from '@/components/UI/Flex';
 import courseMapImage from '@/assets/images/trinity-map.webp';
 import { useEffect, useRef, useState } from 'react';
 
+interface ViewBoxSize {
+  width: number;
+  height: number;
+  heightToWidthRatio: number;
+}
+
+interface NaturalMapSize {
+  width: number;
+  height: number;
+  heightToWidthRatio: number;
+  entireWidth: number;
+  entireHeight: number;
+  extraMapToMapWidthRatio: number;
+  extraMapToMapHeightRatio: number;
+}
+
+interface MapBoxStyle {
+  width: number;
+  height: number;
+  top: string;
+  left: string;
+}
+
 // interface Props {}
 
 const Overview = () => {
@@ -15,46 +38,135 @@ const Overview = () => {
 
   // const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
   // const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
-
   const viewBoxRef = useRef(null);
   const mapRef = useRef<HTMLImageElement>(null);
-  const [viewBoxSize, setViewBoxSize] = useState({
-    width: 0,
-    height: 0,
-    heightToWidthRatio: 0,
-  });
-  const [naturlMapSize, setNaturalMapSize] = useState({
-    width: 0,
-    height: 0,
-    heightToWidthRatio: 0,
-    entireWidth: 0,
-    entireHeight: 0,
-    extraMapToMapWidthRatio: 4,
-    extraMapToMapHeightRatio: 3,
-  });
-  const [entireMapBoxStyle, setEntireMapBoxStyle] = useState({
-    width: 0,
-    height: 0,
-    transform: '',
-  });
-  const [mapScale, setMapScale] = useState(1.5);
+  const [viewBoxSize, setViewBoxSize] = useState<ViewBoxSize>();
+  const [naturalMapSize, setNaturalMapSize] = useState<NaturalMapSize>();
+  const [mapBoxStyle, setMapBoxStyle] = useState<MapBoxStyle>();
+  const [mapScale, setMapScale] = useState(1);
   const [currentPosition, setCurrentPosition] = useState({ x: 0, y: 0 });
 
+  const calculateEntrieMapBoxSize = (
+    viewBoxSize: ViewBoxSize,
+    naturalMapSize: NaturalMapSize
+  ) => {
+    if (naturalMapSize.heightToWidthRatio <= viewBoxSize.heightToWidthRatio) {
+      // viewBox의 세로비가 map의 세로비보다 더 긴 경우
+      return {
+        width:
+          viewBoxSize.width * naturalMapSize.extraMapToMapWidthRatio * mapScale,
+        height:
+          viewBoxSize.width *
+          naturalMapSize.heightToWidthRatio *
+          naturalMapSize.extraMapToMapHeightRatio *
+          mapScale,
+      };
+    } else {
+      // viewBox의 가로비가 map의 가로비보다 더 긴 경우
+      return {
+        width:
+          (viewBoxSize.height / naturalMapSize.heightToWidthRatio) *
+          naturalMapSize.extraMapToMapWidthRatio *
+          mapScale,
+        height:
+          viewBoxSize.height *
+          naturalMapSize.extraMapToMapHeightRatio *
+          mapScale,
+      };
+    }
+  };
+
+  const handleWheel = (event: React.WheelEvent) => {
+    if (!mapRef.current || !mapBoxStyle || !naturalMapSize || !viewBoxSize)
+      return;
+    event.preventDefault();
+
+    setMapScale((prev) =>
+      Math.min(Math.max(1, prev + event.deltaY * -0.001), 3)
+    );
+  };
+
+  const handleMouseDown = (clickEvent: React.MouseEvent) => {
+    if (!mapRef.current || !mapBoxStyle || !naturalMapSize || !viewBoxSize)
+      return;
+    console.log('mousedown');
+
+    const mouseMoveHandler = (moveEvent: MouseEvent) => {
+      console.log('mousemove');
+      // 2️⃣
+      const deltaX = moveEvent.screenX - clickEvent.screenX;
+      const deltaY = moveEvent.screenY - clickEvent.screenY;
+      const limitx =
+        ((mapBoxStyle.width / naturalMapSize.extraMapToMapWidthRatio -
+          viewBoxSize.width) /
+          2 /
+          mapBoxStyle.width) *
+        100;
+      const limity =
+        ((mapBoxStyle.height / naturalMapSize.extraMapToMapHeightRatio -
+          viewBoxSize.height) /
+          2 /
+          mapBoxStyle.height) *
+        100;
+      console.log('limitx', limitx, 'limity', limity);
+      console.log(
+        currentPosition.x + (deltaX / mapBoxStyle.width) * 100,
+        'currentPosition.x'
+      );
+      setCurrentPosition((prev) => ({
+        x:
+          limitx <= 0
+            ? prev.x
+            : Math.max(
+                Math.min(
+                  prev.x +
+                    (deltaX / (mapScale * 5) / 0.5 / mapBoxStyle.width) * 100,
+                  limitx
+                ),
+                limitx * -1
+              ),
+        y:
+          limity <= 0
+            ? prev.y
+            : Math.max(
+                Math.min(
+                  prev.y +
+                    (deltaY / (mapScale * 5) / 0.5 / mapBoxStyle.height) * 100,
+                  limity
+                ),
+                limity * -1
+              ),
+      }));
+    };
+
+    const mouseUpHandler = () => {
+      console.log('mouseup');
+      document.removeEventListener('mousemove', mouseMoveHandler);
+    };
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler, { once: true });
+  };
+
+  // 첫 렌더링 시
   useEffect(() => {
+    const initialExtraMapToMapWidthRatio = 4;
+    const initialExtraMapToMapHeightRatio = 3;
+
     const handleLoadMap = () => {
       const { naturalWidth, naturalHeight } =
         mapRef.current as HTMLImageElement;
-      setNaturalMapSize((prev) => ({
-        ...prev,
-        width: naturalWidth / prev.extraMapToMapWidthRatio,
-        height: naturalHeight / prev.extraMapToMapHeightRatio,
+      setNaturalMapSize({
+        width: naturalWidth / initialExtraMapToMapWidthRatio,
+        height: naturalHeight / initialExtraMapToMapHeightRatio,
         heightToWidthRatio:
           naturalHeight /
-          prev.extraMapToMapHeightRatio /
-          (naturalWidth / prev.extraMapToMapWidthRatio),
+          initialExtraMapToMapHeightRatio /
+          (naturalWidth / initialExtraMapToMapWidthRatio),
         entireWidth: naturalWidth,
         entireHeight: naturalHeight,
-      }));
+        extraMapToMapWidthRatio: initialExtraMapToMapWidthRatio,
+        extraMapToMapHeightRatio: initialExtraMapToMapHeightRatio,
+      });
     };
 
     const handleResize: ResizeObserverCallback = (entries) => {
@@ -93,56 +205,63 @@ const Overview = () => {
   }, []);
 
   useEffect(() => {
-    console.log('viewBoxSize', viewBoxSize);
-    console.log(
-      naturlMapSize.heightToWidthRatio <= viewBoxSize.heightToWidthRatio
-    );
-    if (naturlMapSize.heightToWidthRatio <= viewBoxSize.heightToWidthRatio) {
-      // viewBox의 세로비가 map의 세로비보다 더 긴 경우
-      setEntireMapBoxStyle((prev) => ({
-        ...prev,
-        width:
-          viewBoxSize.width * naturlMapSize.extraMapToMapWidthRatio * mapScale,
-        height:
-          viewBoxSize.width *
-          naturlMapSize.heightToWidthRatio *
-          naturlMapSize.extraMapToMapHeightRatio *
-          mapScale,
-        // top: `calc(${50 * mapScale}%)`,
-        // left: `calc(${50 * mapScale}%)`,
-        top: '0%',
-        left: '0%',
-        // transform: `translate(calc(-50% + ${currentPosition.x}px), calc(-50% + ${currentPosition.y}px))`,
-        // transform: 'translate(-50%, -50%)',
-      }));
-    } else {
-      setEntireMapBoxStyle((prev) => ({
-        // viewBox의 가로비가 map의 가로비보다 더 긴 경우
-        ...prev,
-        width:
-          (viewBoxSize.height / naturlMapSize.heightToWidthRatio) *
-          naturlMapSize.extraMapToMapWidthRatio *
-          mapScale,
-        height:
-          viewBoxSize.height *
-          naturlMapSize.extraMapToMapHeightRatio *
-          mapScale,
-        // top: `calc(${50 * mapScale}%)`,
-        // left: `calc(${50 * mapScale}%)`,
-        top: '50%',
-        left: '50%',
-        // transform: `translate(calc(-50% + ${currentPosition.x}px), calc(-50% + ${currentPosition.y}px))`,
-        transform: 'translate(-50%, -50%)',
-      }));
-    }
-  }, [viewBoxSize, naturlMapSize]);
+    if (!mapRef.current || !naturalMapSize || !viewBoxSize) return;
+
+    setMapBoxStyle((prev) => ({
+      ...prev,
+      ...calculateEntrieMapBoxSize(viewBoxSize, naturalMapSize),
+      top: '50%',
+      left: '50%',
+    }));
+  }, [viewBoxSize, naturalMapSize, mapScale]);
+
+  useEffect(() => {
+    console.log('mapScale', mapScale);
+    if (!mapBoxStyle || !naturalMapSize || !viewBoxSize) return;
+    const limitx =
+      ((mapBoxStyle.width / naturalMapSize.extraMapToMapWidthRatio -
+        viewBoxSize.width) /
+        2 /
+        mapBoxStyle.width) *
+      100;
+    const limity =
+      ((mapBoxStyle.height / naturalMapSize.extraMapToMapHeightRatio -
+        viewBoxSize.height) /
+        2 /
+        mapBoxStyle.height) *
+      100;
+
+    setCurrentPosition((prev) => ({
+      x: limitx <= 0 ? 0 : prev.x >= 0 ? limitx : limitx * -1,
+      y: limity <= 0 ? 0 : prev.y >= 0 ? limity : limity * -1,
+    }));
+  }, [mapBoxStyle]);
 
   return (
     <div className={cx('overview')}>
+      <div
+        className={cx('interaction-box')}
+        onWheel={handleWheel}
+        onMouseDown={handleMouseDown}
+      ></div>
       <div className={cx('view-box')} ref={viewBoxRef}>
-        <div className={cx('entire-map-box')} style={entireMapBoxStyle}>
+        <div
+          className={cx('map-box')}
+          style={
+            mapBoxStyle
+              ? {
+                  ...mapBoxStyle,
+                  width: `${mapBoxStyle.width}px`,
+                  height: `${mapBoxStyle.height}px`,
+                  transform: `translate(calc(-50% + ${currentPosition.x}%), calc(-50% + ${currentPosition.y}%))`,
+                }
+              : {
+                  transform: `translate(calc(-50% + ${currentPosition.x}%), calc(-50% + ${currentPosition.y}%))`,
+                }
+          }
+        >
           <img
-            className={cx('entire-map')}
+            className={cx('map-image')}
             src={courseMapImage}
             alt="course-map"
             ref={mapRef}
