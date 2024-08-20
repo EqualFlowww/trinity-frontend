@@ -1,3 +1,17 @@
 .cart-pointer {
   width: 5.9rem;
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+}
+
+.point {
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  width: var(--sz-0-half);
+  height: var(--sz-0-half);
+  border-radius: var(--r-circle);
+  background-color: var(--neutral-on-surface);
+  transform: translate(-50%, 50%);
 }

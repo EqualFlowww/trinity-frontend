@@ -246,11 +246,7 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
 
   return (
     <div className={cx('overview')}>
-      <div
-        className={cx('interaction-box')}
-        onWheel={handleWheel}
-        onMouseDown={handleMouseDown}
-      ></div>
+      {/* <div className={cx('interaction-box')}></div> */}
       <div className={cx('view-box')} ref={viewBoxRef}>
         <div
           className={cx('map-box')}
@@ -267,6 +263,11 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
                 }
           }
         >
+          <div
+            className={cx('interaction-cover')}
+            onWheel={handleWheel}
+            onMouseDown={handleMouseDown}
+          ></div>
           <img
             className={cx('map-image')}
             src={courseMapImage}
