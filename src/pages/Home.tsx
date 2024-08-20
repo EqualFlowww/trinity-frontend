@@ -3,7 +3,7 @@ import classes from './Home.module.scss';
 import Dashboard from '@/components/Home/Dashboard';
 import Overview from '@/components/Home/Overview';
 import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router-dom';
-import { fetchEvents, queryClient } from '@/libs/http';
+// import { fetchEvents, queryClient } from '@/libs/http';
 
 const Home = () => {
   const cx = classNames.bind(classes);
@@ -20,10 +20,10 @@ const Home = () => {
 };
 
 const loader = ({}: LoaderFunctionArgs) => {
-  queryClient.fetchQuery({
-    queryKey: ['home'],
-    queryFn: ({ signal }) => fetchEvents({ signal, searchTerm: '' }),
-  });
+  // queryClient.fetchQuery({
+  //   queryKey: ['home'],
+  //   queryFn: ({ signal }) => fetchEvents({ signal, searchTerm: '' }),
+  // });
   return null;
 };
 
