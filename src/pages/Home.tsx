@@ -40,7 +40,7 @@ const Home = () => {
               <Spinner color="tertiary" />
             </Flex>
           ))}
-        {!isCartsPending && !isRoundsPending && (
+        {!isCartsPending && !isRoundsPending && cartsData && roundsData && (
           <Dashboard
             cartCollection={arrayToIdObject(cartsData)}
             roundCollection={arrayToIdObject(roundsData)}
@@ -54,7 +54,7 @@ const Home = () => {
               <Spinner color="tertiary" />
             </Flex>
           ))}
-        {!isCartsPending && !isRoundsPending && (
+        {!isCartsPending && !isRoundsPending && cartsData && roundsData && (
           <Overview
             cartCollection={arrayToIdObject(cartsData)}
             roundCollection={arrayToIdObject(roundsData)}
