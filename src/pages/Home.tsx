@@ -6,12 +6,14 @@ import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router-dom';
 import { fetchCarts, fetchRounds, queryClient } from '@/libs/http';
 import { useQuery } from '@tanstack/react-query';
 import arrayToIdObject from '@/utils/arrayToIdObject';
+import Spinner from '@/components/UI/Spinner';
+import Flex from '@/components/UI/Flex';
 
 const Home = () => {
   const cx = classNames.bind(classes);
   const {
     data: cartsData,
-    // isPending,
+    isPending: isCartsPending,
     // error,
   } = useQuery({
     queryKey: ['carts'],
@@ -19,7 +21,7 @@ const Home = () => {
   });
   const {
     data: roundsData,
-    // isPending,
+    isPending: isRoundsPending,
     // error,
   } = useQuery({
     queryKey: ['rounds'],
@@ -32,16 +34,32 @@ const Home = () => {
   return (
     <div className={cx('main')}>
       <div className={cx('dashboard')}>
-        <Dashboard
-          cartCollection={arrayToIdObject(cartsData)}
-          roundCollection={arrayToIdObject(roundsData)}
-        />
+        {isCartsPending ||
+          (isRoundsPending && (
+            <Flex size="full" alignItems="center" justifyContent="center">
+              <Spinner color="tertiary" />
+            </Flex>
+          ))}
+        {!isCartsPending && !isRoundsPending && (
+          <Dashboard
+            cartCollection={arrayToIdObject(cartsData)}
+            roundCollection={arrayToIdObject(roundsData)}
+          />
+        )}
       </div>
       <div className={cx('overview')}>
-        <Overview
-          cartCollection={arrayToIdObject(cartsData)}
-          roundCollection={arrayToIdObject(roundsData)}
-        />
+        {isCartsPending ||
+          (isRoundsPending && (
+            <Flex size="full" alignItems="center" justifyContent="center">
+              <Spinner color="tertiary" />
+            </Flex>
+          ))}
+        {!isCartsPending && !isRoundsPending && (
+          <Overview
+            cartCollection={arrayToIdObject(cartsData)}
+            roundCollection={arrayToIdObject(roundsData)}
+          />
+        )}
       </div>
     </div>
   );

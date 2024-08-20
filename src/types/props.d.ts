@@ -246,4 +246,4 @@ export interface FlexProps extends ContainerProps {
   gap?: Spacing;
 }
 
-export interface IconProps extends ContentProps, ContentColorProps {}
+export interface IconProps extends ContentProps {}
