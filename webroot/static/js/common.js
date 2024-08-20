@@ -147,15 +147,18 @@ window.common.init = (mainHandler) => {
 			"Accept": "application/json; charset=utf-8",
 			"Authorization": `Bearer ${window.common.auth.accessToken}`
 		};
+		window.common.auth.checkUserInfo(resultHandler, errorHandler);
+		/*
 		window.common.auth.checkUserInfo(() => {
 			window.common.auth.loginDataService(resultHandler, errorHandler);
 		}, errorHandler);
+		*/
 	};
 
 	window.common.auth.tokenDaemon = () => {
 		window.common.auth.keycloak.updateToken(5).then((refreshed) => {
 			if (refreshed) {
-				window.common.auth.dataToken = null;
+				//window.common.auth.dataToken = null;
 				window.common.auth.postLogin();
 			}
 			setTimeout(window.common.auth.tokenDaemon, 60000);
