@@ -9,7 +9,10 @@ interface FetchCartParams {
 
 export const fetchData = async (url: string, options?: RequestInit) => {
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(
+      process.env.NODE_ENV !== 'production' ? `/dev${url}` : url,
+      options
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

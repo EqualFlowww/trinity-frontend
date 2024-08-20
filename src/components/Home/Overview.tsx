@@ -83,10 +83,16 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
     }
   };
 
+  const calculateCartPosition = (cartLocation: { x: number; y: number }) => {
+    return {
+      x: ((cartLocation.x - 127.535) / (127.615 - 127.535)) * 100,
+      y: ((cartLocation.y - 37.245) / (37.17 - 37.245)) * 100,
+    };
+  };
+
   const handleWheel = (event: React.WheelEvent) => {
     if (!mapRef.current || !mapBoxStyle || !naturalMapSize || !viewBoxSize)
       return;
-    event.preventDefault();
 
     setMapScale((prev) =>
       Math.min(Math.max(1, prev + event.deltaY * -0.001), 3)
@@ -279,6 +285,8 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
               key={cart.id}
               cart={cart}
               round={cart.roundId ? roundCollection[cart.roundId] : undefined}
+              location={calculateCartPosition({ x: 127.578056, y: 37.205343 })}
+              // location={calculateCartPosition({ x: 127.565, y: 37.195 })}
             ></CartPointer>
           ))}
         </div>

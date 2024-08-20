@@ -21,6 +21,17 @@ const userConfig = defineConfig({
       },
     },
   },
+  server: {
+    proxy: {
+      '/dev': {
+        target: 'https://trinity.eqpls.net',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/dev/, ''),
+        secure: false,
+        ws: true,
+      },
+    },
+  },
 
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],

@@ -8,7 +8,6 @@ interface Props extends ContentProps, BorderProps {
   alt: string;
   srcSet?: string;
   sizes?: string;
-  fetchPiroity?: 'auto' | 'high' | 'low';
   loading?: 'eager' | 'lazy';
   decoding?: 'sync' | 'async' | 'auto';
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
@@ -19,7 +18,6 @@ const Image = ({
   alt,
   srcSet,
   sizes,
-  fetchPiroity,
   loading,
   decoding,
   opacity,
@@ -53,7 +51,6 @@ const Image = ({
       alt={alt}
       srcSet={srcSet}
       sizes={sizes}
-      fetchPriority={fetchPiroity}
       loading={loading}
       decoding={decoding}
       className={cx(

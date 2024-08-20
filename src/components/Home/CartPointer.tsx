@@ -9,15 +9,18 @@ interface Props {
   cart: CartSummaryData;
   round?: RoundSummaryData;
   location?: {
-    x: `${number}%`;
-    y: `${number}%`;
+    x: number;
+    y: number;
   };
 }
 
 const CartPointer = ({ cart, round, location }: Props) => {
   const cx = classNames.bind(classes);
 
-  const style = {};
+  const style = {
+    top: `${location?.y}%`,
+    left: `${location?.x}%`,
+  };
 
   return (
     <div className={cx('cart-pointer')} style={style}>
