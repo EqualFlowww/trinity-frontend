@@ -30,5 +30,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", ".eslintrc.cjs", "**/*.ts", "**/*.tsx", "svg.d.ts"]
+  "include": [
+    "src",
+    ".eslintrc.cjs",
+    "**/*.ts",
+    "**/*.tsx",
+    "svg.d.ts",
+    "**/*.js"
+  ]
 }
