@@ -28,9 +28,6 @@ const Home = () => {
     queryFn: ({ signal }) => fetchRounds({ signal }),
   });
 
-  console.log(cartsData);
-  console.log(roundsData);
-
   return (
     <div className={cx('main')}>
       <div className={cx('dashboard')}>

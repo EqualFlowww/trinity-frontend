@@ -11,7 +11,6 @@ interface Props {
 }
 
 const DashboardRoundItem = ({ round, cartList }: Props) => {
-  console.log('cartList', cartList);
   return (
     <Flex
       width="full"

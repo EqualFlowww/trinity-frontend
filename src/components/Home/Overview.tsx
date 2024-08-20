@@ -10,6 +10,7 @@ import {
   CartSummaryDataCollection,
   RoundSummaryDataCollection,
 } from '@/types/home';
+import CartPointer from '@/components/Home/CartPointer';
 
 interface ViewBoxSize {
   width: number;
@@ -39,12 +40,7 @@ interface Props {
   cartCollection: CartSummaryDataCollection;
 }
 
-const Overview = (
-  {
-    // roundCollection,
-    // cartCollection
-  }: Props
-) => {
+const Overview = ({ roundCollection, cartCollection }: Props) => {
   const cx = classNames.bind(classes);
 
   // const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
@@ -277,6 +273,13 @@ const Overview = (
             alt="course-map"
             ref={mapRef}
           />
+          {Object.values(cartCollection).map((cart) => (
+            <CartPointer
+              key={cart.id}
+              cart={cart}
+              round={cart.roundId ? roundCollection[cart.roundId] : undefined}
+            ></CartPointer>
+          ))}
         </div>
       </div>
     </div>

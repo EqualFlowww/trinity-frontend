@@ -1,18 +1,31 @@
 import classNames from 'classnames/bind';
 import classes from './Device.module.scss';
-import Text from '@/components/UI/Text';
-import Button from '@/components/UI/Button';
+import Dashboard from '@/components/Home/Dashboard';
+import Overview from '@/components/Home/Overview';
+import {
+  TMP_CART_SUMMARY_DATA_COLLECTION,
+  TMP_ROUND_SUMMARY_DATA_COLLECTION,
+} from '@/data/temp-data';
 
 const Device = () => {
   const cx = classNames.bind(classes);
+  const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
+  const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
 
   return (
     <div className={cx('main')}>
-      <Button type="button" color="primary" form="outlined" padding="1">
-        <Text font="outfit" type="display" color="inherit">
-          primary
-        </Text>
-      </Button>
+      <div className={cx('dashboard')}>
+        <Dashboard
+          cartCollection={tmpCartSummaryDataCollection}
+          roundCollection={tmpRoundSummaryDataCollection}
+        />
+      </div>
+      <div className={cx('overview')}>
+        <Overview
+          cartCollection={tmpCartSummaryDataCollection}
+          roundCollection={tmpRoundSummaryDataCollection}
+        />
+      </div>
     </div>
   );
 };
