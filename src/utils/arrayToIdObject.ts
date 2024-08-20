@@ -1,6 +1,6 @@
 const arrayToIdObject = (array: any[]) => {
   return array.reduce((acc, item) => {
-    acc[item[item.id]] = item;
+    acc[item.id] = item;
     return acc;
   }, {});
 };
