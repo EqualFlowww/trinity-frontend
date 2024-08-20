@@ -10,6 +10,7 @@ import Account from '@/pages/Account.tsx';
 import Device from '@/pages/Device';
 import RootLayout from '@/pages/RootLayout';
 import Error from '@/pages/Error';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     loader: RootLayout.loader,
     children: [
-      { index: true, element: <Home /> }, // path: '/'
+      { index: true, element: <Home />, loader: Home.loader }, // path: '/'
       { path: '/cart', element: <Cart /> },
       { path: '/course', element: <Course /> },
       { path: '/device', element: <Device /> },
@@ -30,7 +31,13 @@ const router = createBrowserRouter([
 const App = () => {
   // const cx = classNames.bind(classes);
 
-  return <RouterProvider router={router} />;
+  const queryClient = new QueryClient();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 };
 
 export default App;
