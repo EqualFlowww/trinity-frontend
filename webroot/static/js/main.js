@@ -8,13 +8,17 @@ function gpsWorker(socket) {
 	navigator.geolocation.getCurrentPosition((position) => {
 		let lat = position.coords.latitude;
 		let lon = position.coords.longitude;
+		let acc = position.coords.accuracy;
+		let spd = position.coords.speed;
 
 		if (prevLat != lat || prevLon != lon) {
 			prevLat = lat;
 			prevLon = lon;
 			document.getElementById("eqpls-cart-lat").innerHTML = lat;
 			document.getElementById("eqpls-cart-lon").innerHTML = lon;
-			console.log(`Lat: ${lat} / Lon: ${lon}`);
+			document.getElementById("eqpls-cart-acc").innerHTML = acc;
+			document.getElementById("eqpls-cart-spd").innerHTML = spd;
+			console.log(`Lat: ${lat} / Lon: ${lon} / Acc: ${acc}M / Spd: ${spd}M/s`);
 			try {
 				socket.send(JSON.stringify({
 					k: 'gps',
@@ -30,7 +34,7 @@ function gpsWorker(socket) {
 		console.error(err);
 		setTimeout(() => { gpsWorker(socket); }, 500);
 	}, {
-		maximumAge: 0,
+		maximumAge: Infinity,
 		//timeout: 500,
 		enableHighAccuracy: true
 	});
