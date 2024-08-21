@@ -1,5 +1,15 @@
 // javascript here
 
+function gpsWorker() {
+	navigator.geolocation.getCurrentPosition((position) => {
+		console.log('Latitude:', position.coords.latitude);
+		console.log('Longitude:', position.coords.longitude);
+		setTimeout(gpsWorker, 2000);
+	}, (err)=> {
+		console.error("GPS ERROR 발생!!", err);
+	});
+};
+
 function selectCart(cartId) {
 	let latDom = document.getElementById("cart-lat");
 	let lonDom = document.getElementById("cart-lon");
@@ -17,6 +27,7 @@ function selectCart(cartId) {
 		},
 		(event) => {
 			document.getElementById("eqpls-cart-list").remove();
+			gpsWorker();
 		}
 	);
 };
@@ -32,7 +43,7 @@ function main() {
 				let btnDom = document.createElement('button');
 				btnDom.setAttribute("id", cart.id);
 				btnDom.innerHTML = cart.name;
-				btnDom.onclick = (event)=> {
+				btnDom.onclick = (event) => {
 					event.stopPropagation();
 					selectCart(cart.id);
 				};
