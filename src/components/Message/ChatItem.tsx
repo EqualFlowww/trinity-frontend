@@ -78,9 +78,12 @@ const ChatItem = ({ chatRoom }: Props) => {
         ></MessageTimestamp>
         <UnreadMessageCount
           count={
-            (unreadMessagesData as MessageList).filter(
-              (unreadMessage) => unreadMessage.username === chatRoom.id
-            ).length
+            (messagesData as MessageList) &&
+            (messagesData as MessageList).length > 0
+              ? (unreadMessagesData as MessageList).filter(
+                  (unreadMessage) => unreadMessage.username === chatRoom.id
+                ).length
+              : 0
           }
         />
       </div>
