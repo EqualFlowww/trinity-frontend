@@ -6,6 +6,7 @@ function gpsWorker(socket) {
 		let lon = position.coords.longitude;
 		document.getElementById("eqpls-cart-lat").innerHTML = lat;
 		document.getElementById("eqpls-cart-lon").innerHTML = lon;
+		console.log(`Lat: ${lat} / Lon: ${lon}`);
 		try {
 			socket.send(JSON.stringify({
 				k: 'gps',
