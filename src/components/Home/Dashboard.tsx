@@ -38,7 +38,7 @@ const Dashboard = ({ roundCollection, cartCollection }: Props) => {
             공지사항
           </DashboardItemHeader>
           <DashboardNotice /> {/* 공지사항 컴포넌트 추가 */}
-          <DashboardItemHeader description="Dashboard">
+          <DashboardItemHeader description="HelloWorld">
             라운드 현황
           </DashboardItemHeader>
           <DashboardRoundList

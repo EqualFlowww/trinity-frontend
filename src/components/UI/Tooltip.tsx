@@ -11,23 +11,14 @@ interface TooltipProps {
 const Tooltip = ({ text, children }: TooltipProps) => {
   const [visible, setVisible] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        tooltipRef.current &&
-        !tooltipRef.current.contains(event.target as Node)
-      ) {
-        setVisible(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => setVisible(true);
   const handleMouseLeave = () => setVisible(false);
+
+  const handleConfirm = () => {
+    setVisible(false); // "확인했습니다" 버튼을 누르면 툴팁 닫기
+  };
 
   const cx = classNames.bind(classes);
 
@@ -36,11 +27,13 @@ const Tooltip = ({ text, children }: TooltipProps) => {
       className={cx('tooltip-container')}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      ref={containerRef}
     >
       {children}
       {visible && (
         <div className={cx('tooltip-content')} ref={tooltipRef}>
-          <div className={cx('text-and-close')}>
+          <div className={cx('arrow')}></div>
+          <div className={cx('tooltip-box')}>
             <span className={cx('tooltip-text')}>{text}</span>
             <button
               type="button"
@@ -48,7 +41,12 @@ const Tooltip = ({ text, children }: TooltipProps) => {
               onClick={() => setVisible(false)}
               aria-label="Close"
             >
-              <IconClose width="10" height="10" color="inherit" />
+              <IconClose width="5" height="5" color="inherit" />
+            </button>
+          </div>
+          <div className={cx('footer')}>
+            <button className={cx('confirm-button')} onClick={handleConfirm}>
+              확인했습니다 ✔
             </button>
           </div>
         </div>

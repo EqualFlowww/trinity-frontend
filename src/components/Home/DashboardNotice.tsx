@@ -5,8 +5,12 @@ import { NOTICE_DATA } from '@/data/noticeData';
 import Scroll from '@/components/UI/Scroll';
 import IconPin from '@/components/Icon/IconPin';
 import Wrapper from '@/components/UI/Wrapper';
-import { format, parse, formatDistanceToNow } from 'date-fns';
-import { ko } from 'date-fns/locale';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+
+dayjs.extend(relativeTime);
+dayjs.extend(localizedFormat);
 
 const cx = classNames.bind(classes);
 
@@ -20,9 +24,9 @@ const truncateText = (text: string, maxLength: number): string => {
 
 const DashboardNotice: React.FC = () => {
   const getNoticeDateTime = (time: string) => {
-    const today = format(new Date(), 'yyyy-MM-dd');
+    const today = dayjs().format('YYYY-MM-DD');
     const dateTimeString = `${today} ${time}`;
-    return parse(dateTimeString, 'yyyy-MM-dd HH:mm', new Date());
+    return dayjs(dateTimeString, 'YYYY-MM-DD HH:mm');
   };
 
   return (
@@ -44,10 +48,7 @@ const DashboardNotice: React.FC = () => {
                           <p>{truncateText(notice.content, 100)}</p>
                         </div>
                         <div className={cx('notice-time')}>
-                          {formatDistanceToNow(getNoticeDateTime(notice.time), {
-                            addSuffix: true,
-                            locale: ko,
-                          })}
+                          {getNoticeDateTime(notice.time).fromNow()}
                         </div>
                       </div>
                     </div>
