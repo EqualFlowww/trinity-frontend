@@ -5,7 +5,7 @@
   padding: var(--sp-0);
   resize: none;
   outline: none;
-  color: var(--neutral-surface-container-02);
+  color: var(--neutral-surface-container-03);
 
   /* Body__Gen/M 400 */
   font-family: Pretendard;
@@ -16,5 +16,5 @@
 }
 
 .message-input::placeholder {
-  color: var(--neutral-surface-container-03);
+  color: var(--neutral-surface-container-02);
 }

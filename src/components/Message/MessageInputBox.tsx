@@ -25,7 +25,7 @@ const MessageInputBox = ({ chatRoomId, others }: Props) => {
           content: message,
           username: window.common.auth.username,
           roomId: chatRoomId,
-          unreadUserIds: others,
+          unreadUsernames: others,
         },
       }); // 부모 컴포넌트에 메시지 전송
       setMessage(''); // 입력 필드 초기화
@@ -62,6 +62,7 @@ const MessageInputBox = ({ chatRoomId, others }: Props) => {
           paddingY="0-half"
           color="secondary"
           borderRadius="0-half"
+          onClick={() => handleSendMessage()}
         >
           <Text type="body" size="medium" color="inherit">
             전송
