@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import arrayToIdObject from '@/utils/arrayToIdObject';
 import Spinner from '@/components/UI/Spinner';
 import Flex from '@/components/UI/Flex';
+import waitForLogin from '@/utils/waitForLogin';
 
 const Home = () => {
   const cx = classNames.bind(classes);
@@ -63,6 +64,10 @@ const Home = () => {
 };
 
 const loader = async ({}: LoaderFunctionArgs) => {
+  await waitForLogin();
+
+  console.log('pass');
+
   await queryClient.fetchQuery({
     queryKey: ['carts'],
     queryFn: ({ signal }) => fetchCarts({ signal }),
