@@ -69,5 +69,5 @@ function main() {
 window.common.init(() => {
 	window.common.auth.login(main, () => { // login failed
 		console.error("login error");
-	});
+	}, "/webroot/index.html");
 });
