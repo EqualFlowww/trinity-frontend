@@ -56,7 +56,7 @@ const ChatMessage = ({
           </Flex>
         </Flex>
       ) : (
-        <Flex width="full" direction="column" alignContent="start" gap="1">
+        <Flex width="full" direction="column" alignContent="end" gap="1">
           <Flex
             gap="1"
             width="full"
