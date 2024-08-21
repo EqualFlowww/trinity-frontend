@@ -25,8 +25,12 @@ function gpsWorker(socket) {
 		}
 		setTimeout(() => { gpsWorker(socket); }, 500);
 	}, (err) => {
-		document.getElementById("eqpls-cart-msg").innerHTML = "GPS ERROR 발생!!, 작업 중단!!";
+		document.getElementById("eqpls-cart-msg").innerHTML = `GPS ERROR 발생!!, 작업 중단!! ${err}`;
 		console.error(err);
+	}, {
+		maximumAge: 0,
+		timeout: 500,
+		enableHighAccuracy: true
 	});
 };
 
