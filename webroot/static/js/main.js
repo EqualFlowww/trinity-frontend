@@ -24,7 +24,7 @@ function selectCart(cartId) {
 function main() {
 	document.getElementById("eqpls-access-token").innerText = window.common.auth.accessToken;
 
-	window.common.rest.get('/uerp/v1/demo/device/cart?$archive&$size=100', (carts) => {
+	window.common.rest.get('/uerp/v1/demo/device/cart?$archive&$size=100&$orderby=name&$order=asc', (carts) => {
 		console.log(carts);
 		if (carts && carts.length > 0) {
 			let cartListDom = document.getElementById("eqpls-cart-list");
