@@ -1,3 +1,6 @@
 .unread-message-count {
   flex-shrink: 0;
+  &.hidden {
+    visibility: hidden;
+  }
 }

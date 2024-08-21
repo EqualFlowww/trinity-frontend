@@ -23,12 +23,8 @@ import waitForLogin from '@/utils/waitForLogin';
 const RootLayout = () => {
   const cx = classNames.bind(classes);
 
-  const {
-    connectWebSocket,
-    disconnectWebSocket,
-    setMounted,
-    // webSocketData
-  } = useChatStore();
+  const { connectWebSocket, disconnectWebSocket, setMounted, webSocketData } =
+    useChatStore();
 
   useEffect(() => {
     setMounted(true);
@@ -40,12 +36,12 @@ const RootLayout = () => {
     };
   }, [connectWebSocket, disconnectWebSocket, setMounted]);
 
-  // useEffect(() => {
-  //   if (webSocketData) {
-  //     console.log('새로운 메시지:', webSocketData);
-  //     // 웹소켓 데이터를 처리하거나 상태를 업데이트하는 로직 추가 가능
-  //   }
-  // }, [webSocketData]);
+  useEffect(() => {
+    if (webSocketData) {
+      console.log('새로운 메시지:', webSocketData);
+      // 웹소켓 데이터를 처리하거나 상태를 업데이트하는 로직 추가 가능
+    }
+  }, [webSocketData]);
 
   return (
     <>

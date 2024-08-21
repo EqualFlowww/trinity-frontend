@@ -14,7 +14,7 @@ const UnreadMessageCount = ({ count }: Props) => {
   const displayCount = count > 999 ? '999+' : count.toString();
 
   return (
-    <div className={cx('unread-message-count')}>
+    <div className={cx('unread-message-count', count <= 0 && 'hidden')}>
       <Flex
         color="alert"
         padding="0-half"

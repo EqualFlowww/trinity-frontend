@@ -60,13 +60,19 @@ const ChatItem = ({ chatRoom }: Props) => {
             {chatRoom.displayName}
           </Text>
           <Text type="label" color="on-neutral-variant">
-            {(messagesData as MessageList)[0].content}
+            {(messagesData as MessageList).length > 0
+              ? '신규 채팅방입니다.'
+              : (messagesData as MessageList)[0].content}
           </Text>
         </div>
       </div>
       <div className={cx('message-meta-data')}>
         <MessageTimestamp
-          date={new Date((messagesData as MessageList)[0].tstamp)}
+          date={
+            (messagesData as MessageList).length > 0
+              ? new Date((messagesData as MessageList)[0].tstamp)
+              : null
+          }
         ></MessageTimestamp>
         <UnreadMessageCount
           count={

@@ -9,7 +9,7 @@ dayjs.extend(localizedFormat);
 dayjs.locale('ko');
 
 interface Props {
-  date: Date;
+  date: Date | null;
 }
 
 const MessageTimestamp = ({ date }: Props) => {
@@ -18,8 +18,9 @@ const MessageTimestamp = ({ date }: Props) => {
   const diffInMinutes = now.diff(messageDate, 'minute');
   const diffInDays = now.diff(messageDate, 'day');
   let text = '';
-
-  if (diffInMinutes < 1) {
+  if (date === null) {
+    text = ' ';
+  } else if (diffInMinutes < 1) {
     text = '방금 전'; // 1분 이내: "방금 전" 표시
   } else if (diffInDays === 0) {
     text = messageDate.format('A h:mm'); // 오늘 보낸 메세지: HH:mm 형식으로 표시
