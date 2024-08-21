@@ -250,8 +250,10 @@ window.common.init = (mainHandler) => {
 				if (recvHandler) { recvHandler(event.data); }
 			};
 			socket.onopen = (socket) => {
-				console.log("wsock:open");
-				if (openHandler) { openHandler(socket); }
+				socket.then((socket) => {
+					console.log("wsock:open");
+					if (openHandler) { openHandler(socket); }
+				});
 			};
 			socket.onclose = (event) => {
 				console.log("wsock:close");
