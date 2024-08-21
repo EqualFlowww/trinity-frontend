@@ -19,7 +19,7 @@ function main() {
 			carts.forEach((cart) => {
 				let btnDom = document.createElement('button');
 				btnDom.setAttribute("id", cart.id);
-				btnDom.setAttribute("value", cart.name);
+				btnDom.innerHTML = cart.name;
 				btnDom.onclick = (event)=> {
 					event.stopPropagation();
 					selectCart(cart.id);
