@@ -10,6 +10,7 @@ function selectCart(cartId) {
 			data = JSON.parse(data);
 			console.log(data);
 			if (data.k == "md" && data.v.sref == "demo.device.Cart") {
+				let cart = data.v;
 				latDom.innerHTML = cart.location.y;
 				lonDom.innerHTML = cart.location.x;
 			}
