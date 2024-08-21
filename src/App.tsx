@@ -18,6 +18,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <AppLayout />, // AppLayout을 최상위 레이아웃으로 설정
     errorElement: <Error />,
+    // loader: AppLayout.loader,
     children: [
       {
         path: '/',
