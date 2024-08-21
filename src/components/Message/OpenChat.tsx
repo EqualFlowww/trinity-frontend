@@ -98,8 +98,10 @@ const OpenChat = ({ chatRoomId }: Props) => {
                   isOtherUser={message.username !== window.common.auth.username}
                   messageTimestamp={new Date(message.tstamp)}
                   displayName={
-                    arrayToUsernameObject(accountsData)[message.username]
-                      .displayName
+                    accountsData && accountsData.length > 0
+                      ? arrayToUsernameObject(accountsData)[message.username]
+                          .displayName
+                      : '유저'
                   }
                 >
                   {message.content}
@@ -112,11 +114,15 @@ const OpenChat = ({ chatRoomId }: Props) => {
       <div className={cx('message-input-box')}>
         <MessageInputBox
           chatRoomId={chatRoomId}
-          others={arrayToIdObject(chatRoomsData as ChatRoomList)[
-            chatRoomId
-          ].participants.filter(
-            (username: string) => username !== window.common.auth.username
-          )}
+          others={
+            accountsData && accountsData.length > 0
+              ? arrayToIdObject(chatRoomsData as ChatRoomList)[
+                  chatRoomId
+                ].participants.filter(
+                  (username: string) => username !== window.common.auth.username
+                )
+              : ['unknown']
+          }
         />
       </div>
     </Flex>

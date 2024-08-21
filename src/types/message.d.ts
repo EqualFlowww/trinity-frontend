@@ -6,7 +6,7 @@ export interface Message {
   content: string;
   username: string;
   roomId: string;
-  unreadUserIds: string[];
+  unreadUsernames: string[];
 }
 
 export interface ChatRoom {
