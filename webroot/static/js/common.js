@@ -249,11 +249,9 @@ window.common.init = (mainHandler) => {
 			socket.onmessage = (event) => {
 				if (recvHandler) { recvHandler(event.data); }
 			};
-			socket.onopen = (socket) => {
-				socket.then((socket) => {
-					console.log("wsock:open");
-					if (openHandler) { openHandler(socket); }
-				});
+			socket.onopen = (event) => {
+				console.log("wsock:open");
+				if (openHandler) { openHandler(event); }
 			};
 			socket.onclose = (event) => {
 				console.log("wsock:close");
