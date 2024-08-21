@@ -63,7 +63,7 @@ export async function fetchChatRoomMessages({
   signal,
   searchTerm,
 }: FetchCartParams) {
-  let url = `/uerp/v1/demo/chat/message?$archive&$filter=chatRoomId:${searchTerm}&$size=100`;
+  let url = `/uerp/v1/demo/chat/message?$archive&$filter=roomId:${searchTerm}&$size=100`;
 
   const data = await fetchData(url, {
     signal: signal,
