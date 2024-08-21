@@ -24,7 +24,13 @@ const CartPointer = ({ cart, round, location }: Props) => {
 
   return (
     <div className={cx('cart-pointer')} style={style}>
-      <Flex width="full" direction="column" padding="0" gap="0" color="primary">
+      <Flex
+        width="full"
+        direction="column"
+        padding="0"
+        gap="0"
+        color="transparent"
+      >
         <CartEntity cart={cart} round={round} />
         <Hr
           type="vertical"

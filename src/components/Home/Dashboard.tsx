@@ -6,6 +6,7 @@ import Scroll from '@/components/UI/Scroll';
 import DashboardItemHeader from '@/components/Home/DashboardItemHeader';
 import DashboardRoundList from '@/components/Home/DashboardRoundList';
 import DashboardCartList from '@/components/Home/DashboardCartList';
+import DashboardNotice from '@/components/Home/DashboardNotice'; // 공지사항 컴포넌트 임포트
 import {
   CartSummaryDataCollection,
   RoundSummaryDataCollection,
@@ -18,9 +19,6 @@ interface Props {
 
 const Dashboard = ({ roundCollection, cartCollection }: Props) => {
   const cx = classNames.bind(classes);
-
-  // const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
-  // const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
 
   return (
     <Flex
@@ -39,7 +37,8 @@ const Dashboard = ({ roundCollection, cartCollection }: Props) => {
           <DashboardItemHeader description="Dashboard">
             공지사항
           </DashboardItemHeader>
-          <DashboardItemHeader description="Dashboard">
+          <DashboardNotice /> {/* 공지사항 컴포넌트 추가 */}
+          <DashboardItemHeader description="HelloWorld">
             라운드 현황
           </DashboardItemHeader>
           <DashboardRoundList
@@ -52,7 +51,7 @@ const Dashboard = ({ roundCollection, cartCollection }: Props) => {
           <DashboardCartList
             cartCollection={cartCollection}
             roundCollection={roundCollection}
-          ></DashboardCartList>
+          />
         </Scroll>
       </div>
     </Flex>

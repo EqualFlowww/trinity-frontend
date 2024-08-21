@@ -44,7 +44,7 @@ const Button = ({
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
-    wrap: 'wrap',
+    wrap: 'nowrap',
     direction: 'row',
     gap: '1',
     borderRadius: '3',

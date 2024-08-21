@@ -5,17 +5,29 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  max-width: 100%;
+.modal {
+  width: 79.2rem;
+  height: 60%;
+  position: relative;
+  border-radius: var(--r-1, 8px);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--neutral-surface, #f6f7f6);
+}
+
+.chat-list-area {
+  flex-grow: 1;
+  flex-basis: 0;
+  height: 100%;
+}
+
+.open-chat-area {
+  flex-grow: 1;
+  flex-basis: 0;
+  height: 100%;
 }

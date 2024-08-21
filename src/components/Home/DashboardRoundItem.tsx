@@ -100,8 +100,10 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             borderRadius="0-half"
           >
             <Text type="label" size="medium" color="inherit">
-              {cartList && cartList[0]?.manager.name}{' '}
-              {cartList && cartList[0]?.manager.type === 'caddy'
+              {cartList && cartList?.length > 0 && cartList[0]?.manager.name}{' '}
+              {cartList &&
+              cartList?.length > 0 &&
+              cartList[0]?.manager.type === 'caddy'
                 ? '캐디'
                 : '님'}
             </Text>
@@ -113,7 +115,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             borderRadius="0-half"
           >
             <Text type="label" size="medium" color="inherit">
-              Cart No.{cartList && cartList[0].name}
+              Cart No.{cartList && cartList?.length > 0 && cartList[0].name}
             </Text>
           </Wrapper>
         </Flex>

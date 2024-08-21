@@ -11,6 +11,7 @@ import {
   RoundSummaryDataCollection,
 } from '@/types/home';
 import CartPointer from '@/components/Home/CartPointer';
+import { useWebSocket } from '@/hooks/useWebSocket';
 
 interface ViewBoxSize {
   width: number;
@@ -52,6 +53,13 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
   const [mapBoxStyle, setMapBoxStyle] = useState<MapBoxStyle>();
   const [mapScale, setMapScale] = useState(1);
   const [currentPosition, setCurrentPosition] = useState({ x: 0, y: 0 });
+
+  const { webSocketData } = useWebSocket({
+    url: `/router/websocket/admin?org=trinity&token=${window.common.auth.accessToken}`,
+    // url: `/router/websocket/cart/${cart.id}?org=trinity&token=${window.common.auth.accessToken}`,
+  });
+
+  console.log('webSocketData', webSocketData);
 
   const calculateEntrieMapBoxSize = (
     viewBoxSize: ViewBoxSize,
@@ -285,7 +293,10 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
               key={cart.id}
               cart={cart}
               round={cart.roundId ? roundCollection[cart.roundId] : undefined}
-              location={calculateCartPosition({ x: 127.578056, y: 37.205343 })}
+              location={calculateCartPosition({
+                x: cart.location.x,
+                y: cart.location.y,
+              })}
               // location={calculateCartPosition({ x: 127.565, y: 37.195 })}
             ></CartPointer>
           ))}

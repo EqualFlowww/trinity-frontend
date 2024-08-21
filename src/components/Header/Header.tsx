@@ -30,6 +30,7 @@ const Header = () => {
             name="provider"
             gap="0-half"
             alignItems="start"
+            alignContent="start"
           >
             <div className={cx('provider-name')}>Golf in One</div>
             <div className={cx('provider-year')}>@ EQUAL 2024</div>
