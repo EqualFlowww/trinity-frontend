@@ -4,7 +4,7 @@ var main = () => {
 	document.getElementById("eqpls-access-token").innerText = window.common.auth.accessToken;
 
 	window.common.wsock.connect(
-		`/router/websocket/cart/d6da7219-c0e5-42f4-96dc-e45ebdefb463?org=${window.common.auth.getOrg()}&token=${window.common.auth.accessToken}`,
+		`/router/websocket/cart/cc181cab-5dda-4b8c-aa3e-3cc9c55f5997?org=${window.common.auth.getOrg()}&token=${window.common.auth.accessToken}`,
 		(data) => {
 			console.log(data);
 		}
