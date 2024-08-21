@@ -25,7 +25,7 @@ const ChatItem = ({ chatRoom }: Props) => {
     queryFn: ({ signal }) =>
       fetchChatRoomMessages({ signal, searchTerm: chatRoom.id }),
   });
-
+  console.log('messagesData', messagesData);
   const {
     data: unreadMessagesData,
     // error,
@@ -60,7 +60,8 @@ const ChatItem = ({ chatRoom }: Props) => {
             {chatRoom.displayName}
           </Text>
           <Text type="label" color="on-neutral-variant">
-            {(messagesData as MessageList).length > 0
+            {(messagesData as MessageList) &&
+            (messagesData as MessageList).length > 0
               ? '신규 채팅방입니다.'
               : (messagesData as MessageList)[0].content}
           </Text>
@@ -69,6 +70,7 @@ const ChatItem = ({ chatRoom }: Props) => {
       <div className={cx('message-meta-data')}>
         <MessageTimestamp
           date={
+            (messagesData as MessageList) &&
             (messagesData as MessageList).length > 0
               ? new Date((messagesData as MessageList)[0].tstamp)
               : null
