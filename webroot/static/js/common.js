@@ -243,15 +243,15 @@ window.common.init = (mainHandler) => {
 	};
 
 	// window.common.wsock ////////////////////////////
-	window.common.wsock.connect = (url, recvHandler, openHandler, closeHandler, errorHandler) => {
+	window.common.wsock.connect = (url, recvHandler, openHandler, closeHandler, errorHandler, recursiveConnect) => {
 		try {
 			let socket = new WebSocket(`wss://${window.common.env.endpoint}${url}`);
 			socket.onmessage = (event) => {
 				if (recvHandler) { recvHandler(event.data); }
 			};
-			socket.onopen = (event) => {
+			socket.onopen = (socket) => {
 				console.log("wsock:open");
-				if (openHandler) { openHandler(event); }
+				if (openHandler) { openHandler(socket); }
 			};
 			socket.onclose = (event) => {
 				console.log("wsock:close");
@@ -260,6 +260,9 @@ window.common.init = (mainHandler) => {
 			socket.onerror = (event) => {
 				console.log("wsock:error");
 				if (errorHandler) { errorHandler(event); }
+				if (recursiveConnect) {
+					window.common.wsock.connect(url, recvHandler, openHandler, closeHandler, errorHandler, recursiveConnect);
+				}
 			};
 			return socket;
 		} catch (e) {

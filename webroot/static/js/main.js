@@ -1,12 +1,21 @@
 // javascript here
 
+var socket = null;
+
 function gpsWorker() {
 	navigator.geolocation.getCurrentPosition((position) => {
-		console.log('Latitude:', position.coords.latitude);
-		console.log('Longitude:', position.coords.longitude);
+		let lat = position.coords.latitude;
+		let lon = position.coords.longitude;
+		document.getElementById("eqpls-cart-lat").innerHTML = lat;
+		document.getElementById("eqpls-cart-lon").innerHTML = lon;
+		socket.send(JSON.stringify({
+			k: 'gps',
+			v: [lat, lon]
+		}));
 		setTimeout(gpsWorker, 2000);
 	}, (err)=> {
-		console.error("GPS ERROR 발생!!", err);
+		document.getElementById("eqpls-cart-msg").innerHTML = "GPS ERROR 발생!!, 작업 중단!!";
+		console.error(err);
 	});
 };
 
@@ -25,10 +34,12 @@ function selectCart(cartId) {
 				lonDom.innerHTML = cart.location.x;
 			}
 		},
-		(event) => {
+		(sock) => {
+			socket = sock;
 			document.getElementById("eqpls-cart-list").remove();
 			gpsWorker();
-		}
+		},
+		null, null, true
 	);
 };
 
