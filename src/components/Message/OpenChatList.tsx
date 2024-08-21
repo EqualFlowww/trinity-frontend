@@ -19,7 +19,7 @@ const OpenChatList = ({ chatRoomList }: Props) => {
   const selectedChatRoomId = useMessageStore(
     (state) => state.selectedChatRoomId
   );
-  const openChatRoom = useMessageStore((state) => state.openChatRoom);
+  const selectChatRoom = useMessageStore((state) => state.selectChatRoom);
   const closeChatRoom = useMessageStore((state) => state.closeChatRoom);
 
   return (
@@ -31,7 +31,7 @@ const OpenChatList = ({ chatRoomList }: Props) => {
               key={chatRoomId}
               selected={chatRoomId === selectedChatRoomId}
               onClick={() => {
-                openChatRoom(chatRoomId);
+                selectChatRoom(chatRoomId);
               }}
               onRemove={() => {
                 closeChatRoom(chatRoomId);

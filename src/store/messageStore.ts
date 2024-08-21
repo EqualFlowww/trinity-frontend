@@ -43,21 +43,28 @@ const store: StateCreator<MessageState & MessageActions> = (set) => ({
     }),
   closeChatRoom: (chatRoomId) =>
     set((state) => {
-      if (state.selectedChatRoomId === chatRoomId) {
-        if (
-          state.openChatRoomIdList.length === 1 &&
-          state.openChatRoomIdList.indexOf(chatRoomId) === 0
-        ) {
-          return { openChatRoomIdList: [], selectedChatRoomId: null };
-        }
-
+      if (!state.selectedChatRoomId) return { ...state };
+      if (state.openChatRoomIdList.length === 1)
+        return { openChatRoomIdList: [], selectedChatRoomId: null };
+      else if (state.selectedChatRoomId === chatRoomId) {
+        if (state.openChatRoomIdList.indexOf(chatRoomId) === 0)
+          return {
+            selectedChatRoomId:
+              state.openChatRoomIdList[
+                state.openChatRoomIdList.indexOf(chatRoomId) + 1
+              ],
+            openChatRoomIdList: state.openChatRoomIdList.filter(
+              (id) => id !== chatRoomId
+            ),
+          };
         return {
           selectedChatRoomId:
-            state.openChatRoomIdList.indexOf(chatRoomId) === 0
-              ? state.openChatRoomIdList[1]
-              : state.openChatRoomIdList[
-                  state.openChatRoomIdList.indexOf(chatRoomId) - 1
-                ],
+            state.openChatRoomIdList[
+              state.openChatRoomIdList.indexOf(chatRoomId) - 1
+            ],
+          openChatRoomIdList: state.openChatRoomIdList.filter(
+            (id) => id !== chatRoomId
+          ),
         };
       }
 

@@ -88,7 +88,7 @@ export async function fetchUnreadMessages({
 }
 
 export async function fetchAccounts({ signal }: FetchCartParams) {
-  let url = `/uerp/v1/common/auth/account?$archive$f=username&$f=displayName&$size=100`;
+  let url = `/uerp/v1/common/auth/account?$archive&$f=username&$f=displayName&$size=100`;
 
   const data = await fetchData(url, {
     signal: signal,
