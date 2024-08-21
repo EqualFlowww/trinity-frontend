@@ -18,9 +18,9 @@ function main() {
 			let cartListDom = document.getElementById("eqpls-cart-list");
 			carts.forEach((cart) => {
 				let btnDom = document.createElement('button');
-				btn.setAttribute("id", cart.id);
-				btn.setAttribute("value", cart.name);
-				btn.onclick = (event)=> {
+				btnDom.setAttribute("id", cart.id);
+				btnDom.setAttribute("value", cart.name);
+				btnDom.onclick = (event)=> {
 					event.stopPropagation();
 					selectCart(cart.id);
 				};
