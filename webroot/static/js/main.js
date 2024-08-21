@@ -1,10 +1,21 @@
 // javascript here
 
 function selectCart(cartId) {
+	let latDom = document.getElementById("cart-lat");
+	let lonDom = document.getElementById("cart-lon");
+
 	window.common.wsock.connect(
 		`/router/websocket/cart/${cartId}?org=${window.common.auth.getOrg()}&token=${window.common.auth.accessToken}`,
 		(data) => {
+			data = JSON.parse(data);
 			console.log(data);
+			if (data.k == "md" && data.v.sref == "demo.device.Cart") {
+				latDom.innerHTML = cart.location.y;
+				lonDom.innerHTML = cart.location.x;
+			}
+		},
+		(event) => {
+			document.getElementById("eqpls-cart-list").remove();
 		}
 	);
 };
