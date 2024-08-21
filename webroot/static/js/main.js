@@ -50,7 +50,8 @@ function selectCart(cartId) {
 				document.getElementById("eqpls-cart-msg").innerHTML = `GPS ERROR 발생!!, 작업 중단!! ${err}`;
 				console.error(err);
 			}, {
-				maximumAge: Infinity,
+				//maximumAge: Infinity,
+				maximumAge: 0,
 				//timeout: 500,
 				enableHighAccuracy: true
 			});
