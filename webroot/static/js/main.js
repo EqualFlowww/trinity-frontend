@@ -8,10 +8,15 @@ function gpsWorker() {
 		let lon = position.coords.longitude;
 		document.getElementById("eqpls-cart-lat").innerHTML = lat;
 		document.getElementById("eqpls-cart-lon").innerHTML = lon;
-		socket.send(JSON.stringify({
-			k: 'gps',
-			v: [lat, lon]
-		}));
+		try {
+			socket.send(JSON.stringify({
+				k: 'gps',
+				v: [lat, lon]
+			}));
+		} catch (e) {
+			console.error("GPS 전송 에러", e);
+		}
+
 		setTimeout(gpsWorker, 2000);
 	}, (err)=> {
 		document.getElementById("eqpls-cart-msg").innerHTML = "GPS ERROR 발생!!, 작업 중단!!";
@@ -20,9 +25,6 @@ function gpsWorker() {
 };
 
 function selectCart(cartId) {
-	let latDom = document.getElementById("cart-lat");
-	let lonDom = document.getElementById("cart-lon");
-
 	window.common.wsock.connect(
 		`/router/websocket/cart/${cartId}?org=${window.common.auth.getOrg()}&token=${window.common.auth.accessToken}`,
 		(data) => {
@@ -30,8 +32,8 @@ function selectCart(cartId) {
 			console.log(data);
 			if (data.k == "md" && data.v.sref == "demo.device.Cart") {
 				let cart = data.v;
-				latDom.innerHTML = cart.location.y;
-				lonDom.innerHTML = cart.location.x;
+				document.getElementById("cart-lat").innerHTML = cart.location.y;
+				document.getElementById("cart-lon").innerHTML = cart.location.x;
 			}
 		},
 		(sock) => {
