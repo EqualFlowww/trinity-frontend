@@ -73,7 +73,7 @@ const loader = async ({}: LoaderFunctionArgs) => {
         fetchChatRooms({ signal, searchTerm: window.common.auth.username }),
     });
     console.log('chatRoomsData', chatRoomsData);
-    const unreadMessagesData = queryClient.fetchQuery({
+    const unreadMessagesData = await queryClient.fetchQuery({
       queryKey: ['unreadMessages'],
       queryFn: ({ signal }) =>
         fetchUnreadMessages({
@@ -82,7 +82,7 @@ const loader = async ({}: LoaderFunctionArgs) => {
         }),
     });
     console.log('unreadMessagesData', unreadMessagesData);
-    const accountsData = queryClient.fetchQuery({
+    const accountsData = await queryClient.fetchQuery({
       queryKey: ['accounts'],
       queryFn: ({ signal }) =>
         fetchAccounts({
@@ -91,8 +91,8 @@ const loader = async ({}: LoaderFunctionArgs) => {
     });
     console.log('accountsData', accountsData);
     if (chatRoomsData) {
-      chatRoomsData.forEach((room: ChatRoom) => {
-        const chatroomData = queryClient.fetchQuery({
+      await chatRoomsData.forEach(async (room: ChatRoom) => {
+        const chatroomData = await queryClient.fetchQuery({
           queryKey: ['chatRoom', room.id],
           queryFn: ({ signal }) =>
             fetchChatRoomMessages({ signal, searchTerm: room.id }),
