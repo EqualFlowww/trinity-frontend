@@ -43,7 +43,7 @@ window.common.init = (mainHandler) => {
 		return window.common.auth.setOrg();
 	};
 
-	/*
+	/* // DataService
 	window.common.auth.loginTermService = (resultHandler, errorHandler) => {
 		if (window.common.env.isTermService) {
 			window.common.auth.termToken = localStorage.getItem("authTermToken");
@@ -148,7 +148,7 @@ window.common.init = (mainHandler) => {
 			"Authorization": `Bearer ${window.common.auth.accessToken}`
 		};
 		window.common.auth.checkUserInfo(resultHandler, errorHandler);
-		/*
+		/* // DataService
 		window.common.auth.checkUserInfo(() => {
 			window.common.auth.loginDataService(resultHandler, errorHandler);
 		}, errorHandler);
@@ -158,7 +158,7 @@ window.common.init = (mainHandler) => {
 	window.common.auth.tokenDaemon = () => {
 		window.common.auth.keycloak.updateToken(5).then((refreshed) => {
 			if (refreshed) {
-				//window.common.auth.dataToken = null;
+				//window.common.auth.dataToken = null; // DataService
 				window.common.auth.postLogin();
 			}
 			setTimeout(window.common.auth.tokenDaemon, 60000);
