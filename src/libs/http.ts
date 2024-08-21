@@ -77,7 +77,7 @@ export async function fetchUnreadMessages({
   signal,
   searchTerm,
 }: FetchCartParams) {
-  let url = `/uerp/v1/demo/chat/message?$archive&$filter=unreadUserId:${searchTerm}&$size=100`;
+  let url = `/uerp/v1/demo/chat/message?$archive&$filter=unreadUsername:${searchTerm}&$size=100`;
 
   const data = await fetchData(url, {
     signal: signal,
