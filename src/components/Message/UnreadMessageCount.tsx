@@ -18,7 +18,7 @@ const UnreadMessageCount = ({ count }: Props) => {
       <Flex
         color="alert"
         padding="0-half"
-        paddingTop="0-eighth"
+        paddingTop="0-quarter"
         paddingBottom="0-quarter"
         borderRadius="2"
       >

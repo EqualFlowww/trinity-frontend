@@ -40,6 +40,7 @@ const CartEntity = ({ cart, round }: Props) => {
         </Flex>
         <Button
           width="full"
+          direction="column"
           form="outlined"
           color="on-neutral"
           borderRadius="0-half"

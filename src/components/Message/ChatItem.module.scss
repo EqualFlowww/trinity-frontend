@@ -7,7 +7,7 @@
   border-radius: var(--1x);
   gap: var(--1x);
   cursor: pointer;
-  background-color: var(--neutral-surface-container-02);
+  background-color: var(--neutral-surface);
 }
 
 .message-content-container {
@@ -30,13 +30,11 @@
   justify-content: space-between;
 }
 
-.unread-message-count {
+.message-meta-data {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--quarter) var(--half);
-  background-color: var(--states-error);
-  color: var(--states-on-error);
-  border-radius: var(--2x);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  align-self: stretch;
   flex-shrink: 0;
 }
