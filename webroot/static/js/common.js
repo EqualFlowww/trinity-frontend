@@ -165,7 +165,8 @@ window.common.init = (mainHandler) => {
 		});
 	};
 
-	window.common.auth.login = (resultHandler, errorHandler) => {
+	window.common.auth.login = (resultHandler, errorHandler, redirectUri) => {
+		if (!redirectUri) { redirectUri = "/"; }
 		let keycloak = new Keycloak({
 			url: window.common.auth.url,
 			realm: window.common.auth.getOrg(),
@@ -177,7 +178,10 @@ window.common.init = (mainHandler) => {
 			window.common.auth.postLogin(resultHandler, errorHandler);
 		};
 		keycloak.onAuthError = () => { if (errorHandler) { errorHandler(); } };
-		keycloak.init({ onLoad: 'login-required' });
+		keycloak.init({
+			onLoad: 'login-required',
+			redirectUri: redirectUri
+		});
 	};
 
 	window.common.auth.logout = () => {
