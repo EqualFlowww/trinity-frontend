@@ -36,10 +36,22 @@ function selectCart(cartId) {
 		(data) => {
 			data = JSON.parse(data);
 			console.log(data);
-			if (data.k == "md" && data.v.sref == "demo.device.Cart") {
-				let cart = data.v;
-				document.getElementById("eqpls-cart-lat").innerHTML = cart.location.y;
-				document.getElementById("eqpls-cart-lon").innerHTML = cart.location.x;
+			if (data.k == "md") {
+				if (data.v.sref == "demo.device.Cart") {
+					let cart = data.v;
+					document.getElementById("eqpls-cart-lat").innerHTML = cart.location.y;
+					document.getElementById("eqpls-cart-lon").innerHTML = cart.location.x;
+				} else if (data.v.sref == "demo.chat.Message") {
+					let message = data.v;
+					let fromDom = document.createElement("span");
+					fromDom.innerHTML = `${message.username} 에게서 온 메세지: `;
+					let textDom = document.createElement("span");
+					textDom.innerHTML = message.content;
+					let msgDom = document.getElementById("eqpls-message");
+					msgDom.innerHTML = "";
+					msgDom.appendChild(fromDom);
+					msgDom.appendChild(textDom);
+				}
 			}
 		},
 		(socket) => {
@@ -50,9 +62,8 @@ function selectCart(cartId) {
 				document.getElementById("eqpls-cart-msg").innerHTML = `GPS ERROR 발생!!, 작업 중단!! ${err}`;
 				console.error(err);
 			}, {
-				//maximumAge: Infinity,
-				maximumAge: 0,
-				//timeout: 500,
+				maximumAge: Infinity,
+				//maximumAge: 0,
 				enableHighAccuracy: true
 			});
 		},
@@ -61,6 +72,7 @@ function selectCart(cartId) {
 };
 
 function main() {
+	document.getElementById("eqpls-username").innerText = window.common.auth.username;
 	document.getElementById("eqpls-access-token").innerText = window.common.auth.accessToken;
 
 	window.common.rest.get('/uerp/v1/demo/device/cart?$archive&$size=100&$orderby=name&$order=asc', (carts) => {
