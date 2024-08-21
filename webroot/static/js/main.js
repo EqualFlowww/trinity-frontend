@@ -8,8 +8,8 @@ function gpsWorker(socket, position) {
 
 	let lat = position.coords.latitude;
 	let lon = position.coords.longitude;
-	let acc = position.coords.accuracy;
-	let spd = position.coords.speed;
+	let acc = Math.round(position.coords.accuracy, 2);
+	let spd = Math.round(position.coords.speed, 2);
 
 	if (prevLat != lat || prevLon != lon) {
 		prevLat = lat;
