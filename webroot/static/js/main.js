@@ -29,6 +29,7 @@ function selectCart(cartId) {
 						}));
 					} catch (e) {
 						console.error("GPS 전송 에러", e);
+						console.error(socket);
 					}
 
 					setTimeout(gpsWorker, 2000);
