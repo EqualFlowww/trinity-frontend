@@ -72,8 +72,8 @@ const loader = async ({}: LoaderFunctionArgs) => {
       queryFn: ({ signal }) =>
         fetchChatRooms({ signal, searchTerm: window.common.auth.username }),
     });
-
-    queryClient.fetchQuery({
+    console.log('chatRoomsData', chatRoomsData);
+    const unreadMessagesData = queryClient.fetchQuery({
       queryKey: ['unreadMessages'],
       queryFn: ({ signal }) =>
         fetchUnreadMessages({
@@ -81,23 +81,24 @@ const loader = async ({}: LoaderFunctionArgs) => {
           searchTerm: window.common.auth.username,
         }),
     });
-
-    queryClient.fetchQuery({
+    console.log('unreadMessagesData', unreadMessagesData);
+    const accountsData = queryClient.fetchQuery({
       queryKey: ['accounts'],
       queryFn: ({ signal }) =>
         fetchAccounts({
           signal,
         }),
     });
-
+    console.log('accountsData', accountsData);
     if (chatRoomsData) {
       chatRoomsData.forEach((room: ChatRoom) => {
-        queryClient.fetchQuery({
+        const chatroomData = queryClient.fetchQuery({
           queryKey: ['chatRoom', room.id],
           queryFn: ({ signal }) =>
             fetchChatRoomMessages({ signal, searchTerm: room.id }),
         });
         // queryClient.setQueryData(['chatRoom', room.id], room.messages);
+        console.log('chatroomData', chatroomData);
       });
     }
   } catch (error) {
