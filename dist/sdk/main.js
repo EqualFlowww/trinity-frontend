@@ -1,22 +1,29 @@
 // javascript here
 
+var prevLat = null;
+var prevLon = null;
+
 function gpsWorker(socket) {
 	navigator.geolocation.getCurrentPosition((position) => {
 		let lat = position.coords.latitude;
 		let lon = position.coords.longitude;
-		document.getElementById("eqpls-cart-lat").innerHTML = lat;
-		document.getElementById("eqpls-cart-lon").innerHTML = lon;
-		console.log(`Lat: ${lat} / Lon: ${lon}`);
-		try {
-			socket.send(JSON.stringify({
-				k: 'gps',
-				v: [lat, lon]
-			}));
-		} catch (e) {
-			console.error("GPS 전송 에러", e);
-		}
 
-		setTimeout(() => { gpsWorker(socket); }, 2000);
+		if (prevLat != lat || prevLon != lon) {
+			prevLat = lat;
+			prevLon = lon;
+			document.getElementById("eqpls-cart-lat").innerHTML = lat;
+			document.getElementById("eqpls-cart-lon").innerHTML = lon;
+			console.log(`Lat: ${lat} / Lon: ${lon}`);
+			try {
+				socket.send(JSON.stringify({
+					k: 'gps',
+					v: [lat, lon]
+				}));
+			} catch (e) {
+				console.error("GPS 전송 에러", e);
+			}
+		}
+		setTimeout(() => { gpsWorker(socket); }, 500);
 	}, (err) => {
 		document.getElementById("eqpls-cart-msg").innerHTML = "GPS ERROR 발생!!, 작업 중단!!";
 		console.error(err);
@@ -69,5 +76,5 @@ function main() {
 window.common.init(() => {
 	window.common.auth.login(main, () => { // login failed
 		console.error("login error");
-	});
+	}, "/webroot/index.html");
 });

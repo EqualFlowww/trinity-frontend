@@ -11,19 +11,26 @@ import Device from '@/pages/Device';
 import RootLayout from '@/pages/RootLayout';
 import Error from '@/pages/Error';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AppLayout from '@/pages/AppLayout';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout />,
+    element: <AppLayout />, // AppLayout을 최상위 레이아웃으로 설정
     errorElement: <Error />,
-    loader: RootLayout.loader,
     children: [
-      { index: true, element: <Home />, loader: Home.loader }, // path: '/'
-      { path: '/cart', element: <Cart /> },
-      { path: '/course', element: <Course /> },
-      { path: '/device', element: <Device /> },
-      { path: '/account', element: <Account /> },
+      {
+        path: '/',
+        element: <RootLayout />, // RootLayout은 이제 AppLayout의 자식
+        loader: RootLayout.loader,
+        children: [
+          { index: true, element: <Home />, loader: Home.loader }, // path: '/'
+          { path: '/cart', element: <Cart /> },
+          { path: '/course', element: <Course /> },
+          { path: '/device', element: <Device /> },
+          { path: '/account', element: <Account /> },
+        ],
+      },
     ],
   },
 ]);
