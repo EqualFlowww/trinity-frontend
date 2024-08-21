@@ -1,5 +1,27 @@
 // javascript here
 
+function gpsWorker(socket) {
+	navigator.geolocation.getCurrentPosition((position) => {
+		let lat = position.coords.latitude;
+		let lon = position.coords.longitude;
+		document.getElementById("eqpls-cart-lat").innerHTML = lat;
+		document.getElementById("eqpls-cart-lon").innerHTML = lon;
+		try {
+			socket.send(JSON.stringify({
+				k: 'gps',
+				v: [lat, lon]
+			}));
+		} catch (e) {
+			console.error("GPS 전송 에러", e);
+		}
+
+		setTimeout(() => { gpsWorker(socket); }, 2000);
+	}, (err) => {
+		document.getElementById("eqpls-cart-msg").innerHTML = "GPS ERROR 발생!!, 작업 중단!!";
+		console.error(err);
+	});
+};
+
 function selectCart(cartId) {
 	window.common.wsock.connect(
 		`/router/websocket/cart/${cartId}?org=${window.common.auth.getOrg()}&token=${window.common.auth.accessToken}`,
@@ -12,34 +34,9 @@ function selectCart(cartId) {
 				document.getElementById("eqpls-cart-lon").innerHTML = cart.location.x;
 			}
 		},
-		(sock) => {
-			let socket = sock;
+		(socket) => {
 			document.getElementById("eqpls-cart-list").remove();
-
-			function gpsWorker() {
-				navigator.geolocation.getCurrentPosition((position) => {
-					let lat = position.coords.latitude;
-					let lon = position.coords.longitude;
-					document.getElementById("eqpls-cart-lat").innerHTML = lat;
-					document.getElementById("eqpls-cart-lon").innerHTML = lon;
-					try {
-						socket.send(JSON.stringify({
-							k: 'gps',
-							v: [lat, lon]
-						}));
-					} catch (e) {
-						console.error("GPS 전송 에러", e);
-						console.error(socket);
-					}
-
-					setTimeout(gpsWorker, 2000);
-				}, (err)=> {
-					document.getElementById("eqpls-cart-msg").innerHTML = "GPS ERROR 발생!!, 작업 중단!!";
-					console.error(err);
-				});
-			};
-
-			gpsWorker();
+			gpsWorker(socket);
 		},
 		null, null, true
 	);
