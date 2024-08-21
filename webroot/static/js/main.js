@@ -3,41 +3,31 @@
 var prevLat = null;
 var prevLon = null;
 
-function gpsWorker(socket) {
-	document.getElementById("eqpls-cart-msg").innerHTML = "";
-	navigator.geolocation.getCurrentPosition((position) => {
-		let lat = position.coords.latitude;
-		let lon = position.coords.longitude;
-		let acc = position.coords.accuracy;
-		let spd = position.coords.speed;
+function gpsWorker(socket, position) {
+	document.getElementById("eqpls-cart-msg").innerHTML = `GPS 읽기: ${new Date()}`;
 
-		if (prevLat != lat || prevLon != lon) {
-			prevLat = lat;
-			prevLon = lon;
-			document.getElementById("eqpls-cart-lat").innerHTML = lat;
-			document.getElementById("eqpls-cart-lon").innerHTML = lon;
-			document.getElementById("eqpls-cart-acc").innerHTML = acc;
-			document.getElementById("eqpls-cart-spd").innerHTML = spd;
-			console.log(`Lat: ${lat} / Lon: ${lon} / Acc: ${acc}M / Spd: ${spd}M/s`);
-			try {
-				socket.send(JSON.stringify({
-					k: 'gps',
-					v: [lat, lon]
-				}));
-			} catch (e) {
-				console.error("GPS 전송 에러", e);
-			}
+	let lat = position.coords.latitude;
+	let lon = position.coords.longitude;
+	let acc = position.coords.accuracy;
+	let spd = position.coords.speed;
+
+	if (prevLat != lat || prevLon != lon) {
+		prevLat = lat;
+		prevLon = lon;
+		document.getElementById("eqpls-cart-lat").innerHTML = lat;
+		document.getElementById("eqpls-cart-lon").innerHTML = lon;
+		document.getElementById("eqpls-cart-acc").innerHTML = acc;
+		document.getElementById("eqpls-cart-spd").innerHTML = spd;
+		console.log(`Lat: ${lat} / Lon: ${lon} / Acc: ${acc}M / Spd: ${spd}M/s`);
+		try {
+			socket.send(JSON.stringify({
+				k: 'gps',
+				v: [lat, lon]
+			}));
+		} catch (e) {
+			console.error("GPS 전송 에러", e);
 		}
-		setTimeout(() => { gpsWorker(socket); }, 500);
-	}, (err) => {
-		document.getElementById("eqpls-cart-msg").innerHTML = `GPS ERROR 발생!!, 작업 중단!! ${err}`;
-		console.error(err);
-		setTimeout(() => { gpsWorker(socket); }, 500);
-	}, {
-		maximumAge: Infinity,
-		//timeout: 500,
-		enableHighAccuracy: true
-	});
+	}
 };
 
 function selectCart(cartId) {
@@ -54,7 +44,16 @@ function selectCart(cartId) {
 		},
 		(socket) => {
 			document.getElementById("eqpls-cart-list").remove();
-			gpsWorker(socket);
+			navigator.geolocation.watchPosition((position) => {
+				gpsWorker(socket, position);
+			}, (err) => {
+				document.getElementById("eqpls-cart-msg").innerHTML = `GPS ERROR 발생!!, 작업 중단!! ${err}`;
+				console.error(err);
+			}, {
+				maximumAge: Infinity,
+				//timeout: 500,
+				enableHighAccuracy: true
+			});
 		},
 		null, null, true
 	);
