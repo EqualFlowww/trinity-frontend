@@ -4,6 +4,7 @@ var prevLat = null;
 var prevLon = null;
 
 function gpsWorker(socket) {
+	document.getElementById("eqpls-cart-msg").innerHTML = "";
 	navigator.geolocation.getCurrentPosition((position) => {
 		let lat = position.coords.latitude;
 		let lon = position.coords.longitude;
@@ -27,6 +28,7 @@ function gpsWorker(socket) {
 	}, (err) => {
 		document.getElementById("eqpls-cart-msg").innerHTML = `GPS ERROR 발생!!, 작업 중단!! ${err}`;
 		console.error(err);
+		setTimeout(() => { gpsWorker(socket); }, 500);
 	}, {
 		maximumAge: 0,
 		timeout: 500,
