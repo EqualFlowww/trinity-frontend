@@ -21,13 +21,13 @@
 }
 
 .chat-list-area {
-  flex-grow: 1;
-  flex-basis: 0;
+  flex: 1 1 50%;
+  min-width: 0px;
   height: 100%;
 }
 
 .open-chat-area {
-  flex-grow: 1;
-  flex-basis: 0;
+  flex: 1 1 50%;
+  min-width: 0px;
   height: 100%;
 }

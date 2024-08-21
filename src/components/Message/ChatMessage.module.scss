@@ -1,0 +1,11 @@
+.profile-image {
+  width: var(--4x-half);
+  height: var(--4x-half);
+  border-radius: 50%;
+  background-color: var(--neutral-surface-container-03);
+  flex-shrink: 0;
+}
+
+.message-timestamp-wrapper {
+  flex-shrink: 0;
+}

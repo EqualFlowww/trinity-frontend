@@ -11,7 +11,6 @@ import {
   RoundSummaryDataCollection,
 } from '@/types/home';
 import CartPointer from '@/components/Home/CartPointer';
-import { useWebSocket } from '@/hooks/useWebSocket';
 
 interface ViewBoxSize {
   width: number;
@@ -54,12 +53,7 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
   const [mapScale, setMapScale] = useState(1);
   const [currentPosition, setCurrentPosition] = useState({ x: 0, y: 0 });
 
-  const { webSocketData } = useWebSocket({
-    url: `/router/websocket/admin?org=trinity&token=${window.common.auth.accessToken}`,
-    // url: `/router/websocket/cart/${cart.id}?org=trinity&token=${window.common.auth.accessToken}`,
-  });
-
-  console.log('webSocketData', webSocketData);
+  // console.log('webSocketData', webSocketData);
 
   const calculateEntrieMapBoxSize = (
     viewBoxSize: ViewBoxSize,
@@ -110,10 +104,10 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
   const handleMouseDown = (clickEvent: React.MouseEvent) => {
     if (!mapRef.current || !mapBoxStyle || !naturalMapSize || !viewBoxSize)
       return;
-    console.log('mousedown');
+    // console.log('mousedown');
 
     const mouseMoveHandler = (moveEvent: MouseEvent) => {
-      console.log('mousemove');
+      // console.log('mousemove');
       // 2️⃣
       const deltaX = moveEvent.screenX - clickEvent.screenX;
       const deltaY = moveEvent.screenY - clickEvent.screenY;
@@ -129,11 +123,11 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
           2 /
           mapBoxStyle.height) *
         100;
-      console.log('limitx', limitx, 'limity', limity);
-      console.log(
-        currentPosition.x + (deltaX / mapBoxStyle.width) * 100,
-        'currentPosition.x'
-      );
+      // console.log('limitx', limitx, 'limity', limity);
+      // console.log(
+      //   currentPosition.x + (deltaX / mapBoxStyle.width) * 100,
+      //   'currentPosition.x'
+      // );
       setCurrentPosition((prev) => ({
         x:
           limitx <= 0
@@ -161,7 +155,7 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
     };
 
     const mouseUpHandler = () => {
-      console.log('mouseup');
+      // console.log('mouseup');
       document.removeEventListener('mousemove', mouseMoveHandler);
     };
     document.addEventListener('mousemove', mouseMoveHandler);
@@ -237,7 +231,7 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
   }, [viewBoxSize, naturalMapSize, mapScale]);
 
   useEffect(() => {
-    console.log('mapScale', mapScale);
+    // console.log('mapScale', mapScale);
     if (!mapBoxStyle || !naturalMapSize || !viewBoxSize) return;
     const limitx =
       ((mapBoxStyle.width / naturalMapSize.extraMapToMapWidthRatio -

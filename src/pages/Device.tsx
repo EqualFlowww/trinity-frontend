@@ -1,9 +1,7 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import classes from './Device.module.scss';
 import Dashboard from '@/components/Home/Dashboard';
 import Overview from '@/components/Home/Overview';
-import DashboardNotice from '@/components/Home/DashboardNotice';
 import {
   TMP_CART_SUMMARY_DATA_COLLECTION,
   TMP_ROUND_SUMMARY_DATA_COLLECTION,

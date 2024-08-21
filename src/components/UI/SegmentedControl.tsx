@@ -34,7 +34,7 @@ const SegmentedControl = ({
       borderWidth="0-eighth"
     >
       {segmentValues.map((label, index) => (
-        <div className={cx('button-box')}>
+        <div className={cx('button-box')} key={label}>
           {segmentKeys[index] === currentSegment ? (
             <Flex
               width="full"

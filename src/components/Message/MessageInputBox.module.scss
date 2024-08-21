@@ -1,0 +1,20 @@
+.message-input {
+  width: 100%;
+  flex: 1;
+  border: none;
+  padding: var(--sp-0);
+  resize: none;
+  outline: none;
+  color: var(--neutral-surface-container-02);
+
+  /* Body__Gen/M 400 */
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.message-input::placeholder {
+  color: var(--neutral-surface-container-03);
+}

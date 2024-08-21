@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import classes from './Tooltip.module.scss';
 import IconClose from '@/components/Icon/IconClose';

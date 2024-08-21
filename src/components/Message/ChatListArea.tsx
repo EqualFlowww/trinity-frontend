@@ -5,10 +5,13 @@ import Text from '@/components/UI/Text';
 import Button from '@/components/UI/Button';
 import IconPlus from '@/components/Icon/IconPlus';
 import ChatList from '@/components/Message/ChatList';
+import { ChatRoomList } from '@/types/message';
 
-interface Props {}
+interface Props {
+  chatRoomList: ChatRoomList;
+}
 
-const ChatListArea = ({}: Props) => {
+const ChatListArea = ({ chatRoomList }: Props) => {
   const cx = classNames.bind(classes);
 
   return (
@@ -50,7 +53,7 @@ const ChatListArea = ({}: Props) => {
         </Button>
       </Flex>
       <div className={cx('chat-list')}>
-        <ChatList></ChatList>
+        <ChatList chatRoomList={chatRoomList}></ChatList>
       </div>
     </Flex>
   );

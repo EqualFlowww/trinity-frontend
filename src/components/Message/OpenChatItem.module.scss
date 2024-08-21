@@ -1,0 +1,7 @@
+.open-chat-item {
+  width: 8.4rem;
+  flex-shrink: 0;
+  &.unselected {
+    cursor: pointer;
+  }
+}

@@ -7,6 +7,9 @@ import Button from '@/components/UI/Button';
 import IconClose from '@/components/Icon/IconClose';
 import ChatListArea from '@/components/Message/ChatListArea';
 import OpenChatArea from '@/components/Message/OpenChatArea';
+import { useQuery } from '@tanstack/react-query';
+import { fetchChatRooms } from '@/libs/http';
+import { ChatRoomList } from '@/types/message';
 
 const MessageModal = () => {
   const cx = classNames.bind(classes);
@@ -14,6 +17,15 @@ const MessageModal = () => {
 
   const isOpen = useMessageStore((state) => state.isModalOpen);
   const closeModal = useMessageStore((state) => state.closeModal);
+
+  const {
+    data: chatRoomsData,
+    // error,
+  } = useQuery({
+    queryKey: ['chatRooms'],
+    queryFn: ({ signal }) =>
+      fetchChatRooms({ signal, searchTerm: window.common.auth.username }),
+  });
 
   if (!isOpen) return null;
 
@@ -26,12 +38,12 @@ const MessageModal = () => {
       }}
     >
       <div className={cx('modal')}>
-        <Flex size="full">
+        <Flex size="full" wrap="nowrap">
           <div className={cx('chat-list-area')}>
-            <ChatListArea />
+            <ChatListArea chatRoomList={chatRoomsData as ChatRoomList} />
           </div>
           <div className={cx('open-chat-area')}>
-            <OpenChatArea />
+            <OpenChatArea chatRoomList={chatRoomsData as ChatRoomList} />
           </div>
         </Flex>
         <Button

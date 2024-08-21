@@ -48,6 +48,56 @@ export async function fetchRounds({ signal }: FetchCartParams) {
   return data;
 }
 
+export async function fetchChatRooms({ signal, searchTerm }: FetchCartParams) {
+  let url = `/uerp/v1/demo/chat/room?$archive&$filter=participants:${searchTerm}&$size=100`;
+
+  const data = await fetchData(url, {
+    signal: signal,
+    headers: window.common.auth.apiHeaders,
+  });
+
+  return data;
+}
+
+export async function fetchChatRoomMessages({
+  signal,
+  searchTerm,
+}: FetchCartParams) {
+  let url = `/uerp/v1/demo/chat/message?$archive&$filter=chatRoomId:${searchTerm}&$size=100`;
+
+  const data = await fetchData(url, {
+    signal: signal,
+    headers: window.common.auth.apiHeaders,
+  });
+
+  return data;
+}
+
+export async function fetchUnreadMessages({
+  signal,
+  searchTerm,
+}: FetchCartParams) {
+  let url = `/uerp/v1/demo/chat/message?$archive&$filter=unreadUserId:${searchTerm}&$size=100`;
+
+  const data = await fetchData(url, {
+    signal: signal,
+    headers: window.common.auth.apiHeaders,
+  });
+
+  return data;
+}
+
+export async function fetchAccounts({ signal }: FetchCartParams) {
+  let url = `/uerp/v1/common/auth/account?$f=username&$f=displayName&$size=100`;
+
+  const data = await fetchData(url, {
+    signal: signal,
+    headers: window.common.auth.apiHeaders,
+  });
+
+  return data;
+}
+
 // export async function createNewEvent(eventData) {
 //   const response = await fetch(`http://localhost:3000/events`, {
 //     method: 'POST',
