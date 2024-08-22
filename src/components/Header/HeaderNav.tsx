@@ -34,6 +34,7 @@ const HeaderNav = () => {
         <HeaderNavLink text="Home" to="/" />
         <HeaderNavLink text="Cart" to="/cart" />
         <HeaderNavLink text="Course" to="/course" />
+        <HeaderNavLink text="Round" to="/round" />
         <HeaderNavLink text="Device" to="/device" />
         <HeaderNavLink text="Account" to="/account" />
       </Flex>

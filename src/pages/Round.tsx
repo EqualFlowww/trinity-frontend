@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
-import classes from './Cart.module.scss';
-import imgSrc from '@/assets/images/Cart(Tablet)@4x.webp';
+import classes from './Round.module.scss';
+import imgSrc from '@/assets/images/Round(Tablet)@4x.webp';
 
-const Cart = () => {
+const Round = () => {
   const cx = classNames.bind(classes);
 
   return (
@@ -12,4 +12,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Round;

@@ -12,6 +12,7 @@ import RootLayout from '@/pages/RootLayout';
 import Error from '@/pages/Error';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AppLayout from '@/pages/AppLayout';
+import Round from '@/pages/Round';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
           { index: true, element: <Home />, loader: Home.loader }, // path: '/'
           { path: '/cart', element: <Cart /> },
           { path: '/course', element: <Course /> },
+          { path: '/round', element: <Round /> },
           { path: '/device', element: <Device /> },
           { path: '/account', element: <Account /> },
         ],
