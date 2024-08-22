@@ -6,8 +6,8 @@ var prevLon = null;
 function gpsWorker(socket, position) {
 	document.getElementById("eqpls-cart-msg").innerHTML = `GPS 읽기: ${new Date()}`;
 
-	let lat = position.coords.latitude - 0.4091294;
-	let lon = position.coords.longitude + 0.4077472;
+	let lat = position.coords.latitude - 0.412375;
+	let lon = position.coords.longitude + 0.402352;
 	/*
 	let lat = position.coords.latitude;
 	let lon = position.coords.longitude;
