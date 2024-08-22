@@ -59,6 +59,8 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
           queryClient.setQueryData(
             ['chatRoomsData', data.roomId],
             (prev: any) => {
+              console.log(prev);
+              console.log(data);
               return [...prev, data];
             }
           );
