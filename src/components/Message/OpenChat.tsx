@@ -31,6 +31,9 @@ const OpenChat = ({ chatRoomId }: Props) => {
     queryKey: ['chatRoom', chatRoomId],
     queryFn: ({ signal }) =>
       fetchChatRoomMessages({ signal, searchTerm: chatRoomId }),
+
+    refetchInterval: 1000,
+    refetchIntervalInBackground: true, // 백그라운드에서도 폴링 유지
   });
 
   const {

@@ -62,7 +62,7 @@ const ChatItem = ({ chatRoom }: Props) => {
           <Text type="label" color="on-neutral-variant">
             {(messagesData as MessageList) &&
             (messagesData as MessageList).length > 0
-              ? (messagesData as MessageList)[0].content
+              ? (messagesData as MessageList)[-1].content
               : '신규 채팅방입니다.'}
           </Text>
         </div>

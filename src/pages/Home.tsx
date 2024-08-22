@@ -19,6 +19,9 @@ const Home = () => {
   } = useQuery({
     queryKey: ['carts'],
     queryFn: ({ signal }) => fetchCarts({ signal }),
+
+    refetchInterval: 1000,
+    refetchIntervalInBackground: true, // 백그라운드에서도 폴링 유지
   });
   const {
     data: roundsData,
