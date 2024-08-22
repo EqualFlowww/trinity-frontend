@@ -71,6 +71,7 @@ const loader = async ({}: LoaderFunctionArgs) => {
   await queryClient.fetchQuery({
     queryKey: ['carts'],
     queryFn: ({ signal }) => fetchCarts({ signal }),
+    staleTime: 1000,
   });
   await queryClient.fetchQuery({
     queryKey: ['rounds'],

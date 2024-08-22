@@ -77,6 +77,7 @@ const loader = async ({}: LoaderFunctionArgs) => {
       queryKey: ['chatRooms'],
       queryFn: ({ signal }) =>
         fetchChatRooms({ signal, searchTerm: window.common.auth.username }),
+      staleTime: 1000,
     });
     console.log('chatRoomsData', chatRoomsData);
     const unreadMessagesData = await queryClient.fetchQuery({
@@ -102,6 +103,7 @@ const loader = async ({}: LoaderFunctionArgs) => {
           queryKey: ['chatRoom', room.id],
           queryFn: ({ signal }) =>
             fetchChatRoomMessages({ signal, searchTerm: room.id }),
+          staleTime: 1000,
         });
         // queryClient.setQueryData(['chatRoom', room.id], room.messages);
         console.log('chatroomData', chatroomData);
