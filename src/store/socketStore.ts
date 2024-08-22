@@ -55,6 +55,7 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
         console.log('type:', type);
         if (type === 'Message') {
           console.log('Message start');
+          console.log(data.roomId);
           queryClient.setQueryData(
             ['chatRoomsData', data.roomId],
             (prev: any) => {
