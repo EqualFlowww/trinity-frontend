@@ -56,15 +56,12 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
         if (type === 'Message') {
           console.log('Message start');
           console.log(data.roomId);
-          queryClient.setQueryData(
-            ['chatRoomsData', data.roomId],
-            (prev: any) => {
-              console.log(prev);
-              console.log(data);
-              return [...prev, data];
-            }
-          );
-          console.log(queryClient.getQueryData(['chatRoomsData', data.roomId]));
+          queryClient.setQueryData(['chatRoom', data.roomId], (prev: any) => {
+            console.log(prev);
+            console.log(data);
+            return [...prev, data];
+          });
+          console.log(queryClient.getQueryData(['chatRoom', data.roomId]));
           console.log('Message update');
         } else if (type === 'Cart') {
           console.log('Cart start');
