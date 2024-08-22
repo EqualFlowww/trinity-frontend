@@ -16,42 +16,42 @@ import {
   queryClient,
 } from '@/libs/http';
 import { ChatRoom } from '@/types/message';
-// import useChatStore from '@/store/socketStore';
+import useSocketStore from '@/store/socketStore';
 import { useEffect } from 'react';
 import waitForLogin from '@/utils/waitForLogin';
-import { useWebSocket } from '@/hooks/useWebsocket';
-import useSocketStore from '@/store/socketStore';
+// import { useWebSocket } from '@/hooks/useWebsocket';
+// import useSocketStore from '@/store/socketStore';
 
 const RootLayout = () => {
   const cx = classNames.bind(classes);
 
-  // const { connectWebSocket, disconnectWebSocket, setMounted, webSocketData } =
-  //   useChatStore();
-
-  // useEffect(() => {
-  //   setMounted(true);
-  //   connectWebSocket();
-
-  //   return () => {
-  //     setMounted(false);
-  //     disconnectWebSocket();
-  //   };
-  // }, [connectWebSocket, disconnectWebSocket, setMounted]);
-
-  // useEffect(() => {
-  //   if (webSocketData) {
-  //     console.log('새로운 메시지:', webSocketData);
-  //     // 웹소켓 데이터를 처리하거나 상태를 업데이트하는 로직 추가 가능
-  //   }
-  // }, [webSocketData]);
-
-  const { ws } = useWebSocket();
-  const { setWebSocket } = useSocketStore();
+  const { connectWebSocket, disconnectWebSocket, setMounted, webSocketData } =
+    useSocketStore();
 
   useEffect(() => {
-    if (!ws) return;
-    setWebSocket(ws);
-  }, [ws]);
+    setMounted(true);
+    connectWebSocket();
+
+    return () => {
+      setMounted(false);
+      disconnectWebSocket();
+    };
+  }, [connectWebSocket, disconnectWebSocket, setMounted]);
+
+  useEffect(() => {
+    if (webSocketData) {
+      console.log('새로운 메시지:', webSocketData);
+      // 웹소켓 데이터를 처리하거나 상태를 업데이트하는 로직 추가 가능
+    }
+  }, [webSocketData]);
+
+  // const { ws } = useWebSocket();
+  // const { setWebSocket } = useSocketStore();
+
+  // useEffect(() => {
+  //   if (!ws) return;
+  //   setWebSocket(ws);
+  // }, [ws]);
 
   return (
     <>
