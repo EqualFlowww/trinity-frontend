@@ -4,7 +4,7 @@ import classes from './Overview.module.scss';
 // TMP_CART_SUMMARY_DATA_COLLECTION,
 // TMP_ROUND_SUMMARY_DATA_COLLECTION,
 // } from '@/data/temp-data';
-import courseMapImage from '@/assets/images/trinity-map.webp';
+import courseMapImage from '@/assets/images/trinitycc-map-square.webp';
 import { useEffect, useRef, useState } from 'react';
 import {
   CartSummaryDataCollection,
@@ -87,8 +87,10 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
 
   const calculateCartPosition = (cartLocation: { x: number; y: number }) => {
     return {
-      x: ((cartLocation.x - 127.535) / (127.615 - 127.535)) * 100,
-      y: ((cartLocation.y - 37.245) / (37.17 - 37.245)) * 100,
+      // x: ((cartLocation.x - 127.535) / (127.615 - 127.535)) * 100,
+      // y: ((cartLocation.y - 37.245) / (37.17 - 37.245)) * 100,
+      x: ((cartLocation.x - 127.5395) / (127.6145 - 127.5395)) * 100,
+      y: ((cartLocation.y - 37.2378) / (37.1781 - 37.2378)) * 100,
     };
   };
 
@@ -97,7 +99,7 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
       return;
 
     setMapScale((prev) =>
-      Math.min(Math.max(1, prev + event.deltaY * -0.001), 3)
+      Math.min(Math.max(1, prev + event.deltaY * -0.001), 2)
     );
   };
 
@@ -164,8 +166,8 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
 
   // 첫 렌더링 시
   useEffect(() => {
-    const initialExtraMapToMapWidthRatio = 4;
-    const initialExtraMapToMapHeightRatio = 3;
+    const initialExtraMapToMapWidthRatio = 1;
+    const initialExtraMapToMapHeightRatio = 1;
 
     const handleLoadMap = () => {
       const { naturalWidth, naturalHeight } =
