@@ -166,8 +166,8 @@ const Overview = ({ roundCollection, cartCollection }: Props) => {
 
   // 첫 렌더링 시
   useEffect(() => {
-    const initialExtraMapToMapWidthRatio = 1;
-    const initialExtraMapToMapHeightRatio = 1;
+    const initialExtraMapToMapWidthRatio = 3;
+    const initialExtraMapToMapHeightRatio = 3;
 
     const handleLoadMap = () => {
       const { naturalWidth, naturalHeight } =
