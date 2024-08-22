@@ -49,6 +49,7 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
       if (get().isMounted && wsInstance.readyState === WebSocket.OPEN) {
         const resData = JSON.parse(event.data);
         const data: Message = resData.v;
+        console.log('WebSocket 데이터 수신:', data);
         const str = data.sref;
         const type = str.split('.').pop();
 
