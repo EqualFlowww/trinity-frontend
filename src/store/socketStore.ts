@@ -52,19 +52,22 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
         console.log('WebSocket 데이터 수신:', data);
         const str = data.sref;
         const type = str.split('.').pop();
-
+        console.log('type:', type);
         if (type === 'Message') {
+          console.log('Message start');
           queryClient.setQueryData(
             ['chatRoomsData', data.roomId],
             (prev: any) => {
               return [...prev, data];
             }
           );
-          console.log('Cart update');
+          console.log('Message update');
         } else if (type === 'Cart') {
+          console.log('Cart start');
           queryClient.setQueryData(['carts'], (prev: any) => {
             return prev.map((cart: any) => (cart.id !== data.id ? cart : data));
           });
+          console.log('Cart end');
         }
       }
     };
