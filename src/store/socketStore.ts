@@ -1,3 +1,5 @@
+import { queryClient } from '@/libs/http';
+import { Message } from '@/types/message';
 import { create, StateCreator } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
@@ -46,7 +48,22 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
     wsInstance.onmessage = (event: MessageEvent) => {
       if (get().isMounted && wsInstance.readyState === WebSocket.OPEN) {
         const resData = JSON.parse(event.data);
-        set({ webSocketData: resData });
+        const data: Message = resData.v;
+        const str = data.sref;
+        const type = str.split('.').pop();
+
+        if (type === 'Message') {
+          queryClient.setQueryData(
+            ['chatRoomsData', data.roomId],
+            (prev: any) => {
+              return [...prev, data];
+            }
+          );
+        } else if (type === 'Cart') {
+          queryClient.setQueryData(['carts'], (prev: any) => {
+            return prev.map((cart: any) => (cart.id !== data.id ? cart : data));
+          });
+        }
       }
     };
 
