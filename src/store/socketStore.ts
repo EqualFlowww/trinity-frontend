@@ -60,6 +60,7 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
               return [...prev, data];
             }
           );
+          console.log('Cart update');
         } else if (type === 'Cart') {
           queryClient.setQueryData(['carts'], (prev: any) => {
             return prev.map((cart: any) => (cart.id !== data.id ? cart : data));
