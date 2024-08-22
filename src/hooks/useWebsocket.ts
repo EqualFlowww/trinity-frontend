@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-
-const WS_URL = process.env.NEXT_PUBLIC_WS_URL_BASE;
+import { queryClient } from '@/libs/http';
+import { useEffect, useRef } from 'react';
 
 const MAX_RETRY_COUNT = 5;
 const MIN_INTERVAL = 1000;
@@ -8,10 +7,6 @@ const MAX_JITTER = 200;
 
 const ONERROR_CODE = 4000;
 const NORMAL_CODE = 1000;
-
-type WsParams = {
-  a: string;
-};
 
 export const withLogging = ({ msg, type }: { msg: string; type: string }) => {
   if (process.env.NODE_ENV !== 'production') {
@@ -31,16 +26,26 @@ export const withLogging = ({ msg, type }: { msg: string; type: string }) => {
   }
 };
 
-const buildUrl = ({ a }: WsParams) => `${WS_URL}/${a}`;
+const buildUrl = () =>
+  `wss://${window.common.env.endpoint}/router/websocket/admin?org=trinity&token=${window.common.auth.accessToken}`;
 const isWebSocketOpen = (wsInstance: WebSocket) =>
   wsInstance && wsInstance.readyState === WebSocket.OPEN;
 
-export const useWebSocket = ({ a }: WsParams) => {
+export const useWebSocket = () => {
   const isMounted = useRef(true);
   const retryCount = useRef(0);
   const ws = useRef<null | WebSocket>(null);
-  const [webSocketData, setWebSocketData] = useState(null);
 
+  // const sendData = (data: any) => {
+  //   const wsInstance = ws.current;
+  //   if (wsInstance && wsInstance.readyState === WebSocket.OPEN) {
+  //     wsInstance.send(JSON.stringify(data));
+  //   } else {
+  //     console.warn(
+  //       'WebSocket이 연결되지 않았습니다. 메시지를 전송할 수 없습니다.'
+  //     );
+  //   }
+  // };
   //초기화
   useEffect(() => {
     retryCount.current = 0;
@@ -48,7 +53,7 @@ export const useWebSocket = ({ a }: WsParams) => {
   }, []);
 
   useEffect(() => {
-    ws.current = new WebSocket(buildUrl({ a }));
+    ws.current = new WebSocket(buildUrl());
 
     const setupWebSocket = (wsInstance: WebSocket) => {
       wsInstance.onopen = () => {
@@ -62,17 +67,30 @@ export const useWebSocket = ({ a }: WsParams) => {
       wsInstance.onmessage = (event) => {
         if (isMounted.current && isWebSocketOpen(wsInstance)) {
           const resData = JSON.parse(event.data);
-          const { type } = resData;
-          switch (type) {
-            case 'resData':
-              setWebSocketData(resData);
-              console.info('resData');
-              break;
-            default:
-              withLogging({
-                msg: `Sorry, we are out of ${type}.`,
-                type: 'info',
-              });
+          const data = resData.v;
+          console.log('WebSocket 데이터 수신:', data);
+          const str = data.sref;
+          const type = str.split('.').pop();
+          console.log('type:', type);
+          if (type === 'Message') {
+            console.log('Message start');
+            console.log(data.roomId);
+            queryClient.setQueryData(['chatRoom', data.roomId], (prev: any) => {
+              console.log(prev);
+              console.log(data);
+              return [...prev, data];
+            });
+            console.log(queryClient.getQueryData(['chatRoom', data.roomId]));
+            console.log('Message update');
+          } else if (type === 'Cart') {
+            console.log('Cart start');
+            queryClient.setQueryData(['carts'], (prev: any) => {
+              return prev.map((cart: any) =>
+                cart.id !== data.id ? cart : data
+              );
+            });
+            console.log(queryClient.getQueryData(['carts']));
+            console.log('Cart end');
           }
         }
       };
@@ -104,7 +122,7 @@ export const useWebSocket = ({ a }: WsParams) => {
 
               if (retryCount.current < MAX_RETRY_COUNT) {
                 setTimeout(() => {
-                  ws.current = new WebSocket(buildUrl({ a }));
+                  ws.current = new WebSocket(buildUrl());
                   setupWebSocket(ws.current);
                   retryCount.current++;
                 }, interval);
@@ -124,7 +142,7 @@ export const useWebSocket = ({ a }: WsParams) => {
         ws.current.close();
       }
     };
-  }, [a]);
+  }, []);
 
-  return { webSocketData };
+  return { ws: ws.current };
 };
