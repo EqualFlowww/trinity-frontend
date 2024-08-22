@@ -62,12 +62,14 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
               return [...prev, data];
             }
           );
+          console.log(queryClient.getQueryData(['chatRoomsData', data.roomId]));
           console.log('Message update');
         } else if (type === 'Cart') {
           console.log('Cart start');
           queryClient.setQueryData(['carts'], (prev: any) => {
             return prev.map((cart: any) => (cart.id !== data.id ? cart : data));
           });
+          console.log(queryClient.getQueryData(['carts']));
           console.log('Cart end');
         }
       }
