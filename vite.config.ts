@@ -24,7 +24,7 @@ const userConfig = defineConfig({
   server: {
     proxy: {
       '/dev': {
-        target: 'https://trinity.eqpls.net',
+        target: 'https://trinity.dev.local',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/dev/, ''),
         secure: false,
