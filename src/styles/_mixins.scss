@@ -3864,3 +3864,128 @@
     gap: var(--sp-10);
   }
 }
+
+$responsives: (
+  'mobile': 640px,
+  'tablet': 768px,
+  'laptop': 1024px,
+);
+
+$states: ('hover', 'focus', 'active');
+
+$spacings: 0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25,
+  2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.5, 6, 6.5, 7, 7.5, 8,
+  8.5, 9, 9.5, 10, 11, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 32, 36,
+  40, 44, 48, 52, 56, 60, 64, 72, 80, 88, 96, 104, 112, 120, 128;
+
+@mixin responsive($responsive) {
+  @media (min-width: map-get($responsives, $responsive)) {
+    @content;
+  }
+}
+
+@mixin state($state) {
+  @if $state == hover {
+    &:hover {
+      @content;
+    }
+  } @else if $state == focus {
+    &:focus {
+      @content;
+    }
+  } @else if $state == active {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin margin {
+  @each $responsive, $breakpoint in $responsives {
+    @media (min-width: $breakpoint) {
+      @each $spacing in $spacings {
+        &.margin-#{$spacing}-#{$responsive} {
+          margin: $spacing * 0.8rem;
+        }
+
+        &.margin-x-#{$spacing}-#{$responsive} {
+          margin-left: $spacing * 0.8rem;
+          margin-right: $spacing * 0.8rem;
+        }
+
+        &.margin-y-#{$spacing}-#{$responsive} {
+          margin-top: $spacing * 0.8rem;
+          margin-bottom: $spacing * 0.8rem;
+        }
+
+        &.margin-top-#{$spacing}-#{$responsive} {
+          margin-top: $spacing * 0.8rem;
+        }
+
+        &.margin-right-#{$spacing}-#{$responsive} {
+          margin-right: $spacing * 0.8rem;
+        }
+
+        &.margin-bottom-#{$spacing}-#{$responsive} {
+          margin-bottom: $spacing * 0.8rem;
+        }
+
+        &.margin-left-#{$spacing}-#{$responsive} {
+          margin-left: $spacing * 0.8rem;
+        }
+      }
+    }
+  }
+
+  @each $spacing in $spacings {
+    &.margin-#{$spacing} {
+      margin: $spacing * 0.8rem;
+    }
+
+    &.margin-x-#{$spacing} {
+      margin-left: $spacing * 0.8rem;
+      margin-right: $spacing * 0.8rem;
+    }
+
+    &.margin-y-#{$spacing} {
+      margin-top: $spacing * 0.8rem;
+      margin-bottom: $spacing * 0.8rem;
+    }
+
+    &.margin-top-#{$spacing} {
+      margin-top: $spacing * 0.8rem;
+    }
+
+    &.margin-right-#{$spacing} {
+      margin-right: $spacing * 0.8rem;
+    }
+
+    &.margin-bottom-#{$spacing} {
+      margin-bottom: $spacing * 0.8rem;
+    }
+
+    &.margin-left-#{$spacing} {
+      margin-left: $spacing * 0.8rem;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  .hover\:bg-#{$name} {
+    @include state(hover) {
+      @include bg-color($color);
+    }
+  }
+
+  .focus\:bg-#{$name} {
+    @include state(focus) {
+      @include bg-color($color);
+    }
+  }
+
+  .active\:bg-#{$name} {
+    @include state(active) {
+      @include bg-color($color);
+    }
+  }
+}

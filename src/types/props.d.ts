@@ -1,3 +1,5 @@
+import { Positioning, Spacing } from '@/types/style';
+
 type Color =
   | 'primary'
   | 'on-primary'
@@ -60,37 +62,12 @@ export interface ContainerColorProps {
 
 export interface PositionProps {
   position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky';
-  top?: `${number}rem` | `${number}%`;
-  left?: `${number}rem` | `${number}%`;
-  bottom?: `${number}rem` | `${number}%`;
-  right?: `${number}rem` | `${number}%`;
+  top?: Positioning;
+  left?: Positioning;
+  bottom?: Positioning;
+  right?: Positioning;
   zIndex?: number;
 }
-
-type Spacing =
-  | '0'
-  | '0-eighth'
-  | '0-quarter'
-  | '0-half'
-  | '1'
-  | '1-half'
-  | '2'
-  | '2-half'
-  | '3'
-  | '3-half'
-  | '4'
-  | '4-half'
-  | '5'
-  | '5-half'
-  | '6'
-  | '6-half'
-  | '7'
-  | '7-half'
-  | '8'
-  | '8-half'
-  | '9'
-  | '9-half'
-  | '10';
 
 export interface PaddingProps {
   padding?: Spacing;

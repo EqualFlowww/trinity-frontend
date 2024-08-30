@@ -8,6 +8,10 @@ interface FetchCartParams {
 }
 
 export const fetchData = async (url: string, options?: RequestInit) => {
+  // if (options && headers) {
+  //   options.headers = {
+  // }
+
   try {
     const response = await fetch(
       process.env.NODE_ENV !== 'production' ? `/dev${url}` : url,

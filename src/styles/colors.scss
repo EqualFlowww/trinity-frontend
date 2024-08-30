@@ -1,4 +1,4 @@
-@use '@/styles/_themes.scss' as *;
+@import '@/styles/_themes.scss';
 
 :root {
   --primary: #{$light-primary};

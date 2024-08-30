@@ -2,13 +2,18 @@ import classNames from 'classnames/bind';
 import classes from './Button.module.scss';
 import { FlexProps } from '@/types/props';
 import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import { ButtonHTMLAttributes } from 'react';
 
-interface Props extends FlexProps {
+interface ButtonProps extends FlexProps {
   children?: React.ReactNode;
   type?: 'button' | 'submit';
   form?: 'filled' | 'outlined' | 'text';
-  onClick?: () => void;
 }
+
+interface CustomButtonAttributes
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof ButtonProps> {}
+
+interface Props extends ButtonProps, CustomButtonAttributes {}
 
 const Button = ({
   children,
@@ -20,9 +25,10 @@ const Button = ({
   bottom,
   zIndex,
   opacity,
-  onClick = () => {},
-  ...classNamesProps
+  ...buttonAttributes
 }: Props) => {
+  const {} = buttonProps;
+
   const cx = classNames.bind(classes);
   const style = {
     position,
@@ -59,7 +65,7 @@ const Button = ({
         ...classNamesObjectToArray({ ...defaultClassNames, ...classNamesProps })
       )}
       style={style}
-      onClick={onClick}
+      {...buttonAttributes}
     >
       {children}
     </button>

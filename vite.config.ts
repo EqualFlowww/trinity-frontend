@@ -13,10 +13,7 @@ const userConfig = defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-          @import '@/styles/_variables.scss';
           @import '@/styles/_mixins.scss';
-          @import '@/styles/_colors.scss';
-          @import '@/styles/_sizes.scss';
         `,
       },
     },
@@ -24,7 +21,7 @@ const userConfig = defineConfig({
   server: {
     proxy: {
       '/dev': {
-        target: 'https://trinity.eqpls.net',
+        target: 'https://trinity.dev.local',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/dev/, ''),
         secure: false,

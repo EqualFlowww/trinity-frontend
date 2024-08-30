@@ -12,10 +12,10 @@ import {
   fetchChatRoomMessages,
   fetchChatRooms,
 } from '@/libs/http';
-import arrayToIdObject from '@/utils/arrayToIdObject';
 import { ChatRoomList, MessageList } from '@/types/message';
-import arrayToUsernameObject from '@/utils/arrayToUsernameObject';
 import MessageInputBox from '@/components/Message/MessageInputBox';
+import arrayToIdObject from '@/utils/arrayToIdObject';
+import arrayToUsernameObject from '@/utils/arrayToUsernameObject';
 
 interface Props {
   chatRoomId: string;

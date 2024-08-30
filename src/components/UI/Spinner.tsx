@@ -18,7 +18,7 @@ interface Props
 
 const Spinner = ({
   opacity,
-  position = 'static',
+  position,
   top,
   left,
   right,
@@ -52,7 +52,7 @@ const Spinner = ({
       )}
       style={style}
     >
-      <span className={cx('loader', color)}></span>
+      <span className={cx('loader', `color-${color}`)}></span>
     </div>
   );
 };

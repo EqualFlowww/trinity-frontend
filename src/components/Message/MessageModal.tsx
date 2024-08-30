@@ -26,8 +26,8 @@ const MessageModal = () => {
     queryFn: ({ signal }) =>
       fetchChatRooms({ signal, searchTerm: window.common.auth.username }),
 
-    refetchInterval: 1000,
-    refetchIntervalInBackground: true, // 백그라운드에서도 폴링 유지
+    // refetchInterval: 1000,
+    // refetchIntervalInBackground: true, // 백그라운드에서도 폴링 유지
   });
 
   if (!isOpen) return null;
