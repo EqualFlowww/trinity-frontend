@@ -1,5 +1,6 @@
 // // javascript here
 
+<<<<<<< HEAD
 // window.common.init(() => {
 //   window.common.auth.login(
 //     () => {
@@ -31,3 +32,17 @@ window.common.auth.apiHeaders = {
   Accept: 'application/json; charset=utf-8',
   Authorization: `Bearer ${window.common.auth.accessToken}`,
 };
+=======
+window.common.init(() => {
+  window.common.auth.login(
+    () => {
+      // login success
+      console.log('login success');
+    },
+    () => {
+      // login failed
+      console.error('login error');
+    }
+  );
+});
+>>>>>>> 77c88474ed581cc68b8138a3612ef961c9e5735f

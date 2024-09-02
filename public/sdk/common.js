@@ -12,7 +12,7 @@ window.common.init = (mainHandler) => {
 
 	// tenant configurations //////////////////////////
 	window.common.env.tenant = "trinity";
-	window.common.env.endpoint = "trinity.eqpls.net";
+	window.common.env.endpoint = "trinity.dev.local";
 	window.common.env.isDataService = true;
 	window.common.env.isTermService = true;
 
