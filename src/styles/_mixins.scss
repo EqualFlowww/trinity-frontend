@@ -1,2916 +1,1421 @@
-@mixin svg-default {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* color */
-@mixin content-color {
-  &.color-primary {
-    color: var(--primary);
-    background: transparent;
-  }
-  &.color-on-primary {
-    color: var(--on-primary);
-    background: transparent;
-  }
-  &.color-primary-container {
-    color: var(--primary-container);
-    background: transparent;
-  }
-  &.color-on-primary-container {
-    color: var(--on-primary-container);
-    background: transparent;
-  }
-  &.color-secondary {
-    color: var(--secondary);
-    background: transparent;
-  }
-  &.color-on-secondary {
-    color: var(--on-secondary);
-    background: transparent;
-  }
-  &.color-secondary-container {
-    color: var(--secondary-container);
-    background: transparent;
-  }
-  &.color-on-secondary-container {
-    color: var(--on-secondary-container);
-    background: transparent;
-  }
-  &.color-tertiary {
-    color: var(--tertiary);
-    background: transparent;
-  }
-  &.color-on-tertiary {
-    color: var(--on-tertiary);
-    background: transparent;
-  }
-  &.color-tertiary-container {
-    color: var(--tertiary-container);
-    background: transparent;
-  }
-  &.color-on-tertiary-container {
-    color: var(--on-tertiary-container);
-    background: transparent;
-  }
-  &.color-neutral {
-    color: var(--neutral-surface);
-    background: transparent;
-  }
-  &.color-on-neutral {
-    color: var(--neutral-on-surface);
-    background: transparent;
-  }
-  &.color-on-neutral-variant {
-    color: var(--neutral-on-surface-variant);
-    background: transparent;
-  }
-  &.color-neutral-container-01 {
-    color: var(--neutral-surface-container-01);
-    background: transparent;
-  }
-  &.color-neutral-container-02 {
-    color: var(--neutral-surface-container-02);
-    background: transparent;
-  }
-  &.color-neutral-container-03 {
-    color: var(--neutral-surface-container-03);
-    background: transparent;
-  }
-  &.color-neutral-container-04 {
-    color: var(--neutral-surface-container-04);
-    background: transparent;
-  }
-  &.color-neutral-container-05 {
-    color: var(--neutral-surface-container-05);
-    background: transparent;
-  }
-  &.color-neutral-outline {
-    color: var(--neutral-outline);
-    background: transparent;
-  }
-  &.color-neutral-outline-variant {
-    color: var(--neutral-outline-variant);
-    background: transparent;
-  }
-  &.color-neutral-scrim {
-    color: var(--neutral-scrim);
-    background: transparent;
-  }
-  &.color-error {
-    color: var(--states-error);
-    background: transparent;
-  }
-  &.color-on-error {
-    color: var(--states-on-error);
-    background: transparent;
-  }
-  &.color-error-container {
-    color: var(--states-error-container);
-    background: transparent;
-  }
-  &.color-on-error-container {
-    color: var(--states-on-error-container);
-    background: transparent;
-  }
-  &.color-warning {
-    color: var(--states-warning);
-    background: transparent;
-  }
-  &.color-on-warning {
-    color: var(--states-on-warning);
-    background: transparent;
-  }
-  &.color-warning-container {
-    color: var(--states-warning-container);
-    background: transparent;
-  }
-  &.color-on-warning-container {
-    color: var(--states-on-warning-container);
-    background: transparent;
-  }
-  &.color-success {
-    color: var(--states-success);
-    background: transparent;
-  }
-  &.color-on-success {
-    color: var(--states-on-success);
-    background: transparent;
-  }
-  &.color-success-container {
-    color: var(--states-success-container);
-    background: transparent;
-  }
-  &.color-on-success-container {
-    color: var(--states-on-success-container);
-    background: transparent;
-  }
-  &.color-alert {
-    color: var(--states-alert);
-    background: transparent;
-  }
-  &.color-on-alert {
-    color: var(--states-on-alert);
-    background: transparent;
-  }
-  &.color-alert-container {
-    color: var(--states-alert-container);
-    background: transparent;
-  }
-  &.color-on-alert-container {
-    color: var(--states-on-alert-container);
-    background: transparent;
-  }
-  &.color-inherit {
-    color: inherit;
-    background: transparent;
-  }
-}
-@mixin content-color-hover {
-  /* default hover color */
-
-  &.hover-color-inherit,
-  &.hover-color-transparent {
-    &.color-primary:hover {
-      color: var(--primary-container);
-    }
-    &.color-on-primary:hover {
-      color: var(--on-primary-container);
-    }
-    &.color-primary-container:hover {
-      color: var(--primary);
-    }
-    &.color-on-primary-container:hover {
-      color: var(--on-primary);
-    }
-    &.color-secondary:hover {
-      color: var(--secondary-container);
-    }
-    &.color-on-secondary:hover {
-      color: var(--on-secondary-container);
-    }
-    &.color-secondary-container:hover {
-      color: var(--secondary);
-    }
-    &.color-on-secondary-container:hover {
-      color: var(--on-secondary);
-    }
-    &.color-tertiary:hover {
-      color: var(--tertiary-container);
-    }
-    &.color-on-tertiary:hover {
-      color: var(--on-tertiary-container);
-    }
-    &.color-tertiary-container:hover {
-      color: var(--tertiary);
-    }
-    &.color-on-tertiary-container:hover {
-      color: var(--on-tertiary);
-    }
-    &.color-neutral:hover {
-      color: var(--neutral-surface-container-03);
-    }
-    &.color-on-neutral:hover {
-      color: var(--neutral-on-surface-variant);
-    }
-    &.color-on-neutral-variant:hover {
-      color: var(--neutral-on-surface);
-    }
-    &.color-neutral-container-01:hover {
-      color: var(--neutral-surface);
-    }
-    &.color-neutral-container-02:hover {
-      color: var(--neutral-surface);
-    }
-    &.color-neutral-container-03:hover {
-      color: var(--neutral-surface);
-    }
-    &.color-neutral-container-04:hover {
-      color: var(--neutral-surface);
-    }
-    &.color-neutral-container-05:hover {
-      color: var(--neutral-surface);
-    }
-    &.color-neutral-outline:hover {
-      color: var(--neutral-outline-variant);
-    }
-    &.color-neutral-outline-variant:hover {
-      color: var(--neutral-outline);
-    }
-    &.color-neutral-scrim:hover {
-      color: var(--neutral-outline-variant);
-    }
-    &.color-error:hover {
-      color: var(--states-error-container);
-    }
-    &.color-on-error:hover {
-      color: var(--states-on-error-container);
-    }
-    &.color-error-container:hover {
-      color: var(--states-error);
-    }
-    &.color-on-error-container:hover {
-      color: var(--states-on-error);
-    }
-    &.color-warning:hover {
-      color: var(--states-warning-container);
-    }
-    &.color-on-warning:hover {
-      color: var(--states-on-warning-container);
-    }
-    &.color-waring-container:hover {
-      color: var(--states-warning);
-    }
-    &.color-on-warning-container:hover {
-      color: var(--states-on-warning);
-    }
-    &.color-success:hover {
-      color: var(--states-success-container);
-    }
-    &.color-on-success:hover {
-      color: var(--states-on-success-container);
-    }
-    &.color-success-container:hover {
-      color: var(--states-success);
-    }
-    &.color-on-success-container:hover {
-      color: var(--states-on-success);
-    }
-    &.color-alert:hover {
-      color: var(--states-alert-container);
-    }
-    &.color-on-alert:hover {
-      color: var(--states-on-alert-container);
-    }
-    &.color-alert-container:hover {
-      color: var(--states-alert);
-    }
-    &.color-on-alert-container:hover {
-      color: var(--states-on-alert);
-    }
-    &.color-inherit:hover {
-      color: inherit;
-    }
-  }
-
-  /* optional hover color */
-  &.hover-color-primary:hover {
-    color: var(--primary);
-  }
-  &.hover-color-on-primary:hover {
-    color: var(--on-primary);
-  }
-  &.hover-color-primary-container:hover {
-    color: var(--primary-container);
-  }
-  &.hover-color-on-primary-container:hover {
-    color: var(--on-primary-container);
-  }
-  &.hover-color-secondary:hover {
-    color: var(--secondary);
-  }
-  &.hover-color-on-secondary:hover {
-    color: var(--on-secondary);
-  }
-  &.hover-color-secondary-container:hover {
-    color: var(--secondary-container);
-  }
-  &.hover-color-on-secondary-container:hover {
-    color: var(--on-secondary-container);
-  }
-  &.hover-color-tertiary:hover {
-    color: var(--tertiary);
-  }
-  &.hover-color-on-tertiary:hover {
-    color: var(--on-tertiary);
-  }
-  &.hover-color-tertiary-container:hover {
-    color: var(--tertiary-container);
-  }
-  &.hover-color-on-tertiary-container:hover {
-    color: var(--on-tertiary-container);
-  }
-  &.hover-color-neutral:hover {
-    color: var(--neutral-surface);
-  }
-  &.hover-color-on-neutral:hover {
-    color: var(--neutral-on-surface);
-  }
-  &.hover-color-on-neutral-variant:hover {
-    color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-neutral-container-01:hover {
-    color: var(--neutral-surface-container-01);
-  }
-  &.hover-color-neutral-container-02:hover {
-    color: var(--neutral-surface-container-02);
-  }
-  &.hover-color-neutral-container-03:hover {
-    color: var(--neutral-surface-container-03);
-  }
-  &.hover-color-neutral-container-04:hover {
-    color: var(--neutral-surface-container-04);
-  }
-  &.hover-color-neutral-container-05:hover {
-    color: var(--neutral-surface-container-05);
-  }
-  &.hover-color-neutral-outline:hover {
-    color: var(--neutral-outline);
-  }
-  &.hover-color-neutral-outline-variant:hover {
-    color: var(--neutral-outline-variant);
-  }
-  &.hover-color-neutral-scrim:hover {
-    color: var(--neutral-scrim);
-  }
-  &.hover-color-error:hover {
-    color: var(--states-error);
-  }
-  &.hover-color-on-error:hover {
-    color: var(--states-on-error);
-  }
-  &.hover-color-error-container:hover {
-    color: var(--states-error-container);
-  }
-  &.hover-color-on-error-container:hover {
-    color: var(--states-on-error-container);
-  }
-  &.hover-color-warning:hover {
-    color: var(--states-warning);
-  }
-  &.hover-color-on-warning:hover {
-    color: var(--states-on-warning);
-  }
-  &.hover-color-warning-container:hover {
-    color: var(--states-warning-container);
-  }
-  &.hover-color-on-warning-container:hover {
-    color: var(--states-on-warning-container);
-  }
-  &.hover-color-success:hover {
-    color: var(--states-success);
-  }
-  &.hover-color-on-success:hover {
-    color: var(--states-on-success);
-  }
-  &.hover-color-success-container:hover {
-    color: var(--states-success-container);
-  }
-  &.hover-color-on-success-container:hover {
-    color: var(--states-on-success-container);
-  }
-  &.hover-color-alert:hover {
-    color: var(--states-alert);
-  }
-  &.hover-color-on-alert:hover {
-    color: var(--states-on-alert);
-  }
-  &.hover-color-alert-container:hover {
-    color: var(--states-alert-container);
-  }
-  &.hover-color-on-alert-container:hover {
-    color: var(--states-on-alert-container);
-  }
-}
-@mixin container-color {
-  &.color-primary {
-    background-color: var(--primary);
-    color: var(--on-primary);
-  }
-  &.color-on-primary {
-    background-color: var(--on-primary);
-    color: var(--primary);
-  }
-  &.color-primary-container {
-    background-color: var(--primary-container);
-    color: var(--on-primary-container);
-  }
-  &.color-on-primary-container {
-    background-color: var(--on-primary-container);
-    color: var(--primary-container);
-  }
-  &.color-secondary {
-    background-color: var(--secondary);
-    color: var(--on-secondary);
-  }
-  &.color-on-secondary {
-    background-color: var(--on-secondary);
-    color: var(--secondary);
-  }
-  &.color-secondary-container {
-    background-color: var(--secondary-container);
-    color: var(--on-secondary-container);
-  }
-  &.color-on-secondary-container {
-    background-color: var(--on-secondary-container);
-    color: var(--secondary-container);
-  }
-  &.color-tertiary {
-    background-color: var(--tertiary);
-    color: var(--on-tertiary);
-  }
-  &.color-on-tertiary {
-    background-color: var(--on-tertiary);
-    color: var(--tertiary);
-  }
-  &.color-tertiary-container {
-    background-color: var(--tertiary-container);
-    color: var(--on-tertiary-container);
-  }
-  &.color-on-tertiary-container {
-    background-color: var(--on-tertiary-container);
-    color: var(--tertiary-container);
-  }
-  &.color-neutral {
-    background-color: var(--neutral-surface);
-    color: var(--neutral-on-surface);
-  }
-  &.color-on-neutral {
-    background-color: var(--neutral-on-surface);
-    color: var(--neutral-surface);
-  }
-  &.color-on-neutral-variant {
-    background-color: var(--neutral-on-surface-variant);
-    color: var(--neutral-surface-container-03);
-  }
-  &.color-neutral-container-01 {
-    background-color: var(--neutral-surface-container-01);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.color-neutral-container-02 {
-    background-color: var(--neutral-surface-container-02);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.color-neutral-container-03 {
-    background-color: var(--neutral-surface-container-03);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.color-neutral-container-04 {
-    background-color: var(--neutral-surface-container-04);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.color-neutral-container-05 {
-    background-color: var(--neutral-surface-container-05);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.color-error {
-    background-color: var(--states-error);
-    color: var(--states-on-error);
-  }
-  &.color-on-error {
-    background-color: var(--states-on-error);
-    color: var(--states-error);
-  }
-  &.color-error-container {
-    background-color: var(--states-error-container);
-    color: var(--states-on-error-container);
-  }
-  &.color-on-error-container {
-    background-color: var(--states-on-error-container);
-    color: var(--states-error-container);
-  }
-  &.color-warning {
-    background-color: var(--states-warning);
-    color: var(--states-on-warning);
-  }
-  &.color-on-warning {
-    background-color: var(--states-on-warning);
-    color: var(--states-warning);
-  }
-  &.color-warning-container {
-    background-color: var(--states-warning-container);
-    color: var(--states-on-warning-container);
-  }
-  &.color-on-warning-container {
-    background-color: var(--states-on-warning-container);
-    color: var(--states-warning-container);
-  }
-  &.color-success {
-    background-color: var(--states-success);
-    color: var(--states-on-success);
-  }
-  &.color-on-success {
-    background-color: var(--states-on-success);
-    color: var(--states-success);
-  }
-  &.color-success-container {
-    background-color: var(--states-success-container);
-    color: var(--states-on-success-container);
-  }
-  &.color-on-success-container {
-    background-color: var(--states-on-success-container);
-    color: var(--states-success-container);
-  }
-  &.color-alert {
-    background-color: var(--states-alert);
-    color: var(--states-on-alert);
-  }
-  &.color-on-alert {
-    background-color: var(--states-on-alert);
-    color: var(--states-alert);
-  }
-  &.color-alert-container {
-    background-color: var(--states-alert-container);
-    color: var(--states-on-alert-container);
-  }
-  &.color-on-alert-container {
-    background-color: var(--states-on-alert-container);
-    color: var(--states-alert-container);
-  }
-  &.color-transparent {
-    background-color: transparent;
-    color: transparent;
-  }
-}
-@mixin container-color-hover {
-  /* default hover color */
-
-  &.hover-color-transparent {
-    &.color-primary:hover {
-      background-color: var(--primary-container);
-      color: var(--on-primary-container);
-    }
-    &.color-on-primary:hover {
-      background-color: var(--on-primary-container);
-      color: var(--primary-container);
-    }
-    &.color-primary-container:hover {
-      background-color: var(--primary);
-      color: var(--on-primary);
-    }
-    &.color-on-primary-container:hover {
-      background-color: var(--on-primary);
-      color: var(--primary);
-    }
-    &.color-secondary:hover {
-      background-color: var(--secondary-container);
-      color: var(--on-secondary-container);
-    }
-    &.color-on-secondary:hover {
-      background-color: var(--on-secondary-container);
-      color: var(--secondary-container);
-    }
-    &.color-secondary-container:hover {
-      background-color: var(--secondary);
-      color: var(--on-secondary);
-    }
-    &.color-on-secondary-container:hover {
-      background-color: var(--on-secondary);
-      color: var(--secondary);
-    }
-    &.color-tertiary:hover {
-      background-color: var(--tertiary-container);
-      color: var(--on-tertiary-container);
-    }
-    &.color-on-tertiary:hover {
-      background-color: var(--on-tertiary-container);
-      color: var(--tertiary-container);
-    }
-    &.color-tertiary-container:hover {
-      background-color: var(--tertiary);
-      color: var(--on-tertiary);
-    }
-    &.color-on-tertiary-container:hover {
-      background-color: var(--on-tertiary);
-      color: var(--tertiary);
-    }
-    &.color-neutral:hover {
-      background-color: var(--neutral-surface-container-03);
-      color: var(--neutral-on-surface-variant);
-    }
-    &.color-on-neutral:hover {
-      background-color: var(--neutral-on-surface-variant);
-      color: var(--neutral-surface-container-03);
-    }
-    &.color-on-neutral-variant:hover {
-      background-color: var(--neutral-on-surface);
-      color: var(--neutral-surface);
-    }
-    &.color-neutral-container-01:hover {
-      background-color: var(--neutral-surface);
-      color: var(--neutral-on-surface);
-    }
-    &.color-neutral-container-02:hover {
-      background-color: var(--neutral-surface);
-      color: var(--neutral-on-surface);
-    }
-    &.color-neutral-container-03:hover {
-      background-color: var(--neutral-surface);
-      color: var(--neutral-on-surface);
-    }
-    &.color-neutral-container-04:hover {
-      background-color: var(--neutral-surface);
-      color: var(--neutral-on-surface);
-    }
-    &.color-neutral-container-05:hover {
-      background-color: var(--neutral-surface);
-      color: var(--neutral-on-surface);
-    }
-    &.color-error:hover {
-      background-color: var(--states-error-container);
-      color: var(--states-on-error-container);
-    }
-    &.color-on-error:hover {
-      background-color: var(--states-on-error-container);
-      color: var(--states-error-container);
-    }
-    &.color-error-container:hover {
-      background-color: var(--states-error);
-      color: var(--states-on-error);
-    }
-    &.color-on-error-container:hover {
-      background-color: var(--states-on-error);
-      color: var(--states-error);
-    }
-    &.color-warning:hover {
-      background-color: var(--states-warning-container);
-      color: var(--states-on-warning-container);
-    }
-    &.color-on-warning:hover {
-      background-color: var(--states-on-warning-container);
-      color: var(--states-warning-container);
-    }
-    &.color-warning-container:hover {
-      background-color: var(--states-warning);
-      color: var(--states-on-warning);
-    }
-    &.color-on-warning-container:hover {
-      background-color: var(--states-on-warning);
-      color: var(--states-warning);
-    }
-    &.color-success:hover {
-      background-color: var(--states-success-container);
-      color: var(--states-on-success-container);
-    }
-    &.color-on-success:hover {
-      background-color: var(--states-on-success-container);
-      color: var(--states-success-container);
-    }
-    &.color-success-container:hover {
-      background-color: var(--states-success);
-      color: var(--states-on-success);
-    }
-    &.color-on-success-container:hover {
-      background-color: var(--states-on-success);
-      color: var(--states-success);
-    }
-    &.color-alert:hover {
-      background-color: var(--states-alert-container);
-      color: var(--states-on-alert-container);
-    }
-    &.color-on-alert:hover {
-      background-color: var(--states-on-alert-container);
-      color: var(--states-alert-container);
-    }
-    &.color-alert-container:hover {
-      background-color: var(--states-alert);
-      color: var(--states-on-alert);
-    }
-    &.color-on-alert-container:hover {
-      background-color: var(--states-on-alert);
-      color: var(--states-alert);
-    }
-  }
-
-  /* optional hover color */
-
-  &.hover-color-primary:hover {
-    background-color: var(--primary);
-    color: var(--on-primary);
-  }
-  &.hover-color-on-primary:hover {
-    background-color: var(--on-primary);
-    color: var(--primary);
-  }
-  &.hover-color-primary-container:hover {
-    background-color: var(--primary-container);
-    color: var(--on-primary-container);
-  }
-  &.hover-color-on-primary-container:hover {
-    background-color: var(--on-primary-container);
-    color: var(--primary-container);
-  }
-  &.hover-color-secondary:hover {
-    background-color: var(--secondary);
-    color: var(--on-secondary);
-  }
-  &.hover-color-on-secondary:hover {
-    background-color: var(--on-secondary);
-    color: var(--secondary);
-  }
-  &.hover-color-secondary-container:hover {
-    background-color: var(--secondary-container);
-    color: var(--on-secondary-container);
-  }
-  &.hover-color-on-secondary-container:hover {
-    background-color: var(--on-secondary-container);
-    color: var(--secondary-container);
-  }
-  &.hover-color-tertiary:hover {
-    background-color: var(--tertiary);
-    color: var(--on-tertiary);
-  }
-  &.hover-color-on-tertiary:hover {
-    background-color: var(--on-tertiary);
-    color: var(--tertiary);
-  }
-  &.hover-color-tertiary-container:hover {
-    background-color: var(--tertiary-container);
-    color: var(--on-tertiary-container);
-  }
-  &.hover-color-on-tertiary-container:hover {
-    background-color: var(--on-tertiary-container);
-    color: var(--tertiary-container);
-  }
-  &.hover-color-neutral:hover {
-    background-color: var(--neutral-surface);
-    color: var(--neutral-on-surface);
-  }
-  &.hover-color-on-neutral:hover {
-    background-color: var(--neutral-on-surface);
-    color: var(--neutral-surface);
-  }
-  &.hover-color-on-neutral-variant:hover {
-    background-color: var(--neutral-on-surface-variant);
-    color: var(--neutral-surface-container-03);
-  }
-  &.hover-color-neutral-container-01:hover {
-    background-color: var(--neutral-surface-container-01);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-neutral-container-02:hover {
-    background-color: var(--neutral-surface-container-02);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-neutral-container-03:hover {
-    background-color: var(--neutral-surface-container-03);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-neutral-container-04:hover {
-    background-color: var(--neutral-surface-container-04);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-neutral-container-05:hover {
-    background-color: var(--neutral-surface-container-05);
-    color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-error:hover {
-    background-color: var(--states-error);
-    color: var(--states-on-error);
-  }
-  &.hover-color-on-error:hover {
-    background-color: var(--states-on-error);
-    color: var(--states-error);
-  }
-  &.hover-color-error-container:hover {
-    background-color: var(--states-error-container);
-    color: var(--states-on-error-container);
-  }
-  &.hover-color-on-error-container:hover {
-    background-color: var(--states-on-error-container);
-    color: var(--states-error-container);
-  }
-  &.hover-color-warning:hover {
-    background-color: var(--states-warning);
-    color: var(--states-on-warning);
-  }
-  &.hover-color-on-warning:hover {
-    background-color: var(--states-on-warning);
-    color: var(--states-warning);
-  }
-  &.hover-color-warning-container:hover {
-    background-color: var(--states-warning-container);
-    color: var(--states-on-warning-container);
-  }
-  &.hover-color-on-warning-container:hover {
-    background-color: var(--states-on-warning-container);
-    color: var(--states-warning-container);
-  }
-  &.hover-color-success:hover {
-    background-color: var(--states-success);
-    color: var(--states-on-success);
-  }
-  &.hover-color-on-success:hover {
-    background-color: var(--states-on-success);
-    color: var(--states-success);
-  }
-  &.hover-color-success-container:hover {
-    background-color: var(--states-success-container);
-    color: var(--states-on-success-container);
-  }
-  &.hover-color-on-success-container:hover {
-    background-color: var(--states-on-success-container);
-    color: var(--states-success-container);
-  }
-  &.hover-color-alert:hover {
-    background-color: var(--states-alert);
-    color: var(--states-on-alert);
-  }
-  &.hover-color-on-alert:hover {
-    background-color: var(--states-on-alert);
-    color: var(--states-alert);
-  }
-  &.hover-color-alert-container:hover {
-    background-color: var(--states-alert-container);
-    color: var(--states-on-alert-container);
-  }
-  &.hover-color-on-alert-container:hover {
-    background-color: var(--states-on-alert-container);
-    color: var(--states-alert-container);
-  }
-}
-@mixin border-color {
-  &.color-primary {
-    border-color: var(--primary);
-  }
-  &.color-on-primary {
-    border-color: var(--on-primary);
-  }
-  &.color-primary-container {
-    border-color: var(--primary-container);
-  }
-  &.color-on-primary-container {
-    border-color: var(--on-primary-container);
-  }
-  &.color-secondary {
-    border-color: var(--secondary);
-  }
-  &.color-on-secondary {
-    border-color: var(--on-secondary);
-  }
-  &.color-secondary-container {
-    border-color: var(--secondary-container);
-  }
-  &.color-on-secondary-container {
-    border-color: var(--on-secondary-container);
-  }
-  &.color-tertiary {
-    border-color: var(--tertiary);
-  }
-  &.color-on-tertiary {
-    border-color: var(--on-tertiary);
-  }
-  &.color-tertiary-container {
-    border-color: var(--tertiary-container);
-  }
-  &.color-on-tertiary-container {
-    border-color: var(--on-tertiary-container);
-  }
-  &.color-neutral {
-    border-color: var(--neutral-surface);
-  }
-  &.color-on-neutral {
-    border-color: var(--neutral-on-surface);
-  }
-  &.color-on-neutral-variant {
-    border-color: var(--neutral-on-surface-variant);
-  }
-  &.color-neutral-container-01 {
-    border-color: var(--neutral-surface-container-01);
-  }
-  &.color-neutral-container-02 {
-    border-color: var(--neutral-surface-container-02);
-  }
-  &.color-neutral-container-03 {
-    border-color: var(--neutral-surface-container-03);
-  }
-  &.color-neutral-container-04 {
-    border-color: var(--neutral-surface-container-04);
-  }
-  &.color-neutral-container-05 {
-    border-color: var(--neutral-surface-container-05);
-  }
-  &.color-neutral-outline {
-    border-color: var(--neutral-outline);
-  }
-  &.color-neutral-outline-variant {
-    border-color: var(--neutral-outline-variant);
-  }
-  &.color-neutral-scrim {
-    border-color: var(--neutral-scrim);
-  }
-  &.color-error {
-    border-color: var(--states-error);
-  }
-  &.color-on-error {
-    border-color: var(--states-on-error);
-  }
-  &.color-error-container {
-    border-color: var(--states-error-container);
-  }
-  &.color-on-error-container {
-    border-color: var(--states-on-error-container);
-  }
-  &.color-warning {
-    border-color: var(--states-warning);
-  }
-  &.color-on-warning {
-    border-color: var(--states-on-warning);
-  }
-  &.color-warning-container {
-    border-color: var(--states-warning-container);
-  }
-  &.color-on-warning-container {
-    border-color: var(--states-on-warning-container);
-  }
-  &.color-success {
-    border-color: var(--states-success);
-  }
-  &.color-on-success {
-    border-color: var(--states-on-success);
-  }
-  &.color-success-container {
-    border-color: var(--states-success-container);
-  }
-  &.color-on-success-container {
-    border-color: var(--states-on-success-container);
-  }
-  &.color-alert {
-    border-color: var(--states-alert);
-  }
-  &.color-on-alert {
-    border-color: var(--states-on-alert);
-  }
-  &.color-alert-container {
-    border-color: var(--states-alert-container);
-  }
-  &.color-on-alert-container {
-    border-color: var(--states-on-alert-container);
-  }
-  &.color-inherit {
-    border-color: inherit;
-  }
-}
-@mixin border-color-hover {
-  /* default hover color */
-
-  &.hover-color-inherit,
-  &.hover-color-transparent {
-    &.color-primary:hover {
-      border-color: var(--primary-container);
-    }
-    &.color-on-primary:hover {
-      border-color: var(--on-primary-container);
-    }
-    &.color-primary-container:hover {
-      border-color: var(--primary);
-    }
-    &.color-on-primary-container:hover {
-      border-color: var(--on-primary);
-    }
-    &.color-secondary:hover {
-      border-color: var(--secondary-container);
-    }
-    &.color-on-secondary:hover {
-      border-color: var(--on-secondary-container);
-    }
-    &.color-secondary-container:hover {
-      border-color: var(--secondary);
-    }
-    &.color-on-secondary-container:hover {
-      border-color: var(--on-secondary);
-    }
-    &.color-tertiary:hover {
-      border-color: var(--tertiary-container);
-    }
-    &.color-on-tertiary:hover {
-      border-color: var(--on-tertiary-container);
-    }
-    &.color-tertiary-container:hover {
-      border-color: var(--tertiary);
-    }
-    &.color-on-tertiary-container:hover {
-      border-color: var(--on-tertiary);
-    }
-    &.color-neutral:hover {
-      border-color: var(--neutral-surface-container-03);
-    }
-    &.color-on-neutral:hover {
-      border-color: var(--neutral-on-surface-variant);
-    }
-    &.color-on-neutral-variant:hover {
-      border-color: var(--neutral-on-surface);
-    }
-    &.color-neutral-container-01:hover {
-      border-color: var(--neutral-surface);
-    }
-    &.color-neutral-container-02:hover {
-      border-color: var(--neutral-surface);
-    }
-    &.color-neutral-container-03:hover {
-      border-color: var(--neutral-surface);
-    }
-    &.color-neutral-container-04:hover {
-      border-color: var(--neutral-surface);
-    }
-    &.color-neutral-container-05:hover {
-      border-color: var(--neutral-surface);
-    }
-    &.color-neutral-outline:hover {
-      border-color: var(--neutral-outline-variant);
-    }
-    &.color-neutral-outline-variant:hover {
-      border-color: var(--neutral-outline);
-    }
-    &.color-neutral-scrim:hover {
-      border-color: var(--neutral-outline-variant);
-    }
-    &.color-error:hover {
-      border-color: var(--states-error-container);
-    }
-    &.color-on-error:hover {
-      border-color: var(--states-on-error-container);
-    }
-    &.color-error-container:hover {
-      border-color: var(--states-error);
-    }
-    &.color-on-error-container:hover {
-      border-color: var(--states-on-error);
-    }
-    &.color-warning:hover {
-      border-color: var(--states-warning-container);
-    }
-    &.color-on-warning:hover {
-      border-color: var(--states-on-warning-container);
-    }
-    &.color-waring-container:hover {
-      border-color: var(--states-warning);
-    }
-    &.color-on-warning-container:hover {
-      border-color: var(--states-on-warning);
-    }
-    &.color-success:hover {
-      border-color: var(--states-success-container);
-    }
-    &.color-on-success:hover {
-      border-color: var(--states-on-success-container);
-    }
-    &.color-success-container:hover {
-      border-color: var(--states-success);
-    }
-    &.color-on-success-container:hover {
-      border-color: var(--states-on-success);
-    }
-    &.color-alert:hover {
-      border-color: var(--states-alert-container);
-    }
-    &.color-on-alert:hover {
-      border-color: var(--states-on-alert-container);
-    }
-    &.color-alert-container:hover {
-      border-color: var(--states-alert);
-    }
-    &.color-on-alert-container:hover {
-      border-color: var(--states-on-alert);
-    }
-  }
-
-  /* optional hover color */
-  &.hover-color-primary:hover {
-    border-color: var(--primary);
-  }
-  &.hover-color-on-primary:hover {
-    border-color: var(--on-primary);
-  }
-  &.hover-color-primary-container:hover {
-    border-color: var(--primary-container);
-  }
-  &.hover-color-on-primary-container:hover {
-    border-color: var(--on-primary-container);
-  }
-  &.hover-color-secondary:hover {
-    border-color: var(--secondary);
-  }
-  &.hover-color-on-secondary:hover {
-    border-color: var(--on-secondary);
-  }
-  &.hover-color-secondary-container:hover {
-    border-color: var(--secondary-container);
-  }
-  &.hover-color-on-secondary-container:hover {
-    border-color: var(--on-secondary-container);
-  }
-  &.hover-color-tertiary:hover {
-    border-color: var(--tertiary);
-  }
-  &.hover-color-on-tertiary:hover {
-    border-color: var(--on-tertiary);
-  }
-  &.hover-color-tertiary-container:hover {
-    border-color: var(--tertiary-container);
-  }
-  &.hover-color-on-tertiary-container:hover {
-    border-color: var(--on-tertiary-container);
-  }
-  &.hover-color-neutral:hover {
-    border-color: var(--neutral-surface);
-  }
-  &.hover-color-on-neutral:hover {
-    border-color: var(--neutral-on-surface);
-  }
-  &.hover-color-on-neutral-variant:hover {
-    border-color: var(--neutral-on-surface-variant);
-  }
-  &.hover-color-neutral-container-01:hover {
-    border-color: var(--neutral-surface-container-01);
-  }
-  &.hover-color-neutral-container-02:hover {
-    border-color: var(--neutral-surface-container-02);
-  }
-  &.hover-color-neutral-container-03:hover {
-    border-color: var(--neutral-surface-container-03);
-  }
-  &.hover-color-neutral-container-04:hover {
-    border-color: var(--neutral-surface-container-04);
-  }
-  &.hover-color-neutral-container-05:hover {
-    border-color: var(--neutral-surface-container-05);
-  }
-  &.hover-color-neutral-outline:hover {
-    border-color: var(--neutral-outline);
-  }
-  &.hover-color-neutral-outline-variant:hover {
-    border-color: var(--neutral-outline-variant);
-  }
-  &.hover-color-neutral-scrim:hover {
-    border-color: var(--neutral-scrim);
-  }
-  &.hover-color-error:hover {
-    border-color: var(--states-error);
-  }
-  &.hover-color-on-error:hover {
-    border-color: var(--states-on-error);
-  }
-  &.hover-color-error-container:hover {
-    border-color: var(--states-error-container);
-  }
-  &.hover-color-on-error-container:hover {
-    border-color: var(--states-on-error-container);
-  }
-  &.hover-color-warning:hover {
-    border-color: var(--states-warning);
-  }
-  &.hover-color-on-warning:hover {
-    border-color: var(--states-on-warning);
-  }
-  &.hover-color-warning-container:hover {
-    border-color: var(--states-warning-container);
-  }
-  &.hover-color-on-warning-container:hover {
-    border-color: var(--states-on-warning-container);
-  }
-  &.hover-color-success:hover {
-    border-color: var(--states-success);
-  }
-  &.hover-color-on-success:hover {
-    border-color: var(--states-on-success);
-  }
-  &.hover-color-success-container:hover {
-    border-color: var(--states-success-container);
-  }
-  &.hover-color-on-success-container:hover {
-    border-color: var(--states-on-success-container);
-  }
-  &.hover-color-alert:hover {
-    border-color: var(--states-alert);
-  }
-  &.hover-color-on-alert:hover {
-    border-color: var(--states-on-alert);
-  }
-  &.hover-color-alert-container:hover {
-    border-color: var(--states-alert-container);
-  }
-  &.hover-color-on-alert-container:hover {
-    border-color: var(--states-on-alert-container);
-  }
-}
-
-/* border */
-@mixin border {
-  /* border-style */
-  &.border-style-solid {
-    border-style: solid;
-  }
-  &.border-style-dashed {
-    border-style: dashed;
-  }
-  &.border-style-dotted {
-    border-style: dotted;
-  }
-  &.border-style-double {
-    border-style: double;
-  }
-  &.border-style-groove {
-    border-style: groove;
-  }
-  &.border-style-ridge {
-    border-style: ridge;
-  }
-  &.border-style-none {
-    border-style: none;
-  }
-  &.border-style-hidden {
-    border-style: hidden;
-  }
-
-  /* border-width */
-
-  &.border-width-0 {
-    border-width: var(--bw-0);
-  }
-  &.border-width-0-eighth {
-    border-width: var(--bw-0-eighth);
-  }
-  &.border-width-0-quarter {
-    border-width: var(--bw-0-quarter);
-  }
-  &.border-width-0-half {
-    border-width: var(--bw-0-half);
-  }
-
-  /* border-color */
-  &.border-color-primary {
-    border-color: var(--primary);
-  }
-  &.border-color-on-primary {
-    border-color: var(--on-primary);
-  }
-  &.border-color-primary-container {
-    border-color: var(--primary-container);
-  }
-  &.border-color-on-primary-container {
-    border-color: var(--on-primary-container);
-  }
-  &.border-color-secondary {
-    border-color: var(--secondary);
-  }
-  &.border-color-on-secondary {
-    border-color: var(--on-secondary);
-  }
-  &.border-color-secondary-container {
-    border-color: var(--secondary-container);
-  }
-  &.border-color-on-secondary-container {
-    border-color: var(--on-secondary-container);
-  }
-  &.border-color-tertiary {
-    border-color: var(--tertiary);
-  }
-  &.border-color-on-tertiary {
-    border-color: var(--on-tertiary);
-  }
-  &.border-color-tertiary-container {
-    border-color: var(--tertiary-container);
-  }
-  &.border-color-on-tertiary-container {
-    border-color: var(--on-tertiary-container);
-  }
-  &.border-color-success {
-    border-color: var(--success);
-  }
-  &.border-color-on-success {
-    border-color: var(--on-success);
-  }
-  &.border-color-success-container {
-    border-color: var(--success-container);
-  }
-  &.border-color-on-success-container {
-    border-color: var(--on-success-container);
-  }
-  &.border-color-error {
-    border-color: var(--error);
-  }
-  &.border-color-on-error {
-    border-color: var(--on-error);
-  }
-  &.border-color-error-container {
-    border-color: var(--error-container);
-  }
-  &.border-color-on-error-container {
-    border-color: var(--on-error-container);
-  }
-  &.border-color-warning {
-    border-color: var(--warning);
-  }
-  &.border-color-on-warning {
-    border-color: var(--on-warning);
-  }
-  &.border-color-warning-container {
-    border-color: var(--warning-container);
-  }
-  &.border-color-on-warning-container {
-    border-color: var(--on-warning-container);
-  }
-  &.border-color-alert {
-    border-color: var(--alert);
-  }
-  &.border-color-on-alert {
-    border-color: var(--on-alert);
-  }
-  &.border-color-alert-container {
-    border-color: var(--alert-container);
-  }
-  &.border-color-on-alert-container {
-    border-color: var(--on-alert-container);
-  }
-  &.border-color-neutral {
-    border-color: var(--neutral-surface);
-  }
-  &.border-color-on-neutral {
-    border-color: var(--neutral-on-surface);
-  }
-  &.border-color-on-neutral-variant {
-    border-color: var(--neutral-on-surface-variant);
-  }
-  &.border-color-neutral-container-01 {
-    border-color: var(--neutral-surface-container-01);
-  }
-  &.border-color-neutral-container-02 {
-    border-color: var(--neutral-surface-container-02);
-  }
-  &.border-color-neutral-container-03 {
-    border-color: var(--neutral-surface-container-03);
-  }
-  &.border-color-neutral-container-04 {
-    border-color: var(--neutral-surface-container-04);
-  }
-  &.border-color-neutral-container-05 {
-    border-color: var(--neutral-surface-container-05);
-  }
-  &.border-color-neutral-outline {
-    border-color: var(--neutral-outline);
-  }
-  &.border-color-neutral-outline-variant {
-    border-color: var(--neutral-outline-variant);
-  }
-  &.border-color-neutral-scrim {
-    border-color: var(--neutral-scrim);
-  }
-
-  /* border-top */
-
-  /* border-top-style */
-  &.border-top-style-solid {
-    border-top-style: solid;
-  }
-  &.border-top-style-dashed {
-    border-top-style: dashed;
-  }
-  &.border-top-style-dotted {
-    border-top-style: dotted;
-  }
-  &.border-top-style-double {
-    border-top-style: double;
-  }
-  &.border-top-style-groove {
-    border-top-style: groove;
-  }
-  &.border-top-style-ridge {
-    border-top-style: ridge;
-  }
-  &.border-top-style-none {
-    border-top-style: none;
-  }
-  &.border-top-style-hidden {
-    border-top-style: hidden;
-  }
-
-  /* border-top-width */
-  &.border-top-width-0 {
-    border-top-width: var(--bw-0);
-  }
-  &.border-top-width-0-eighth {
-    border-top-width: var(--bw-0-eighth);
-  }
-  &.border-top-width-0-quarter {
-    border-top-width: var(--bw-0-quarter);
-  }
-  &.border-top-width-0-half {
-    border-top-width: var(--bw-0-half);
-  }
-
-  /* border-top-color */
-  &.border-top-color-primary {
-    border-top-color: var(--primary);
-  }
-  &.border-top-color-on-primary {
-    border-top-color: var(--on-primary);
-  }
-  &.border-top-color-primary-container {
-    border-top-color: var(--primary-container);
-  }
-  &.border-top-color-on-primary-container {
-    border-top-color: var(--on-primary-container);
-  }
-  &.border-top-color-secondary {
-    border-top-color: var(--secondary);
-  }
-  &.border-top-color-on-secondary {
-    border-top-color: var(--on-secondary);
-  }
-  &.border-top-color-secondary-container {
-    border-top-color: var(--secondary-container);
-  }
-  &.border-top-color-on-secondary-container {
-    border-top-color: var(--on-secondary-container);
-  }
-  &.border-top-color-tertiary {
-    border-top-color: var(--tertiary);
-  }
-  &.border-top-color-on-tertiary {
-    border-top-color: var(--on-tertiary);
-  }
-  &.border-top-color-tertiary-container {
-    border-top-color: var(--tertiary-container);
-  }
-  &.border-top-color-on-tertiary-container {
-    border-top-color: var(--on-tertiary-container);
-  }
-  &.border-top-color-success {
-    border-top-color: var(--success);
-  }
-  &.border-top-color-on-success {
-    border-top-color: var(--on-success);
-  }
-  &.border-top-color-success-container {
-    border-top-color: var(--success-container);
-  }
-  &.border-top-color-on-success-container {
-    border-top-color: var(--on-success-container);
-  }
-  &.border-top-color-error {
-    border-top-color: var(--error);
-  }
-  &.border-top-color-on-error {
-    border-top-color: var(--on-error);
-  }
-  &.border-top-color-error-container {
-    border-top-color: var(--error-container);
-  }
-  &.border-top-color-on-error-container {
-    border-top-color: var(--on-error-container);
-  }
-  &.border-top-color-warning {
-    border-top-color: var(--warning);
-  }
-  &.border-top-color-on-warning {
-    border-top-color: var(--on-warning);
-  }
-  &.border-top-color-warning-container {
-    border-top-color: var(--warning-container);
-  }
-  &.border-top-color-on-warning-container {
-    border-top-color: var(--on-warning-container);
-  }
-  &.border-top-color-alert {
-    border-top-color: var(--alert);
-  }
-  &.border-top-color-on-alert {
-    border-top-color: var(--on-alert);
-  }
-  &.border-top-color-alert-container {
-    border-top-color: var(--alert-container);
-  }
-  &.border-top-color-on-alert-container {
-    border-top-color: var(--on-alert-container);
-  }
-  &.border-top-color-neutral {
-    border-top-color: var(--neutral-surface);
-  }
-  &.border-top-color-on-neutral {
-    border-top-color: var(--neutral-on-surface);
-  }
-  &.border-top-color-on-neutral-variant {
-    border-top-color: var(--neutral-on-surface-variant);
-  }
-  &.border-top-color-neutral-container-01 {
-    border-top-color: var(--neutral-surface-container-01);
-  }
-  &.border-top-color-neutral-container-02 {
-    border-top-color: var(--neutral-surface-container-02);
-  }
-  &.border-top-color-neutral-container-03 {
-    border-top-color: var(--neutral-surface-container-03);
-  }
-  &.border-top-color-neutral-container-04 {
-    border-top-color: var(--neutral-surface-container-04);
-  }
-  &.border-top-color-neutral-container-05 {
-    border-top-color: var(--neutral-surface-container-05);
-  }
-  &.border-top-color-neutral-outline {
-    border-top-color: var(--neutral-outline);
-  }
-  &.border-top-color-neutral-outline-variant {
-    border-top-color: var(--neutral-outline-variant);
-  }
-  &.border-top-color-neutral-scrim {
-    border-top-color: var(--neutral-scrim);
-  }
-
-  /* border-right */
-
-  /* border-right-style */
-  &.border-right-style-solid {
-    border-right-style: solid;
-  }
-  &.border-right-style-dashed {
-    border-right-style: dashed;
-  }
-  &.border-right-style-dotted {
-    border-right-style: dotted;
-  }
-  &.border-right-style-double {
-    border-right-style: double;
-  }
-  &.border-right-style-groove {
-    border-right-style: groove;
-  }
-  &.border-right-style-ridge {
-    border-right-style: ridge;
-  }
-  &.border-right-style-none {
-    border-right-style: none;
-  }
-  &.border-right-style-hidden {
-    border-right-style: hidden;
-  }
-
-  /* border-right-width */
-
-  &.border-right-width-0 {
-    border-right-width: var(--bw-0);
-  }
-  &.border-right-width-0-eighth {
-    border-right-width: var(--bw-0-eighth);
-  }
-  &.border-right-width-0-quarter {
-    border-right-width: var(--bw-0-quarter);
-  }
-  &.border-right-width-0-half {
-    border-right-width: var(--bw-0-half);
-  }
-
-  /* border-right-color */
-
-  &.border-right-color-primary {
-    border-right-color: var(--primary);
-  }
-  &.border-right-color-on-primary {
-    border-right-color: var(--on-primary);
-  }
-  &.border-right-color-primary-container {
-    border-right-color: var(--primary-container);
-  }
-  &.border-right-color-on-primary-container {
-    border-right-color: var(--on-primary-container);
-  }
-  &.border-right-color-secondary {
-    border-right-color: var(--secondary);
-  }
-  &.border-right-color-on-secondary {
-    border-right-color: var(--on-secondary);
-  }
-  &.border-right-color-secondary-container {
-    border-right-color: var(--secondary-container);
-  }
-  &.border-right-color-on-secondary-container {
-    border-right-color: var(--on-secondary-container);
-  }
-  &.border-right-color-tertiary {
-    border-right-color: var(--tertiary);
-  }
-  &.border-right-color-on-tertiary {
-    border-right-color: var(--on-tertiary);
-  }
-  &.border-right-color-tertiary-container {
-    border-right-color: var(--tertiary-container);
-  }
-  &.border-right-color-on-tertiary-container {
-    border-right-color: var(--on-tertiary-container);
-  }
-  &.border-right-color-success {
-    border-right-color: var(--success);
-  }
-  &.border-right-color-on-success {
-    border-right-color: var(--on-success);
-  }
-  &.border-right-color-success-container {
-    border-right-color: var(--success-container);
-  }
-  &.border-right-color-on-success-container {
-    border-right-color: var(--on-success-container);
-  }
-  &.border-right-color-error {
-    border-right-color: var(--error);
-  }
-  &.border-right-color-on-error {
-    border-right-color: var(--on-error);
-  }
-  &.border-right-color-error-container {
-    border-right-color: var(--error-container);
-  }
-  &.border-right-color-on-error-container {
-    border-right-color: var(--on-error-container);
-  }
-  &.border-right-color-warning {
-    border-right-color: var(--warning);
-  }
-  &.border-right-color-on-warning {
-    border-right-color: var(--on-warning);
-  }
-  &.border-right-color-warning-container {
-    border-right-color: var(--warning-container);
-  }
-  &.border-right-color-on-warning-container {
-    border-right-color: var(--on-warning-container);
-  }
-  &.border-right-color-alert {
-    border-right-color: var(--alert);
-  }
-  &.border-right-color-on-alert {
-    border-right-color: var(--on-alert);
-  }
-  &.border-right-color-alert-container {
-    border-right-color: var(--alert-container);
-  }
-  &.border-right-color-on-alert-container {
-    border-right-color: var(--on-alert-container);
-  }
-  &.border-right-color-neutral {
-    border-right-color: var(--neutral-surface);
-  }
-  &.border-right-color-on-neutral {
-    border-right-color: var(--neutral-on-surface);
-  }
-  &.border-right-color-on-neutral-variant {
-    border-right-color: var(--neutral-on-surface-variant);
-  }
-  &.border-right-color-neutral-container-01 {
-    border-right-color: var(--neutral-surface-container-01);
-  }
-  &.border-right-color-neutral-container-02 {
-    border-right-color: var(--neutral-surface-container-02);
-  }
-  &.border-right-color-neutral-container-03 {
-    border-right-color: var(--neutral-surface-container-03);
-  }
-  &.border-right-color-neutral-container-04 {
-    border-right-color: var(--neutral-surface-container-04);
-  }
-  &.border-right-color-neutral-container-05 {
-    border-right-color: var(--neutral-surface-container-05);
-  }
-  &.border-right-color-neutral-outline {
-    border-right-color: var(--neutral-outline);
-  }
-  &.border-right-color-neutral-outline-variant {
-    border-right-color: var(--neutral-outline-variant);
-  }
-  &.border-right-color-neutral-scrim {
-    border-right-color: var(--neutral-scrim);
-  }
-
-  /* border-bottom */
-
-  /* border-bottom-style */
-  &.border-bottom-style-solid {
-    border-bottom-style: solid;
-  }
-  &.border-bottom-style-dashed {
-    border-bottom-style: dashed;
-  }
-  &.border-bottom-style-dotted {
-    border-bottom-style: dotted;
-  }
-  &.border-bottom-style-double {
-    border-bottom-style: double;
-  }
-  &.border-bottom-style-groove {
-    border-bottom-style: groove;
-  }
-  &.border-bottom-style-ridge {
-    border-bottom-style: ridge;
-  }
-  &.border-bottom-style-none {
-    border-bottom-style: none;
-  }
-  &.border-bottom-style-hidden {
-    border-bottom-style: hidden;
-  }
-
-  /* border-bottom-width */
-
-  &.border-bottom-width-0 {
-    border-bottom-width: var(--bw-0);
-  }
-  &.border-bottom-width-0-eighth {
-    border-bottom-width: var(--bw-0-eighth);
-  }
-  &.border-bottom-width-0-quarter {
-    border-bottom-width: var(--bw-0-quarter);
-  }
-  &.border-bottom-width-0-half {
-    border-bottom-width: var(--bw-0-half);
-  }
-
-  /* border-bottom-color */
-
-  &.border-bottom-color-primary {
-    border-bottom-color: var(--primary);
-  }
-  &.border-bottom-color-on-primary {
-    border-bottom-color: var(--on-primary);
-  }
-  &.border-bottom-color-primary-container {
-    border-bottom-color: var(--primary-container);
-  }
-  &.border-bottom-color-on-primary-container {
-    border-bottom-color: var(--on-primary-container);
-  }
-  &.border-bottom-color-secondary {
-    border-bottom-color: var(--secondary);
-  }
-  &.border-bottom-color-on-secondary {
-    border-bottom-color: var(--on-secondary);
-  }
-  &.border-bottom-color-secondary-container {
-    border-bottom-color: var(--secondary-container);
-  }
-  &.border-bottom-color-on-secondary-container {
-    border-bottom-color: var(--on-secondary-container);
-  }
-  &.border-bottom-color-tertiary {
-    border-bottom-color: var(--tertiary);
-  }
-  &.border-bottom-color-on-tertiary {
-    border-bottom-color: var(--on-tertiary);
-  }
-  &.border-bottom-color-tertiary-container {
-    border-bottom-color: var(--tertiary-container);
-  }
-  &.border-bottom-color-on-tertiary-container {
-    border-bottom-color: var(--on-tertiary-container);
-  }
-  &.border-bottom-color-success {
-    border-bottom-color: var(--success);
-  }
-  &.border-bottom-color-on-success {
-    border-bottom-color: var(--on-success);
-  }
-  &.border-bottom-color-success-container {
-    border-bottom-color: var(--success-container);
-  }
-  &.border-bottom-color-on-success-container {
-    border-bottom-color: var(--on-success-container);
-  }
-  &.border-bottom-color-error {
-    border-bottom-color: var(--error);
-  }
-  &.border-bottom-color-on-error {
-    border-bottom-color: var(--on-error);
-  }
-  &.border-bottom-color-error-container {
-    border-bottom-color: var(--error-container);
-  }
-  &.border-bottom-color-on-error-container {
-    border-bottom-color: var(--on-error-container);
-  }
-  &.border-bottom-color-warning {
-    border-bottom-color: var(--warning);
-  }
-  &.border-bottom-color-on-warning {
-    border-bottom-color: var(--on-warning);
-  }
-  &.border-bottom-color-warning-container {
-    border-bottom-color: var(--warning-container);
-  }
-  &.border-bottom-color-on-warning-container {
-    border-bottom-color: var(--on-warning-container);
-  }
-  &.border-bottom-color-alert {
-    border-bottom-color: var(--alert);
-  }
-  &.border-bottom-color-on-alert {
-    border-bottom-color: var(--on-alert);
-  }
-  &.border-bottom-color-alert-container {
-    border-bottom-color: var(--alert-container);
-  }
-  &.border-bottom-color-on-alert-container {
-    border-bottom-color: var(--on-alert-container);
-  }
-  &.border-bottom-color-neutral {
-    border-bottom-color: var(--neutral-surface);
-  }
-  &.border-bottom-color-on-neutral {
-    border-bottom-color: var(--neutral-on-surface);
-  }
-  &.border-bottom-color-on-neutral-variant {
-    border-bottom-color: var(--neutral-on-surface-variant);
-  }
-  &.border-bottom-color-neutral-container-01 {
-    border-bottom-color: var(--neutral-surface-container-01);
-  }
-  &.border-bottom-color-neutral-container-02 {
-    border-bottom-color: var(--neutral-surface-container-02);
-  }
-  &.border-bottom-color-neutral-container-03 {
-    border-bottom-color: var(--neutral-surface-container-03);
-  }
-  &.border-bottom-color-neutral-container-04 {
-    border-bottom-color: var(--neutral-surface-container-04);
-  }
-  &.border-bottom-color-neutral-container-05 {
-    border-bottom-color: var(--neutral-surface-container-05);
-  }
-  &.border-bottom-color-neutral-outline {
-    border-bottom-color: var(--neutral-outline);
-  }
-  &.border-bottom-color-neutral-outline-variant {
-    border-bottom-color: var(--neutral-outline-variant);
-  }
-  &.border-bottom-color-neutral-scrim {
-    border-bottom-color: var(--neutral-scrim);
-  }
-
-  /* border-left */
-
-  /* border-left-style */
-  &.border-left-style-solid {
-    border-left-style: solid;
-  }
-  &.border-left-style-dashed {
-    border-left-style: dashed;
-  }
-  &.border-left-style-dotted {
-    border-left-style: dotted;
-  }
-  &.border-left-style-double {
-    border-left-style: double;
-  }
-  &.border-left-style-groove {
-    border-left-style: groove;
-  }
-  &.border-left-style-ridge {
-    border-left-style: ridge;
-  }
-  &.border-left-style-none {
-    border-left-style: none;
-  }
-  &.border-left-style-hidden {
-    border-left-style: hidden;
-  }
-
-  /* border-left-width */
-
-  &.border-left-width-0 {
-    border-left-width: var(--bw-0);
-  }
-  &.border-left-width-0-eighth {
-    border-left-width: var(--bw-0-eighth);
-  }
-  &.border-left-width-0-quarter {
-    border-left-width: var(--bw-0-quarter);
-  }
-  &.border-left-width-0-half {
-    border-left-width: var(--bw-0-half);
-  }
-
-  /* border-left-color */
-
-  &.border-left-color-primary {
-    border-left-color: var(--primary);
-  }
-  &.border-left-color-on-primary {
-    border-left-color: var(--on-primary);
-  }
-  &.border-left-color-primary-container {
-    border-left-color: var(--primary-container);
-  }
-  &.border-left-color-on-primary-container {
-    border-left-color: var(--on-primary-container);
-  }
-  &.border-left-color-secondary {
-    border-left-color: var(--secondary);
-  }
-  &.border-left-color-on-secondary {
-    border-left-color: var(--on-secondary);
-  }
-  &.border-left-color-secondary-container {
-    border-left-color: var(--secondary-container);
-  }
-  &.border-left-color-on-secondary-container {
-    border-left-color: var(--on-secondary-container);
-  }
-  &.border-left-color-tertiary {
-    border-left-color: var(--tertiary);
-  }
-  &.border-left-color-on-tertiary {
-    border-left-color: var(--on-tertiary);
-  }
-  &.border-left-color-tertiary-container {
-    border-left-color: var(--tertiary-container);
-  }
-  &.border-left-color-on-tertiary-container {
-    border-left-color: var(--on-tertiary-container);
-  }
-  &.border-left-color-success {
-    border-left-color: var(--success);
-  }
-  &.border-left-color-on-success {
-    border-left-color: var(--on-success);
-  }
-  &.border-left-color-success-container {
-    border-left-color: var(--success-container);
-  }
-  &.border-left-color-on-success-container {
-    border-left-color: var(--on-success-container);
-  }
-  &.border-left-color-error {
-    border-left-color: var(--error);
-  }
-  &.border-left-color-on-error {
-    border-left-color: var(--on-error);
-  }
-  &.border-left-color-error-container {
-    border-left-color: var(--error-container);
-  }
-  &.border-left-color-on-error-container {
-    border-left-color: var(--on-error-container);
-  }
-  &.border-left-color-warning {
-    border-left-color: var(--warning);
-  }
-  &.border-left-color-on-warning {
-    border-left-color: var(--on-warning);
-  }
-  &.border-left-color-warning-container {
-    border-left-color: var(--warning-container);
-  }
-  &.border-left-color-on-warning-container {
-    border-left-color: var(--on-warning-container);
-  }
-  &.border-left-color-alert {
-    border-left-color: var(--alert);
-  }
-  &.border-left-color-on-alert {
-    border-left-color: var(--on-alert);
-  }
-  &.border-left-color-alert-container {
-    border-left-color: var(--alert-container);
-  }
-  &.border-left-color-on-alert-container {
-    border-left-color: var(--on-alert-container);
-  }
-  &.border-left-color-neutral {
-    border-left-color: var(--neutral-surface);
-  }
-  &.border-left-color-on-neutral {
-    border-left-color: var(--neutral-on-surface);
-  }
-  &.border-left-color-on-neutral-variant {
-    border-left-color: var(--neutral-on-surface-variant);
-  }
-  &.border-left-color-neutral-container-01 {
-    border-left-color: var(--neutral-surface-container-01);
-  }
-  &.border-left-color-neutral-container-02 {
-    border-left-color: var(--neutral-surface-container-02);
-  }
-  &.border-left-color-neutral-container-03 {
-    border-left-color: var(--neutral-surface-container-03);
-  }
-  &.border-left-color-neutral-container-04 {
-    border-left-color: var(--neutral-surface-container-04);
-  }
-  &.border-left-color-neutral-container-05 {
-    border-left-color: var(--neutral-surface-container-05);
-  }
-  &.border-left-color-neutral-outline {
-    border-left-color: var(--neutral-outline);
-  }
-  &.border-left-color-neutral-outline-variant {
-    border-left-color: var(--neutral-outline-variant);
-  }
-  &.border-left-color-neutral-scrim {
-    border-left-color: var(--neutral-scrim);
-  }
-
-  /* border-radius */
-  &.border-radius-0 {
-    border-radius: var(--r-0);
-  }
-  &.border-radius-0-quarter {
-    border-radius: var(--r-0-quarter);
-  }
-  &.border-radius-0-half {
-    border-radius: var(--r-0-half);
-  }
-  &.border-radius-1 {
-    border-radius: var(--r-1);
-  }
-  &.border-radius-1-half {
-    border-radius: var(--r-1-half);
-  }
-  &.border-radius-2 {
-    border-radius: var(--r-2);
-  }
-  &.border-radius-2-half {
-    border-radius: var(--r-2-half);
-  }
-  &.border-radius-3 {
-    border-radius: var(--r-3);
-  }
-  &.border-radius-circle {
-    border-radius: var(--r-circle);
-  }
-
-  /* border-radius-top-left */
-  &.border-radius-top-left-0 {
-    border-top-left-radius: var(--r-0);
-  }
-  &.border-radius-top-left-0-quarter {
-    border-top-left-radius: var(--r-0-quarter);
-  }
-  &.border-radius-top-left-0-half {
-    border-top-left-radius: var(--r-0-half);
-  }
-  &.border-radius-top-left-1 {
-    border-top-left-radius: var(--r-1);
-  }
-  &.border-radius-top-left-1-half {
-    border-top-left-radius: var(--r-1-half);
-  }
-  &.border-radius-top-left-2 {
-    border-top-left-radius: var(--r-2);
-  }
-  &.border-radius-top-left-2-half {
-    border-top-left-radius: var(--r-2-half);
-  }
-  &.border-radius-top-left-3 {
-    border-top-left-radius: var(--r-3);
-  }
-  &.border-radius-top-left-circle {
-    border-top-left-radius: var(--r-circle);
-  }
-
-  /* border-radius-top-right */
-
-  &.border-radius-top-right-0 {
-    border-top-right-radius: var(--r-0);
-  }
-  &.border-radius-top-right-0-quarter {
-    border-top-right-radius: var(--r-0-quarter);
-  }
-  &.border-radius-top-right-0-half {
-    border-top-right-radius: var(--r-0-half);
-  }
-  &.border-radius-top-right-1 {
-    border-top-right-radius: var(--r-1);
-  }
-  &.border-radius-top-right-1-half {
-    border-top-right-radius: var(--r-1-half);
-  }
-  &.border-radius-top-right-2 {
-    border-top-right-radius: var(--r-2);
-  }
-  &.border-radius-top-right-2-half {
-    border-top-right-radius: var(--r-2-half);
-  }
-  &.border-radius-top-right-3 {
-    border-top-right-radius: var(--r-3);
-  }
-  &.border-radius-top-right-circle {
-    border-top-right-radius: var(--r-circle);
-  }
-
-  /* border-radius-bottom-left */
-
-  &.border-radius-bottom-left-0 {
-    border-bottom-left-radius: var(--r-0);
-  }
-  &.border-radius-bottom-left-0-quarter {
-    border-bottom-left-radius: var(--r-0-quarter);
-  }
-  &.border-radius-bottom-left-0-half {
-    border-bottom-left-radius: var(--r-0-half);
-  }
-  &.border-radius-bottom-left-1 {
-    border-bottom-left-radius: var(--r-1);
-  }
-  &.border-radius-bottom-left-1-half {
-    border-bottom-left-radius: var(--r-1-half);
-  }
-  &.border-radius-bottom-left-2 {
-    border-bottom-left-radius: var(--r-2);
-  }
-  &.border-radius-bottom-left-2-half {
-    border-bottom-left-radius: var(--r-2-half);
-  }
-  &.border-radius-bottom-left-3 {
-    border-bottom-left-radius: var(--r-3);
-  }
-  &.border-radius-bottom-left-circle {
-    border-bottom-left-radius: var(--r-circle);
-  }
-
-  /* border-radius-bottom-right */
-
-  &.border-radius-bottom-right-0 {
-    border-bottom-right-radius: var(--r-0);
-  }
-  &.border-radius-bottom-right-0-quarter {
-    border-bottom-right-radius: var(--r-0-quarter);
-  }
-  &.border-radius-bottom-right-0-half {
-    border-bottom-right-radius: var(--r-0-half);
-  }
-  &.border-radius-bottom-right-1 {
-    border-bottom-right-radius: var(--r-1);
-  }
-  &.border-radius-bottom-right-1-half {
-    border-bottom-right-radius: var(--r-1-half);
-  }
-  &.border-radius-bottom-right-2 {
-    border-bottom-right-radius: var(--r-2);
-  }
-  &.border-radius-bottom-right-2-half {
-    border-bottom-right-radius: var(--r-2-half);
-  }
-  &.border-radius-bottom-right-3 {
-    border-bottom-right-radius: var(--r-3);
-  }
-  &.border-radius-bottom-right-circle {
-    border-bottom-right-radius: var(--r-circle);
-  }
-}
-
-/* text-shadow */
-@mixin text-shadow {
-  &.shadow-gray {
-    padding: 0.2rem;
-    margin: -0.2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
-  }
-}
-
-/* svg-shadow */
-
-@mixin svg-shadow {
-  &.shadow-gray {
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
-    -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
-  }
-}
-
-/* box-shadow */
-
-@mixin box-shadow {
-  &.shadow-gray {
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
-  }
-}
-
-/* content */
-// exclude color
-@mixin content {
-  /* sizing */
-  @include content-size;
-
-  /* margin */
-  @include margin;
-}
-
-/* container */
-// exclude color
-@mixin container {
-  /* sizing */
-  @include container-size;
-
-  /* padding */
-  @include padding;
-
-  /* margin */
-  @include margin;
-
-  /* border */
-  @include border;
-}
-
-/* flex */
-@mixin flex {
-  display: flex;
-
-  /* container */
-
-  @include container;
-
-  /* justify-content */
-
-  &.justify-content-start {
-    justify-content: flex-start;
-  }
-  &.justify-content-end {
-    justify-content: flex-end;
-  }
-  &.justify-content-center {
-    justify-content: center;
-  }
-  &.justify-content-between {
-    justify-content: space-between;
-  }
-  &.justify-content-around {
-    justify-content: space-around;
-  }
-  &.justify-content-evenly {
-    justify-content: space-evenly;
-  }
-
-  /* align-items */
-
-  &.align-items-start {
-    align-items: flex-start;
-  }
-  &.align-items-end {
-    align-items: flex-end;
-  }
-  &.align-items-center {
-    align-items: center;
-  }
-  &.align-items-baseline {
-    align-items: baseline;
-  }
-  &.align-items-stretch {
-    align-items: stretch;
-  }
-
-  /* align-content */
-
-  &.align-content-start {
-    align-content: flex-start;
-  }
-  &.align-content-end {
-    align-content: flex-end;
-  }
-  &.align-content-center {
-    align-content: center;
-  }
-  &.align-content-between {
-    align-content: space-between;
-  }
-  &.align-content-around {
-    align-content: space-around;
-  }
-  &.align-content-stretch {
-    align-content: stretch;
-  }
-  &.align-content-evenly {
-    align-content: space-evenly;
-  }
-
-  /* wrap */
-
-  &.wrap-wrap {
-    flex-wrap: wrap;
-  }
-  &.wrap-wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
-  &.wrap-nowrap {
-    flex-wrap: nowrap;
-  }
-
-  /* direction */
-
-  &.direction-row {
-    flex-direction: row;
-  }
-  &.direction-row-reverse {
-    flex-direction: row-reverse;
-  }
-  &.direction-column {
-    flex-direction: column;
-  }
-  &.direction-column-reverse {
-    flex-direction: column-reverse;
-  }
-
-  /* gap */
-
-  &.gap-0 {
-    gap: var(--sp-0);
-  }
-  &.gap-0-eighth {
-    gap: var(--sp-0-eighth);
-  }
-  &.gap-0-quarter {
-    gap: var(--sp-0-quarter);
-  }
-  &.gap-0-half {
-    gap: var(--sp-0-half);
-  }
-  &.gap-1 {
-    gap: var(--sp-1);
-  }
-  &.gap-1-half {
-    gap: var(--sp-1-half);
-  }
-  &.gap-2 {
-    gap: var(--sp-2);
-  }
-  &.gap-2-half {
-    gap: var(--sp-2-half);
-  }
-  &.gap-3 {
-    gap: var(--sp-3);
-  }
-  &.gap-3-half {
-    gap: var(--sp-3-half);
-  }
-  &.gap-4 {
-    gap: var(--sp-4);
-  }
-  &.gap-4-half {
-    gap: var(--sp-4-half);
-  }
-  &.gap-5 {
-    gap: var(--sp-5);
-  }
-  &.gap-5-half {
-    gap: var(--sp-5-half);
-  }
-  &.gap-6 {
-    gap: var(--sp-6);
-  }
-  &.gap-6-half {
-    gap: var(--sp-6-half);
-  }
-  &.gap-7 {
-    gap: var(--sp-7);
-  }
-  &.gap-7-half {
-    gap: var(--sp-7-half);
-  }
-  &.gap-8 {
-    gap: var(--sp-8);
-  }
-  &.gap-8-half {
-    gap: var(--sp-8-half);
-  }
-  &.gap-9 {
-    gap: var(--sp-9);
-  }
-  &.gap-9-half {
-    gap: var(--sp-9-half);
-  }
-  &.gap-10 {
-    gap: var(--sp-10);
-  }
-}
-
-$responsives: (
-  'all': all,
-  'laptop': 1024px,
-  'tablet': 768px,
-  'mobile': 640px,
-);
-
-$states: ('', 'hover', 'focus', 'active');
-
-$defaultSpacingBase: 0.8;
-
-$spacings: (
-  'auto': 'auto',
-  '0': '#{$defaultSpacingBase * 0}rem',
-  '0.125': '#{$defaultSpacingBase * 0.125}rem',
-  '0.25': '#{$defaultSpacingBase * 0.25}rem',
-  '0.375': '#{$defaultSpacingBase * 0.375}rem',
-  '0.5': '#{$defaultSpacingBase * 0.5}rem',
-  '0.625': '#{$defaultSpacingBase * 0.625}rem',
-  '0.75': '#{$defaultSpacingBase * 0.75}rem',
-  '1': '#{$defaultSpacingBase * 1}rem',
-  '1.25': '#{$defaultSpacingBase * 1.25}rem',
-  '1.5': '#{$defaultSpacingBase * 1.5}rem',
-  '1.75': '#{$defaultSpacingBase * 1.75}rem',
-  '2': '#{$defaultSpacingBase * 2}rem',
-  '2.25': '#{$defaultSpacingBase * 2.25}rem',
-  '2.5': '#{$defaultSpacingBase * 2.5}rem',
-  '2.75': '#{$defaultSpacingBase * 2.75}rem',
-  '3': '#{$defaultSpacingBase * 3}rem',
-  '3.25': '#{$defaultSpacingBase * 3.25}rem',
-  '3.5': '#{$defaultSpacingBase * 3.5}rem',
-  '3.75': '#{$defaultSpacingBase * 3.75}rem',
-  '4': '#{$defaultSpacingBase * 4}rem',
-  '4.25': '#{$defaultSpacingBase * 4.25}rem',
-  '4.5': '#{$defaultSpacingBase * 4.5}rem',
-  '4.75': '#{$defaultSpacingBase * 4.75}rem',
-  '5': '#{$defaultSpacingBase * 5}rem',
-  '5.5': '#{$defaultSpacingBase * 5.5}rem',
-  '6': '#{$defaultSpacingBase * 6}rem',
-  '6.5': '#{$defaultSpacingBase * 6.5}rem',
-  '7': '#{$defaultSpacingBase * 7}rem',
-  '7.5': '#{$defaultSpacingBase * 7.5}rem',
-  '8': '#{$defaultSpacingBase * 8}rem',
-  '8.5': '#{$defaultSpacingBase * 8.5}rem',
-  '9': '#{$defaultSpacingBase * 9}rem',
-  '9.5': '#{$defaultSpacingBase * 9.5}rem',
-  '10': '#{$defaultSpacingBase * 10}rem',
-  '11': '#{$defaultSpacingBase * 11}rem',
-  '12': '#{$defaultSpacingBase * 12}rem',
-  '13': '#{$defaultSpacingBase * 13}rem',
-  '14': '#{$defaultSpacingBase * 14}rem',
-  '15': '#{$defaultSpacingBase * 15}rem',
-  '16': '#{$defaultSpacingBase * 16}rem',
-  '18': '#{$defaultSpacingBase * 18}rem',
-  '20': '#{$defaultSpacingBase * 20}rem',
-  '22': '#{$defaultSpacingBase * 22}rem',
-  '24': '#{$defaultSpacingBase * 24}rem',
-  '26': '#{$defaultSpacingBase * 26}rem',
-  '28': '#{$defaultSpacingBase * 28}rem',
-  '30': '#{$defaultSpacingBase * 30}rem',
-  '32': '#{$defaultSpacingBase * 32}rem',
-  '36': '#{$defaultSpacingBase * 36}rem',
-  '40': '#{$defaultSpacingBase * 40}rem',
-  '44': '#{$defaultSpacingBase * 44}rem',
-  '48': '#{$defaultSpacingBase * 48}rem',
-  '52': '#{$defaultSpacingBase * 52}rem',
-  '56': '#{$defaultSpacingBase * 56}rem',
-  '60': '#{$defaultSpacingBase * 60}rem',
-  '64': '#{$defaultSpacingBase * 64}rem',
-  '72': '#{$defaultSpacingBase * 72}rem',
-  '80': '#{$defaultSpacingBase * 80}rem',
-  '88': '#{$defaultSpacingBase * 88}rem',
-  '96': '#{$defaultSpacingBase * 96}rem',
-  '104': '#{$defaultSpacingBase * 104}rem',
-  '112': '#{$defaultSpacingBase * 112}rem',
-  '120': '#{$defaultSpacingBase * 120}rem',
-  '128': '#{$defaultSpacingBase * 128}rem',
-);
-
-$percentages: (
-  '0pct': '0%',
-  '1pct': '1%',
-  '2pct': '2%',
-  '3pct': '3%',
-  '4pct': '4%',
-  '5pct': '5%',
-  '6pct': '6%',
-  '7pct': '7%',
-  '8pct': '8%',
-  '9pct': '9%',
-  '10pct': '10%',
-  '11pct': '11%',
-  '12pct': '12%',
-  '13pct': '13%',
-  '14pct': '14%',
-  '15pct': '15%',
-  '16pct': '16%',
-  '18pct': '18%',
-  '20pct': '20%',
-  '22pct': '22%',
-  '24pct': '24%',
-  '26pct': '26%',
-  '28pct': '28%',
-  '30pct': '30%',
-  '32pct': '32%',
-  '34pct': '34%',
-  '36pct': '36%',
-  '38pct': '38%',
-  '40pct': '40%',
-  '42pct': '42%',
-  '44pct': '44%',
-  '46pct': '46%',
-  '48pct': '48%',
-  '50pct': '50%',
-  '52pct': '52%',
-  '54pct': '54%',
-  '56pct': '56%',
-  '58pct': '58%',
-  '60pct': '60%',
-  '62pct': '62%',
-  '64pct': '64%',
-  '66pct': '66%',
-  '68pct': '68%',
-  '70pct': '70%',
-  '72pct': '72%',
-  '74pct': '74%',
-  '76pct': '76%',
-  '78pct': '78%',
-  '80pct': '80%',
-  '82pct': '82%',
-  '84pct': '84%',
-  '86pct': '86%',
-  '88pct': '88%',
-  '90pct': '90%',
-  '92pct': '92%',
-  '94pct': '94%',
-  '96pct': '96%',
-  '98pct': '98%',
-  '100pct': '100%',
-);
-
-$sizing: map-merge(
-  map-merge($spacings, $percentages),
-  (
-    'mobile': map-get($responsives, 'mobile'),
-    'tablet': map-get($responsives, 'tablet'),
-    'laptop': map-get($responsives, 'laptop'),
-    'full': '100%',
-    'min-content': 'min-content',
-    'max-content': 'max-content',
-    'fit-content': 'fit-content',
-    'inherit': 'inherit',
-    'initial': 'initial',
-    'unset': 'unset',
-  )
-);
-
-$positionings: map-merge($spacings, $percentages);
-
-@mixin responsive($responsive) {
-  @if $responsive == 'all' {
-    @content;
-  } @else {
-    @media screen and (max-width: map-get($responsives, $responsive)) {
-      @content;
-    }
-  }
-}
-
-@mixin state($state) {
-  @if $state == 'hover' {
-    &:hover {
-      @content;
-    }
-  } @else if $state == 'focus' {
-    &:focus {
-      @content;
-    }
-  } @else if $state == 'active' {
-    &:active {
-      @content;
-    }
-  } @else if $state == '' {
-    @content;
-  }
-}
-
-@mixin padding {
-  @each $responsive, $breakpoint in $responsives {
-    @each $state in $states {
-      @each $name, $value in $spacings {
-        &.#{responsive}\:#{$state}\:padding-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:padding-x-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding-left: #{$value};
-              padding-right: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:padding-y-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding-top: #{$value};
-              padding-bottom: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:padding-top-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding-top: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:padding-right-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding-right: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:padding-bottom-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding-bottom: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:padding-left-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              padding-left: #{$value};
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@mixin margin {
-  @each $responsive, $breakpoint in $responsives {
-    @each $state in $states {
-      @each $name, $value in $spacings {
-        &.#{responsive}\:#{$state}\:margin-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:margin-x-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin-left: #{$value};
-              margin-right: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:margin-y-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin-top: #{$value};
-              margin-bottom: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:margin-top-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin-top: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:margin-right-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin-right: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:margin-bottom-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin-bottom: #{$value};
-            }
-          }
-        }
-
-        &.#{responsive}\:#{$state}\:margin-left-#{$name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              margin-left: #{$value};
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@mixin size {
-  @each $responsive, $breakpoint in $responsives {
-    @each $state in $states {
-      @each $name, $value in $sizings {
-        &.#{responsive}\:#{$state}\:size-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              width: #{$value};
-              height: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:width-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              width: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:height-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              height: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:min-width-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              min-width: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:min-height-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              min-height: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:max-width-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              max-width: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:max-height-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              max-height: #{$value};
-            }
-          }
-        }
-      }
-      &.#{responsive}\:#{$state}\:size-screen {
-        @include responsive($responsive) {
-          @include state($state) {
-            width: 100vw;
-            height: 100vh;
-          }
-        }
-      }
-      &.#{responsive}\:#{$state}\:width-screen {
-        @include responsive($responsive) {
-          @include state($state) {
-            width: 100vw;
-          }
-        }
-        &.#{responsive}\:#{$state}\:height-screen {
-          @include responsive($responsive) {
-            @include state($state) {
-              height: 100vh;
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:min-width-screen {
-          @include responsive($responsive) {
-            @include state($state) {
-              min-width: 100vw;
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:min-height-screen {
-          @include responsive($responsive) {
-            @include state($state) {
-              min-height: 100vh;
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:max-width-screen {
-          @include responsive($responsive) {
-            @include state($state) {
-              max-width: 100vw;
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:max-height-screen {
-          @include responsive($responsive) {
-            @include state($state) {
-              max-height: 100vh;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@mixin position {
-  @each $responsive, $breakpoint in $responsives {
-    @each $state in $states {
-      @each $name, $value in (static, relative, absolute, fixed, sticky) {
-        &.#{responsive}\:#{$state}\:position-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              position: #{$value};
-            }
-          }
-        }
-      }
-      @each $name, $value in $positionings {
-        &.#{responsive}\:#{$state}\:top-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              top: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:right-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              right: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:bottom-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              bottom: #{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:left-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              left: #{$value};
-            }
-          }
-        }
-
-        //negative
-
-        &.#{responsive}\:#{$state}\:-top-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              top: -#{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:-right-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              right: -#{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:-bottom-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              bottom: -#{$value};
-            }
-          }
-        }
-        &.#{responsive}\:#{$state}\:-left-#{name} {
-          @include responsive($responsive) {
-            @include state($state) {
-              left: -#{$value};
-            }
-          }
-        }
-      }
-    }
-  }
-}
+// @mixin svg-default {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// /* color */
+// @mixin border-color {
+//   &.color-primary {
+//     border-color: var(--primary);
+//   }
+//   &.color-on-primary {
+//     border-color: var(--on-primary);
+//   }
+//   &.color-primary-container {
+//     border-color: var(--primary-container);
+//   }
+//   &.color-on-primary-container {
+//     border-color: var(--on-primary-container);
+//   }
+//   &.color-secondary {
+//     border-color: var(--secondary);
+//   }
+//   &.color-on-secondary {
+//     border-color: var(--on-secondary);
+//   }
+//   &.color-secondary-container {
+//     border-color: var(--secondary-container);
+//   }
+//   &.color-on-secondary-container {
+//     border-color: var(--on-secondary-container);
+//   }
+//   &.color-tertiary {
+//     border-color: var(--tertiary);
+//   }
+//   &.color-on-tertiary {
+//     border-color: var(--on-tertiary);
+//   }
+//   &.color-tertiary-container {
+//     border-color: var(--tertiary-container);
+//   }
+//   &.color-on-tertiary-container {
+//     border-color: var(--on-tertiary-container);
+//   }
+//   &.color-neutral {
+//     border-color: var(--neutral-surface);
+//   }
+//   &.color-on-neutral {
+//     border-color: var(--neutral-on-surface);
+//   }
+//   &.color-on-neutral-variant {
+//     border-color: var(--neutral-on-surface-variant);
+//   }
+//   &.color-neutral-container-01 {
+//     border-color: var(--neutral-surface-container-01);
+//   }
+//   &.color-neutral-container-02 {
+//     border-color: var(--neutral-surface-container-02);
+//   }
+//   &.color-neutral-container-03 {
+//     border-color: var(--neutral-surface-container-03);
+//   }
+//   &.color-neutral-container-04 {
+//     border-color: var(--neutral-surface-container-04);
+//   }
+//   &.color-neutral-container-05 {
+//     border-color: var(--neutral-surface-container-05);
+//   }
+//   &.color-neutral-outline {
+//     border-color: var(--neutral-outline);
+//   }
+//   &.color-neutral-outline-variant {
+//     border-color: var(--neutral-outline-variant);
+//   }
+//   &.color-neutral-scrim {
+//     border-color: var(--neutral-scrim);
+//   }
+//   &.color-error {
+//     border-color: var(--states-error);
+//   }
+//   &.color-on-error {
+//     border-color: var(--states-on-error);
+//   }
+//   &.color-error-container {
+//     border-color: var(--states-error-container);
+//   }
+//   &.color-on-error-container {
+//     border-color: var(--states-on-error-container);
+//   }
+//   &.color-warning {
+//     border-color: var(--states-warning);
+//   }
+//   &.color-on-warning {
+//     border-color: var(--states-on-warning);
+//   }
+//   &.color-warning-container {
+//     border-color: var(--states-warning-container);
+//   }
+//   &.color-on-warning-container {
+//     border-color: var(--states-on-warning-container);
+//   }
+//   &.color-success {
+//     border-color: var(--states-success);
+//   }
+//   &.color-on-success {
+//     border-color: var(--states-on-success);
+//   }
+//   &.color-success-container {
+//     border-color: var(--states-success-container);
+//   }
+//   &.color-on-success-container {
+//     border-color: var(--states-on-success-container);
+//   }
+//   &.color-alert {
+//     border-color: var(--states-alert);
+//   }
+//   &.color-on-alert {
+//     border-color: var(--states-on-alert);
+//   }
+//   &.color-alert-container {
+//     border-color: var(--states-alert-container);
+//   }
+//   &.color-on-alert-container {
+//     border-color: var(--states-on-alert-container);
+//   }
+//   &.color-inherit {
+//     border-color: inherit;
+//   }
+// }
+// @mixin border-color-hover {
+//   /* default hover color */
+
+//   &.hover-color-inherit,
+//   &.hover-color-transparent {
+//     &.color-primary:hover {
+//       border-color: var(--primary-container);
+//     }
+//     &.color-on-primary:hover {
+//       border-color: var(--on-primary-container);
+//     }
+//     &.color-primary-container:hover {
+//       border-color: var(--primary);
+//     }
+//     &.color-on-primary-container:hover {
+//       border-color: var(--on-primary);
+//     }
+//     &.color-secondary:hover {
+//       border-color: var(--secondary-container);
+//     }
+//     &.color-on-secondary:hover {
+//       border-color: var(--on-secondary-container);
+//     }
+//     &.color-secondary-container:hover {
+//       border-color: var(--secondary);
+//     }
+//     &.color-on-secondary-container:hover {
+//       border-color: var(--on-secondary);
+//     }
+//     &.color-tertiary:hover {
+//       border-color: var(--tertiary-container);
+//     }
+//     &.color-on-tertiary:hover {
+//       border-color: var(--on-tertiary-container);
+//     }
+//     &.color-tertiary-container:hover {
+//       border-color: var(--tertiary);
+//     }
+//     &.color-on-tertiary-container:hover {
+//       border-color: var(--on-tertiary);
+//     }
+//     &.color-neutral:hover {
+//       border-color: var(--neutral-surface-container-03);
+//     }
+//     &.color-on-neutral:hover {
+//       border-color: var(--neutral-on-surface-variant);
+//     }
+//     &.color-on-neutral-variant:hover {
+//       border-color: var(--neutral-on-surface);
+//     }
+//     &.color-neutral-container-01:hover {
+//       border-color: var(--neutral-surface);
+//     }
+//     &.color-neutral-container-02:hover {
+//       border-color: var(--neutral-surface);
+//     }
+//     &.color-neutral-container-03:hover {
+//       border-color: var(--neutral-surface);
+//     }
+//     &.color-neutral-container-04:hover {
+//       border-color: var(--neutral-surface);
+//     }
+//     &.color-neutral-container-05:hover {
+//       border-color: var(--neutral-surface);
+//     }
+//     &.color-neutral-outline:hover {
+//       border-color: var(--neutral-outline-variant);
+//     }
+//     &.color-neutral-outline-variant:hover {
+//       border-color: var(--neutral-outline);
+//     }
+//     &.color-neutral-scrim:hover {
+//       border-color: var(--neutral-outline-variant);
+//     }
+//     &.color-error:hover {
+//       border-color: var(--states-error-container);
+//     }
+//     &.color-on-error:hover {
+//       border-color: var(--states-on-error-container);
+//     }
+//     &.color-error-container:hover {
+//       border-color: var(--states-error);
+//     }
+//     &.color-on-error-container:hover {
+//       border-color: var(--states-on-error);
+//     }
+//     &.color-warning:hover {
+//       border-color: var(--states-warning-container);
+//     }
+//     &.color-on-warning:hover {
+//       border-color: var(--states-on-warning-container);
+//     }
+//     &.color-waring-container:hover {
+//       border-color: var(--states-warning);
+//     }
+//     &.color-on-warning-container:hover {
+//       border-color: var(--states-on-warning);
+//     }
+//     &.color-success:hover {
+//       border-color: var(--states-success-container);
+//     }
+//     &.color-on-success:hover {
+//       border-color: var(--states-on-success-container);
+//     }
+//     &.color-success-container:hover {
+//       border-color: var(--states-success);
+//     }
+//     &.color-on-success-container:hover {
+//       border-color: var(--states-on-success);
+//     }
+//     &.color-alert:hover {
+//       border-color: var(--states-alert-container);
+//     }
+//     &.color-on-alert:hover {
+//       border-color: var(--states-on-alert-container);
+//     }
+//     &.color-alert-container:hover {
+//       border-color: var(--states-alert);
+//     }
+//     &.color-on-alert-container:hover {
+//       border-color: var(--states-on-alert);
+//     }
+//   }
+
+//   /* optional hover color */
+//   &.hover-color-primary:hover {
+//     border-color: var(--primary);
+//   }
+//   &.hover-color-on-primary:hover {
+//     border-color: var(--on-primary);
+//   }
+//   &.hover-color-primary-container:hover {
+//     border-color: var(--primary-container);
+//   }
+//   &.hover-color-on-primary-container:hover {
+//     border-color: var(--on-primary-container);
+//   }
+//   &.hover-color-secondary:hover {
+//     border-color: var(--secondary);
+//   }
+//   &.hover-color-on-secondary:hover {
+//     border-color: var(--on-secondary);
+//   }
+//   &.hover-color-secondary-container:hover {
+//     border-color: var(--secondary-container);
+//   }
+//   &.hover-color-on-secondary-container:hover {
+//     border-color: var(--on-secondary-container);
+//   }
+//   &.hover-color-tertiary:hover {
+//     border-color: var(--tertiary);
+//   }
+//   &.hover-color-on-tertiary:hover {
+//     border-color: var(--on-tertiary);
+//   }
+//   &.hover-color-tertiary-container:hover {
+//     border-color: var(--tertiary-container);
+//   }
+//   &.hover-color-on-tertiary-container:hover {
+//     border-color: var(--on-tertiary-container);
+//   }
+//   &.hover-color-neutral:hover {
+//     border-color: var(--neutral-surface);
+//   }
+//   &.hover-color-on-neutral:hover {
+//     border-color: var(--neutral-on-surface);
+//   }
+//   &.hover-color-on-neutral-variant:hover {
+//     border-color: var(--neutral-on-surface-variant);
+//   }
+//   &.hover-color-neutral-container-01:hover {
+//     border-color: var(--neutral-surface-container-01);
+//   }
+//   &.hover-color-neutral-container-02:hover {
+//     border-color: var(--neutral-surface-container-02);
+//   }
+//   &.hover-color-neutral-container-03:hover {
+//     border-color: var(--neutral-surface-container-03);
+//   }
+//   &.hover-color-neutral-container-04:hover {
+//     border-color: var(--neutral-surface-container-04);
+//   }
+//   &.hover-color-neutral-container-05:hover {
+//     border-color: var(--neutral-surface-container-05);
+//   }
+//   &.hover-color-neutral-outline:hover {
+//     border-color: var(--neutral-outline);
+//   }
+//   &.hover-color-neutral-outline-variant:hover {
+//     border-color: var(--neutral-outline-variant);
+//   }
+//   &.hover-color-neutral-scrim:hover {
+//     border-color: var(--neutral-scrim);
+//   }
+//   &.hover-color-error:hover {
+//     border-color: var(--states-error);
+//   }
+//   &.hover-color-on-error:hover {
+//     border-color: var(--states-on-error);
+//   }
+//   &.hover-color-error-container:hover {
+//     border-color: var(--states-error-container);
+//   }
+//   &.hover-color-on-error-container:hover {
+//     border-color: var(--states-on-error-container);
+//   }
+//   &.hover-color-warning:hover {
+//     border-color: var(--states-warning);
+//   }
+//   &.hover-color-on-warning:hover {
+//     border-color: var(--states-on-warning);
+//   }
+//   &.hover-color-warning-container:hover {
+//     border-color: var(--states-warning-container);
+//   }
+//   &.hover-color-on-warning-container:hover {
+//     border-color: var(--states-on-warning-container);
+//   }
+//   &.hover-color-success:hover {
+//     border-color: var(--states-success);
+//   }
+//   &.hover-color-on-success:hover {
+//     border-color: var(--states-on-success);
+//   }
+//   &.hover-color-success-container:hover {
+//     border-color: var(--states-success-container);
+//   }
+//   &.hover-color-on-success-container:hover {
+//     border-color: var(--states-on-success-container);
+//   }
+//   &.hover-color-alert:hover {
+//     border-color: var(--states-alert);
+//   }
+//   &.hover-color-on-alert:hover {
+//     border-color: var(--states-on-alert);
+//   }
+//   &.hover-color-alert-container:hover {
+//     border-color: var(--states-alert-container);
+//   }
+//   &.hover-color-on-alert-container:hover {
+//     border-color: var(--states-on-alert-container);
+//   }
+// }
+
+// /* text-shadow */
+// @mixin text-shadow {
+//   &.shadow-gray {
+//     padding: 0.2rem;
+//     margin: -0.2rem;
+//     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+//   }
+// }
+
+// /* svg-shadow */
+
+// @mixin svg-shadow {
+//   &.shadow-gray {
+//     filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
+//     -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
+//   }
+// }
+
+// /* box-shadow */
+
+// @mixin box-shadow {
+//   &.shadow-gray {
+//     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+//   }
+// }
+
+// $responsives: (
+//   'all': all,
+//   'laptop': 1024px,
+//   'tablet': 768px,
+//   'mobile': 640px,
+// );
+// $states: ('default', 'hover', 'focus', 'active');
+// $groups: ('none', 'button', 'container', 'link');
+// $defaultSpacingBase: 0.8;
+// $spacings: (
+//   'auto': 'auto',
+//   '0': '#{$defaultSpacingBase * 0}rem',
+//   '0.125': '#{$defaultSpacingBase * 0.125}rem',
+//   '0.25': '#{$defaultSpacingBase * 0.25}rem',
+//   '0.375': '#{$defaultSpacingBase * 0.375}rem',
+//   '0.5': '#{$defaultSpacingBase * 0.5}rem',
+//   '0.625': '#{$defaultSpacingBase * 0.625}rem',
+//   '0.75': '#{$defaultSpacingBase * 0.75}rem',
+//   '1': '#{$defaultSpacingBase * 1}rem',
+//   '1.25': '#{$defaultSpacingBase * 1.25}rem',
+//   '1.5': '#{$defaultSpacingBase * 1.5}rem',
+//   '1.75': '#{$defaultSpacingBase * 1.75}rem',
+//   '2': '#{$defaultSpacingBase * 2}rem',
+//   '2.25': '#{$defaultSpacingBase * 2.25}rem',
+//   '2.5': '#{$defaultSpacingBase * 2.5}rem',
+//   '2.75': '#{$defaultSpacingBase * 2.75}rem',
+//   '3': '#{$defaultSpacingBase * 3}rem',
+//   '3.25': '#{$defaultSpacingBase * 3.25}rem',
+//   '3.5': '#{$defaultSpacingBase * 3.5}rem',
+//   '3.75': '#{$defaultSpacingBase * 3.75}rem',
+//   '4': '#{$defaultSpacingBase * 4}rem',
+//   '4.25': '#{$defaultSpacingBase * 4.25}rem',
+//   '4.5': '#{$defaultSpacingBase * 4.5}rem',
+//   '4.75': '#{$defaultSpacingBase * 4.75}rem',
+//   '5': '#{$defaultSpacingBase * 5}rem',
+//   '5.5': '#{$defaultSpacingBase * 5.5}rem',
+//   '6': '#{$defaultSpacingBase * 6}rem',
+//   '6.5': '#{$defaultSpacingBase * 6.5}rem',
+//   '7': '#{$defaultSpacingBase * 7}rem',
+//   '7.5': '#{$defaultSpacingBase * 7.5}rem',
+//   '8': '#{$defaultSpacingBase * 8}rem',
+//   '8.5': '#{$defaultSpacingBase * 8.5}rem',
+//   '9': '#{$defaultSpacingBase * 9}rem',
+//   '9.5': '#{$defaultSpacingBase * 9.5}rem',
+//   '10': '#{$defaultSpacingBase * 10}rem',
+//   '11': '#{$defaultSpacingBase * 11}rem',
+//   '12': '#{$defaultSpacingBase * 12}rem',
+//   '13': '#{$defaultSpacingBase * 13}rem',
+//   '14': '#{$defaultSpacingBase * 14}rem',
+//   '15': '#{$defaultSpacingBase * 15}rem',
+//   '16': '#{$defaultSpacingBase * 16}rem',
+//   '18': '#{$defaultSpacingBase * 18}rem',
+//   '20': '#{$defaultSpacingBase * 20}rem',
+//   '22': '#{$defaultSpacingBase * 22}rem',
+//   '24': '#{$defaultSpacingBase * 24}rem',
+//   '26': '#{$defaultSpacingBase * 26}rem',
+//   '28': '#{$defaultSpacingBase * 28}rem',
+//   '30': '#{$defaultSpacingBase * 30}rem',
+//   '32': '#{$defaultSpacingBase * 32}rem',
+//   '36': '#{$defaultSpacingBase * 36}rem',
+//   '40': '#{$defaultSpacingBase * 40}rem',
+//   '44': '#{$defaultSpacingBase * 44}rem',
+//   '48': '#{$defaultSpacingBase * 48}rem',
+//   '52': '#{$defaultSpacingBase * 52}rem',
+//   '56': '#{$defaultSpacingBase * 56}rem',
+//   '60': '#{$defaultSpacingBase * 60}rem',
+//   '64': '#{$defaultSpacingBase * 64}rem',
+//   '72': '#{$defaultSpacingBase * 72}rem',
+//   '80': '#{$defaultSpacingBase * 80}rem',
+//   '88': '#{$defaultSpacingBase * 88}rem',
+//   '96': '#{$defaultSpacingBase * 96}rem',
+//   '104': '#{$defaultSpacingBase * 104}rem',
+//   '112': '#{$defaultSpacingBase * 112}rem',
+//   '120': '#{$defaultSpacingBase * 120}rem',
+//   '128': '#{$defaultSpacingBase * 128}rem',
+// );
+
+// $percentages: (
+//   '0pct': '0%',
+//   '1pct': '1%',
+//   '2pct': '2%',
+//   '3pct': '3%',
+//   '4pct': '4%',
+//   '5pct': '5%',
+//   '6pct': '6%',
+//   '7pct': '7%',
+//   '8pct': '8%',
+//   '9pct': '9%',
+//   '10pct': '10%',
+//   '11pct': '11%',
+//   '12pct': '12%',
+//   '13pct': '13%',
+//   '14pct': '14%',
+//   '15pct': '15%',
+//   '16pct': '16%',
+//   '18pct': '18%',
+//   '20pct': '20%',
+//   '22pct': '22%',
+//   '24pct': '24%',
+//   '26pct': '26%',
+//   '28pct': '28%',
+//   '30pct': '30%',
+//   '32pct': '32%',
+//   '34pct': '34%',
+//   '36pct': '36%',
+//   '38pct': '38%',
+//   '40pct': '40%',
+//   '42pct': '42%',
+//   '44pct': '44%',
+//   '46pct': '46%',
+//   '48pct': '48%',
+//   '50pct': '50%',
+//   '52pct': '52%',
+//   '54pct': '54%',
+//   '56pct': '56%',
+//   '58pct': '58%',
+//   '60pct': '60%',
+//   '62pct': '62%',
+//   '64pct': '64%',
+//   '66pct': '66%',
+//   '68pct': '68%',
+//   '70pct': '70%',
+//   '72pct': '72%',
+//   '74pct': '74%',
+//   '76pct': '76%',
+//   '78pct': '78%',
+//   '80pct': '80%',
+//   '82pct': '82%',
+//   '84pct': '84%',
+//   '86pct': '86%',
+//   '88pct': '88%',
+//   '90pct': '90%',
+//   '92pct': '92%',
+//   '94pct': '94%',
+//   '96pct': '96%',
+//   '98pct': '98%',
+//   '100pct': '100%',
+// );
+
+// $sizings: map-merge(
+//   map-merge($spacings, $percentages),
+//   (
+//     'mobile': map-get($responsives, 'mobile'),
+//     'tablet': map-get($responsives, 'tablet'),
+//     'laptop': map-get($responsives, 'laptop'),
+//     'full': '100%',
+//     'min-content': 'min-content',
+//     'max-content': 'max-content',
+//     'fit-content': 'fit-content',
+//     'inherit': 'inherit',
+//     'initial': 'initial',
+//     'unset': 'unset',
+//   )
+// );
+
+// $positionings: map-merge($spacings, $percentages);
+
+// $contentColors: (
+//   'primary': var(--primary),
+//   'on-primary': var(--on-primary),
+//   'primary-container': var(--primary-container),
+//   'on-primary-container': var(--on-primary-container),
+//   'secondary': var(--secondary),
+//   'on-secondary': var(--on-secondary),
+//   'secondary-container': var(--secondary-container),
+//   'on-secondary-container': var(--on-secondary-container),
+//   'tertiary': var(--tertiary),
+//   'on-tertiary': var(--on-tertiary),
+//   'tertiary-container': var(--tertiary-container),
+//   'on-tertiary-container': var(--on-tertiary-container),
+//   'success': var(--states-success),
+//   'on-success': var(--states-on-success),
+//   'success-container': var(--states-success-container),
+//   'on-success-container': var(--states-on-success-container),
+//   'error': var(--states-error),
+//   'on-error': var(--states-on-error),
+//   'error-container': var(--states-error-container),
+//   'on-error-container': var(--states-on-error-container),
+//   'warning': var(--states-warning),
+//   'on-warning': var(--states-on-warning),
+//   'warning-container': var(--states-warning-container),
+//   'on-warning-container': var(--states-on-warning-container),
+//   'alert': var(--states-alert),
+//   'on-alert': var(--states-on-alert),
+//   'alert-container': var(--states-alert-container),
+//   'on-alert-container': var(--states-on-alert-container),
+//   'neutral': var(--neutral-surface),
+//   'on-neutral': var(--neutral-on-surface),
+//   'on-neutral-variant': var(--neutral-on-surface-variant),
+//   'neutral-container-01': var(--neutral-surface-container-01),
+//   'neutral-container-02': var(--neutral-surface-container-02),
+//   'neutral-container-03': var(--neutral-surface-container-03),
+//   'neutral-container-04': var(--neutral-surface-container-04),
+//   'neutral-container-05': var(--neutral-surface-container-05),
+//   'neutral-outline': var(--neutral-outline),
+//   'neutral-outline-variant': var(--neutral-outline-variant),
+//   'neutral-scrim': var(--neutral-scrim),
+//   'transparent': transparent,
+//   'inherit': inherit,
+// );
+// $containerColors: (
+//   'primary': (
+//     var(--primary),
+//     var(--on-primary),
+//   ),
+//   'on-primary': (
+//     var(--on-primary),
+//     var(--primary),
+//   ),
+//   'primary-container': (
+//     var(--primary-container),
+//     var(--on-primary-container),
+//   ),
+//   'on-primary-container': (
+//     var(---on-primary-container),
+//     var(--primary-container),
+//   ),
+//   'secondary': (
+//     var(--secondary),
+//     var(--on-secondary),
+//   ),
+//   'on-secondary': (
+//     var(--on-secondary),
+//     var(--secondary),
+//   ),
+//   'secondary-container': (
+//     var(--secondary-container),
+//     var(--on-secondary-container),
+//   ),
+//   'on-secondary-container': (
+//     var(--on-secondary-container),
+//     var(--secondary-container),
+//   ),
+//   'tertiary': (
+//     var(--tertiary),
+//     var(--on-tertiary),
+//   ),
+//   'on-tertiary': (
+//     var(--on-tertiary),
+//     var(--tertiary),
+//   ),
+//   'tertiary-container': (
+//     var(--tertiary-container),
+//     var(--on-tertiary-container),
+//   ),
+//   'on-tertiary-container': (
+//     var(--on-tertiary-container),
+//     var(--tertiary-container),
+//   ),
+//   'success': (
+//     var(--states-success),
+//     var(--states-on-success),
+//   ),
+//   'on-success': (
+//     var(--states-on-success),
+//     var(--states-success),
+//   ),
+//   'success-container': (
+//     var(--states-success-container),
+//     var(--states-on-success-container),
+//   ),
+//   'on-success-container': (
+//     var(--states-on-success-container),
+//     var(--states-success-container),
+//   ),
+//   'error': (
+//     var(--states-error),
+//     var(--states-on-error),
+//   ),
+//   'on-error': (
+//     var(--states-on-error),
+//     var(--states-error),
+//   ),
+//   'error-container': (
+//     var(--states-error-container),
+//     var(--states-on-error-container),
+//   ),
+//   'on-error-container': (
+//     var(--states-on-error-container),
+//     var(--states-error-container),
+//   ),
+//   'warning': (
+//     var(--states-warning),
+//     var(--states-on-warning),
+//   ),
+//   'on-warning': (
+//     var(--states-on-warning),
+//     var(--states-warning),
+//   ),
+//   'warning-container': (
+//     var(--states-warning-container),
+//     var(--states-on-warning-container),
+//   ),
+//   'on-warning-container': (
+//     var(--states-on-warning-container),
+//     var(--states-warning-container),
+//   ),
+//   'alert': (
+//     var(--states-alert),
+//     var(--states-on-alert),
+//   ),
+//   'on-alert': (
+//     var(--states-on-alert),
+//     var(--states-alert),
+//   ),
+//   'alert-container': (
+//     var(--states-alert-container),
+//     var(--states-on-alert-container),
+//   ),
+//   'on-alert-container': (
+//     var(--states-on-alert-container),
+//     var(--states-alert-container),
+//   ),
+//   'neutral': (
+//     var(--neutral-surface),
+//     var(--neutral-on-surface),
+//   ),
+//   'on-neutral': (
+//     var(--neutral-on-surface),
+//     var(--neutral-surface),
+//   ),
+//   'on-neutral-variant': (
+//     var(--neutral-on-surface-variant),
+//     var(--neutral-surface-container-03),
+//   ),
+//   'neutral-container-01': (
+//     var(--neutral-surface-container-01),
+//     var(--neutral-on-surface-variant),
+//   ),
+//   'neutral-container-02': (
+//     var(--neutral-surface-container-02),
+//     var(--neutral-on-surface-variant),
+//   ),
+//   'neutral-container-03': (
+//     var(--neutral-surface-container-03),
+//     var(--neutral-on-surface-variant),
+//   ),
+//   'neutral-container-04': (
+//     var(--neutral-surface-container-04),
+//     var(--neutral-on-surface-variant),
+//   ),
+//   'neutral-container-05': (
+//     var(--neutral-surface-container-05),
+//     var(--neutral-on-surface-variant),
+//   ),
+//   'transparent': (
+//     transparent,
+//     transparent,
+//   ),
+// );
+
+// $borderStyles: (
+//   'solid',
+//   'dashed',
+//   'dotted',
+//   'double',
+//   'groove',
+//   'ridge',
+//   'none',
+//   'hidden'
+// );
+
+// $borderWidths: (
+//   '0': '#{$defaultSpacingBase * 0}rem',
+//   '0.125': '#{$defaultSpacingBase * 0.125}rem',
+//   '0.25': '#{$defaultSpacingBase * 0.25}rem',
+//   '0.375': '#{$defaultSpacingBase * 0.375}rem',
+//   '0.5': '#{$defaultSpacingBase * 0.5}rem',
+// );
+
+// $borderRadii: (
+//   '0': '#{$defaultSpacingBase * 0}rem',
+//   '0.25': '#{$defaultSpacingBase * 0.25}rem',
+//   '0.5': '#{$defaultSpacingBase * 0.5}rem',
+//   '0.75': '#{$defaultSpacingBase * 0.75}rem',
+//   '1': '#{$defaultSpacingBase * 1}rem',
+//   '1.25': '#{$defaultSpacingBase * 1.25}rem',
+//   '1.5': '#{$defaultSpacingBase * 1.5}rem',
+//   '2': '#{$defaultSpacingBase * 2}rem',
+//   '2.5': '#{$defaultSpacingBase * 2.5}rem',
+//   '3': '#{$defaultSpacingBase * 3}rem',
+//   'circle': '50%',
+// );
+
+// @mixin responsive($responsive) {
+//   @if $responsive == 'all' {
+//     @content;
+//   } @else {
+//     @media screen and (max-width: map-get($responsives, $responsive)) {
+//       @content;
+//     }
+//   }
+// }
+
+// @mixin state($state) {
+//   @if $state == 'hover' {
+//     &:hover {
+//       @content;
+//     }
+//   } @else if $state == 'focus' {
+//     &:focus {
+//       @content;
+//     }
+//   } @else if $state == 'active' {
+//     &:active {
+//       @content;
+//     }
+//   } @else if $state == '' {
+//     @content;
+//   }
+// }
+
+// @function setResponsiveName($responsive) {
+//   @if $responsive == 'all' {
+//     @return '';
+//   } @else {
+//     @return $responsive + '\:';
+//   }
+// }
+
+// @function setStateName($state, $group) {
+//   @if $group == 'none' {
+//     @if $state == 'default' {
+//       @return '';
+//     } @else {
+//       @return $state + '\:';
+//     }
+//   } @else {
+//     @if $state == 'default' {
+//       @return '';
+//     } @else {
+//       @return $group + '\/' + $state + '\:';
+//     }
+//   }
+// }
+
+// @mixin createClass($responsive, $group, $state, $name) {
+//   $responsiveName: setResponsiveName($responsive);
+//   $stateName: setStateName($state, $group);
+
+//   @if $group == 'none' {
+//     &.#{\$responsiveName + \$stateName + \$name} {
+//       @include state($state) {
+//         @include responsive($responsive) {
+//           @content;
+//         }
+//       }
+//     }
+//   } @else {
+//     @if ($state != '') {
+//       &.group\/#{$group} {
+//         @include state($state) {
+//           &.#{\$responsiveName + \$stateName + \$name} {
+//             @include responsive($responsive) {
+//               @content;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin padding {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name, $value in $spacings {
+//           @include createClass($responsive, $group, $state, 'padding-#{name}') {
+//             padding: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'padding-x-#{name}'
+//           ) {
+//             padding-left: #{$value};
+//             padding-right: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'padding-y-#{name}'
+//           ) {
+//             padding-top: #{$value};
+//             padding-bottom: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'padding-top-#{name}'
+//           ) {
+//             padding-top: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'padding-right-#{name}'
+//           ) {
+//             padding-right: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'padding-bottom-#{name}'
+//           ) {
+//             padding-bottom: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'padding-left-#{name}'
+//           ) {
+//             padding-left: #{$value};
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin margin {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name, $value in $spacings {
+//           @include createClass($responsive, $group, $state, 'margin-#{name}') {
+//             margin: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'margin-x-#{name}'
+//           ) {
+//             margin-left: #{$value};
+//             margin-right: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'margin-y-#{name}'
+//           ) {
+//             margin-top: #{$value};
+//             margin-bottom: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'margin-top-#{name}'
+//           ) {
+//             margin-top: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'margin-right-#{name}'
+//           ) {
+//             margin-right: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'margin-bottom-#{name}'
+//           ) {
+//             margin-bottom: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'margin-left-#{name}'
+//           ) {
+//             margin-left: #{$value};
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin size {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name, $value in $sizings {
+//           @include createClass($responsive, $group, $state, 'size-#{name}') {
+//             width: #{$value};
+//             height: #{$value};
+//           }
+//           @include createClass($responsive, $group, $state, 'width-#{name}') {
+//             width: #{$value};
+//           }
+//           @include createClass($responsive, $group, $state, 'height-#{name}') {
+//             height: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'min-width-#{name}'
+//           ) {
+//             min-width: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'min-height-#{name}'
+//           ) {
+//             min-height: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'max-width-#{name}'
+//           ) {
+//             max-width: #{$value};
+//           }
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'max-height-#{name}'
+//           ) {
+//             max-height: #{$value};
+//           }
+//         }
+//         @include createClass($responsive, $group, $state, 'size-screen') {
+//           width: 100vw;
+//           height: 100vh;
+//         }
+//         @include createClass($responsive, $group, $state, 'width-screen') {
+//           width: 100vw;
+//         }
+//         @include createClass($responsive, $group, $state, 'height-screen') {
+//           height: 100vh;
+//         }
+//         @include createClass($responsive, $group, $state, 'min-width-screen') {
+//           min-width: 100vw;
+//         }
+//         @include createClass($responsive, $group, $state, 'min-height-screen') {
+//           min-height: 100vh;
+//         }
+//         @include createClass($responsive, $group, $state, 'max-width-screen') {
+//           max-width: 100vw;
+//         }
+//         @include createClass($responsive, $group, $state, 'max-height-screen') {
+//           max-height: 100vh;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin position {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name, $value in (static, relative, absolute, fixed, sticky) {
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'position-#{name}'
+//           ) {
+//             position: #{$value};
+//           }
+//         }
+//         @each $name, $value in $positionings {
+//           @include createClass($responsive, $group, $state, 'top-#{name}') {
+//             top: #{$value};
+//           }
+//           @include createClass($responsive, $group, $state, 'right-#{name}') {
+//             right: #{$value};
+//           }
+//           @include createClass($responsive, $group, $state, 'bottom-#{name}') {
+//             bottom: #{$value};
+//           }
+//           @include createClass($responsive, $group, $state, 'left-#{name}') {
+//             left: #{$value};
+//           }
+
+//           //negative
+//           @include createClass($responsive, $group, $state, '-top-#{name}') {
+//             top: -#{$value};
+//           }
+//           @include createClass($responsive, $group, $state, '-right-#{name}') {
+//             right: -#{$value};
+//           }
+//           @include createClass($responsive, $group, $state, '-bottom-#{name}') {
+//             bottom: -#{$value};
+//           }
+//           @include createClass($responsive, $group, $state, '-left-#{name}') {
+//             left: -#{$value};
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin content-color {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name, $value in $contentColors {
+//           @include createClass($responsive, $group, $state, 'color-#{name}') {
+//             color: #{$value};
+//             background-color: transparent;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin container-color {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name, $value in $containerColors {
+//           @include createClass($responsive, $group, $state, 'color-#{name}') {
+//             color: #{nth($value, 1)};
+//             background-color: #{nth($value, 2)};
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin border {
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name in $borderStyles {
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'border-style-#{$name}'
+//           ) {
+//             border-style: #{$name};
+//           }
+//         }
+//         @each $name, $value in $borderWidths {
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'border-width-#{$name}'
+//           ) {
+//             border-width: #{$value};
+//           }
+//         }
+//         @each $name, $value in $contentColors {
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'border-color-#{$name}'
+//           ) {
+//             border-color: #{$value};
+//           }
+//         }
+//         @each $name, $value in $borderRadii {
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'border-radius-#{$name}'
+//           ) {
+//             border-radius: #{$value};
+//           }
+//         }
+//         // with direction
+//         @each $direction in (top, right, bottom, left) {
+//           @each $value in $borderStyles {
+//             @include createClass(
+//               $responsive,
+//               $group,
+//               $state,
+//               'border-#{$direction}-style-#{$value}'
+//             ) {
+//               border-#{$direction}-style: #{$value};
+//             }
+//           }
+//           @each $name, $value in $borderWidths {
+//             @include createClass(
+//               $responsive,
+//               $group,
+//               $state,
+//               'border-#{$direction}-width-#{$name}'
+//             ) {
+//               border-#{$direction}-width: #{$value};
+//             }
+//           }
+//           @each $name, $value in $contentColors {
+//             @include createClass(
+//               $responsive,
+//               $group,
+//               $state,
+//               'border-#{$direction}-color-#{$name}'
+//             ) {
+//               border-#{$direction}-color: #{$value};
+//             }
+//           }
+//         }
+//         @each $direction in (top-left, top-right, bottom-right, bottom-left) {
+//           @each $name, $value in $borderRadii {
+//             @include createClass(
+//               $responsive,
+//               $group,
+//               $state,
+//               'border-radius-#{$direction}-#{$name}'
+//             ) {
+//               border-#{$direction}-radius: #{$value};
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @mixin flex {
+//   display: flex;
+
+//   @each $responsive, $breakpoint in $responsives {
+//     @each $group in $groups {
+//       @each $state in $states {
+//         @each $name in (row, row-reverse, column, column-reverse) {
+//           @include createClass(
+//             $responsive,
+//             $group,
+//             $state,
+//             'direction-#{$name}'
+//           ) {
+//             flex-direction: #{$name};
+//           }
+//         }
+//         @each $name in (wrap, wrap-reverse, nowrap) {
+//           @include createClass($responsive, $group, $state, 'wrap-#{$name}') {
+//             flex-wrap: #{$name};
+//           }
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'justify-content-start'
+//         ) {
+//           justify-content: flex-start;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'justify-content-end'
+//         ) {
+//           justify-content: flex-end;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'justify-content-center'
+//         ) {
+//           justify-content: center;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'justify-content-between'
+//         ) {
+//           justify-content: space-between;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'justify-content-around'
+//         ) {
+//           justify-content: space-around;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'justify-content-evenly'
+//         ) {
+//           justify-content: space-evenly;
+//         }
+//         @include createClass($responsive, $group, $state, 'align-items-start') {
+//           align-items: flex-start;
+//         }
+//         @include createClass($responsive, $group, $state, 'align-items-end') {
+//           align-items: flex-end;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-items-center'
+//         ) {
+//           align-items: center;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-items-baseline'
+//         ) {
+//           align-items: baseline;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-items-stretch'
+//         ) {
+//           align-items: stretch;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-content-start'
+//         ) {
+//           align-content: flex-start;
+//         }
+//         @include createClass($responsive, $group, $state, 'align-content-end') {
+//           align-content: flex-end;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-content-center'
+//         ) {
+//           align-content: center;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-content-between'
+//         ) {
+//           align-content: space-between;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-content-around'
+//         ) {
+//           align-content: space-around;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-content-stretch'
+//         ) {
+//           align-content: stretch;
+//         }
+//         @include createClass(
+//           $responsive,
+//           $group,
+//           $state,
+//           'align-content-evenly'
+//         ) {
+//           align-content: space-evenly;
+//         }
+//         @each $name, $value in $spacings {
+//           @include createClass($responsive, $group, $state, 'gap-#{$name}') {
+//             gap: #{$value};
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// /* content */
+// // exclude color
+// @mixin content {
+//   /* sizing */
+//   @include size;
+
+//   /* margin */
+//   @include margin;
+// }
+
+// /* container */
+// // exclude color
+// @mixin container {
+//   /* sizing */
+//   @include size;
+
+//   /* padding */
+//   @include padding;
+
+//   /* margin */
+//   @include margin;
+
+//   /* border */
+//   @include border;
+// }

@@ -1,41 +1,22 @@
-import classNames from 'classnames/bind';
-import classes from './Flex.module.scss';
-import { FlexProps } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import { FlexStyleProps } from '@/types/props';
+import classNamesObjectToString from '@/utils/classNamesObjectToString';
+import { ComponentPropsWithoutRef } from 'react';
 
-interface Props extends FlexProps {
-  children?: React.ReactNode;
+interface FlexProps extends FlexStyleProps {
+  children: React.ReactNode;
   name?: string;
-  hover?: 'on' | 'off';
+}
+interface HTMLFlexProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, keyof FlexProps> {}
+interface Props extends FlexProps {
+  htmlAttributes?: HTMLFlexProps;
 }
 
-const Flex = ({
-  children,
-  name,
-  position = 'static',
-  top,
-  left,
-  right,
-  bottom,
-  zIndex,
-  opacity,
-  ...classNamesProps
-}: Props) => {
-  const cx = classNames.bind(classes);
-  const style = {
-    position,
-    top,
-    left,
-    right,
-    bottom,
-    zIndex,
-    opacity,
-  };
-
-  const defaultClassNamesProps: Props = {
+const Flex = ({ children, name, htmlAttributes, ...restFlexProps }: Props) => {
+  const styleProps: FlexStyleProps = restFlexProps;
+  const defaultStyleProps: FlexStyleProps = {
     size: 'auto',
     color: 'transparent',
-    hoverColor: 'transparent',
     padding: '0',
     margin: '0',
     justifyContent: 'center',
@@ -48,15 +29,8 @@ const Flex = ({
 
   return (
     <div
-      className={cx(
-        'flex',
-        ...classNamesObjectToArray({
-          ...defaultClassNamesProps,
-          ...classNamesProps,
-        })
-      )}
-      key={cx(name)}
-      style={style}
+      className={`flex ${classNamesObjectToString({ ...defaultStyleProps, ...styleProps })}}`}
+      {...htmlAttributes}
     >
       {children}
     </div>

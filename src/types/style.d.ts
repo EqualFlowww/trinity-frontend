@@ -1,4 +1,5 @@
 export type Spacing =
+  | 'auto'
   | '0'
   | '0.125'
   | '0.25'
@@ -61,7 +62,8 @@ export type Spacing =
   | '104'
   | '112'
   | '120'
-  | '128';
+  | '128'
+  | `[${number}rem]`;
 
 export type NagativeSpacing =
   | '-0'
@@ -139,8 +141,11 @@ export type Percentage =
   | '8pct'
   | '9pct'
   | '10pct'
+  | '11pct'
   | '12pct'
+  | '13pct'
   | '14pct'
+  | '15pct'
   | '16pct'
   | '18pct'
   | '20pct'
@@ -183,7 +188,8 @@ export type Percentage =
   | '94pct'
   | '96pct'
   | '98pct'
-  | '100pct';
+  | '100pct'
+  | `[${number}%]`;
 
 export type NagativePercentage =
   | '-0pct'
@@ -246,7 +252,6 @@ export type NagativePercentage =
 export type Sizing =
   | Spacing
   | Percentage
-  | 'auto'
   | 'mobile'
   | 'tablet'
   | 'laptop'
@@ -257,13 +262,11 @@ export type Sizing =
   | 'fit-content'
   | 'inherit'
   | 'initial'
-  | 'unset';
+  | 'unset'
+  | `[${number}]vw`
+  | `[${number}]vh`;
 
-export type Positioning =
-  | Spacing
-  | Percentage
-  | NagativePercentage
-  | NagativeSpacing;
+export type Positioning = Spacing | Percentage;
 
 export type ZIndex =
   | '0'
@@ -315,4 +318,263 @@ export type ZIndex =
   | '1107'
   | '1108'
   | '1109'
-  | '1110';
+  | '1110'
+  | `[${number}]`;
+
+export type Group =
+  | 'item'
+  | 'list'
+  | 'container'
+  | 'wrapper'
+  | 'box'
+  | 'link'
+  | 'button';
+
+type Color =
+  | 'primary'
+  | 'on-primary'
+  | 'primary-container'
+  | 'on-primary-container'
+  | 'secondary'
+  | 'on-secondary'
+  | 'secondary-container'
+  | 'on-secondary-container'
+  | 'tertiary'
+  | 'on-tertiary'
+  | 'tertiary-container'
+  | 'on-tertiary-container'
+  | 'neutral'
+  | 'on-neutral'
+  | 'on-neutral-variant'
+  | 'neutral-container-01'
+  | 'neutral-container-02'
+  | 'neutral-container-03'
+  | 'neutral-container-04'
+  | 'neutral-container-05'
+  | 'neutral-outline'
+  | 'neutral-outline-variant'
+  | 'neutral-scrim'
+  | 'error'
+  | 'on-error'
+  | 'error-container'
+  | 'on-error-container'
+  | 'warning'
+  | 'on-warning'
+  | 'warning-container'
+  | 'on-warning-container'
+  | 'success'
+  | 'on-success'
+  | 'success-container'
+  | 'on-success-container'
+  | 'alert'
+  | 'on-alert'
+  | 'alert-container'
+  | 'on-alert-container'
+  | 'transparent'
+  | 'inherit'
+  | `[#${number}]`;
+
+export type ContentColor = Exclude<Color, 'transparent'>;
+export type ContainerColor = Exclude<
+  Color,
+  'inherit' | 'neutral-outline' | 'neutral-outline-variant' | 'neutral-scrim'
+>;
+export type BorderColor = Exclude<Color, 'transparent' | 'inherit'>;
+
+export type BorderType =
+  | 'none'
+  | 'hidden'
+  | 'solid'
+  | 'dashed'
+  | 'dotted'
+  | 'double'
+  | 'groove'
+  | 'ridge';
+export type BorderWidth =
+  | '0'
+  | '0.125'
+  | '0.25'
+  | '0.375'
+  | '0.5'
+  | `[${number}rem]`;
+export type BorderRadius =
+  | '0'
+  | '0.25'
+  | '0.5'
+  | '0.75'
+  | '1'
+  | '1.5'
+  | '2'
+  | '2.5'
+  | '3'
+  | '9999'
+  | 'circle'
+  | `[${number}rem]`;
+export type Gap =
+  | '0'
+  | '0.125'
+  | '0.25'
+  | '0.375'
+  | '0.5'
+  | '0.75'
+  | '1'
+  | '1.25'
+  | '1.5'
+  | '1.75'
+  | '2'
+  | '2.25'
+  | '2.5'
+  | '2.75'
+  | '3'
+  | '3.25'
+  | '3.5'
+  | '3.75'
+  | '4'
+  | '4.25'
+  | '4.5'
+  | '4.75'
+  | '5'
+  | '5.5'
+  | '6'
+  | '6.5'
+  | '7'
+  | '7.5'
+  | '8'
+  | `[${number}rem]`;
+
+export type Opacity =
+  | '0'
+  | '0.1'
+  | '0.2'
+  | '0.3'
+  | '0.4'
+  | '0.5'
+  | '0.6'
+  | '0.7'
+  | '0.8'
+  | '0.9'
+  | '1'
+  | `[${number}]`;
+
+export type Responsive = 'mobile' | 'tablet' | 'laptop';
+export type State = 'hover' | 'focus' | 'active' | 'disabled';
+
+/*--------------------Style--------------------*/
+
+export interface ContentColorStyle {
+  color?: ContentColor;
+}
+
+export interface ContainerColorStyle {
+  color?: ContainerColor;
+}
+
+export interface PositionStyle {
+  position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky';
+  top?: Positioning;
+  left?: Positioning;
+  bottom?: Positioning;
+  right?: Positioning;
+  zIndex?: number;
+}
+
+export interface OpacityStyle {
+  opacity?: Opacity;
+}
+
+export interface PaddingStyle {
+  padding?: Spacing;
+  paddingX?: Spacing;
+  paddingY?: Spacing;
+  paddingTop?: Spacing;
+  paddingBottom?: Spacing;
+  paddingLeft?: Spacing;
+  paddingRight?: Spacing;
+}
+
+export interface MarginStyle {
+  margin?: Spacing;
+  marginX?: Spacing;
+  marginY?: Spacing;
+  marginTop?: Spacing;
+  marginBottom?: Spacing;
+  marginLeft?: Spacing;
+  marginRight?: Spacing;
+}
+
+export interface BorderStyle {
+  borderStyle?: BorderType;
+  borderTopStyle?: BorderType;
+  borderBottomStyle?: BorderType;
+  borderLeftStyle?: BorderType;
+  borderRightStyle?: BorderType;
+  borderColor?: BorderColor;
+  borderTopColor?: BorderColor;
+  borderBottomColor?: BorderColor;
+  borderLeftColor?: BorderColor;
+  borderRightColor?: BorderColor;
+  borderWidth?: BorderWidth;
+  borderTopWidth?: BorderWidth;
+  borderBottomWidth?: BorderWidth;
+  borderLeftWidth?: BorderWidth;
+  borderRightWidth?: BorderWidth;
+  borderRadius?: BorderRadius;
+  borderRadiusTopLeft?: BorderRadius;
+  borderRadiusTopRight?: BorderRadius;
+  borderRadiusBottomLeft?: BorderRadius;
+  borderRadiusBottomRight?: BorderRadius;
+}
+
+export interface ShadowStyle {
+  shadow?: 'gray';
+}
+
+export interface SizeStyle {
+  size?: Sizing;
+  width?: Sizing;
+  height?: Sizing;
+  maxWidth?: Sizing;
+  maxHeight?: Sizing;
+  minWidth?: Sizing;
+  minHeight?: Sizing;
+}
+
+export interface ContentStyle
+  extends ContentColorStyle,
+    PositionStyle,
+    MarginStyle,
+    SizeStyle,
+    OpacityStyle,
+    ShadowStyle {}
+
+export interface ContainerStyle
+  extends ContainerColorStyle,
+    PositionStyle,
+    PaddingStyle,
+    MarginStyle,
+    SizeStyle,
+    BorderStyle,
+    OpacityStyle,
+    ShadowStyle {}
+
+export interface FlexStyle extends ContainerStyle {
+  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
+  alignItems?: 'start' | 'end' | 'center' | 'stretch' | 'baseline';
+  alignContent?:
+    | 'start'
+    | 'end'
+    | 'center'
+    | 'between'
+    | 'around'
+    | 'evenly'
+    | 'stretch';
+  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
+  gap?: Gap;
+}
+
+export interface ButtonStyle extends FlexStyle {
+  form?: 'filled' | 'outlined' | 'text';
+}
+
+export interface IconStyle extends ContentStyle {}

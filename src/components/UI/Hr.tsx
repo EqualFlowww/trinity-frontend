@@ -1,15 +1,25 @@
 import classNames from 'classnames/bind';
-import classes from './Hr.module.scss';
+import classes from './UI.module.scss';
 import {
-  BorderWidth,
   ContainerColorProps,
-  ContentSizing,
   MarginProps,
   OpacityProps,
   PaddingProps,
   ShadowProps,
 } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import classNamesObjectToArray from '@/utils/classNamesObjectToString';
+import { BorderWidth, Sizing } from '@/types/style';
+import { ComponentPropsWithoutRef } from 'react';
+
+interface ButtonProps extends ButtonStyleProps {
+  children: React.ReactNode;
+  type?: 'button' | 'submit';
+}
+interface HTMLButtonProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, keyof ButtonProps> {}
+interface Props extends ButtonProps {
+  htmlAttributes?: HTMLButtonProps;
+}
 
 interface Props
   extends ContainerColorProps,
@@ -18,7 +28,7 @@ interface Props
     OpacityProps,
     ShadowProps {
   type: 'vertical' | 'horizontal';
-  size?: ContentSizing;
+  size?: Sizing;
   weight?: BorderWidth;
 }
 
@@ -31,7 +41,7 @@ const Hr = ({ opacity, ...classNamesProps }: Props) => {
   const defaultClassNamesProps: Props = {
     type: 'horizontal',
     size: 'full',
-    weight: '0-eighth',
+    weight: '0.125',
     color: 'transparent',
     margin: '0',
   };

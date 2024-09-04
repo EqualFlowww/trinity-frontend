@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import classes from './Spinner.module.scss';
+import classes from './UI.module.scss';
 import {
   ContentColorProps,
   MarginProps,

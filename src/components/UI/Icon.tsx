@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
-import classes from './Icon.module.scss';
+import classes from './UI.module.scss';
 import { IconProps } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import classNamesObjectToArray from '@/utils/classNamesObjectToString';
 
 interface Props extends IconProps {
   children: React.ReactNode;

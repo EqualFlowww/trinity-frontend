@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
-import classes from './Wrapper.module.scss';
+import classes from './UI.module.scss';
 import { ContainerProps } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import classNamesObjectToString from '@/utils/classNamesObjectToString';
 
 interface Props extends ContainerProps {
   children: React.ReactNode;
@@ -45,7 +45,10 @@ const Wrapper = ({
     <div
       className={cx(
         'wrapper',
-        ...classNamesObjectToArray({ ...defaultClassNames, ...classNamesProps })
+        ...classNamesObjectToString({
+          ...defaultClassNames,
+          ...classNamesProps,
+        })
       )}
       key={cx(name)}
       style={style}

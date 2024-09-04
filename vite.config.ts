@@ -11,11 +11,11 @@ const userConfig = defineConfig({
       localsConvention: 'camelCase',
     },
     preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @import '@/styles/_mixins.scss';
-        `,
-      },
+      // scss: {
+      //   additionalData: `
+      //     @import '@/styles/_mixins.scss';
+      //   `,
+      // },
     },
   },
   server: {

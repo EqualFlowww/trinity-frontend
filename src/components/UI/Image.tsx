@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
-import classes from './Image.module.scss';
+import classes from './UI.module.scss';
 import { BorderProps, ContentProps } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import classNamesObjectToArray from '@/utils/classNamesObjectToString';
 
 interface Props extends ContentProps, BorderProps {
   src: string;
