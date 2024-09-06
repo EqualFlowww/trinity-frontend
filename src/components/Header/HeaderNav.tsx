@@ -8,6 +8,7 @@ import IconSetting from '@/components/Icon/IconSetting';
 import Button from '@/components/UI/Button';
 import useMessageStore from '@/store/messageStore';
 import useSettingStore from '@/store/settingStore';
+import Hr from '@/components/UI/Hr';
 
 const HeaderNav = () => {
   const cx = classNames.bind(classes);
@@ -17,20 +18,25 @@ const HeaderNav = () => {
 
   return (
     <Flex
-      direction="column"
+      direction="f-col"
       name="wrapper"
-      color="transparent"
-      padding="0"
-      gap="1"
-      width="full"
+      color="c-transparent"
+      padding="p-0"
+      gap="gap-1"
+      width="w-full"
     >
-      <Flex direction="column" width="full" gap="0-half">
+      <Flex direction="f-col" width="w-full" gap="gap-0.5">
         <a href="./" className={cx('logo-wrapper')}>
-          <IconTrinityLogo size="full" color="neutral-container-05" />
+          <IconTrinityLogo size="sz-full" color="neutral-container-05" />
         </a>
         <div className={cx('hr')} />
       </Flex>
-      <Flex name="nav-link-container" direction="column" gap="1" width="full">
+      <Flex
+        name="nav-link-container"
+        direction="f-col"
+        gap="gap-1"
+        width="w-full"
+      >
         <HeaderNavLink text="Home" to="/" />
         <HeaderNavLink text="Cart" to="/cart" />
         <HeaderNavLink text="Course" to="/course" />
@@ -38,22 +44,27 @@ const HeaderNav = () => {
         <HeaderNavLink text="Device" to="/device" />
         <HeaderNavLink text="Account" to="/account" />
       </Flex>
-      <div className={cx('hr')} />
-      <Flex marginTop="3" width="full" justifyContent="around">
+      <Hr
+        type="horizontal"
+        length="len-full"
+        thickness="thk-0.125"
+        color="c-neutral-container-03"
+      />
+      <Flex marginTop="mt-3" width="w-full" justifyContent="jc-around">
         <Button
-          form="text"
-          padding="0"
-          color="neutral-container-05"
-          hoverColor="on-neutral-variant"
+          form="btn-text"
+          padding="p-0"
+          color="c-neutral-container-05"
+          hover={{ color: 'hover:c-on-neutral-variant' }}
           onClick={openMessageModal}
         >
-          <IconMessage color="inherit" />
+          <IconMessage color="c-inherit" />
         </Button>
         <Button
-          form="text"
-          padding="0"
-          color="neutral-container-05"
-          hoverColor="on-neutral-variant"
+          form="btn-text"
+          padding="p-0"
+          color="c-neutral-container-05"
+          hover={{ color: 'hover:c-on-neutral-variant' }}
           onClick={openSettingModal}
         >
           <IconSetting color="inherit" />

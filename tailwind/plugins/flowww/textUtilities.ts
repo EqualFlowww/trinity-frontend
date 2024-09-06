@@ -1,11 +1,7 @@
 // plugins/positionUtilities.js
 import plugin from 'tailwindcss/plugin';
-import { gapTheme } from './theme';
 
-export const flexUtilities = plugin(function ({
-  addUtilities,
-  matchUtilities,
-}) {
+export const textUtilities = plugin(function ({ addUtilities }) {
   // 위치 설정 유틸리티
   addUtilities(
     ['row', 'column', 'row-reverse', 'column-reverse'].map((value) => ({
@@ -30,39 +26,6 @@ export const flexUtilities = plugin(function ({
     },
     ['.jc-center']: {
       'justify-content': 'center',
-    },
-    ['.jc-between']: {
-      'justify-content': 'space-between',
-    },
-    ['.jc-around']: {
-      'justify-content': 'space-around',
-    },
-    ['.jc-evenly']: {
-      'justify-content': 'space-evenly',
-    },
-    ['.ai-start']: {
-      'align-items': 'flex-start',
-    },
-    ['.ai-end']: {
-      'align-items': 'flex-end',
-    },
-    ['.ai-center']: {
-      'align-items': 'center',
-    },
-    ['.ai-baseline']: {
-      'align-items': 'baseline',
-    },
-    ['.ai-stretch']: {
-      'align-items': 'stretch',
-    },
-    ['.ac-start']: {
-      'align-content': 'flex-start',
-    },
-    ['.ac-end']: {
-      'align-content': 'flex-end',
-    },
-    ['.ac-center']: {
-      'align-content': 'center',
     },
     ['.ac-between']: {
       'align-content': 'space-between',

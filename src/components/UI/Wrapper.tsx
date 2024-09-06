@@ -1,57 +1,36 @@
-import classNames from 'classnames/bind';
-import classes from './UI.module.scss';
-import { ContainerProps } from '@/types/props';
+import { WrapperStyleProps } from '@/types/props';
 import classNamesObjectToString from '@/utils/classNamesObjectToString';
+import { ComponentPropsWithoutRef } from 'react';
 
-interface Props extends ContainerProps {
+interface WrapperProps extends WrapperStyleProps {
   children: React.ReactNode;
   name?: string;
+}
+interface HTMLWrapperProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, keyof WrapperProps> {}
+
+interface Props extends WrapperProps {
+  htmlAttributes?: HTMLWrapperProps;
 }
 
 const Wrapper = ({
   children,
   name,
-  position = 'static',
-  top,
-  left,
-  right,
-  bottom,
-  zIndex,
-  opacity,
-  ...classNamesProps
+  htmlAttributes,
+  ...restWrapperProps
 }: Props) => {
-  const cx = classNames.bind(classes);
-  const style = {
-    position,
-    top,
-    left,
-    right,
-    bottom,
-    zIndex,
-    opacity,
-  };
-
-  const defaultClassNames = {
-    size: 'auto',
-    color: 'transparent',
-    hoverColor: 'transparent',
-    padding: '0',
-    margin: '0',
-    borderRadius: '0',
-    shadow: 'none',
+  const defaultStyleProps: WrapperStyleProps = {
+    size: 'sz-auto',
+    color: 'c-transparent',
+    padding: 'p-0',
+    margin: 'm-0',
+    borderRadius: 'rad-0',
   };
 
   return (
     <div
-      className={cx(
-        'wrapper',
-        ...classNamesObjectToString({
-          ...defaultClassNames,
-          ...classNamesProps,
-        })
-      )}
-      key={cx(name)}
-      style={style}
+      className={`wrapper ${classNamesObjectToString({ ...defaultStyleProps, ...restWrapperProps })}}`}
+      {...htmlAttributes}
     >
       {children}
     </div>

@@ -19,33 +19,33 @@ const HeaderNavLink = ({ text, to }: Props) => {
       {({ isActive }) =>
         isActive ? (
           <Flex
-            size="full"
-            justifyContent="between"
-            alignItems="center"
-            padding="1"
-            gap="0-half"
-            color="on-neutral"
-            borderRadius="1"
+            size="sz-full"
+            justifyContent="jc-between"
+            alignItems="ai-center"
+            padding="p-1"
+            gap="gap-0.5"
+            color="c-on-neutral"
+            borderRadius="rad-1"
           >
-            <Text type="label" color="inherit">
+            <Text type="label" color="c-inherit">
               {text}
             </Text>
-            <IconArrow type="right" size="2" color="inherit" />
+            <IconArrow type="right" size="sz-2" color="c-inherit" />
           </Flex>
         ) : (
           <Button
-            form="text"
-            justifyContent="between"
-            wrap="nowrap"
-            width="full"
-            padding="1"
-            color="neutral-container-05"
-            hoverColor="on-neutral-variant"
+            form="btn-text"
+            justifyContent="jc-between"
+            wrap="f-nowrap"
+            width="w-full"
+            padding="p-1"
+            color="c-neutral-container-05"
+            hover={{ color: 'hover:c-on-neutral-variant' }}
           >
             <Text type="label" color="inherit">
               {text}
             </Text>
-            <IconArrow type="right" size="2" color="inherit" />
+            <IconArrow type="right" size="sz-2" color="c-inherit" />
           </Button>
         )
       }

@@ -1,61 +1,29 @@
-import classNames from 'classnames/bind';
-import classes from './UI.module.scss';
-import {
-  ContainerColorProps,
-  MarginProps,
-  OpacityProps,
-  PaddingProps,
-  ShadowProps,
-} from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToString';
-import { BorderWidth, Sizing } from '@/types/style';
+import classNamesObjectToString from '@/utils/classNamesObjectToString';
 import { ComponentPropsWithoutRef } from 'react';
+import { HrStyleProps } from '@/types/props';
 
-interface ButtonProps extends ButtonStyleProps {
-  children: React.ReactNode;
-  type?: 'button' | 'submit';
+interface HrProps extends HrStyleProps {
+  name?: string;
 }
-interface HTMLButtonProps
-  extends Omit<ComponentPropsWithoutRef<'div'>, keyof ButtonProps> {}
-interface Props extends ButtonProps {
-  htmlAttributes?: HTMLButtonProps;
-}
-
-interface Props
-  extends ContainerColorProps,
-    MarginProps,
-    PaddingProps,
-    OpacityProps,
-    ShadowProps {
-  type: 'vertical' | 'horizontal';
-  size?: Sizing;
-  weight?: BorderWidth;
+interface HTMLHrProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, keyof HrProps> {}
+interface Props extends HrProps {
+  htmlAttributes?: HTMLHrProps;
 }
 
-const Hr = ({ opacity, ...classNamesProps }: Props) => {
-  const cx = classNames.bind(classes);
-  const style = {
-    opacity,
-  };
-
-  const defaultClassNamesProps: Props = {
+const Hr = ({ name, htmlAttributes, ...restFlexProps }: Props) => {
+  const defaultStyleProps: HrStyleProps = {
     type: 'horizontal',
-    size: 'full',
-    weight: '0.125',
-    color: 'transparent',
-    margin: '0',
+    length: 'len-full',
+    thickness: 'thk-0.125',
+    color: 'c-transparent',
+    margin: 'm-0',
   };
 
   return (
     <div
-      className={cx(
-        'hr',
-        ...classNamesObjectToArray({
-          ...defaultClassNamesProps,
-          ...classNamesProps,
-        })
-      )}
-      style={style}
+      className={`hr ${classNamesObjectToString({ ...defaultStyleProps, ...restFlexProps })}`}
+      {...htmlAttributes}
     />
   );
 };

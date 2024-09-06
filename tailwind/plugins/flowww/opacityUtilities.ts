@@ -5,7 +5,7 @@ import { opacityTheme } from './theme';
 export const opacityUtilities = plugin(function ({ matchUtilities }) {
   matchUtilities(
     {
-      opacity: (value) => ({
+      oc: (value) => ({
         opacity: value,
       }),
     },

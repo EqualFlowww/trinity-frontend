@@ -5,11 +5,9 @@ import { containerColorTheme, contentColorTheme } from './theme';
 export const colorUtilities = plugin(function ({ matchUtilities }) {
   matchUtilities(
     {
-      color: (value) => ({
-        '&.text, &.svg': {
-          color: value[0],
-          backgroundColor: value[1],
-        },
+      c: (value) => ({
+        color: value[1],
+        backgroundColor: value[0],
       }),
     },
     {
@@ -18,9 +16,16 @@ export const colorUtilities = plugin(function ({ matchUtilities }) {
   );
   matchUtilities(
     {
-      color: (value) => ({
-        color: value,
-        backgroundColor: 'transparent',
+      c: (value) => ({
+        '&.text, &.svg, &.btn-text': {
+          color: value,
+          backgroundColor: 'transparent',
+        },
+        '&.btn-outlined': {
+          color: value,
+          backgroundColor: 'transparent',
+          borderColor: value,
+        },
       }),
     },
     {

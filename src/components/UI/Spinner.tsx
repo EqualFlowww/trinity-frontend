@@ -6,7 +6,7 @@ import {
   OpacityProps,
   PositionProps,
 } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToArray';
+import classNamesObjectToArray from '@/utils/classNamesObjectToString';
 
 interface Props
   extends ContentColorProps,

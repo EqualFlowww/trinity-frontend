@@ -5,6 +5,11 @@ import {
   borderWidthTheme,
   contentColorTheme,
 } from './theme';
+import { CSSRuleObject } from 'tailwindcss/types/config';
+
+type CSSRuleObjecta = {
+  [key: string]: string | number | CSSRuleObject;
+};
 
 export const borderUtilities = plugin(function ({
   addUtilities,
@@ -21,52 +26,90 @@ export const borderUtilities = plugin(function ({
       'none',
       'hidden',
     ].map((style) => ({
-      [`.border-style-${style}`]: {
+      [`.bs-${style}`]: {
         'border-style': style,
       },
     })),
-    ...['top', 'right', 'bottom', 'left'].map((direction) => ({
-      [`.border-${direction}-style-solid`]: {
-        [`border-${direction}-style`]: 'solid',
+  });
+  addUtilities({
+    ...[
+      'solid',
+      'dashed',
+      'dotted',
+      'double',
+      'groove',
+      'ridge',
+      'none',
+      'hidden',
+    ].map((style) => ({
+      [`.bts-${style}`]: {
+        'border-top-style': style,
       },
-      [`.border-${direction}-style-dashed`]: {
-        [`border-${direction}-style`]: 'dashed',
+    })),
+  });
+  addUtilities({
+    ...[
+      'solid',
+      'dashed',
+      'dotted',
+      'double',
+      'groove',
+      'ridge',
+      'none',
+      'hidden',
+    ].map((style) => ({
+      [`.brs-${style}`]: {
+        'border-right-style': style,
       },
-      [`.border-${direction}-style-dotted`]: {
-        [`border-${direction}-style`]: 'dotted',
+    })),
+  });
+  addUtilities({
+    ...[
+      'solid',
+      'dashed',
+      'dotted',
+      'double',
+      'groove',
+      'ridge',
+      'none',
+      'hidden',
+    ].map((style) => ({
+      [`.bbs-${style}`]: {
+        'border-bottom-style': style,
       },
-      [`.border-${direction}-style-double`]: {
-        [`border-${direction}-style`]: 'double',
-      },
-      [`.border-${direction}-style-groove`]: {
-        [`border-${direction}-style`]: 'groove',
-      },
-      [`.border-${direction}-style-ridge`]: {
-        [`border-${direction}-style`]: 'ridge',
-      },
-      [`.border-${direction}-style-none`]: {
-        [`border-${direction}-style`]: 'none',
-      },
-      [`.border-${direction}-style-hidden`]: {
-        [`border-${direction}-style`]: 'hidden',
+    })),
+  });
+  addUtilities({
+    ...[
+      'solid',
+      'dashed',
+      'dotted',
+      'double',
+      'groove',
+      'ridge',
+      'none',
+      'hidden',
+    ].map((style) => ({
+      [`.bls-${style}`]: {
+        'border-left-style': style,
       },
     })),
   });
   matchUtilities(
     {
-      'border-color': (value) => ({
+      bc: (value) => ({
         'border-color': value,
       }),
-      'border-top-color': (value) => ({
+      btc: (value) => ({
         'border-top-color': value,
       }),
-      'border-right-color': (value) => ({
+      brc: (value) => ({
         'border-right-color': value,
       }),
-      'border-bottom-color': (value) => ({
+      bbc: (value) => ({
         'border-bottom-color': value,
       }),
-      'border-left-color': (value) => ({
+      blc: (value) => ({
         'border-left-color': value,
       }),
     },
@@ -76,19 +119,19 @@ export const borderUtilities = plugin(function ({
   );
   matchUtilities(
     {
-      'border-width': (value) => ({
+      bw: (value) => ({
         'border-width': value,
       }),
-      'border-top-width': (value) => ({
+      btw: (value) => ({
         'border-top-width': value,
       }),
-      'border-right-width': (value) => ({
+      brw: (value) => ({
         'border-right-width': value,
       }),
-      'border-bottom-width': (value) => ({
+      bbw: (value) => ({
         'border-bottom-width': value,
       }),
-      'border-left-width': (value) => ({
+      blw: (value) => ({
         'border-left-width': value,
       }),
     },
@@ -98,19 +141,35 @@ export const borderUtilities = plugin(function ({
   );
   matchUtilities(
     {
-      'border-radius': (value) => ({
+      rad: (value) => ({
         'border-radius': value,
       }),
-      'border-top-left-radius': (value) => ({
+      'rad-t': (value) => ({
         'border-top-left-radius': value,
-      }),
-      'border-top-right-radius': (value) => ({
         'border-top-right-radius': value,
       }),
-      'border-bottom-right-radius': (value) => ({
+      'rad-r': (value) => ({
+        'border-top-right-radius': value,
         'border-bottom-right-radius': value,
       }),
-      'border-bottom-left-radius': (value) => ({
+      'rad-b': (value) => ({
+        'border-bottom-right-radius': value,
+        'border-bottom-left-radius': value,
+      }),
+      'rad-l': (value) => ({
+        'border-top-left-radius': value,
+        'border-bottom-left-radius': value,
+      }),
+      'rad-tl': (value) => ({
+        'border-top-left-radius': value,
+      }),
+      'rad-tr': (value) => ({
+        'border-top-right-radius': value,
+      }),
+      'rad-br': (value) => ({
+        'border-bottom-right-radius': value,
+      }),
+      'rad-bl': (value) => ({
         'border-bottom-left-radius': value,
       }),
     },

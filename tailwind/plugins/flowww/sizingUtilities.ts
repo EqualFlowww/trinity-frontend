@@ -5,27 +5,27 @@ import { sizingTheme } from './theme';
 export const sizingUtilities = plugin(function ({ matchUtilities }) {
   matchUtilities(
     {
-      size: (value) => ({
+      sz: (value) => ({
         width: value === 'screen' ? '100vw' : value,
         height: value === 'screen' ? '100vh' : value,
       }),
-      width: (value) => ({
+      w: (value) => ({
         width: value === 'screen' ? '100vw' : value,
       }),
-      height: (value) => ({
+      h: (value) => ({
         height: value === 'screen' ? '100vh' : value,
       }),
-      'max-width': (value) => ({
-        'max-width': value,
+      xw: (value) => ({
+        'max-width': 'screen' ? '100vw' : value,
       }),
-      'max-height': (value) => ({
-        'max-height': value,
+      xh: (value) => ({
+        'max-height': 'screen' ? '100vh' : value,
       }),
-      'min-width': (value) => ({
-        'min-width': value,
+      mw: (value) => ({
+        'min-width': 'screen' ? '100vw' : value,
       }),
-      'min-height': (value) => ({
-        'min-height': value,
+      mh: (value) => ({
+        'min-height': 'screen' ? '100vh' : value,
       }),
     },
     {

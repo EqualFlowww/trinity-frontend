@@ -1,19 +1,10 @@
-import camelToKebabCase from '@/utils/camelToKebabCase';
-
-const classNamesObjectToString = (
-  classNamesObject: Object,
-  prefix?: string
-) => {
+const classNamesObjectToString = (classNamesObject: Object) => {
   let str = '';
 
   Object.entries(classNamesObject).forEach(([key, value]) => {
-    if (value !== undefined)
-      str += `${prefix}${camelToKebabCase(key)}-${value} `;
+    if (!!value === true && typeof value === 'string') str += `${value} `;
     else if (typeof value === 'object')
-      str += classNamesObjectToString(
-        value,
-        prefix + camelToKebabCase(key) + ':'
-      );
+      str += classNamesObjectToString(value) || '';
   });
 
   return str;

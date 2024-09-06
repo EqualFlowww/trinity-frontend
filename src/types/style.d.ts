@@ -456,73 +456,86 @@ export type Opacity =
   | '1'
   | `[${number}]`;
 
-export type Responsive = 'mobile' | 'tablet' | 'laptop';
-export type State = 'hover' | 'focus' | 'active' | 'disabled';
-
+// export type Responsive = 'mobile' | 'tablet' | 'laptop';
+export interface Responsive {
+  mobile?: 'mb';
+  tablet?: 'tb';
+  laptop?: 'lt';
+}
+export interface State {
+  hover?: 'hover';
+  focus?: 'focus';
+  active?: 'active';
+  disabled?: 'disabled';
+}
 /*--------------------Style--------------------*/
 
 export interface ContentColorStyle {
-  color?: ContentColor;
+  color?: `c-${ContentColor}`;
 }
 
 export interface ContainerColorStyle {
-  color?: ContainerColor;
+  color?: `c-${ContainerColor}`;
 }
 
 export interface PositionStyle {
   position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky';
-  top?: Positioning;
-  left?: Positioning;
-  bottom?: Positioning;
-  right?: Positioning;
-  zIndex?: number;
+  top?: `t-${Positioning}`;
+  left?: `l-${Positioning}`;
+  bottom?: `b-${Positioning}`;
+  right?: `r-${Positioning}`;
+  zIndex?: `z-${ZIndex}`;
 }
 
 export interface OpacityStyle {
-  opacity?: Opacity;
+  opacity?: `oc-${Opacity}`;
 }
 
 export interface PaddingStyle {
-  padding?: Spacing;
-  paddingX?: Spacing;
-  paddingY?: Spacing;
-  paddingTop?: Spacing;
-  paddingBottom?: Spacing;
-  paddingLeft?: Spacing;
-  paddingRight?: Spacing;
+  padding?: `p-${Spacing}`;
+  paddingX?: `px-${Spacing}`;
+  paddingY?: `py-${Spacing}`;
+  paddingTop?: `pt-${Spacing}`;
+  paddingBottom?: `pb-${Spacing}`;
+  paddingLeft?: `pl-${Spacing}`;
+  paddingRight?: `pr-${Spacing}`;
 }
 
 export interface MarginStyle {
-  margin?: Spacing;
-  marginX?: Spacing;
-  marginY?: Spacing;
-  marginTop?: Spacing;
-  marginBottom?: Spacing;
-  marginLeft?: Spacing;
-  marginRight?: Spacing;
+  margin?: `m-${Spacing}`;
+  marginX?: `mx-${Spacing}`;
+  marginY?: `my-${Spacing}`;
+  marginTop?: `mt-${Spacing}`;
+  marginBottom?: `mb-${Spacing}`;
+  marginLeft?: `ml-${Spacing}`;
+  marginRight?: `mr-${Spacing}`;
 }
 
 export interface BorderStyle {
-  borderStyle?: BorderType;
-  borderTopStyle?: BorderType;
-  borderBottomStyle?: BorderType;
-  borderLeftStyle?: BorderType;
-  borderRightStyle?: BorderType;
-  borderColor?: BorderColor;
-  borderTopColor?: BorderColor;
-  borderBottomColor?: BorderColor;
-  borderLeftColor?: BorderColor;
-  borderRightColor?: BorderColor;
-  borderWidth?: BorderWidth;
-  borderTopWidth?: BorderWidth;
-  borderBottomWidth?: BorderWidth;
-  borderLeftWidth?: BorderWidth;
-  borderRightWidth?: BorderWidth;
-  borderRadius?: BorderRadius;
-  borderRadiusTopLeft?: BorderRadius;
-  borderRadiusTopRight?: BorderRadius;
-  borderRadiusBottomLeft?: BorderRadius;
-  borderRadiusBottomRight?: BorderRadius;
+  borderStyle?: `bs-${BorderType}`;
+  borderTopStyle?: `bts-${BorderType}`;
+  borderBottomStyle?: `bbs-${BorderType}`;
+  borderLeftStyle?: `bls-${BorderType}`;
+  borderRightStyle?: `brs-${BorderType}`;
+  borderColor?: `bc-${BorderColor}`;
+  borderTopColor?: `btc-${BorderColor}`;
+  borderBottomColor?: `bbc-${BorderColor}`;
+  borderLeftColor?: `blc-${BorderColor}`;
+  borderRightColor?: `brc-${BorderColor}`;
+  borderWidth?: `bw-${BorderWidth}`;
+  borderTopWidth?: `btw-${BorderWidth}`;
+  borderBottomWidth?: `bbw-${BorderWidth}`;
+  borderLeftWidth?: `blw-${BorderWidth}`;
+  borderRightWidth?: `brw-${BorderWidth}`;
+  borderRadius?: `rad-${BorderRadius}`;
+  borderRadiusTop?: `rad-t-${BorderRadius}`;
+  borderRadiusBottom?: `rad-b-${BorderRadius}`;
+  borderRadiusLeft?: `rad-l-${BorderRadius}`;
+  borderRadiusRight?: `rad-r-${BorderRadius}`;
+  borderRadiusTopLeft?: `rad-tl-${BorderRadius}`;
+  borderRadiusTopRight?: `rad-tr-${BorderRadius}`;
+  borderRadiusBottomLeft?: `rad-bl-${BorderRadius}`;
+  borderRadiusBottomRight?: `rad-br-${BorderRadius}`;
 }
 
 export interface ShadowStyle {
@@ -530,13 +543,13 @@ export interface ShadowStyle {
 }
 
 export interface SizeStyle {
-  size?: Sizing;
-  width?: Sizing;
-  height?: Sizing;
-  maxWidth?: Sizing;
-  maxHeight?: Sizing;
-  minWidth?: Sizing;
-  minHeight?: Sizing;
+  size?: `sz-${Sizing}`;
+  width?: `w-${Sizing}`;
+  height?: `h-${Sizing}`;
+  maxWidth?: `xw-${Sizing}`;
+  maxHeight?: `xh-${Sizing}`;
+  minWidth?: `mw-${Sizing}`;
+  minHeight?: `mh-${Sizing}`;
 }
 
 export interface ContentStyle
@@ -558,23 +571,48 @@ export interface ContainerStyle
     ShadowStyle {}
 
 export interface FlexStyle extends ContainerStyle {
-  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
-  alignItems?: 'start' | 'end' | 'center' | 'stretch' | 'baseline';
+  justifyContent?:
+    | 'jc-start'
+    | 'jc-end'
+    | 'jc-center'
+    | 'jc-between'
+    | 'jc-around'
+    | 'jc-evenly';
+  alignItems?:
+    | 'ai-start'
+    | 'ai-end'
+    | 'ai-center'
+    | 'ai-stretch'
+    | 'ai-baseline';
   alignContent?:
-    | 'start'
-    | 'end'
-    | 'center'
-    | 'between'
-    | 'around'
-    | 'evenly'
-    | 'stretch';
-  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  gap?: Gap;
+    | 'ac-start'
+    | 'ac-end'
+    | 'ac-center'
+    | 'ac-between'
+    | 'ac-around'
+    | 'ac-evenly'
+    | 'ac-stretch';
+  direction?: 'f-row' | 'f-col' | 'f-row-reverse' | 'f-col-reverse';
+  wrap?: 'f-wrap' | 'f-nowrap' | 'f-wrap-reverse';
+  gap?: `gap-${Gap}`;
 }
 
 export interface ButtonStyle extends FlexStyle {
-  form?: 'filled' | 'outlined' | 'text';
+  form?: 'btn-filled' | 'btn-outlined' | 'btn-text';
 }
 
 export interface IconStyle extends ContentStyle {}
+
+export interface Hrstyle
+  extends MarginStyle,
+    OpacityStyle,
+    ShadowStyle,
+    ContainerColorStyle {
+  type: 'vertical' | 'horizontal';
+  length: `len-${Sizing}`;
+  thickness: `thk-${BorderWidth}`;
+}
+
+export interface ImageStyle extends ContentStyle, BorderStyle {
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+}

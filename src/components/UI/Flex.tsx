@@ -13,23 +13,22 @@ interface Props extends FlexProps {
 }
 
 const Flex = ({ children, name, htmlAttributes, ...restFlexProps }: Props) => {
-  const styleProps: FlexStyleProps = restFlexProps;
   const defaultStyleProps: FlexStyleProps = {
-    size: 'auto',
-    color: 'transparent',
-    padding: '0',
-    margin: '0',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignContent: 'center',
-    wrap: 'wrap',
-    direction: 'row',
-    gap: '0',
+    size: 'sz-auto',
+    color: 'c-transparent',
+    padding: 'p-0',
+    margin: 'm-0',
+    justifyContent: 'jc-center',
+    alignItems: 'ai-center',
+    alignContent: 'ac-center',
+    wrap: 'f-wrap',
+    direction: 'f-row',
+    gap: 'gap-0',
   };
 
   return (
     <div
-      className={`flex ${classNamesObjectToString({ ...defaultStyleProps, ...styleProps })}}`}
+      className={`flex ${classNamesObjectToString({ ...defaultStyleProps, ...restFlexProps })}`}
       {...htmlAttributes}
     >
       {children}

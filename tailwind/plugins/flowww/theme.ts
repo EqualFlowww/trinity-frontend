@@ -155,7 +155,8 @@ export const percentageTheme: PercentageTheme = {
 export const sizingTheme: SizingTheme = {
   ...spacingTheme,
   ...percentageTheme,
-  mobile: '100%',
+  auto: 'auto',
+  mobile: '640px',
   tablet: '768px',
   laptop: '1024px',
   full: '100%',

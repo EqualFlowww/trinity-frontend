@@ -1,16 +1,20 @@
-import classNames from 'classnames/bind';
-import classes from './UI.module.scss';
-import { BorderProps, ContentProps } from '@/types/props';
+import { ImageStyleProps } from '@/types/props';
 import classNamesObjectToArray from '@/utils/classNamesObjectToString';
+import { ComponentPropsWithoutRef } from 'react';
 
-interface Props extends ContentProps, BorderProps {
+interface ImageProps extends ImageStyleProps {
+  name?: string;
   src: string;
   alt: string;
   srcSet?: string;
   sizes?: string;
   loading?: 'eager' | 'lazy';
   decoding?: 'sync' | 'async' | 'auto';
-  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+}
+interface HTMLImageProps
+  extends Omit<ComponentPropsWithoutRef<'img'>, keyof ImageProps> {}
+interface Props extends ImageProps {
+  htmlAttributes?: HTMLImageProps;
 }
 
 const Image = ({
@@ -20,20 +24,8 @@ const Image = ({
   sizes,
   loading,
   decoding,
-  opacity,
-  position = 'static',
-  top,
-  left,
-  right,
-  bottom,
-  zIndex,
   ...classNamesProps
 }: Props) => {
-  const cx = classNames.bind(classes);
-  const style = {
-    opacity,
-  };
-
   const defaultClassNames = {
     size: '3',
     margin: '0',
