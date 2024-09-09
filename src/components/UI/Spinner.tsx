@@ -1,12 +1,4 @@
-import classNames from 'classnames/bind';
-import classes from './UI.module.scss';
-import {
-  ContentColorProps,
-  MarginProps,
-  OpacityProps,
-  PositionProps,
-  SpinnerStyleProps,
-} from '@/types/props';
+import { SpinnerStyleProps } from '@/types/props';
 import { ComponentPropsWithoutRef } from 'react';
 import classNamesObjectToString from '@/utils/classNamesObjectToString';
 
@@ -26,17 +18,17 @@ const Spinner = ({
   ...restSpinnerProps
 }: Props) => {
   const defaultStyleProps: SpinnerStyleProps = {
-    size: 'medium',
+    size: 'spinner-medium',
     margin: 'm-0',
-    color: 'c-on-neutral',
+    color: 'bc-on-neutral',
   };
 
   return (
     <div
-      className={`spinner ${classNamesObjectToString({ ...defaultStyleProps, ...restSpinnerProps })}`}
+      className={`${classNamesObjectToString({ ...defaultStyleProps, ...restSpinnerProps })}`}
       {...htmlAttributes}
     >
-      <span className={cx('loader', `color-${color}`)}></span>
+      <span className="loader sz-full rad-circle inline-block bs-solid bc-inherit !brc-transparent animate-spin"></span>
     </div>
   );
 };

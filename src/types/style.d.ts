@@ -374,7 +374,7 @@ type Color =
   | 'inherit'
   | `[#${number}]`;
 
-export type ContentColor = Exclude<Color, 'transparent'>;
+export type ContentColor = Color;
 export type ContainerColor = Exclude<
   Color,
   'inherit' | 'neutral-outline' | 'neutral-outline-variant' | 'neutral-scrim'
@@ -659,10 +659,7 @@ export interface TextStyle
     | 'text-end';
 }
 
-export interface SpinnerStyle
-  extends ContentColorStyle,
-    PositionStyle,
-    MarginStyle,
-    OpacityStyle {
-  size?: 'small' | 'medium' | 'large' | 'full';
+export interface SpinnerStyle extends PositionStyle, MarginStyle, OpacityStyle {
+  size?: 'spinner-small' | 'spinner-medium' | 'spinner-large' | 'spinner-full';
+  color?: `bc-${BorderColor}`;
 }

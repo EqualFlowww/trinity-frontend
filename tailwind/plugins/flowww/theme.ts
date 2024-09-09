@@ -265,6 +265,7 @@ export const contentColorTheme: ContentColorTheme = {
   'neutral-outline': 'var(--neutral-outline)',
   'neutral-outline-variant': 'var(--neutral-outline-variant)',
   'neutral-scrim': 'var(--neutral-scrim)',
+  transparent: 'transparent',
   inherit: 'inherit',
 };
 
