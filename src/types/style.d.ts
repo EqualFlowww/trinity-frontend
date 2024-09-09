@@ -669,8 +669,8 @@ export interface TextStyle
     ContentColorStyle,
     MarginStyle,
     ShadowStyle {
-  font: 'font-pretendard' | 'font-outfit';
-  size:
+  font?: 'font-pretendard' | 'font-outfit';
+  size?:
     | 'display-s'
     | 'display-m'
     | 'display-l'
@@ -686,7 +686,7 @@ export interface TextStyle
     | 'label-s'
     | 'label-m'
     | 'label-l';
-  line:
+  line?:
     | 'line-clamp-none'
     | 'line-clamp-1'
     | 'line-clamp-2'
@@ -696,7 +696,7 @@ export interface TextStyle
     | 'line-clamp-6'
     | `line-clamp-[${number}]`;
   wordBreak?: 'break-all' | 'break-words' | 'break-keep' | 'break-normal';
-  align:
+  align?:
     | 'text-left'
     | 'text-center'
     | 'text-right'
