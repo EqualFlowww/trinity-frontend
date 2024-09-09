@@ -3,13 +3,12 @@ import plugin from 'tailwindcss/plugin';
 
 export const flexUtilities = plugin(function ({ addUtilities }) {
   // 위치 설정 유틸리티
-  addUtilities(
-    ['row', 'column', 'row-reverse', 'column-reverse'].map((value) => ({
-      [`.f-${value}`]: {
-        'flex-direction': value,
-      },
-    }))
-  );
+  addUtilities({
+    ['f-row']: { 'flex-direction': 'row' },
+    ['f-row-reverse']: { 'flex-direction': 'row-reverse' },
+    ['f-col']: { 'flex-direction': 'column' },
+    ['f-col-reverse']: { 'flex-direction': 'column-reverse' },
+  });
   addUtilities(
     ['wrap', 'nowrap', 'wrap-reverse'].map((value) => ({
       [`.f-${value}`]: {
