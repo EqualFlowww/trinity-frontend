@@ -36,7 +36,7 @@ const CartPointer = ({ cart, round, location }: Props) => {
           type="vertical"
           length="len-0.125"
           color="c-on-neutral"
-          size="2-half"
+          thickness="thk-0.125"
         ></Hr>
         <div className={cx('point')}></div>
       </Flex>

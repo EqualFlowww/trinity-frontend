@@ -13,33 +13,33 @@ interface Props {
 const DashboardRoundItem = ({ round, cartList }: Props) => {
   return (
     <Flex
-      width="full"
-      direction="column"
-      padding="1"
-      gap="1"
-      borderRadius="1"
-      color="neutral-container-02"
+      width="w-full"
+      direction="flex-col"
+      padding="p-1"
+      gap="gap-1"
+      borderRadius="rad-1"
+      color="c-neutral-container-02"
     >
-      <Flex width="full" justifyContent="between" color="transparent">
-        <Flex gap="0-half">
-          <Text font="outfit" type="title" size="small" color="on-neutral">
+      <Flex width="w-full" justifyContent="jc-between" color="c-transparent">
+        <Flex gap="gap-0.5">
+          <Text font="font-outfit" size="title-s" color="c-neutral">
             {round.name}
           </Text>
           <Wrapper
-            paddingY="0-half"
-            paddingX="1"
-            color="neutral-container-05"
-            borderRadius="0-half"
+            paddingY="py-0.5"
+            paddingX="px-1"
+            color="c-neutral-container-05"
+            borderRadius="rad-0.5"
           >
-            <Text type="label" size="medium" color="neutral-container-01">
+            <Text size="label-m" color="c-neutral-container-01">
               {round.half === 'first' ? '전반' : '후반'}
             </Text>
           </Wrapper>
           <Wrapper
-            paddingY="0-quarter"
-            paddingX="1"
-            color="neutral-container-03"
-            borderRadius="0-half"
+            paddingY="py-0.25"
+            paddingX="px-1"
+            color="c-neutral-container-03"
+            borderRadius="rad-0.5"
           >
             <Text
               font="outfit"
