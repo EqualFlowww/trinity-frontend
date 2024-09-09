@@ -1,3 +1,19 @@
+export type Factor =
+  | '0'
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | `[${number}]`;
+
+export type Order = Factor | 'first' | 'last' | 'none';
+
 export type Spacing =
   | 'auto'
   | '0'
@@ -539,7 +555,7 @@ export interface BorderStyle {
 }
 
 export interface ShadowStyle {
-  shadow?: 'gray';
+  shadow?: 'shd-gray';
 }
 
 export interface SizeStyle {
@@ -552,25 +568,58 @@ export interface SizeStyle {
   minHeight?: `mh-${Sizing}`;
 }
 
+export interface FlexItemStyle {
+  grow?: `grow-${Factor}`;
+  shrink?: `shrink-${Factor}`;
+  basis?: `basis-${Positioning}`;
+  order?: `order-${Factor}`;
+}
+
+export interface ObjectStyle {
+  objectFit?:
+    | 'obj-cover'
+    | 'obj-contain'
+    | 'obj-fill'
+    | 'obj-none'
+    | 'obj-scale-down';
+  objectPosition?:
+    | 'obj-top'
+    | 'obj-right'
+    | 'obj-bottom'
+    | 'obj-left'
+    | 'obj-center'
+    | 'obj-left-top'
+    | 'obj-right-top'
+    | 'obj-right-bottom'
+    | 'obj-left-bottom';
+}
+
+export interface VisibilityStyle {
+  visibility?: 'visible' | 'hidden' | 'collapse';
+}
+
+export interface BaseStyle
+  extends OpacityStyle,
+    VisibilityStyle,
+    PositionStyle {}
+
 export interface ContentStyle
   extends ContentColorStyle,
-    PositionStyle,
+    BaseStyle,
     MarginStyle,
     SizeStyle,
-    OpacityStyle,
     ShadowStyle {}
 
 export interface ContainerStyle
   extends ContainerColorStyle,
-    PositionStyle,
+    BaseStyle,
     PaddingStyle,
     MarginStyle,
     SizeStyle,
     BorderStyle,
-    OpacityStyle,
     ShadowStyle {}
 
-export interface FlexStyle extends ContainerStyle {
+export interface FlexStyle extends ContainerStyle, FlexItemStyle {
   justifyContent?:
     | 'jc-start'
     | 'jc-end'
@@ -605,7 +654,7 @@ export interface IconStyle extends ContentStyle {}
 
 export interface Hrstyle
   extends MarginStyle,
-    OpacityStyle,
+    BaseStyle,
     ShadowStyle,
     ContainerColorStyle {
   type: 'vertical' | 'horizontal';
@@ -613,15 +662,12 @@ export interface Hrstyle
   thickness: `thk-${BorderWidth}`;
 }
 
-export interface ImageStyle extends ContentStyle, BorderStyle {
-  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
-}
+export interface ImageStyle extends ContentStyle, BorderStyle, ObjectStyle {}
 
 export interface TextStyle
-  extends ContentColorStyle,
-    PositionStyle,
+  extends BaseStyle,
+    ContentColorStyle,
     MarginStyle,
-    OpacityStyle,
     ShadowStyle {
   font: 'font-pretendard' | 'font-outfit';
   size:
@@ -659,7 +705,7 @@ export interface TextStyle
     | 'text-end';
 }
 
-export interface SpinnerStyle extends PositionStyle, MarginStyle, OpacityStyle {
+export interface SpinnerStyle extends BaseStyle, MarginStyle {
   size?: 'spinner-small' | 'spinner-medium' | 'spinner-large' | 'spinner-full';
   color?: `bc-${BorderColor}`;
 }

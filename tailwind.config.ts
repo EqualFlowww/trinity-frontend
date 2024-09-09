@@ -73,6 +73,9 @@ export default {
     border: false,
     color: false,
     fontSize: false,
+    objectPosition: false,
+    objectFit: false,
+    boxShadow: false,
   },
   plugins: [flowwwPlugin],
 };

@@ -10,6 +10,8 @@ import { hrUtilities } from './hrUtilities';
 import { buttonUtilities } from './buttonUtilities';
 import { textUtilities } from './textUtilities';
 import { spinnerUtilities } from './spinnerUtilities';
+import { objectUtilities } from './objectUtilities';
+import { shadowUtilites } from './shadowUtilites';
 
 export default plugin(function (api) {
   borderUtilities.handler(api);
@@ -17,8 +19,10 @@ export default plugin(function (api) {
   colorUtilities.handler(api);
   flexUtilities.handler(api);
   hrUtilities.handler(api);
+  objectUtilities.handler(api);
   opacityUtilities.handler(api);
   positionUtilities.handler(api);
+  shadowUtilites.handler(api);
   sizingUtilities.handler(api);
   // spacingUtilities.handler(api);
   spinnerUtilities.handler(api);
