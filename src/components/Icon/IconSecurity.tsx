@@ -1,6 +1,5 @@
 import SvgSecurity from '@assets/svgs/security.svg?react';
-import { IconProps } from '@/types/props';
-import Icon from '@/components/UI/Icon';
+import Icon, { IconProps } from '@/components/UI/Icon';
 
 interface Props extends IconProps {}
 

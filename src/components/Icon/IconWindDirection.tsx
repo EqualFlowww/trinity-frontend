@@ -6,8 +6,7 @@ import SvgWindDirectionNorth from '@/assets/svgs/wind-direction-north.svg?react'
 import SvgWindDirectionNorthWest from '@/assets/svgs/wind-direction-north-west.svg?react';
 import SvgWindDirectionWest from '@/assets/svgs/wind-direction-west.svg?react';
 import SvgWindDirectionSouthWest from '@/assets/svgs/wind-direction-south-west.svg?react';
-import { IconProps } from '@/types/props';
-import Icon from '@/components/UI/Icon';
+import Icon, { IconProps } from '@/components/UI/Icon';
 
 interface Props extends IconProps {
   type:

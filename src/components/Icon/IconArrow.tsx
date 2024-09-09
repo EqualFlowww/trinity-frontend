@@ -1,19 +1,20 @@
-import classNames from 'classnames/bind';
-import classes from './IconArrow.module.scss';
 import SvgArrow from '@/assets/svgs/arrow.svg?react';
 import Icon, { IconProps } from '@/components/UI/Icon';
-
-// svg 파일 가져옴
 
 interface Props extends IconProps {
   type: 'up' | 'down' | 'left' | 'right';
 }
 
 const IconArrow = ({ type, ...props }: Props) => {
-  const cx = classNames.bind(classes);
+  const typeVariants = {
+    up: 'rotate-0',
+    right: 'rotate-90',
+    down: 'rotate-180',
+    left: '-rotate-90',
+  };
 
   return (
-    <div className={cx('icon-arrow', type)}>
+    <div className={`${typeVariants[type]}`}>
       <Icon {...props}>
         <SvgArrow />
       </Icon>

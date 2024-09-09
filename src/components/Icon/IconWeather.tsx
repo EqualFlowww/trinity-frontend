@@ -2,9 +2,8 @@ import SvgClearDay from '@/assets/svgs/weather-clear-day.svg?react';
 import SvgClearNight from '@/assets/svgs/weather-clear-night.svg?react';
 import SvgCloudyDay from '@/assets/svgs/weather-cloudy-day.svg?react';
 import SvgCloudyNight from '@/assets/svgs/weather-cloudy-night.svg?react';
-import { IconProps } from '@/types/props';
 import { Weather } from '@/types/home';
-import Icon from '@/components/UI/Icon';
+import Icon, { IconProps } from '@/components/UI/Icon';
 
 interface Props extends IconProps {
   type: Weather;
