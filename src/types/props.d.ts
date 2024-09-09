@@ -16,7 +16,9 @@ import {
   Responsive,
   Sizing,
   Spacing,
+  SpinnerStyle,
   State,
+  TextStyle,
 } from '@/types/style';
 
 type CapitalizeFirstLetter<T extends string> =
@@ -135,5 +137,31 @@ interface ImageStyleByState
 export interface ImageStyleProps
   extends ImageStyleByState,
     ResponsiveStyle<Imagestyle> {
+  group?: `group/${Group}` | 'group';
+}
+
+/*----------Text----------*/
+
+interface TextStyleByState
+  extends TextStyle,
+    StateStyle<TextStyle>,
+    GroupStyle<TextStyle> {}
+
+export interface TextStyleProps
+  extends TextStyleByState,
+    ResponsiveStyle<TextStyle> {
+  group?: `group/${Group}` | 'group';
+}
+
+/*----------Spinner----------*/
+
+interface SpinnerStyleByState
+  extends SpinnerStyle,
+    StateStyle<SpinnerStyle>,
+    GroupStyle<SpinnerStyle> {}
+
+export interface SpinnerStyleProps
+  extends SpinnerStyleByState,
+    ResponsiveStyle<SpinnerStyle> {
   group?: `group/${Group}` | 'group';
 }

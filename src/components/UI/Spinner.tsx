@@ -5,52 +5,36 @@ import {
   MarginProps,
   OpacityProps,
   PositionProps,
+  SpinnerStyleProps,
 } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToString';
+import { ComponentPropsWithoutRef } from 'react';
+import classNamesObjectToString from '@/utils/classNamesObjectToString';
 
-interface Props
-  extends ContentColorProps,
-    PositionProps,
-    MarginProps,
-    OpacityProps {
-  size?: 'small' | 'medium' | 'large' | 'full';
+interface SpinnerProps extends SpinnerStyleProps {
+  name?: string;
+}
+interface HTMLSpinnerProps
+  extends Omit<ComponentPropsWithoutRef<'div'>, keyof SpinnerProps> {}
+interface Props extends SpinnerProps {
+  htmlAttributes?: HTMLSpinnerProps;
 }
 
 const Spinner = ({
-  opacity,
-  position,
-  top,
-  left,
-  right,
-  bottom,
-  zIndex,
+  name,
   color,
-  ...classNamesProps
+  htmlAttributes,
+  ...restSpinnerProps
 }: Props) => {
-  const cx = classNames.bind(classes);
-  const style = {
-    opacity,
-    position,
-    top,
-    left,
-    right,
-    bottom,
-    zIndex,
-  };
-
-  const defaultClassNames: Props = {
+  const defaultStyleProps: SpinnerStyleProps = {
     size: 'medium',
-    margin: '0',
-    color: 'on-neutral',
+    margin: 'm-0',
+    color: 'c-on-neutral',
   };
 
   return (
     <div
-      className={cx(
-        'spinner',
-        ...classNamesObjectToArray({ ...defaultClassNames, ...classNamesProps })
-      )}
-      style={style}
+      className={`spinner ${classNamesObjectToString({ ...defaultStyleProps, ...restSpinnerProps })}`}
+      {...htmlAttributes}
     >
       <span className={cx('loader', `color-${color}`)}></span>
     </div>

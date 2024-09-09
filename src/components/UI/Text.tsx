@@ -1,72 +1,41 @@
-import classNames from 'classnames/bind';
-import classes from './UI.module.scss';
-import {
-  ContentColorProps,
-  MarginProps,
-  OpacityProps,
-  PositionProps,
-  ShadowProps,
-} from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToString';
+import { TextStyleProps } from '@/types/props';
+import classNamesObjectToString from '@/utils/classNamesObjectToString';
+import { ComponentPropsWithoutRef } from 'react';
 
-interface Props
-  extends ContentColorProps,
-    MarginProps,
-    ShadowProps,
-    PositionProps,
-    OpacityProps {
+interface TextProps extends TextStyleProps {
   children: React.ReactNode;
+  name?: string;
   tag?: 'p' | 'span' | 'div' | 'strong' | 'em';
-  font?: 'pretendard' | 'outfit';
-  type?: 'display' | 'headline' | 'title' | 'body' | 'label';
-  size?: 'small' | 'medium' | 'large';
-  lines?: number | 'infinity';
-  align?: 'left' | 'center' | 'right';
+}
+interface HTMLTextProps
+  extends Omit<ComponentPropsWithoutRef<'p'>, keyof TextProps> {}
+interface Props extends TextProps {
+  htmlAttributes?: HTMLTextProps;
 }
 
 const Text = ({
   children,
-  lines = 1,
-  opacity,
-  position = 'static',
-  top,
-  left,
-  right,
-  bottom,
-  zIndex,
-  ...classNamesProps
+  name,
+  tag,
+  htmlAttributes,
+  ...restTextProps
 }: Props) => {
-  const cx = classNames.bind(classes);
-  const Component = classNamesProps.tag || 'p';
+  const Component = tag || 'p';
 
-  const style = {
-    WebkitLineClamp: lines === 'infinity' ? 'unset' : lines,
-    opacity,
-    position,
-    top,
-    left,
-    bottom,
-    right,
-    zIndex,
-  };
-
-  const defaultClassNames = {
-    tag: 'p',
-    font: 'pretendard',
-    type: 'body',
-    size: 'medium',
-    color: 'on-neutral',
-    align: 'left',
-    margin: '0',
+  const defaultStyleProps: TextStyleProps = {
+    font: 'font-pretendard',
+    size: 'body-m',
+    color: 'c-on-neutral',
+    align: 'text-left',
+    margin: 'm-0',
+    line: 'line-clamp-1',
+    wordBreak: 'break-words',
   };
 
   return (
     <Component
-      className={cx(
-        'text',
-        ...classNamesObjectToArray({ ...defaultClassNames, ...classNamesProps })
-      )}
-      style={style}
+      className={`text ${classNamesObjectToString({ ...defaultStyleProps, ...restTextProps })}`}
+      {...htmlAttributes}
     >
       {children}
     </Component>

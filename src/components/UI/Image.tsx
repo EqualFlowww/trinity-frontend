@@ -1,5 +1,5 @@
 import { ImageStyleProps } from '@/types/props';
-import classNamesObjectToArray from '@/utils/classNamesObjectToString';
+import classNamesObjectToString from '@/utils/classNamesObjectToString';
 import { ComponentPropsWithoutRef } from 'react';
 
 interface ImageProps extends ImageStyleProps {
@@ -18,23 +18,19 @@ interface Props extends ImageProps {
 }
 
 const Image = ({
+  name,
   src,
   alt,
   srcSet,
   sizes,
   loading,
   decoding,
-  ...classNamesProps
+  htmlAttributes,
+  ...restImgProps
 }: Props) => {
-  const defaultClassNames = {
-    size: '3',
-    margin: '0',
-    position,
-    top,
-    left,
-    right,
-    bottom,
-    zIndex,
+  const defaultStyleProps: ImageStyleProps = {
+    size: 'sz-3',
+    margin: 'm-0',
   };
 
   return (
@@ -45,11 +41,8 @@ const Image = ({
       sizes={sizes}
       loading={loading}
       decoding={decoding}
-      className={cx(
-        'img',
-        ...classNamesObjectToArray({ ...defaultClassNames, ...classNamesProps })
-      )}
-      style={style}
+      className={`image ${classNamesObjectToString({ ...defaultStyleProps, ...restImgProps })}`}
+      {...htmlAttributes}
     />
   );
 };

@@ -1,11 +1,7 @@
 // plugins/positionUtilities.js
 import plugin from 'tailwindcss/plugin';
-import { gapTheme } from './theme';
 
-export const flexUtilities = plugin(function ({
-  addUtilities,
-  matchUtilities,
-}) {
+export const flexUtilities = plugin(function ({ addUtilities }) {
   // 위치 설정 유틸리티
   addUtilities(
     ['row', 'column', 'row-reverse', 'column-reverse'].map((value) => ({

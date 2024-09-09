@@ -5,11 +5,6 @@ import {
   borderWidthTheme,
   contentColorTheme,
 } from './theme';
-import { CSSRuleObject } from 'tailwindcss/types/config';
-
-type CSSRuleObjecta = {
-  [key: string]: string | number | CSSRuleObject;
-};
 
 export const borderUtilities = plugin(function ({
   addUtilities,

@@ -616,3 +616,53 @@ export interface Hrstyle
 export interface ImageStyle extends ContentStyle, BorderStyle {
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 }
+
+export interface TextStyle
+  extends ContentColorStyle,
+    PositionStyle,
+    MarginStyle,
+    OpacityStyle,
+    ShadowStyle {
+  font: 'font-pretendard' | 'font-outfit';
+  size:
+    | 'display-s'
+    | 'display-m'
+    | 'display-l'
+    | 'headline-s'
+    | 'headline-m'
+    | 'headline-l'
+    | 'title-s'
+    | 'title-m'
+    | 'title-l'
+    | 'body-s'
+    | 'body-m'
+    | 'body-l'
+    | 'label-s'
+    | 'label-m'
+    | 'label-l';
+  line:
+    | 'line-clamp-none'
+    | 'line-clamp-1'
+    | 'line-clamp-2'
+    | 'line-clamp-3'
+    | 'line-clamp-4'
+    | 'line-clamp-5'
+    | 'line-clamp-6'
+    | `line-clamp-[${number}]`;
+  wordBreak?: 'break-all' | 'break-words' | 'break-keep' | 'break-normal';
+  align:
+    | 'text-left'
+    | 'text-center'
+    | 'text-right'
+    | 'text-justify'
+    | 'text-start'
+    | 'text-end';
+}
+
+export interface SpinnerStyle
+  extends ContentColorStyle,
+    PositionStyle,
+    MarginStyle,
+    OpacityStyle {
+  size?: 'small' | 'medium' | 'large' | 'full';
+}

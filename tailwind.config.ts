@@ -72,6 +72,7 @@ export default {
     borderRadius: false,
     border: false,
     color: false,
+    fontSize: false,
   },
   plugins: [flowwwPlugin],
 };
