@@ -641,8 +641,8 @@ export interface FlexStyle extends ContainerStyle, FlexItemStyle {
     | 'ac-around'
     | 'ac-evenly'
     | 'ac-stretch';
-  direction?: 'f-row' | 'f-col' | 'f-row-reverse' | 'f-col-reverse';
-  wrap?: 'f-wrap' | 'f-nowrap' | 'f-wrap-reverse';
+  direction?: 'flex-row' | 'flex-col' | 'flex-row-reverse' | 'flex-col-reverse';
+  wrap?: 'flex-wrap' | 'flex-nowrap' | 'flex-wrap-reverse';
   gap?: `gap-${Gap}`;
 }
 

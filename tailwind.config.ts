@@ -57,8 +57,6 @@ export default {
   corePlugins: {
     opacity: false,
     inset: false,
-    flexDirection: false,
-    flexWrap: false,
     justifyContent: false,
     alignItems: false,
     alignContent: false,
