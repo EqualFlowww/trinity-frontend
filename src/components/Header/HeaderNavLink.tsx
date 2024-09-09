@@ -27,7 +27,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
             color="c-on-neutral"
             borderRadius="rad-1"
           >
-            <Text type="label" color="c-inherit">
+            <Text size="title-m" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />
@@ -42,7 +42,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
             color="c-neutral-container-05"
             hover={{ color: 'hover:c-on-neutral-variant' }}
           >
-            <Text type="label" color="inherit">
+            <Text size="label-l" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />
