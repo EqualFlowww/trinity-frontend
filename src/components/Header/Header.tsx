@@ -11,13 +11,13 @@ const Header = () => {
       <Flex
         padding="p-1"
         color="c-neutral-container-01"
-        direction="f-col"
+        direction="flex-col"
         justifyContent="jc-between"
         size="sz-full"
       >
         <HeaderNav />
         <Flex
-          direction="f-col"
+          direction="flex-col"
           gap="gap-3"
           width="w-full"
           justifyContent="jc-start"
@@ -26,7 +26,7 @@ const Header = () => {
           alignContent="ac-start"
         >
           <Flex
-            direction="f-col"
+            direction="flex-col"
             width="w-full"
             name="provider"
             gap="gap-0.5"

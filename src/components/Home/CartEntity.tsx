@@ -22,50 +22,50 @@ const CartEntity = ({ cart, round }: Props) => {
 
   return (
     <div className={cx('cart-entity')}>
-      <Flex width="full" direction="column" gap="0-quarter">
-        <Flex name="cart-status" width="full" justifyContent="between">
+      <Flex width="w-full" direction="flex-col" gap="gap-0.25">
+        <Flex name="cart-status" width="w-full" justifyContent="jc-between">
           <Flex>
-            {round?.isVip && <IconStatusCrown size="1" />}
-            {round?.isNineHolePlus && <IconStatusNinePlus size="1" />}
+            {round?.isVip && <IconStatusCrown size="sz-1" />}
+            {round?.isNineHolePlus && <IconStatusNinePlus size="sz-1" />}
             {round?.order === 'first' ? (
-              <IconStatusAlpha size="1" />
+              <IconStatusAlpha size="sz-1" />
             ) : (
-              round?.order === 'last' && <IconStatusOmega size="1" />
+              round?.order === 'last' && <IconStatusOmega size="sz-1" />
             )}
           </Flex>
-          <Flex gap="0-quarter">
-            <IconStatusWarning size="1" opacity={cart.isWarning ? 1 : 0} />
-            {cart.isBatteryAlert && <IconStatusBatteryAlert size="1" />}
+          <Flex gap="gap-0.25">
+            <IconStatusWarning size="sz-1" opacity="oc-1" />
+            {cart.isBatteryAlert && <IconStatusBatteryAlert size="sz-1" />}
           </Flex>
         </Flex>
         <Button
-          width="full"
-          direction="column"
-          form="outlined"
-          color="on-neutral"
-          borderRadius="0-half"
-          padding="0"
-          gap="0"
+          width="w-full"
+          direction="flex-col"
+          form="btn-outlined"
+          color="c-on-neutral"
+          borderRadius="rad-0.5"
+          padding="p-0"
+          gap="gap-0"
         >
           <Flex
-            width="full"
-            paddingY="0-quarter"
-            color="on-neutral"
-            borderRadiusTopLeft="0-half"
-            borderRadiusTopRight="0-half"
+            width="w-full"
+            paddingY="py-0.25"
+            color="c-on-neutral"
+            borderRadiusTopLeft="rad-tl-0.5"
+            borderRadiusTopRight="rad-tr-0.5"
           >
-            <Text type="label" size="medium" color="inherit">
+            <Text size="label-m" color="c-inherit">
               No. {cart.name}
             </Text>
           </Flex>
           <Flex
-            width="full"
-            paddingY="0-half"
-            color="neutral"
-            borderRadiusBottomLeft="0-half"
-            borderRadiusBottomRight="0-half"
+            width="w-full"
+            paddingY="py-0.5"
+            color="c-neutral"
+            borderRadiusBottomLeft="rad-bl-0.5"
+            borderRadiusBottomRight="rad-br-0.5"
           >
-            <Text type="title" size="small" color="inherit">
+            <Text size="title-s" color="c-inherit">
               {cart.manager.name}
             </Text>
           </Flex>
