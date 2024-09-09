@@ -9,28 +9,29 @@ const Header = () => {
   return (
     <div className={cx('header')}>
       <Flex
-        padding="1"
-        color="neutral-container-01"
-        direction="column"
-        justifyContent="between"
-        size="full"
+        padding="p-1"
+        color="c-neutral-container-01"
+        direction="f-col"
+        justifyContent="jc-between"
+        size="sz-full"
       >
         <HeaderNav />
         <Flex
-          direction="column"
-          gap="3"
-          width="full"
-          justifyContent="start"
-          name="header-footer"
-          alignItems="start"
+          direction="f-col"
+          gap="gap-3"
+          width="w-full"
+          justifyContent="jc-start"
+          name="provider"
+          alignItems="ai-start"
+          alignContent="ac-start"
         >
           <Flex
-            direction="column"
-            width="full"
+            direction="f-col"
+            width="w-full"
             name="provider"
-            gap="0-half"
-            alignItems="start"
-            alignContent="start"
+            gap="gap-0.5"
+            alignItems="ai-start"
+            alignContent="ac-start"
           >
             <div className={cx('provider-name')}>Golf in One</div>
             <div className={cx('provider-year')}>@ EQUAL 2024</div>
