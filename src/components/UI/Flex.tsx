@@ -22,7 +22,7 @@ const Flex = ({ children, name, htmlAttributes, ...restFlexProps }: Props) => {
     alignItems: 'ai-center',
     alignContent: 'ac-center',
     wrap: 'f-wrap',
-    direction: 'f-row',
+    direction: 'f-col',
     gap: 'gap-0',
   };
 
