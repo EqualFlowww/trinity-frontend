@@ -27,7 +27,7 @@ const HeaderNav = () => {
     >
       <Flex direction="f-col" width="w-full" gap="gap-0.5">
         <a href="./" className={cx('logo-wrapper')}>
-          <IconTrinityLogo size="sz-full" color="neutral-container-05" />
+          <IconTrinityLogo size="sz-full" color="c-neutral-container-05" />
         </a>
         <div className={cx('hr')} />
       </Flex>
@@ -67,7 +67,7 @@ const HeaderNav = () => {
           hover={{ color: 'hover:c-on-neutral-variant' }}
           onClick={openSettingModal}
         >
-          <IconSetting color="inherit" />
+          <IconSetting color="c-inherit" />
         </Button>
       </Flex>
     </Flex>

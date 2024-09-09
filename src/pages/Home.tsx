@@ -34,31 +34,41 @@ const Home = () => {
   return (
     <div className={cx('main')}>
       <div className={cx('dashboard')}>
-        {isCartsPending ||
-          (isRoundsPending && (
-            <Flex size="full" alignItems="center" justifyContent="center">
-              <Spinner color="tertiary" />
-            </Flex>
-          ))}
-        {!isCartsPending && !isRoundsPending && cartsData && roundsData && (
-          <Dashboard
-            cartCollection={arrayToIdObject(cartsData)}
-            roundCollection={arrayToIdObject(roundsData)}
-          />
+        {isCartsPending || isRoundsPending ? (
+          <Flex
+            size="sz-full"
+            justifyContent="jc-center"
+            alignItems="ai-center"
+          >
+            <Spinner color="bc-neutral-container-03" />
+          </Flex>
+        ) : (
+          cartsData &&
+          roundsData && (
+            <Dashboard
+              cartCollection={arrayToIdObject(cartsData)}
+              roundCollection={arrayToIdObject(roundsData)}
+            />
+          )
         )}
       </div>
       <div className={cx('overview')}>
-        {isCartsPending ||
-          (isRoundsPending && (
-            <Flex size="full" alignItems="center" justifyContent="center">
-              <Spinner color="tertiary" />
-            </Flex>
-          ))}
-        {!isCartsPending && !isRoundsPending && cartsData && roundsData && (
-          <Overview
-            cartCollection={arrayToIdObject(cartsData)}
-            roundCollection={arrayToIdObject(roundsData)}
-          />
+        {isCartsPending || isRoundsPending ? (
+          <Flex
+            size="sz-full"
+            justifyContent="jc-center"
+            alignItems="ai-center"
+          >
+            <Spinner size="spinner-full" color="bc-tertiary" />
+          </Flex>
+        ) : (
+          cartsData &&
+          roundsData && (
+            <Overview
+              cartCollection={arrayToIdObject(cartsData)}
+              roundCollection={arrayToIdObject(roundsData)}
+            />
+          )
         )}
       </div>
     </div>
