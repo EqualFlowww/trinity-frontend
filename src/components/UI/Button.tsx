@@ -31,8 +31,8 @@ const Button = ({
     justifyContent: 'jc-center',
     alignItems: 'ai-center',
     alignContent: 'ac-center',
-    wrap: 'f-nowrap',
-    direction: 'f-row',
+    wrap: 'flex-nowrap',
+    direction: 'flex-row',
     gap: 'gap-1',
     borderRadius: 'rad-3',
   };
