@@ -26,27 +26,37 @@ const ChatMessage = ({
   return (
     <>
       {isOtherUser ? (
-        <Flex width="full" direction="column" alignContent="start" gap="1">
-          <Flex width="full" gap="1" justifyContent="start" wrap="nowrap">
+        <Flex
+          width="w-full"
+          direction="flex-col"
+          alignContent="ac-start"
+          gap="gap-1"
+        >
+          <Flex
+            width="w-full"
+            gap="gap-1"
+            justifyContent="jc-start"
+            wrap="flex-nowrap"
+          >
             <div className={cx('profile-image')} />
-            <Text type="label" size="medium" color="on-neutral">
+            <Text size="label-m" color="c-on-neutral">
               {displayName}
             </Text>
           </Flex>
           <Flex
-            gap="1"
-            width="full"
-            justifyContent="start"
-            alignItems="end"
-            wrap="nowrap"
+            gap="gap-1"
+            width="w-full"
+            justifyContent="jc-start"
+            alignItems="ai-end"
+            wrap="flex-nowrap"
           >
             <Wrapper
-              padding="1"
-              borderRadius="1"
-              borderRadiusTopLeft="0"
-              color="secondary"
+              padding="p-1"
+              borderRadius="rad-1"
+              borderRadiusTopLeft="rad-tl-0"
+              color="c-secondary"
             >
-              <Text type="body" size="small" color="inherit" lines={'infinity'}>
+              <Text size="body-s" color="c-inherit" line="line-clamp-1">
                 {children}
               </Text>
             </Wrapper>
@@ -56,24 +66,29 @@ const ChatMessage = ({
           </Flex>
         </Flex>
       ) : (
-        <Flex width="full" direction="column" alignContent="start" gap="1">
+        <Flex
+          width="w-full"
+          direction="flex-col"
+          alignContent="ac-start"
+          gap="gap-1"
+        >
           <Flex
-            gap="1"
-            width="full"
-            justifyContent="end"
-            alignItems="end"
-            wrap="nowrap"
+            gap="gap-1"
+            width="w-full"
+            justifyContent="jc-end"
+            alignItems="ai-end"
+            wrap="flex-nowrap"
           >
             <div className={cx('message-timestamp-wrapper')}>
               <MessageTimestamp date={messageTimestamp}></MessageTimestamp>
             </div>
             <Wrapper
-              padding="1"
-              borderRadius="1"
-              borderRadiusTopRight="0"
-              color="secondary"
+              padding="p-1"
+              borderRadius="rad-1"
+              borderRadiusTopRight="rad-tr-0"
+              color="c-secondary"
             >
-              <Text type="body" size="small" color="inherit" lines={'infinity'}>
+              <Text size="body-s" color="c-inherit" line="line-clamp-1">
                 {children}
               </Text>
             </Wrapper>

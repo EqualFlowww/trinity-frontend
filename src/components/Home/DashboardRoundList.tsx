@@ -100,7 +100,7 @@ const DashboardRoundList = ({ cartCollection, roundCollection }: Props) => {
                 padding="p-0"
                 borderRadius="rad-circle"
                 color="c-neutral-container-03"
-                hoverColor="hover:bg-neutral-container-04"
+                hoverColor="bg-neutral-container-04"
                 size="sz-full"
                 onClick={() => handleMovePage(index)}
               />

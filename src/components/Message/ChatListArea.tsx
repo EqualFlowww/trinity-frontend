@@ -15,39 +15,39 @@ const ChatListArea = ({ chatRoomList }: Props) => {
   const cx = classNames.bind(classes);
 
   return (
-    <Flex size="full" direction="column" wrap="nowrap">
+    <Flex size="sz-full" direction="flex-col" wrap="flex-nowrap">
       <Flex
         name="chat-list-header"
-        width="full"
-        padding="2"
-        justifyContent="between"
-        color="neutral-container-02"
-        borderRadiusTopLeft="1"
+        width="w-full"
+        padding="p-2"
+        justifyContent="jc-between"
+        color="c-neutral-container-02"
+        borderRadiusTopLeft="rad-tl-1"
       >
-        <Flex gap="2">
-          <Text type="title" size="medium" color="on-neutral">
+        <Flex gap="gap-2">
+          <Text size="title-m" color="c-on-neutral">
             내 채팅
           </Text>
           <Button
-            form="text"
-            color="neutral-container-04"
-            hoverColor="neutral-container-05"
-            padding="0"
+            form="btn-text"
+            color="c-neutral-container-04"
+            hover={{ color: 'hover:c-neutral-container-05' }}
+            padding="p-0"
           >
-            <Text type="title" size="medium" color="inherit">
+            <Text size="title-m" color="c-inherit">
               모든 채팅
             </Text>
           </Button>
         </Flex>
         <Button
-          padding="1"
-          paddingY="0-half"
-          borderRadius="1"
-          gap="1"
-          color="secondary"
+          padding="p-1"
+          paddingY="py-0.5"
+          borderRadius="rad-1"
+          gap="gap-1"
+          color="c-on-secondary"
         >
-          <IconPlus size="2" color="inherit"></IconPlus>
-          <Text type="label" size="medium" color="inherit">
+          <IconPlus size="sz-2" color="c-inherit"></IconPlus>
+          <Text size="label-m" color="c-inherit">
             New Chat
           </Text>
         </Button>
