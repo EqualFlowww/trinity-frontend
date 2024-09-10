@@ -23,11 +23,7 @@ const OpenChatList = ({ chatRoomList }: Props) => {
   const closeChatRoom = useMessageStore((state) => state.closeChatRoom);
 
   return (
-    <Flex
-      width="w-full"
-      color="c-neutral-container-05"
-      justifyContent="jc-start"
-    >
+    <Flex width="w-full" color="c-neutral-container-05" justifyContent="jc-start">
       <Scroll type="horizontal" size="medium">
         <Flex justifyContent="jc-start" wrap="flex-nowrap">
           {openChatRoomIdList.map((chatRoomId) => (
