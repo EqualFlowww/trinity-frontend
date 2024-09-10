@@ -36,8 +36,8 @@ const SettingModal = () => {
         onKeyUp={(e) => e.stopPropagation()}
       >
         <h2>Setting Modal</h2>
-        <Button type="button" color="on-neutral" onClick={toggleTheme}>
-          <Text color="inherit">
+        <Button type="button" color="c-on-neutral" onClick={toggleTheme}>
+          <Text color="c-inherit">
             Toggle Theme to {theme === 'light' ? 'dark' : 'light'}
           </Text>
         </Button>

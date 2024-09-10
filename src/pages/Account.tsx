@@ -1,16 +1,9 @@
 import classNames from 'classnames/bind';
 import classes from './Account.module.scss';
-import {
-  LoaderFunctionArgs,
-  useLoaderData,
-  useNavigation,
-} from 'react-router-dom';
-import Flex from '@/components/UI/Flex';
-import Spinner from '@/components/UI/Spinner';
+import { LoaderFunctionArgs } from 'react-router-dom';
 
 const Account = () => {
   const cx = classNames.bind(classes);
-  const data = useLoaderData();
 
   // const navigation = useNavigation();
 
@@ -24,7 +17,7 @@ const Account = () => {
 
 const loader = async ({}: LoaderFunctionArgs) => {
   const wait = async (): Promise<void> => {
-    return new Promise((resolve) => {
+    return new Promise(() => {
       const checkInterval = 500; // 0.5초마다 확인
       const checkGlobalVar = () => {
         if (false) {

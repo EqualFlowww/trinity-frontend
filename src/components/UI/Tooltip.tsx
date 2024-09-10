@@ -41,7 +41,7 @@ const Tooltip = ({ text, children }: TooltipProps) => {
               onClick={() => setVisible(false)}
               aria-label="Close"
             >
-              <IconClose width="5" height="5" color="inherit" />
+              <IconClose width="w-5" height="h-5" color="c-inherit" />
             </button>
           </div>
           <div className={cx('footer')}>

@@ -14,7 +14,7 @@ interface Props {
 const MessageInputBox = ({ chatRoomId, others }: Props) => {
   const cx = classNames.bind(classes);
   const [message, setMessage] = useState('');
-  const { sendData, sendMessage } = useSocketStore();
+  const { sendMessage } = useSocketStore();
 
   // // 메시지 전송 핸들러
   // const handleSendMessage = () => {
