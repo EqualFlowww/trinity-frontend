@@ -16,16 +16,16 @@ export const sizingUtilities = plugin(function ({ matchUtilities }) {
         height: value === 'screen' ? '100vh' : value,
       }),
       xw: (value) => ({
-        'max-width': 'screen' ? '100vw' : value,
+        'max-width': value === 'screen' ? '100vw' : value,
       }),
       xh: (value) => ({
-        'max-height': 'screen' ? '100vh' : value,
+        'max-height': value === 'screen' ? '100vh' : value,
       }),
       mw: (value) => ({
-        'min-width': 'screen' ? '100vw' : value,
+        'min-width': value === 'screen' ? '100vw' : value,
       }),
       mh: (value) => ({
-        'min-height': 'screen' ? '100vh' : value,
+        'min-height': value === 'screen' ? '100vh' : value,
       }),
     },
     {

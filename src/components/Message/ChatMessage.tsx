@@ -56,7 +56,7 @@ const ChatMessage = ({
               borderRadiusTopLeft="rad-tl-0"
               color="c-secondary"
             >
-              <Text size="body-s" color="c-inherit" line="line-clamp-1">
+              <Text size="body-s" color="c-inherit" line="line-clamp-none">
                 {children}
               </Text>
             </Wrapper>
@@ -88,7 +88,7 @@ const ChatMessage = ({
               borderRadiusTopRight="rad-tr-0"
               color="c-secondary"
             >
-              <Text size="body-s" color="c-inherit" line="line-clamp-1">
+              <Text size="body-s" color="c-inherit" line="line-clamp-none">
                 {children}
               </Text>
             </Wrapper>

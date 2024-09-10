@@ -16,18 +16,18 @@ const DashboardItemHeader = ({ children, description }: Props) => {
 
   return (
     <div>
-      <Flex width='w-full' justifyContent='jc-between' padding='p-2'>
-        <Text size='title-s' color='c-neutral'>
+      <Flex width="w-full" justifyContent="jc-between" padding="p-2">
+        <Text size="title-s" color="c-on-neutral">
           {children}
         </Text>
         <Tooltip text={description}>
           <Button
-            padding='p-0'
-            form='btn-text'
-            color='c-neutral-container-05'
-            borderColor='bc-on-neutral-variant'
+            padding="p-0"
+            form="btn-text"
+            color="c-neutral-container-05"
+            borderColor="bc-on-neutral-variant"
           >
-            <IconInfo size='sz-2' color='c-inherit'/>
+            <IconInfo size="sz-2" color="c-inherit" />
           </Button>
         </Tooltip>
       </Flex>
