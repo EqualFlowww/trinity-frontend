@@ -111,7 +111,7 @@ const DashboardRoundList = ({ cartCollection, roundCollection }: Props) => {
       <Wrapper paddingX="px-2" width="w-full">
         <Hr
           type="horizontal"
-          color="c-neutral-container-03"
+          color="c-neutral-container-05"
           length="len-full"
           thickness="thk-0.125"
         />
