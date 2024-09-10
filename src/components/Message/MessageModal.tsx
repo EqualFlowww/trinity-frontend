@@ -55,7 +55,7 @@ const MessageModal = () => {
           left="l-100pct"
           padding="p-0"
           form="btn-text"
-          color="c-neutral-container-01"
+          color="c-neutral-container-02"
           size="sz-auto"
           marginLeft="ml-0.5"
           onClick={closeModal}
