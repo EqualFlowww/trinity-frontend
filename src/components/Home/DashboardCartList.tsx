@@ -25,7 +25,7 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
   return (
     <Flex width="w-full" direction="flex-col" gap="gap-2" paddingX="px-2">
       <SegmentedControl
-        borderRadius="3"
+        borderRadius="rad-3"
         segments={{
           round: '라운드',
           work: '작업',

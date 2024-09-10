@@ -41,7 +41,7 @@ const MessageModal = () => {
       }}
     >
       <div className={cx('modal')}>
-        <Flex size="full" wrap="nowrap">
+        <Flex size="sz-full" wrap="flex-nowrap">
           <div className={cx('chat-list-area')}>
             <ChatListArea chatRoomList={chatRoomsData as ChatRoomList} />
           </div>
@@ -51,16 +51,16 @@ const MessageModal = () => {
         </Flex>
         <Button
           position="absolute"
-          top="0%"
-          left="100%"
-          padding="0"
-          form="text"
-          color="neutral-container-01"
-          size="auto"
-          marginLeft="0-half"
+          top="t-0"
+          left="l-100pct"
+          padding="p-0"
+          form="btn-text"
+          color="c-neutral-container-01"
+          size="sz-auto"
+          marginLeft="ml-0.5"
           onClick={closeModal}
         >
-          <IconClose size="3" color="inherit" />
+          <IconClose size="sz-3" color="c-inherit" />
         </Button>
       </div>
     </div>

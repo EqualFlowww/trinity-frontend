@@ -25,7 +25,6 @@ const ChatItem = ({ chatRoom }: Props) => {
     queryFn: ({ signal }) =>
       fetchChatRoomMessages({ signal, searchTerm: chatRoom.id }),
   });
-  console.log('messagesData', messagesData);
   const {
     data: unreadMessagesData,
     // error,

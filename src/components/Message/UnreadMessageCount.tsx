@@ -16,13 +16,13 @@ const UnreadMessageCount = ({ count }: Props) => {
   return (
     <div className={cx('unread-message-count', count <= 0 && 'hidden')}>
       <Flex
-        color="alert"
-        padding="0-half"
-        paddingTop="0-quarter"
-        paddingBottom="0-quarter"
-        borderRadius="2"
+        color="c-alert"
+        padding="p-0.5"
+        paddingTop="pt-0.25"
+        paddingBottom="pb-0.25"
+        borderRadius="rad-2"
       >
-        <Text type="label" size="small" color="inherit">
+        <Text size="label-s" color="c-inherit">
           {displayCount}
         </Text>
       </Flex>

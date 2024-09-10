@@ -31,9 +31,6 @@ const OpenChat = ({ chatRoomId }: Props) => {
     queryKey: ['chatRoom', chatRoomId],
     queryFn: ({ signal }) =>
       fetchChatRoomMessages({ signal, searchTerm: chatRoomId }),
-
-    refetchInterval: 1000,
-    refetchIntervalInBackground: true, // 백그라운드에서도 폴링 유지
   });
 
   const {
@@ -55,6 +52,16 @@ const OpenChat = ({ chatRoomId }: Props) => {
         signal,
       }),
   });
+
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom(); // 메시지가 업데이트될 때마다 실행
+  }, [messages]); // 메시지가 갱신될 때마다 스크롤 이동
 
   return (
     <Flex
@@ -97,7 +104,7 @@ const OpenChat = ({ chatRoomId }: Props) => {
         <Flex size="sz-full" alignContent="ac-end">
           <Scroll type="vertical">
             <Flex
-              direction="flex-col-reverse"
+              direction="flex-col"
               width="w-full"
               padding="p-1"
               paddingX="px-2"

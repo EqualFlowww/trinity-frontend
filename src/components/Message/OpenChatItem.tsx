@@ -4,7 +4,6 @@ import Flex from '@/components/UI/Flex';
 import Text from '@/components/UI/Text';
 import Button from '@/components/UI/Button';
 import IconClose from '@/components/Icon/IconClose';
-import { useRef } from 'react';
 
 interface Props {
   chatTitle: string;
@@ -16,14 +15,11 @@ interface Props {
 const OpenChatItem = ({ chatTitle, selected, onClick, onRemove }: Props) => {
   const cx = classNames.bind(classes);
 
-  const item = useRef(null);
-
   return (
     <div
       className={cx('open-chat-item', selected || 'unselected')}
-      ref={item}
-      onClick={(e) => {
-        if (e.target == item.current && !selected) onClick();
+      onClick={() => {
+        if (!selected) onClick();
       }}
     >
       <Flex

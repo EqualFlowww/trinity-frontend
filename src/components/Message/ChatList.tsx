@@ -15,9 +15,9 @@ const ChatList = ({ chatRoomList }: Props) => {
   return (
     <Wrapper
       name="scroll-wrapper"
-      size="full"
-      color="neutral"
-      borderRadiusBottomLeft="1"
+      size="sz-full"
+      color="c-neutral"
+      borderRadiusBottomLeft="rad-bl-1"
     >
       <Scroll type="vertical">
         <div className={cx('chat-list')}>

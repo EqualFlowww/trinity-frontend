@@ -31,7 +31,7 @@ const MessageTimestamp = ({ date }: Props) => {
   }
 
   return (
-    <Text type="label" size="small" color="neutral-outline-variant">
+    <Text size="label-s" color="c-neutral-outline-variant">
       {text}
     </Text>
   );

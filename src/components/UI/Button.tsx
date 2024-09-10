@@ -41,7 +41,10 @@ const Button = ({
     <button
       type={type === 'button' ? 'button' : 'submit'}
       className={`btn ${classNamesObjectToString({ ...defaultStyleProps, ...styleProps })}}`}
-      onClick={onClick}
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick && onClick();
+      }}
       {...htmlAttributes}
     >
       {children}

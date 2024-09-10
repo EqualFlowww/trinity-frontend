@@ -3,14 +3,14 @@ import classes from './SegmentedControl.module.scss';
 import Flex from '@/components/UI/Flex';
 import Text from '@/components/UI/Text';
 import Button from '@/components/UI/Button';
-import { BorderRadius } from '@/types/props';
 import IconCheck from '@/components/Icon/IconCheck';
+import { BorderStyle } from '@/types/style';
 
 interface Props {
   segments: { [key: string]: string };
   currentSegment: string;
   handleSegmentChange: (segment: string) => void;
-  borderRadius?: BorderRadius;
+  borderRadius?: BorderStyle['borderRadius'];
 }
 
 const SegmentedControl = ({
@@ -39,14 +39,11 @@ const SegmentedControl = ({
             <Flex
               width="w-full"
               color="c-primary-container"
-              borderRadiusTopLeft={index === 0 ? borderRadius : '0'}
-              borderRadiusBottomLeft={index === 0 ? borderRadius : '0'}
-              borderRadiusBottomRight={
-                index === segmentValues.length - 1 ? borderRadius : '0'
-              }
-              borderRadiusTopRight={
-                index === segmentValues.length - 1 ? borderRadius : '0'
-              }
+              borderRadius={borderRadius}
+              {...(index !== 0 && { borderRadiusLeft: 'rad-l-0' })}
+              {...(index !== segmentValues.length - 1 && {
+                borderRadiusRight: 'rad-r-0',
+              })}
               paddingX="px-0"
               paddingY="py-1"
               borderRightColor="brc-neutral-outline"
@@ -66,14 +63,11 @@ const SegmentedControl = ({
               width="w-full"
               color="c-neutral"
               hover={{ color: 'hover:c-neutral-container-02' }}
-              borderRadiusTopLeft={index === 0 ? borderRadius : '0'}
-              borderRadiusBottomLeft={index === 0 ? borderRadius : '0'}
-              borderRadiusBottomRight={
-                index === segmentValues.length - 1 ? borderRadius : '0'
-              }
-              borderRadiusTopRight={
-                index === segmentValues.length - 1 ? borderRadius : '0'
-              }
+              borderRadius={borderRadius}
+              {...(index !== 0 && { borderRadiusLeft: 'rad-l-0' })}
+              {...(index !== segmentValues.length - 1 && {
+                borderRadiusRight: 'rad-r-0',
+              })}
               paddingX="px-0"
               paddingY="py-1"
               borderRightColor="brc-neutral-outline"

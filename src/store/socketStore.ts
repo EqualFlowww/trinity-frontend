@@ -192,6 +192,7 @@ const store: StateCreator<SocketState & SocketActions> = (set, get) => ({
           },
         })
       );
+      console.log('WebSocket 데이터 전송');
 
       queryClient.invalidateQueries({
         queryKey: ['chatRoom', roomId],

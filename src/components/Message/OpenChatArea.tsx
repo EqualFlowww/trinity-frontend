@@ -17,7 +17,7 @@ const OpenChatArea = ({ chatRoomList }: Props) => {
   );
 
   return (
-    <Flex size="full" direction="column" wrap="nowrap">
+    <Flex size="sz-full" direction="flex-col" wrap="flex-nowrap">
       <OpenChatList chatRoomList={chatRoomList}></OpenChatList>
       <div className={cx('open-chat-main')}>
         {selectedChatRoomId !== null && (

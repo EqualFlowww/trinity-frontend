@@ -47,7 +47,11 @@ const createWebSocket = () => {
       if (isWebSocketOpen(wsInstance)) {
         const resData = JSON.parse(event.data);
         const data = resData.v;
-        console.log('WebSocket 데이터 수신:', data);
+        // console.log('WebSocket 데이터 수신:', data);
+        withLogging({
+          msg: 'WebSocket 데이터 수신',
+          type: 'info',
+        });
         const str = data.sref;
         const type = str.split('.').pop();
         console.log('type:', type);
