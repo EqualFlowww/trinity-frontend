@@ -40,7 +40,7 @@ const DashboardNotice: React.FC = () => {
                   <div className={cx('item-box')}>
                     <div className={cx('notice-title')}>
                       <span>트리니티 관리자</span>
-                      <IconPin color="primary" />
+                      <IconPin color='c-neutral' />
                     </div>
                     <div className={cx('dashboard-notice')}>
                       <div className={cx('notice-content-time')}>

@@ -23,11 +23,11 @@ const Dashboard = ({ roundCollection, cartCollection }: Props) => {
   return (
     <Flex
       name="dashboard-wrapper"
-      direction="column"
-      padding="0"
-      color="neutral"
-      justifyContent="start"
-      size="full"
+      direction='flex-col'
+      padding='p-0'
+      color='c-neutral'
+      justifyContent='jc-start'
+      size='sz-full'
     >
       <div className={cx('dashboard-header')}>
         <DateWidget weather="clear-day" />
