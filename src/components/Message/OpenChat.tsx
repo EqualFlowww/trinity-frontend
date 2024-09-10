@@ -83,7 +83,7 @@ const OpenChat = ({ chatRoomId }: Props) => {
               }
             </Text>
             {false && (
-              <Text type="label" color="c-on-neutral-variant">
+              <Text size="label-m" color="c-on-neutral-variant">
                 5
               </Text>
             )}

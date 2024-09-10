@@ -3,7 +3,7 @@ import classNamesObjectToString from '@/utils/classNamesObjectToString';
 import { ComponentPropsWithoutRef } from 'react';
 
 interface FlexProps extends FlexStyleProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   name?: string;
 }
 interface HTMLFlexProps

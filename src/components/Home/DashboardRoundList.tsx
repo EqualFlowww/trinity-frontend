@@ -100,7 +100,7 @@ const DashboardRoundList = ({ cartCollection, roundCollection }: Props) => {
                 padding="p-0"
                 borderRadius="rad-circle"
                 color="c-neutral-container-03"
-                hoverColor="bg-neutral-container-04"
+                hover={{ color: 'hover:c-neutral-container-03' }}
                 size="sz-full"
                 onClick={() => handleMovePage(index)}
               />
@@ -109,7 +109,12 @@ const DashboardRoundList = ({ cartCollection, roundCollection }: Props) => {
         ))}
       </Flex>
       <Wrapper paddingX="px-2" width="w-full">
-        <Hr type="horizontal" color="c-neutral-container-03" />
+        <Hr
+          type="horizontal"
+          color="c-neutral-container-03"
+          length="len-full"
+          thickness="thk-0.125"
+        />
       </Wrapper>
     </Flex>
   );

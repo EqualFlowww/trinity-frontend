@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef } from 'react';
 import { ButtonStyleProps } from '@/types/props';
 
 interface ButtonProps extends ButtonStyleProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   type?: 'button' | 'submit';
   onClick?: () => void;
 }

@@ -25,20 +25,20 @@ const SegmentedControl = ({
 
   return (
     <Flex
-      width="full"
+      width="w-full"
       borderRadius={borderRadius}
-      padding="0"
-      color="transparent"
-      borderColor="neutral-outline"
-      borderStyle="solid"
-      borderWidth="0-eighth"
+      padding="p-0"
+      color="c-transparent"
+      borderColor="bc-neutral-outline"
+      borderStyle="bs-solid"
+      borderWidth="bw-0.125"
     >
       {segmentValues.map((label, index) => (
         <div className={cx('button-box')} key={label}>
           {segmentKeys[index] === currentSegment ? (
             <Flex
-              width="full"
-              color="primary-container"
+              width="w-full"
+              color="c-primary-container"
               borderRadiusTopLeft={index === 0 ? borderRadius : '0'}
               borderRadiusBottomLeft={index === 0 ? borderRadius : '0'}
               borderRadiusBottomRight={
@@ -47,25 +47,25 @@ const SegmentedControl = ({
               borderRadiusTopRight={
                 index === segmentValues.length - 1 ? borderRadius : '0'
               }
-              paddingX="0"
-              paddingY="1"
-              borderRightColor="neutral-outline"
-              borderRightStyle="solid"
+              paddingX="px-0"
+              paddingY="py-1"
+              borderRightColor="brc-neutral-outline"
+              borderRightStyle="brs-solid"
               borderRightWidth={
-                index === segmentValues.length - 1 ? '0' : '0-eighth'
+                index === segmentValues.length - 1 ? 'brw-0' : 'brw-0.125'
               }
-              gap="1"
+              gap="gap-1"
             >
-              <IconCheck size="1-half" color="inherit" />
-              <Text type="label" size="medium" color="inherit">
+              <IconCheck size="sz-1.5" color="c-inherit" />
+              <Text size="label-m" color="c-inherit">
                 {label}
               </Text>
             </Flex>
           ) : (
             <Button
-              width="full"
-              color="neutral"
-              hoverColor="neutral-container-02"
+              width="w-full"
+              color="c-neutral"
+              hover={{ color: 'hover:c-neutral-container-02' }}
               borderRadiusTopLeft={index === 0 ? borderRadius : '0'}
               borderRadiusBottomLeft={index === 0 ? borderRadius : '0'}
               borderRadiusBottomRight={
@@ -74,16 +74,16 @@ const SegmentedControl = ({
               borderRadiusTopRight={
                 index === segmentValues.length - 1 ? borderRadius : '0'
               }
-              paddingX="0"
-              paddingY="1"
-              borderRightColor="neutral-outline"
-              borderRightStyle="solid"
+              paddingX="px-0"
+              paddingY="py-1"
+              borderRightColor="brc-neutral-outline"
+              borderRightStyle="brs-solid"
               borderRightWidth={
-                index === segmentValues.length - 1 ? '0' : '0-eighth'
+                index === segmentValues.length - 1 ? 'brw-0' : 'brw-0.125'
               }
               onClick={() => handleSegmentChange(segmentKeys[index])}
             >
-              <Text type="label" size="medium" color="inherit">
+              <Text size="label-m" color="c-inherit">
                 {label}
               </Text>
             </Button>
