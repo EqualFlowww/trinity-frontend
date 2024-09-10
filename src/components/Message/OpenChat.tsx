@@ -16,6 +16,7 @@ import { ChatRoomList, MessageList } from '@/types/message';
 import MessageInputBox from '@/components/Message/MessageInputBox';
 import arrayToIdObject from '@/utils/arrayToIdObject';
 import arrayToUsernameObject from '@/utils/arrayToUsernameObject';
+import { useEffect, useRef } from 'react';
 
 interface Props {
   chatRoomId: string;
@@ -23,6 +24,7 @@ interface Props {
 
 const OpenChat = ({ chatRoomId }: Props) => {
   const cx = classNames.bind(classes);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const {
     data: messagesData,
@@ -61,7 +63,7 @@ const OpenChat = ({ chatRoomId }: Props) => {
 
   useEffect(() => {
     scrollToBottom(); // 메시지가 업데이트될 때마다 실행
-  }, [messages]); // 메시지가 갱신될 때마다 스크롤 이동
+  }, [messagesData]); // 메시지가 갱신될 때마다 스크롤 이동
 
   return (
     <Flex
