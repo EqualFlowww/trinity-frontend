@@ -44,7 +44,7 @@ const DashboardRoundList = ({ cartCollection, roundCollection }: Props) => {
   const handleMovePage = (index: number) => setCurrentPage(index);
 
   return (
-    <Flex width="full" direction="column" gap="1-half" position="relative">
+    <Flex width="w-full" direction="flex-col" gap="gap-1.5" position="relative">
       <div className={cx('list-veiw-box')}>
         <div className={cx('list-entire-box')} style={listEntireBoxStyle}>
           {(roundList.length > 40 ? roundList.slice(0, 40) : roundList).map(
@@ -60,56 +60,56 @@ const DashboardRoundList = ({ cartCollection, roundCollection }: Props) => {
         </div>
       </div>
       {currentPage === 0 || (
-        <Wrapper position="absolute" left="0%" color="transparent">
+        <Wrapper position="absolute" left="l-0" color="c-transparent">
           <Button
-            padding="0-half"
-            color="neutral"
-            shadow="gray"
-            borderRadius="circle"
+            padding="p-0.5"
+            color="c-neutral"
+            shadow="shd-gray"
+            borderRadius="rad-circle"
             onClick={hanldeMovePreviousPage}
           >
-            <IconArrow type="left" size="2" color="inherit" />
+            <IconArrow type="left" size="sz-2" color="c-inherit" />
           </Button>
         </Wrapper>
       )}
       {currentPage === pageNumber - 1 || (
-        <Wrapper position="absolute" right="0%" color="transparent">
+        <Wrapper position="absolute" right="r-0" color="c-transparent">
           <Button
-            padding="0-half"
-            color="neutral"
-            shadow="gray"
-            borderRadius="circle"
+            padding="p-0.5"
+            color="c-neutral"
+            shadow="shd-gray"
+            borderRadius="rad-circle"
             onClick={handleMoveNextPage}
           >
-            <IconArrow type="right" size="2" color="inherit" />
+            <IconArrow type="right" size="sz-2" color="c-inherit" />
           </Button>
         </Wrapper>
       )}
-      <Flex width="full" marginBottom="0-half" gap="1">
+      <Flex width="w-full" marginBottom="mb-0.5" gap="gap-1">
         {Array.from({ length: pageNumber }).map((_, index) => (
           <div key={index.toString()} className={cx('circle-button')}>
             {currentPage === index ? (
               <Flex
-                padding="0"
-                borderRadius="circle"
-                color="neutral-container-05"
-                size="full"
+                padding="p-0"
+                borderRadius="rad-circle"
+                color="c-neutral-container-05"
+                size="sz-full"
               />
             ) : (
               <Button
-                padding="0"
-                borderRadius="circle"
-                color="neutral-container-03"
-                hoverColor="neutral-container-04"
-                size="full"
+                padding="p-0"
+                borderRadius="rad-circle"
+                color="c-neutral-container-03"
+                hoverColor="hover:bg-neutral-container-04"
+                size="sz-full"
                 onClick={() => handleMovePage(index)}
               />
             )}
           </div>
         ))}
       </Flex>
-      <Wrapper paddingX="2" width="full">
-        <Hr type="horizontal" color="neutral-container-03" />
+      <Wrapper paddingX="px-2" width="w-full">
+        <Hr type="horizontal" color="c-neutral-container-03" />
       </Wrapper>
     </Flex>
   );
