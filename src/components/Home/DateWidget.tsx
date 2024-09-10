@@ -22,78 +22,84 @@ const DateWidget = ({ weather }: Props) => {
     <div className={cx('date-widget')}>
       <Flex
         name="overlay"
-        size="full"
+        size="sz-full"
         position="absolute"
-        top="0%"
-        left="0%"
-        zIndex={5}
+        top="t-0"
+        left="l-0"
+        zIndex="z-5"
       >
         <WeatherImage type={weather} />
       </Flex>
       <Flex
         name="date-info"
         position="relative"
-        padding="0"
-        color="transparent"
-        justifyContent="between"
-        size="full"
-        zIndex={10}
+        padding="p-0"
+        color="c-transparent"
+        justifyContent="jc-between"
+        size="sz-full"
+        zIndex="z-10"
       >
-        <Flex direction="column" height="full" gap="0" wrap="nowrap">
+        <Flex
+          direction="flex-col"
+          height="h-full"
+          gap="gap-0"
+          wrap="flex-nowrap"
+        >
           <Text
-            font="outfit"
-            color="neutral-container-01"
-            type="body"
-            size="medium"
-            shadow="gray"
-            opacity={0.8}
+            font="font-outfit"
+            color="c-neutral-container-01"
+            size="body-m"
+            shadow="shd-gray"
+            opacity="oc-0.8"
           >
             2024/08/22
           </Text>
           <Text
-            font="outfit"
-            color="neutral-container-01"
-            type="headline"
-            size="large"
-            shadow="gray"
+            font="font-outfit"
+            color="c-neutral-container-01"
+            size="headline-l"
+            shadow="shd-gray"
           >
             13:42
           </Text>
         </Flex>
         <Flex
-          direction="column"
-          height="full"
-          gap="0-half"
-          justifyContent="center"
+          direction="flex-col"
+          height="h-full"
+          gap="gap-0.5"
+          justifyContent="jc-center"
         >
-          <Flex gap="0-half" width="full" justifyContent="end" opacity={0.8}>
+          <Flex
+            gap="gap-0.5"
+            width="w-full"
+            justifyContent="jc-end"
+            opacity="oc-0.8"
+          >
             <IconWindDirection
               type="north"
-              size="2"
-              color="neutral-container-01"
-              shadow="gray"
+              size="sz-2"
+              color="c-neutral-container-01"
+              shadow="shd-gray"
             />
             <Text
-              type="label"
-              size="large"
-              color="neutral-container-01"
-              shadow="gray"
+              size="label-l"
+              color="c-neutral-container-01"
+              shadow="shd-gray"
             >
               7m/s
             </Text>
           </Flex>
-          <Flex gap="0-half" width="full" justifyContent="end">
+          <Flex gap="gap-0.5" width="w-full" justifyContent="jc-end">
             <IconWeather
               type="clear-day"
-              size="3"
-              color="neutral-container-01"
-              shadow="gray"
+              size="sz-3"
+              color="c-neutral-container-01"
+              shadow="shd-gray"
             />
             <Text
-              type="body"
-              size="large"
-              color="neutral-container-01"
-              shadow="gray"
+              size="body-l"
+              color="c-neutral-container-01"
+              shadow="shd-gray"
             >
               31℃
             </Text>

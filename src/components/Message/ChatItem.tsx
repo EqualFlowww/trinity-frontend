@@ -40,15 +40,15 @@ const ChatItem = ({ chatRoom }: Props) => {
 
   return (
     <Button
-      width="full"
-      justifyContent="between"
-      alignItems="center"
-      padding="1"
-      borderRadius="1"
-      gap="1"
-      color="neutral"
-      hoverColor="neutral-container-02"
-      wrap="nowrap"
+      width="w-full"
+      justifyContent="jc-between"
+      alignItems="ai-center"
+      padding="p-1"
+      borderRadius="rad-1"
+      gap="gap-1"
+      color="c-neutral"
+      hover={{ color: 'hover:c-neutral-container-02' }}
+      wrap="flex-nowrap"
       onClick={() => {
         openChatRoom(chatRoom.id);
       }}
@@ -56,10 +56,10 @@ const ChatItem = ({ chatRoom }: Props) => {
       <div className={cx('message-content-container')}>
         <div className={cx('profile-image')} />
         <div className={cx('message-text')}>
-          <Text type="title" size="small" color="on-neutral">
+          <Text size="title-s" color="c-on-neutral">
             {chatRoom.displayName}
           </Text>
-          <Text type="label" color="on-neutral-variant">
+          <Text size="label-s" color="c-on-neutral-variant">
             {(messagesData as MessageList) &&
             (messagesData as MessageList).length > 0
               ? (messagesData as MessageList)[0].content

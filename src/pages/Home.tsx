@@ -9,6 +9,7 @@ import arrayToIdObject from '@/utils/arrayToIdObject';
 import Spinner from '@/components/UI/Spinner';
 import Flex from '@/components/UI/Flex';
 import waitForLogin from '@/utils/waitForLogin';
+import { sizingTheme, contentColorTheme } from 'tailwind/plugins/flowww/theme';
 
 const Home = () => {
   const cx = classNames.bind(classes);

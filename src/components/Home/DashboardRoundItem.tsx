@@ -42,64 +42,63 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             borderRadius="rad-0.5"
           >
             <Text
-              font="outfit"
-              type="title"
-              size="small"
-              color="on-neutral-variant"
+              font="font-outfit"
+              size="title-s"
+              color="c-on-neutral-variant"
             >
               Hole {round.currentHole.number}
             </Text>
           </Wrapper>
         </Flex>
         <Button
-          form="text"
-          padding="0"
-          color="neutral-container-05"
-          hoverColor="on-neutral-variant"
+          form="btn-text"
+          padding="p-0"
+          color="c-neutral-container-05"
+          hover={{ color: 'hover:c-on-neutral-variant' }}
         >
-          <IconArrow type="right" size="2" color="inherit" />
+          <IconArrow type="right" size="sz-2" color="c-inherit" />
         </Button>
       </Flex>
       <Flex
-        width="full"
-        justifyContent="between"
-        padding="0-half"
-        color="neutral-container-01"
-        borderRadius="0-half"
+        width="w-full"
+        justifyContent="jc-between"
+        padding="p-0.5"
+        color="c-neutral-container-01"
+        borderRadius="rad-0.5"
       >
-        <Flex gap="0-half">
+        <Flex gap="gap-0.5">
           <Wrapper
-            paddingY="0-half"
-            paddingX="1"
-            color="on-neutral"
-            borderRadius="0-half"
+            paddingY="py-0.5"
+            paddingX="px-1"
+            color="c-on-neutral"
+            borderRadius="rad-0.5"
           >
-            <Text type="label" size="medium" color="inherit">
+            <Text size="label-m" color="c-inherit">
               {round.currentHole.courseType.toUpperCase()}
             </Text>
           </Wrapper>
           <Wrapper
-            paddingY="0-half"
-            paddingX="1"
-            color="transparent"
-            borderWidth="0-eighth"
-            borderColor="on-neutral"
-            borderStyle="solid"
-            borderRadius="0-half"
+            paddingY="py-0.5"
+            paddingX="px-1"
+            color="c-transparent"
+            borderWidth="bw-0.125"
+            borderColor="bc-neutral"
+            borderStyle="bs-solid"
+            borderRadius="rad-0.5"
           >
-            <Text type="label" size="medium" color="on-neutral">
+            <Text size="label-m" color="c-neutral">
               {round.currentHole.startTime}
             </Text>
           </Wrapper>
         </Flex>
-        <Flex gap="0-half">
+        <Flex gap="gap-0.5">
           <Wrapper
-            paddingY="0-half"
-            paddingX="1"
-            color="primary"
-            borderRadius="0-half"
+            paddingY="py-0.5"
+            paddingX="px-1"
+            color="c-primary"
+            borderRadius="rad-0.5"
           >
-            <Text type="label" size="medium" color="inherit">
+            <Text size="label-m" color="c-inherit">
               {cartList && cartList?.length > 0 && cartList[0]?.manager.name}{' '}
               {cartList &&
               cartList?.length > 0 &&
@@ -109,12 +108,12 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             </Text>
           </Wrapper>
           <Wrapper
-            paddingY="0-half"
-            paddingX="1"
-            color="primary-container"
-            borderRadius="0-half"
+            paddingY="py-0.5"
+            paddingX="px-1"
+            color="c-primary-container"
+            borderRadius="rad-0.5"
           >
-            <Text type="label" size="medium" color="inherit">
+            <Text size="label-m" color="c-inherit">
               Cart No.{cartList && cartList?.length > 0 && cartList[0].name}
             </Text>
           </Wrapper>

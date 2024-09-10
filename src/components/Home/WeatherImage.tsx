@@ -23,9 +23,9 @@ const WeatherImage = ({ type }: Props) => {
   return (
     <div className={cx('weather-image-container')}>
       <Image
-        size="full"
+        size="sz-full"
         src={imageSrc}
-        objectFit="cover"
+        objectFit="obj-cover"
         alt={`weather-${type}`}
       />
       <div className={cx('weather-image-gradient')} />

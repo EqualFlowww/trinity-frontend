@@ -58,42 +58,51 @@ const OpenChat = ({ chatRoomId }: Props) => {
 
   return (
     <Flex
-      size="full"
-      direction="column"
-      color="neutral-container-02"
-      wrap="nowrap"
+      size="sz-full"
+      direction="flex-col"
+      color="c-neutral-container-02"
+      wrap="flex-nowrap"
     >
-      <Flex width="full" padding="2" justifyContent="between" wrap="nowrap">
-        <Flex gap="1" wrap="nowrap">
+      <Flex
+        width="w-full"
+        padding="p-2"
+        justifyContent="jc-between"
+        wrap="flex-nowrap"
+      >
+        <Flex gap="gap-1" wrap="flex-nowrap">
           <div className={cx('profile-image')} />
-          <Flex direction="column" justifyContent="between" alignItems="start">
-            <Text type="title" size="small" color="on-neutral">
+          <Flex
+            direction="flex-col"
+            justifyContent="jc-between"
+            alignItems="ai-start"
+          >
+            <Text size="title-s" color="c-on-neutral">
               {
                 arrayToIdObject(chatRoomsData as ChatRoomList)[chatRoomId]
                   .displayName
               }
             </Text>
             {false && (
-              <Text type="label" color="on-neutral-variant">
+              <Text size="label-m" color="c-on-neutral-variant">
                 5
               </Text>
             )}
           </Flex>
         </Flex>
-        <Button form="text" color="on-neutral" padding="0">
-          <IconSearch size="3" color="inherit" />
+        <Button form="btn-text" color="c-on-neutral" padding="p-0">
+          <IconSearch size="sz-3" color="c-inherit" />
         </Button>
       </Flex>
       <div className={cx('message-area')}>
-        <Flex size="full" alignContent="end">
+        <Flex size="sz-full" alignContent="ac-end">
           <Scroll type="vertical">
             <Flex
-              direction="column-reverse"
-              width="full"
-              padding="1"
-              paddingX="2"
-              gap="2"
-              justifyContent="end"
+              direction="flex-col-reverse"
+              width="w-full"
+              padding="p-1"
+              paddingX="px-2"
+              gap="gap-2"
+              justifyContent="jc-end"
             >
               {(messagesData as MessageList).map((message) => (
                 <ChatMessage

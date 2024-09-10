@@ -54,11 +54,11 @@ const MessageInputBox = ({ chatRoomId, others }: Props) => {
 
   return (
     <Flex
-      size="full"
-      padding="2"
-      color="neutral-container-01"
-      gap="1"
-      direction="column"
+      size="sz-full"
+      padding="p-2"
+      color="c-neutral-container-01"
+      gap="gap-1"
+      direction="flex-col"
     >
       <textarea
         className={cx('message-input')}
@@ -68,15 +68,15 @@ const MessageInputBox = ({ chatRoomId, others }: Props) => {
         placeholder="메세지를 입력하세요."
         rows={1}
       ></textarea>
-      <Flex width="full" justifyContent="end">
+      <Flex width="w-full" justifyContent="jc-end">
         <Button
-          paddingX="1"
-          paddingY="0-half"
-          color="secondary"
-          borderRadius="0-half"
+          paddingX="px-1"
+          paddingY="py-0.5"
+          color="c-secondary"
+          borderRadius="rad-0.5"
           onClick={() => handleSendMessage()}
         >
-          <Text type="body" size="medium" color="inherit">
+          <Text size="body-m" color="c-inherit">
             전송
           </Text>
         </Button>

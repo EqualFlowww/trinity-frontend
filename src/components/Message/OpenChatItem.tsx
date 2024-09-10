@@ -28,31 +28,37 @@ const OpenChatItem = ({ chatTitle, selected, onClick, onRemove }: Props) => {
     >
       <Flex
         name="open-chat-item-selected"
-        width="full"
-        paddingY="0-quarter"
-        paddingX="0-half"
-        justifyContent="between"
-        borderRadiusTopRight="0-half"
-        color={selected ? 'neutral-container-02' : 'neutral-container-05'}
-        hoverColor={selected ? 'neutral-container-03' : 'neutral-container-04'}
-        hover={selected ? 'off' : 'on'}
-        wrap="nowrap"
+        width="w-full"
+        paddingY="py-0.25"
+        paddingX="px-0.5"
+        justifyContent="jc-between"
+        borderRadiusTopRight="rad-tr-0.5"
+        color={selected ? 'c-neutral-container-02' : 'c-neutral-container-05'}
+        hover={{
+          color: `${selected ? 'hover:c-neutral-container-03' : 'hover:c-neutral-container-04'}`,
+        }}
+        wrap="flex-nowrap"
       >
         <Text
-          type="label"
-          size="small"
-          color={!selected ? 'neutral-container-02' : 'neutral-container-05'}
+          size="label-s"
+          color={
+            !selected ? 'c-neutral-container-02' : 'c-neutral-container-05'
+          }
         >
           {chatTitle}
         </Text>
         <Button
-          padding="0"
-          form="text"
-          color={!selected ? 'neutral-container-02' : 'neutral-container-05'}
-          hoverColor={!selected ? 'neutral' : 'on-neutral-variant'}
+          padding="p-0"
+          form="btn-text"
+          color={
+            !selected ? 'c-neutral-container-02' : 'c-neutral-container-05'
+          }
+          hover={{
+            color: `${selected ? 'hover:c-neutral' : 'hover:c-on-neutral-variant'}`,
+          }}
           onClick={onRemove}
         >
-          <IconClose size="1" color="inherit"></IconClose>
+          <IconClose size="sz-1" color="c-inherit"></IconClose>
         </Button>
       </Flex>
     </div>
