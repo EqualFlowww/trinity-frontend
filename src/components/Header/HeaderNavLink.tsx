@@ -27,7 +27,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
             color="c-on-neutral"
             borderRadius="rad-1"
           >
-            <Text size="title-m" color="c-inherit">
+            <Text size="label-m" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />
@@ -36,7 +36,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
           <Button
             form="btn-text"
             justifyContent="jc-between"
-            wrap="f-nowrap"
+            wrap="flex-nowrap"
             width="w-full"
             padding="p-1"
             color="c-neutral-container-05"

@@ -23,7 +23,7 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
   };
 
   return (
-    <Flex width="full" direction="column" gap="2" paddingX="2">
+    <Flex width="full" direction="flex-col" gap="gap-2" paddingX="px-2">
       <SegmentedControl
         borderRadius="3"
         segments={{
@@ -37,16 +37,16 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
       ></SegmentedControl>
       <div className={cx('cart-box')}>
         <Flex
-          size="full"
-          minHeight="inherit"
-          padding="1"
-          gap="1"
-          borderRadius="1"
-          color="neutral-container-02"
-          alignItems="start"
-          alignContent="start"
-          justifyContent="start"
-          marginBottom="2"
+          size="sz-full"
+          minHeight="mh-inherit"
+          padding="p-1"
+          gap="gap-1"
+          borderRadius="rad-1"
+          color="c-neutral-container-02"
+          alignItems="ai-start"
+          alignContent="ac-start"
+          justifyContent="jc-start"
+          marginBottom="mb-2"
         >
           {Object.values(cartCollection)
             .filter((cart) => cart.type === currentSegment)

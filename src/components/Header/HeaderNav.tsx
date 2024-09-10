@@ -18,14 +18,14 @@ const HeaderNav = () => {
 
   return (
     <Flex
-      direction="f-col"
+      direction="flex-col"
       name="wrapper"
       color="c-transparent"
       padding="p-0"
       gap="gap-1"
       width="w-full"
     >
-      <Flex direction="f-col" width="w-full" gap="gap-0.5">
+      <Flex direction="flex-col" width="w-full" gap="gap-0.5">
         <a href="./" className={cx('logo-wrapper')}>
           <IconTrinityLogo size="sz-full" color="c-neutral-container-05" />
         </a>
@@ -33,7 +33,7 @@ const HeaderNav = () => {
       </Flex>
       <Flex
         name="nav-link-container"
-        direction="f-col"
+        direction="flex-col"
         gap="gap-1"
         width="w-full"
       >

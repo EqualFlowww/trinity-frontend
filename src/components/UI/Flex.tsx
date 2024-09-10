@@ -21,8 +21,8 @@ const Flex = ({ children, name, htmlAttributes, ...restFlexProps }: Props) => {
     justifyContent: 'jc-center',
     alignItems: 'ai-center',
     alignContent: 'ac-center',
-    wrap: 'f-wrap',
-    direction: 'f-row',
+    wrap: 'flex-wrap',
+    direction: 'flex-row',
     gap: 'gap-0',
   };
 
