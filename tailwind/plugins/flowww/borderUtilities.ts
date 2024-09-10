@@ -2,94 +2,34 @@
 import plugin from 'tailwindcss/plugin';
 import {
   borderRadiusTheme,
+  borderTypeTheme,
   borderWidthTheme,
   contentColorTheme,
 } from './theme';
 
-export const borderUtilities = plugin(function ({
-  addUtilities,
-  matchUtilities,
-}) {
-  addUtilities({
-    ...[
-      'solid',
-      'dashed',
-      'dotted',
-      'double',
-      'groove',
-      'ridge',
-      'none',
-      'hidden',
-    ].map((style) => ({
-      [`.bs-${style}`]: {
-        'border-style': style,
-      },
-    })),
-  });
-  addUtilities({
-    ...[
-      'solid',
-      'dashed',
-      'dotted',
-      'double',
-      'groove',
-      'ridge',
-      'none',
-      'hidden',
-    ].map((style) => ({
-      [`.bts-${style}`]: {
-        'border-top-style': style,
-      },
-    })),
-  });
-  addUtilities({
-    ...[
-      'solid',
-      'dashed',
-      'dotted',
-      'double',
-      'groove',
-      'ridge',
-      'none',
-      'hidden',
-    ].map((style) => ({
-      [`.brs-${style}`]: {
-        'border-right-style': style,
-      },
-    })),
-  });
-  addUtilities({
-    ...[
-      'solid',
-      'dashed',
-      'dotted',
-      'double',
-      'groove',
-      'ridge',
-      'none',
-      'hidden',
-    ].map((style) => ({
-      [`.bbs-${style}`]: {
-        'border-bottom-style': style,
-      },
-    })),
-  });
-  addUtilities({
-    ...[
-      'solid',
-      'dashed',
-      'dotted',
-      'double',
-      'groove',
-      'ridge',
-      'none',
-      'hidden',
-    ].map((style) => ({
-      [`.bls-${style}`]: {
-        'border-left-style': style,
-      },
-    })),
-  });
+export const borderUtilities = plugin(function ({ matchUtilities }) {
+  matchUtilities(
+    {
+      bs: (value) => ({
+        'border-style': value,
+      }),
+      bts: (value) => ({
+        'border-top-style': value,
+      }),
+      brs: (value) => ({
+        'border-right-style': value,
+      }),
+      bbs: (value) => ({
+        'border-bottom-style': value,
+      }),
+      bls: (value) => ({
+        'border-left-style': value,
+      }),
+    },
+    {
+      values: borderTypeTheme,
+    }
+  );
   matchUtilities(
     {
       bc: (value) => ({

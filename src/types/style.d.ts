@@ -706,6 +706,6 @@ export interface TextStyle
 }
 
 export interface SpinnerStyle extends BaseStyle, MarginStyle {
-  size?: 'spinner-small' | 'spinner-medium' | 'spinner-large' | 'spinner-full';
+  size?: 'spinner-s' | 'spinner-m' | 'spinner-l' | 'spinner-xl';
   color?: `bc-${BorderColor}`;
 }

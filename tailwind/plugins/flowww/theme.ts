@@ -10,6 +10,7 @@ import {
   ZIndex,
   Gap,
   Opacity,
+  BorderType,
 } from '@/types/style';
 
 type SpacingTheme = { [key in Spacing]: string };
@@ -19,6 +20,7 @@ type zIndexTheme = { [key in ZIndex]: string };
 type PositioningTheme = { [key in Positioning]: string };
 type ContentColorTheme = { [key in ContentColor]: string };
 type ContainerColorTheme = { [key in ContainerColor]: string[] };
+type BorderTypeTheme = { [key in BorderType]: string };
 type BorderWidthTheme = { [key in BorderWidth]: string };
 type BorderRadiusTheme = { [key in BorderRadius]: string };
 type GapTheme = { [key in Gap]: string };
@@ -367,6 +369,17 @@ export const containerColorTheme: ContainerColorTheme = {
     'var(--neutral-on-surface-variant)',
   ],
   transparent: ['transparent', 'transparent'],
+};
+
+export const borderTypeTheme: BorderTypeTheme = {
+  solid: 'solid',
+  dashed: 'dashed',
+  dotted: 'dotted',
+  double: 'double',
+  groove: 'groove',
+  ridge: 'ridge',
+  hidden: 'hidden',
+  none: 'none',
 };
 
 export const borderWidthTheme: BorderWidthTheme = {

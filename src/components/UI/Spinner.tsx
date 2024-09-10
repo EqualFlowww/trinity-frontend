@@ -18,7 +18,7 @@ const Spinner = ({
   ...restSpinnerProps
 }: Props) => {
   const defaultStyleProps: SpinnerStyleProps = {
-    size: 'spinner-medium',
+    size: 'spinner-m',
     margin: 'm-0',
     color: 'bc-on-neutral',
   };

@@ -8,28 +8,36 @@ export const spinnerUtilities = plugin(function ({ addComponents }) {
       justifyContent: 'center',
       alignItems: 'center',
     },
-    '.spinner-small': {
-      width: 'var(--sz-1-half)',
-      height: 'var(--sz-1-half)',
+    '.spinner-s': {
+      width: '1.6rem',
+      height: '1.6rem',
       '& > .loader': {
-        borderTopWidth: 'var(--sz-0-quarter)',
-        borderRightWidth: 'var(--sz-0-quarter)',
+        borderTopWidth: '0.1rem',
+        borderRightWidth: '0.1rem',
       },
     },
-    '.spinner-medium': {
-      width: 'var(--sz-3)',
-      height: 'var(--sz-3)',
+    '.spinner-m': {
+      width: '3.2rem',
+      height: '3.2rem',
       '& > .loader': {
-        borderTopWidth: 'var(--sz-0-half)',
-        borderRightWidth: 'var(--sz-0-half)',
+        borderTopWidth: '0.2rem',
+        borderRightWidth: '0.2rem',
       },
     },
-    '.spinner-large': {
-      width: 'var(--sz-6)',
-      height: 'var(--sz-6)',
+    '.spinner-l': {
+      width: '6.4rem',
+      height: '6.4rem',
       '& > .loader': {
-        borderTopWidth: 'var(--sz-1)',
-        borderRightWidth: 'var(--sz-1)',
+        borderTopWidth: '0.4rem',
+        borderRightWidth: '0.4rem',
+      },
+    },
+    '.spinner-xl': {
+      width: '12.8rem',
+      height: '12.8rem',
+      '& > .loader': {
+        borderTopWidth: '0.6rem',
+        borderRightWidth: '0.6rem',
       },
     },
   });
