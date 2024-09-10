@@ -23,7 +23,7 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
   };
 
   return (
-    <Flex width="full" direction="flex-col" gap="gap-2" paddingX="px-2">
+    <Flex width="w-full" direction="flex-col" gap="gap-2" paddingX="px-2">
       <SegmentedControl
         borderRadius="3"
         segments={{
