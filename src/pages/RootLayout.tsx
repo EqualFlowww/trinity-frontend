@@ -32,8 +32,8 @@ const RootLayout = () => {
     // 로딩 상태 또는 대기 상태를 표시
     return (
       <div className={cx('wrapper')}>
-        <Flex size="full" justifyContent="center" alignItems="center">
-          <Spinner size="large" color="primary" />
+        <Flex size="sz-full" justifyContent="jc-center" alignItems="ai-center">
+          <Spinner size="spinner-l" color="bc-primary" />
         </Flex>
       </div>
     );

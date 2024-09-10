@@ -11,12 +11,7 @@ interface Props extends SpinnerProps {
   htmlAttributes?: HTMLSpinnerProps;
 }
 
-const Spinner = ({
-  name,
-  color,
-  htmlAttributes,
-  ...restSpinnerProps
-}: Props) => {
+const Spinner = ({ name, htmlAttributes, ...restSpinnerProps }: Props) => {
   const defaultStyleProps: SpinnerStyleProps = {
     size: 'spinner-m',
     margin: 'm-0',
