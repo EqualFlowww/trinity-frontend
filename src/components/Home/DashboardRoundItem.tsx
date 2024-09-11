@@ -19,14 +19,21 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
       color="c-neutral-container-02"
     >
       <Flex width="w-full" justifyContent="jc-between" color="c-transparent">
-        <Flex gap="gap-0.5" alignItems="ai-center">
+        <Flex
+          alignItems="ai-center"
+          borderRadius="rad-0.5"
+          borderStyle="bs-solid"
+          borderWidth="bw-0.125"
+          borderColor="bc-on-neutral"
+        >
           <Wrapper
             paddingY="py-0.25"
             paddingX="px-1"
-            color="c-neutral-container-05"
-            borderRadius="rad-0.5"
+            height="h-full"
+            color="c-on-neutral"
+            borderRadiusLeft="rad-l-0.25"
           >
-            <Text font="font-outfit" size="title-s" color="c-neutral">
+            <Text font="font-pretendard" size="title-s" color="c-neutral">
               {round.name}
             </Text>
           </Wrapper>
@@ -34,23 +41,17 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             paddingY="py-0.25"
             paddingX="px-1"
             color="c-neutral-container-05"
-            borderRadius="rad-0.5"
-          >
-            <Text size="label-m" color="c-neutral-container-01">
-              {round.half === 'first' ? 'IN' : 'OUT'}
-            </Text>
-          </Wrapper>
-          <Wrapper
-            paddingY="py-0.25"
-            paddingX="px-1"
-            color="c-neutral-container-03"
-            borderRadius="rad-0.5"
           >
             <Text
               font="font-outfit"
               size="title-s"
-              color="c-on-neutral-variant"
+              color="c-neutral-container-01"
             >
+              {round.half === 'first' ? 'IN' : 'OUT'}
+            </Text>
+          </Wrapper>
+          <Wrapper paddingY="py-0.25" paddingX="px-1" color="c-neutral">
+            <Text font="font-pretendard" size="title-s" color="c-on-neutral">
               {round.currentHole.startTime}
             </Text>
           </Wrapper>
@@ -74,23 +75,13 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
         borderRadius="rad-0.5"
         alignItems="ai-center"
       >
-        <Flex gap="gap-0.5" alignItems="ai-center">
-          <Wrapper
-            paddingY="py-0.5"
-            paddingX="px-1"
-            color="c-primary-container"
-            borderRadius="rad-0.5"
-          >
+        <Flex alignItems="ai-center">
+          <Wrapper paddingY="py-0.5" paddingX="px-1" color="c-on-neutral">
             <Text size="label-m" color="c-inherit">
               Cart No.{cartList && cartList?.length > 0 && cartList[0].name}
             </Text>
           </Wrapper>
-          <Wrapper
-            paddingY="py-0.5"
-            paddingX="px-1"
-            color="c-primary"
-            borderRadius="rad-0.5"
-          >
+          <Wrapper paddingY="py-0.5" paddingX="px-1" color="c-neutral">
             <Text size="label-m" color="c-inherit">
               {cartList && cartList?.length > 0 && cartList[0]?.manager.name}{' '}
               {cartList &&
@@ -104,10 +95,10 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
         <Wrapper
           paddingY="py-0.5"
           paddingX="px-1"
-          color="c-neutral-container-03"
+          color="c-neutral-container-05"
           borderRadius="rad-0.5"
         >
-          <Text size="label-m" color="c-on-neutral-variant">
+          <Text size="label-m" color="c-neutral">
             HOLE {round.currentHole.number}
           </Text>
         </Wrapper>
