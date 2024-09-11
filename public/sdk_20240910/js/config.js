@@ -1,6 +1,6 @@
 window.config = window.config || {
-	tenant: "trinity",
-	domain: "dev.local",
-	endpoint: "trinity.dev.local",
+	tenant: "eqpls",
+	domain: "eqpls.com",
+	endpoint: "eqpls.com",
 	uerpUrl: "/uerp/v1",
 };
