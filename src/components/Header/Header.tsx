@@ -33,7 +33,7 @@ const Header = () => {
             alignItems="ai-start"
             alignContent="ac-start"
           >
-            <div className={cx('provider-name')}>Golf in One</div>
+            <div className={cx('provider-name')}>Birdieswing</div>
             <div className={cx('provider-year')}>@ EQUAL 2024</div>
           </Flex>
           <div className={cx('version')}>ver 0.123456</div>

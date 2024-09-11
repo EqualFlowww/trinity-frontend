@@ -16,7 +16,12 @@ const DashboardItemHeader = ({ children, description }: Props) => {
 
   return (
     <div>
-      <Flex width="w-full" justifyContent="jc-between" padding="p-2">
+      <Flex
+        width="w-full"
+        justifyContent="jc-between"
+        padding="p-2"
+        zIndex="z-1110"
+      >
         <Text size="title-s" color="c-on-neutral">
           {children}
         </Text>
