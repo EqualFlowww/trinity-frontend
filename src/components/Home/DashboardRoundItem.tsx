@@ -41,7 +41,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             borderStyle="bs-solid"
             borderWidth="bw-0.125"
             borderColor="bc-on-neutral"
-            borderRightWidth="brw-0"
+            borderRightStyle="brs-none"
             borderRadiusRight="rad-r-0"
           >
             <Text size="label-l" color="c-neutral-container-01">
@@ -57,7 +57,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             borderWidth="bw-0.125"
             borderColor="bc-on-neutral"
             borderRadiusLeft="rad-l-0"
-            borderLeftWidth="blw-0"
+            borderLeftStyle="bls-none"
           >
             <Text font="font-pretendard" size="title-s" color="c-on-neutral">
               {round.currentHole.startTime}
