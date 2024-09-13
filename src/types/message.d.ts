@@ -2,7 +2,7 @@ export interface Message {
   id: string;
   sref: string;
   uref: string;
-  tstamp: Date;
+  tstamp: number;
   content: string;
   username: string;
   roomId: string;

@@ -22,11 +22,9 @@ const Scroll = forwardRef<HTMLDivElement, Props>(
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-      if (ref && scrollContainerRef.current) {
-        useImperativeHandle(ref, () => scrollContainerRef.current!);
-      }
+    useImperativeHandle(ref, () => scrollContainerRef.current!);
 
+    useEffect(() => {
       const scrollContainer = scrollContainerRef.current;
       setBroswer(getBrowser().toLowerCase());
 

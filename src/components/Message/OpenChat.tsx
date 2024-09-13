@@ -6,33 +6,54 @@ import Button from '@/components/UI/Button';
 import IconSearch from '@/components/Icon/IconSearch';
 import Scroll from '@/components/UI/Scroll';
 import ChatMessage from '@/components/Message/ChatMessage';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import {
   fetchAccounts,
   fetchChatRoomMessages,
   fetchChatRooms,
 } from '@/libs/http';
-import { ChatRoomList, MessageList } from '@/types/message';
+import { ChatRoomList, Message } from '@/types/message';
 import MessageInputBox from '@/components/Message/MessageInputBox';
 import arrayToIdObject from '@/utils/arrayToIdObject';
 import arrayToUsernameObject from '@/utils/arrayToUsernameObject';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Wrapper from '@/components/UI/Wrapper';
+import Spinner from '@/components/UI/Spinner';
 
 interface Props {
   chatRoomId: string;
 }
 
+interface PendingMessage {
+  id: string;
+  content: string;
+  username: string;
+}
+
 const OpenChat = ({ chatRoomId }: Props) => {
   const cx = classNames.bind(classes);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null); // 채팅 컨테이너 참조
+  const [prevHeight, setPrevHeight] = useState(0); // 이전 chat container 높이
+  const [pendingMessages, setPendingMessages] = useState<PendingMessage[]>([]);
 
   const {
     data: messagesData,
+    isFetching,
+    isFetchingNextPage,
+    hasNextPage,
+    fetchNextPage,
     // error,
-  } = useQuery({
-    queryKey: ['chatRoom', chatRoomId],
-    queryFn: ({ signal }) =>
-      fetchChatRoomMessages({ signal, searchTerm: chatRoomId }),
+  } = useInfiniteQuery({
+    queryKey: ['chatRoom', chatRoomId, 'messages'],
+    queryFn: ({ signal, pageParam }) =>
+      fetchChatRoomMessages({ signal, searchTerm: chatRoomId, pageParam }),
+    getNextPageParam: (lastPage, allPages) => {
+      if (lastPage && lastPage.length === 12) {
+        return allPages.length + 1;
+      }
+      return undefined;
+    },
+    initialPageParam: 1,
   });
 
   const {
@@ -55,15 +76,78 @@ const OpenChat = ({ chatRoomId }: Props) => {
       }),
   });
 
-  const scrollToBottom = () => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollToBottom = useCallback(
+    (ref: React.RefObject<HTMLDivElement>) => {
+      if (!ref.current || ref.current.scrollHeight <= ref.current.clientHeight)
+        return;
+
+      if (
+        ref.current.scrollHeight -
+          ref.current.clientHeight -
+          ref.current.scrollTop <
+        100
+      )
+        ref.current.scrollTo({
+          top: ref.current.scrollHeight,
+          behavior: 'smooth',
+        });
+      else ref.current.scrollTo({ top: ref.current.scrollHeight });
+    },
+    [chatContainerRef]
+  );
+
+  /* 스크롤이 맨 위에 도달했을때 이전 메시지 로드 */
+  const handleScrollOnTop = () => {
+    if (!chatContainerRef.current || isFetchingNextPage || !hasNextPage) return;
+
+    const { scrollTop } = chatContainerRef.current;
+    // 스크롤이 맨 위에 도달했는지 확인
+    if (scrollTop === 0) {
+      fetchNextPage(); // 이전 메시지 로드
     }
   };
 
+  /* 처음 채팅창이 열렸을때 Bottom으로 이동 */
   useEffect(() => {
-    scrollToBottom(); // 메시지가 업데이트될 때마다 실행
-  }, [messagesData]); // 메시지가 갱신될 때마다 스크롤 이동
+    scrollToBottom(chatContainerRef);
+  }, []);
+
+  /* 무한 스크롤 이벤트 등록 */
+  useEffect(() => {
+    const chatContainer = chatContainerRef.current;
+    if (chatContainer) {
+      chatContainer.addEventListener('scroll', handleScrollOnTop);
+    }
+
+    return () => {
+      if (chatContainer) {
+        chatContainer.removeEventListener('scroll', handleScrollOnTop);
+      }
+    };
+  }, [handleScrollOnTop]);
+
+  /* message 업데이트가 될때 Scroll이 Bottom 근처일 경우 Bottom으로 이동 */
+  useEffect(() => {
+    if (!chatContainerRef.current) return;
+    setPrevHeight(chatContainerRef.current?.scrollHeight);
+    if (
+      chatContainerRef.current.scrollTop >
+      chatContainerRef.current.scrollHeight -
+        chatContainerRef.current.clientHeight * 1.5
+    )
+      scrollToBottom(chatContainerRef);
+  }, [messagesData, isFetching]);
+
+  useEffect(() => {
+    if (!isFetchingNextPage) {
+      chatContainerRef.current?.scrollTo({
+        top:
+          chatContainerRef.current.scrollTop +
+          chatContainerRef.current?.scrollHeight -
+          prevHeight,
+      });
+    }
+  }, [isFetchingNextPage]);
 
   return (
     <Flex
@@ -91,11 +175,6 @@ const OpenChat = ({ chatRoomId }: Props) => {
                   .displayName
               }
             </Text>
-            {false && (
-              <Text size="label-m" color="c-on-neutral-variant">
-                5
-              </Text>
-            )}
           </Flex>
         </Flex>
         <Button form="btn-text" color="c-on-neutral" padding="p-0">
@@ -104,30 +183,55 @@ const OpenChat = ({ chatRoomId }: Props) => {
       </Flex>
       <div className={cx('message-area')}>
         <Flex size="sz-full" alignContent="ac-end">
-          <Scroll type="vertical">
+          <Scroll type="vertical" ref={chatContainerRef}>
             <Flex
-              direction="flex-col"
+              direction="flex-col-reverse"
               width="w-full"
               padding="p-1"
               paddingX="px-2"
               gap="gap-2"
               justifyContent="jc-end"
             >
-              {(messagesData as MessageList).map((message) => (
-                <ChatMessage
-                  key={message.id}
-                  isOtherUser={message.username !== window.common.auth.username}
-                  messageTimestamp={new Date(message.tstamp)}
-                  displayName={
-                    accountsData && accountsData.length > 0
-                      ? arrayToUsernameObject(accountsData)[message.username]
-                          .displayName
-                      : '유저'
-                  }
-                >
-                  {message.content}
-                </ChatMessage>
+              {isFetching && (
+                <Wrapper width="w-full">
+                  <Spinner
+                    size="spinner-s"
+                    margin="m-auto"
+                    color="bc-neutral-container-04"
+                  ></Spinner>
+                </Wrapper>
+              )}
+              {messagesData?.pages.map((page) => (
+                <>
+                  {page.map((message: Message) => (
+                    <ChatMessage
+                      key={message.id}
+                      isOtherUser={
+                        message.username !== window.common.auth.username
+                      }
+                      messageTimestamp={new Date(message.tstamp * 1000)}
+                      displayName={
+                        accountsData && accountsData.length > 0
+                          ? arrayToUsernameObject(accountsData)[
+                              message.username
+                            ].displayName
+                          : '유저'
+                      }
+                    >
+                      {message.content}
+                    </ChatMessage>
+                  ))}
+                </>
               ))}
+              {isFetchingNextPage && (
+                <Wrapper width="w-full">
+                  <Spinner
+                    size="spinner-m"
+                    margin="m-auto"
+                    color="bc-neutral-container-04"
+                  ></Spinner>
+                </Wrapper>
+              )}
             </Flex>
           </Scroll>
         </Flex>

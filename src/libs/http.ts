@@ -5,6 +5,7 @@ export const queryClient = new QueryClient();
 interface FetchCartParams {
   signal?: AbortSignal;
   searchTerm?: string;
+  pageParam?: number;
 }
 
 export const fetchData = async (url: string, options?: RequestInit) => {
@@ -66,8 +67,23 @@ export async function fetchChatRooms({ signal, searchTerm }: FetchCartParams) {
 export async function fetchChatRoomMessages({
   signal,
   searchTerm,
+  pageParam = 1,
 }: FetchCartParams) {
-  let url = `/uerp/v1/demo/chat/message?$archive&$filter=roomId:${searchTerm}&$size=100`;
+  let url = `/uerp/v1/demo/chat/message?$archive&$filter=roomId:${searchTerm}&$size=12&$skip=${(pageParam - 1) * 12}&$orderby=tstamp&$order=desc`;
+
+  const data = await fetchData(url, {
+    signal: signal,
+    headers: window.common.auth.apiHeaders,
+  });
+
+  return data;
+}
+
+export async function fetchChatRoomPreview({
+  signal,
+  searchTerm,
+}: FetchCartParams) {
+  let url = `/uerp/v1/demo/chat/message?$archive&$filter=roomId:${searchTerm}&$size=1&$orderby=tstamp&$order=desc`;
 
   const data = await fetchData(url, {
     signal: signal,

@@ -3,7 +3,6 @@ import { devtools } from 'zustand/middleware';
 
 type MessageState = {
   isModalOpen: boolean;
-  // recentChatRoomIdList: string[];
   openChatRoomIdList: string[];
   selectedChatRoomId: string | null;
 };
@@ -20,7 +19,6 @@ type MessageActions = {
 
 const initialState: MessageState = {
   isModalOpen: false,
-  // recentChatRoomIdList: [],
   openChatRoomIdList: [],
   selectedChatRoomId: null,
 };
@@ -74,12 +72,6 @@ const store: StateCreator<MessageState & MessageActions> = (set) => ({
         ),
       };
     }),
-  // setRecentChatRoomIdList: (chatRoomIdList) =>
-  //   set({ recentChatRoomIdList: chatRoomIdList }),
-  // updateRecentChatRoomIdList: (chatRoomId) =>
-  //   set((state) => ({
-  //     recentChatRoomIdList: [chatRoomId, ...state.recentChatRoomIdList],
-  //   })),
 });
 
 const useMessageStore = create<

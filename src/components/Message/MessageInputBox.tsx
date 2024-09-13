@@ -16,22 +16,6 @@ const MessageInputBox = ({ chatRoomId, others }: Props) => {
   const [message, setMessage] = useState('');
   const { sendMessage } = useSocketStore();
 
-  // // 메시지 전송 핸들러
-  // const handleSendMessage = () => {
-  //   if (message.trim()) {
-  //     sendData({
-  //       k: 'msg',
-  //       v: {
-  //         content: message,
-  //         username: window.common.auth.username,
-  //         roomId: chatRoomId,
-  //         unreadUsernames: others,
-  //       },
-  //     }); // 부모 컴포넌트에 메시지 전송
-  //     setMessage(''); // 입력 필드 초기화
-  //   }
-  // };
-
   // 메시지 전송 핸들러
   const handleSendMessage = () => {
     if (message.trim()) {

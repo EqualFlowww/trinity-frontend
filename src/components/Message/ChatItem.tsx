@@ -6,8 +6,9 @@ import Button from '@/components/UI/Button';
 import MessageTimestamp from '@/components/Message/MessageTimestamp';
 import { ChatRoom, MessageList } from '@/types/message';
 import { useQuery } from '@tanstack/react-query';
-import { fetchChatRoomMessages, fetchUnreadMessages } from '@/libs/http';
+import { fetchChatRoomPreview, fetchUnreadMessages } from '@/libs/http';
 import useMessageStore from '@/store/messageStore';
+import { useEffect } from 'react';
 
 interface Props {
   chatRoom: ChatRoom;
@@ -19,11 +20,12 @@ const ChatItem = ({ chatRoom }: Props) => {
 
   const {
     data: messagesData,
+    isPending,
     // error,
   } = useQuery({
-    queryKey: ['chatRoom', chatRoom.id],
+    queryKey: ['chatRoom', chatRoom.id, 'preview'],
     queryFn: ({ signal }) =>
-      fetchChatRoomMessages({ signal, searchTerm: chatRoom.id }),
+      fetchChatRoomPreview({ signal, searchTerm: chatRoom.id }),
   });
   const {
     data: unreadMessagesData,
@@ -36,6 +38,12 @@ const ChatItem = ({ chatRoom }: Props) => {
         searchTerm: window.common.auth.username,
       }),
   });
+
+  // useEffect(() => {
+  //   if (messagesData) {
+  //     console.log(new Date(messagesData[0].tstamp));
+  //   }
+  // }, [messagesData]);
 
   return (
     <Button
@@ -71,7 +79,7 @@ const ChatItem = ({ chatRoom }: Props) => {
           date={
             (messagesData as MessageList) &&
             (messagesData as MessageList).length > 0
-              ? new Date((messagesData as MessageList)[0].tstamp)
+              ? new Date((messagesData as MessageList)[0].tstamp * 1000)
               : null
           }
         ></MessageTimestamp>
