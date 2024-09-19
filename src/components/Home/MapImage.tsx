@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import classes from './MapImage.module.scss';
 import courseMapImage from '@/assets/images/trinitycc-map-square.webp';
@@ -27,8 +27,6 @@ interface MapBoxStyle {
 }
 
 interface Props {
-  mapScale: number;
-  setMapScale: (scale: number) => void;
   currentPosition: { x: number; y: number };
   setCurrentPosition: (position: { x: number; y: number }) => void;
   viewBoxSize: ViewBoxSize | undefined;
@@ -38,8 +36,6 @@ interface Props {
 }
 
 const MapImage = ({
-  mapScale,
-  setMapScale,
   currentPosition,
   setCurrentPosition,
   viewBoxSize,
@@ -48,6 +44,7 @@ const MapImage = ({
   setMapBoxStyle,
 }: Props) => {
   const mapRef = useRef<HTMLImageElement>(null);
+  const [mapScale, setMapScale] = useState(1);
 
   const handleWheel = (event: React.WheelEvent) => {
     if (!mapRef.current || !mapBoxStyle || !naturalMapSize || !viewBoxSize)
