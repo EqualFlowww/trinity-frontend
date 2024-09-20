@@ -413,6 +413,7 @@ export type BorderWidth =
   | '0.375'
   | '0.5'
   | `[${number}rem]`;
+
 export type BorderRadius =
   | '0'
   | '0.25'
@@ -426,6 +427,7 @@ export type BorderRadius =
   | '9999'
   | 'circle'
   | `[${number}rem]`;
+
 export type Gap =
   | '0'
   | '0.125'
@@ -472,6 +474,53 @@ export type Opacity =
   | '1'
   | `[${number}]`;
 
+export type Duration =
+  | '0'
+  | '75'
+  | '100'
+  | '150'
+  | '200'
+  | '300'
+  | '500'
+  | '700'
+  | '1000'
+  | `[${number}ms]`;
+
+export type Scale =
+  | '0'
+  | '25'
+  | '50'
+  | '75'
+  | '90'
+  | '95'
+  | '100'
+  | '105'
+  | '110'
+  | '125'
+  | '150'
+  | `[${number}]`;
+
+export type Degree =
+  | '0'
+  | '1'
+  | '2'
+  | '3'
+  | '6'
+  | '12'
+  | '15'
+  | '30'
+  | '45'
+  | '60'
+  | '75'
+  | '90'
+  | '105'
+  | '120'
+  | '135'
+  | '150'
+  | '165'
+  | '180'
+  | `[${number}deg]`;
+
 // export type Responsive = 'mobile' | 'tablet' | 'laptop';
 export interface Responsive {
   mobile?: 'mb';
@@ -496,11 +545,11 @@ export interface ContainerColorStyle {
 
 export interface PositionStyle {
   position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky';
-  top?: `t-${Positioning}`;
-  left?: `l-${Positioning}`;
-  bottom?: `b-${Positioning}`;
-  right?: `r-${Positioning}`;
-  zIndex?: `z-${ZIndex}`;
+  top?: `t-${Positioning}` | `-t-${Positioning}`;
+  left?: `l-${Positioning}` | `-l-${Positioning}`;
+  bottom?: `b-${Positioning}` | `-b-${Positioning}`;
+  right?: `r-${Positioning}` | `-r-${Positioning}`;
+  zIndex?: `z-${ZIndex}` | `-z-${ZIndex}`;
 }
 
 export interface OpacityStyle {
@@ -518,13 +567,13 @@ export interface PaddingStyle {
 }
 
 export interface MarginStyle {
-  margin?: `m-${Spacing}`;
-  marginX?: `mx-${Spacing}`;
-  marginY?: `my-${Spacing}`;
-  marginTop?: `mt-${Spacing}`;
-  marginBottom?: `mb-${Spacing}`;
-  marginLeft?: `ml-${Spacing}`;
-  marginRight?: `mr-${Spacing}`;
+  margin?: `m-${Spacing}` | `-m-${Spacing}`;
+  marginX?: `mx-${Spacing}` | `-mx-${Spacing}`;
+  marginY?: `my-${Spacing}` | `-my-${Spacing}`;
+  marginTop?: `mt-${Spacing}` | `-mt-${Spacing}`;
+  marginBottom?: `mb-${Spacing}` | `-mb-${Spacing}`;
+  marginLeft?: `ml-${Spacing}` | `-ml-${Spacing}`;
+  marginRight?: `mr-${Spacing}` | `-mr-${Spacing}`;
 }
 
 export interface BorderStyle {
@@ -598,10 +647,75 @@ export interface VisibilityStyle {
   visibility?: 'visible' | 'hidden' | 'collapse';
 }
 
+export interface OverflowStyle {
+  overflow?:
+    | 'ovf-auto'
+    | 'ovf-hidden'
+    | 'ovf-visible'
+    | 'ovf-scroll'
+    | 'ovf-clip';
+  overflowX?:
+    | 'ovf-x-auto'
+    | 'ovf-x-hidden'
+    | 'ovf-x-visible'
+    | 'ovf-x-scroll'
+    | 'ovf-x-clip';
+  overflowY?:
+    | 'ovf-y-auto'
+    | 'ovf-y-hidden'
+    | 'ovf-y-visible'
+    | 'ovf-y-scroll'
+    | 'ovf-y-clip';
+}
+
+export interface TransitionStyle {
+  transition?:
+    | 'trans'
+    | 'trans-all'
+    | 'trans-none'
+    | 'trans-colors'
+    | 'trans-shadow'
+    | 'trans-transform'
+    | 'trans-opacity';
+  transitionDuration?: `dur-${Duration}`;
+  transitionTimingFunction?:
+    | 'ease-in'
+    | 'ease-out'
+    | 'ease-in-out'
+    | 'ease-linear';
+  transitionDelay?: `dly-${Duration}`;
+}
+
+export interface TransformStyle {
+  transformRotate?: `rot-${Degree}` | `-rot-${Degree}`;
+  transformScale?: `scl-${Scale}`;
+  transformScaleX?: `sclx-${Scale}`;
+  transformScaleY?: `scly-${Scale}`;
+  transformTranslate?: `trl-${Positioning}` | `-trl-${Positioning}`;
+  transformTranslateX?: `trlx-${Positioning}` | `-trlx-${Positioning}`;
+  transformTranslateY?: `trly-${Positioning}` | `-trly-${Positioning}`;
+  transformSkew?: `skw-${Degree}` | `-skw-${Degree}`;
+  transformSkewX?: `skwx-${Degree}` | `-skwx-${Degree}`;
+  transformSkewY?: `skwy-${Degree}` | `-skwy-${Degree}`;
+  transformOrigin?:
+    | `org-center`
+    | `org-top`
+    | `org-top-right`
+    | `org-right`
+    | `org-bottom-right`
+    | `org-bottom`
+    | `org-bottom-left`
+    | `org-left`
+    | `org-top-left`;
+}
+
 export interface BaseStyle
   extends OpacityStyle,
     VisibilityStyle,
-    PositionStyle {}
+    PositionStyle,
+    OverflowStyle,
+    TransformStyle,
+    TransitionStyle {}
 
 export interface ContentStyle
   extends ContentColorStyle,
@@ -617,6 +731,14 @@ export interface ContainerStyle
     MarginStyle,
     SizeStyle,
     BorderStyle,
+    ShadowStyle {}
+
+export interface BlockStyle
+  extends ContainerColorStyle,
+    BaseStyle,
+    BorderStyle,
+    MarginStyle,
+    SizeStyle,
     ShadowStyle {}
 
 export interface FlexStyle extends ContainerStyle, FlexItemStyle {

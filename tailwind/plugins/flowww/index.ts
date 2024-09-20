@@ -12,6 +12,9 @@ import { textUtilities } from './textUtilities';
 import { spinnerUtilities } from './spinnerUtilities';
 import { objectUtilities } from './objectUtilities';
 import { shadowUtilites } from './shadowUtilites';
+import { overflowUtilities } from './overflowUtilities';
+import { transformUtilities } from './transformUtilities';
+import { transitionUtilities } from './transitionUtilities';
 
 export default plugin(function (api) {
   borderUtilities.handler(api);
@@ -21,10 +24,13 @@ export default plugin(function (api) {
   hrUtilities.handler(api);
   objectUtilities.handler(api);
   opacityUtilities.handler(api);
+  overflowUtilities.handler(api);
   positionUtilities.handler(api);
   shadowUtilites.handler(api);
   sizingUtilities.handler(api);
   // spacingUtilities.handler(api);
   spinnerUtilities.handler(api);
   textUtilities.handler(api);
+  transformUtilities.handler(api);
+  transitionUtilities.handler(api);
 });

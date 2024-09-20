@@ -1,4 +1,5 @@
 import {
+  BlockStyle,
   BorderColor,
   BorderRadius,
   BorderStyle,
@@ -57,12 +58,6 @@ type ResponsiveStyle<T> = {
     >;
   };
 };
-// type ResponsiveStyleByState<T> = {
-//   [K in keyof Responsive]?: {
-//     [L in keyof State]?: Prefix<State[L], T>;
-//     [L in GroupState]?: Prefix<GroupState, T>;
-//   } | Prefix<Responsive[K], T>;
-// };
 
 /*----------Wrapper----------*/
 
@@ -74,6 +69,19 @@ interface WrapperStyleByState
 export interface WrapperStyleProps
   extends WrapperStyleByState,
     ResponsiveStyle<ContainerStyle> {
+  group?: `group/${Group}` | 'group';
+}
+
+/*----------Block----------*/
+
+interface BlockStyleByState
+  extends BlockStyle,
+    StateStyle<BlockStyle>,
+    GroupStyle<BlockStyle> {}
+
+export interface BlockStyleProps
+  extends BlockStyleByState,
+    ResponsiveStyle<BlockStyle> {
   group?: `group/${Group}` | 'group';
 }
 

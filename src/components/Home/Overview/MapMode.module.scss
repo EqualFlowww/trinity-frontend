@@ -1,0 +1,20 @@
+.map {
+  position: absolute;
+  transition: transform 1s;
+}
+
+.interaction-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: transparent;
+}
+
+.interaction-cover:active {
+  cursor: grabbing;
+  // cursor: pointer;
+}

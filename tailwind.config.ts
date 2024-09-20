@@ -73,6 +73,7 @@ export default {
     fontSize: false,
     objectPosition: false,
     objectFit: false,
+    overflow: false,
     boxShadow: false,
   },
   plugins: [flowwwPlugin],

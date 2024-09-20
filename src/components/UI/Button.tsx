@@ -40,7 +40,7 @@ const Button = ({
   return (
     <button
       type={type === 'button' ? 'button' : 'submit'}
-      className={`btn ${classNamesObjectToString({ ...defaultStyleProps, ...styleProps })}}`}
+      className={`btn ${classNamesObjectToString({ ...defaultStyleProps, ...styleProps })}`}
       onClick={(event) => {
         event.stopPropagation();
         onClick && onClick();

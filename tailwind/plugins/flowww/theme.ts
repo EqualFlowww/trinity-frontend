@@ -11,6 +11,9 @@ import {
   Gap,
   Opacity,
   BorderType,
+  Duration,
+  Scale,
+  Degree,
 } from '@/types/style';
 
 type SpacingTheme = { [key in Spacing]: string };
@@ -25,6 +28,9 @@ type BorderWidthTheme = { [key in BorderWidth]: string };
 type BorderRadiusTheme = { [key in BorderRadius]: string };
 type GapTheme = { [key in Gap]: string };
 type OpacityTheme = { [key in Opacity]: string };
+type DurationTheme = { [key in Duration]: string };
+type ScaleTheme = { [key in Scale]: string };
+type DegreeTheme = { [key in Degree]: string };
 
 const defaultSpacingBase = 0.8;
 export const spacingTheme: SpacingTheme = {
@@ -448,4 +454,51 @@ export const opacityTheme: OpacityTheme = {
   '0.8': '0.8',
   '0.9': '0.9',
   '1': '1',
+};
+
+export const durationTheme: DurationTheme = {
+  '0': '0s',
+  '75': '75ms',
+  '100': '100ms',
+  '150': '150ms',
+  '200': '200ms',
+  '300': '300ms',
+  '500': '500ms',
+  '700': '700ms',
+  '1000': '1000ms',
+};
+
+export const scaleTheme: ScaleTheme = {
+  '0': '0',
+  '25': '0.25',
+  '50': '0.5',
+  '75': '0.75',
+  '90': '0.9',
+  '95': '0.95',
+  '100': '1',
+  '105': '1.05',
+  '110': '1.1',
+  '125': '1.25',
+  '150': '1.5',
+};
+
+export const degreeTheme: DegreeTheme = {
+  '0': '0deg',
+  '1': '1deg',
+  '2': '2deg',
+  '3': '3deg',
+  '6': '6deg',
+  '12': '12deg',
+  '15': '15deg',
+  '30': '30deg',
+  '45': '45deg',
+  '60': '60deg',
+  '75': '75deg',
+  '90': '90deg',
+  '105': '105deg',
+  '120': '120deg',
+  '135': '135deg',
+  '150': '150deg',
+  '165': '165deg',
+  '180': '180deg',
 };

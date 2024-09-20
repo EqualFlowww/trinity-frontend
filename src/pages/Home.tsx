@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import classes from './Home.module.scss';
 import Dashboard from '@/components/Home/Dashboard';
-import Overview from '@/components/Home/Overview';
+import Overview from '@/components/Home/Overview/Overview';
 import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router-dom';
 import { fetchCarts, fetchRounds, queryClient } from '@/libs/http';
 import { useQuery } from '@tanstack/react-query';

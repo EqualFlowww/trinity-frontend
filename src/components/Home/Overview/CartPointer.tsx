@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import classes from './CartPointer.module.scss';
-import CartEntity from '@/components/Home/CartEntity';
+import CartEntity from '@/components/Home/Overview/CartEntity';
 import Flex from '@/components/UI/Flex';
 import Hr from '@/components/UI/Hr';
 import { CartSummaryData, RoundSummaryData } from '@/types/home';

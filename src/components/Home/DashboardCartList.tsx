@@ -7,7 +7,7 @@ import {
   CartSummaryDataCollection,
   RoundSummaryDataCollection,
 } from '@/types/home';
-import CartEntity from '@/components/Home/CartEntity';
+import CartEntity from '@/components/Home/Overview/CartEntity';
 interface Props {
   cartCollection: CartSummaryDataCollection;
   roundCollection: RoundSummaryDataCollection;

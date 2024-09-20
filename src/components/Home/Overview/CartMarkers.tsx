@@ -2,7 +2,7 @@ import {
   CartSummaryDataCollection,
   RoundSummaryDataCollection,
 } from '@/types/home';
-import CartPointer from '@/components/Home/CartPointer';
+import CartPointer from '@/components/Home/Overview/CartPointer';
 
 interface CartMarkersProps {
   cartCollection: CartSummaryDataCollection;
