@@ -88,14 +88,16 @@ const ViewBox = ({ cartCollection, roundCollection }: Props) => {
     <div ref={viewBoxRef} className="view-box">
       {naturalMapSize && viewBoxSize && (
         <MapImage
-          mapScale={mapScale}
-          setMapScale={setMapScale}
           currentPosition={currentPosition}
           setCurrentPosition={setCurrentPosition}
           viewBoxSize={viewBoxSize}
           naturalMapSize={naturalMapSize}
           mapBoxStyle={mapBoxStyle}
-          setMapBoxStyle={setMapBoxStyle}
+          setMapBoxStyle={(style) => {
+            if (style) {
+              setMapBoxStyle(style);
+            }
+          }}
         />
       )}
       <CartPointerList
