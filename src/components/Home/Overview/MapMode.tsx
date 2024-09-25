@@ -235,7 +235,7 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
         zIndex="z-1"
         top="t-50pct"
         left="l-50pct"
-        color="c-alert"
+        color="c-neutral-container-05"
         htmlAttributes={{
           style: {
             width: `${mapState.imageSize * 3 * mapState.scale}px`,
