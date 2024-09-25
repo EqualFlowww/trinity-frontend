@@ -1,5 +1,3 @@
-import classNames from 'classnames/bind';
-import classes from './CartEntity.module.scss';
 import Flex from '@/components/UI/Flex';
 import { CartSummaryData, RoundSummaryData } from '@/types/home';
 import IconStatusCrown from '@/components/Icon/IconStatusCrown';
@@ -18,60 +16,56 @@ interface Props {
 }
 
 const CartEntity = ({ cart, round }: Props) => {
-  const cx = classNames.bind(classes);
-
   return (
-    <div className={cx('cart-entity')}>
-      <Flex width="w-full" direction="flex-col" gap="gap-0.25">
-        <Flex name="cart-status" width="w-full" justifyContent="jc-between">
-          <Flex>
-            {round?.isVip && <IconStatusCrown size="sz-1" />}
-            {round?.isNineHolePlus && <IconStatusNinePlus size="sz-1" />}
-            {round?.order === 'first' ? (
-              <IconStatusAlpha size="sz-1" />
-            ) : (
-              round?.order === 'last' && <IconStatusOmega size="sz-1" />
-            )}
-          </Flex>
-          <Flex gap="gap-0.25">
-            <IconStatusWarning size="sz-1" opacity="oc-1" />
-            {cart.isBatteryAlert && <IconStatusBatteryAlert size="sz-1" />}
-          </Flex>
+    <Flex width="w-7.5" direction="flex-col" gap="gap-0.25">
+      <Flex name="cart-status" width="w-full" justifyContent="jc-between">
+        <Flex>
+          {round?.isVip && <IconStatusCrown size="sz-1" />}
+          {round?.isNineHolePlus && <IconStatusNinePlus size="sz-1" />}
+          {round?.order === 'first' ? (
+            <IconStatusAlpha size="sz-1" />
+          ) : (
+            round?.order === 'last' && <IconStatusOmega size="sz-1" />
+          )}
         </Flex>
-        <Button
-          width="w-full"
-          direction="flex-col"
-          form="btn-outlined"
-          color="c-on-neutral"
-          borderRadius="rad-0.5"
-          padding="p-0"
-          gap="gap-0"
-        >
-          <Flex
-            width="w-full"
-            paddingY="py-0.25"
-            color="c-on-neutral"
-            borderRadiusTopLeft="rad-tl-0.5"
-            borderRadiusTopRight="rad-tr-0.5"
-          >
-            <Text size="label-m" color="c-inherit">
-              No. {cart.name}
-            </Text>
-          </Flex>
-          <Flex
-            width="w-full"
-            paddingY="py-0.5"
-            color="c-neutral"
-            borderRadiusBottomLeft="rad-bl-0.5"
-            borderRadiusBottomRight="rad-br-0.5"
-          >
-            <Text size="title-s" color="c-inherit">
-              {cart.manager.name}
-            </Text>
-          </Flex>
-        </Button>
+        <Flex gap="gap-0.25">
+          <IconStatusWarning size="sz-1" opacity="oc-1" />
+          {cart.isBatteryAlert && <IconStatusBatteryAlert size="sz-1" />}
+        </Flex>
       </Flex>
-    </div>
+      <Button
+        width="w-full"
+        direction="flex-col"
+        form="btn-outlined"
+        color="c-on-neutral"
+        borderRadius="rad-0.5"
+        padding="p-0"
+        gap="gap-0"
+      >
+        <Flex
+          width="w-full"
+          paddingY="py-0.25"
+          color="c-on-neutral"
+          borderRadiusTopLeft="rad-tl-0.5"
+          borderRadiusTopRight="rad-tr-0.5"
+        >
+          <Text size="label-m" color="c-inherit">
+            No. {cart.name}
+          </Text>
+        </Flex>
+        <Flex
+          width="w-full"
+          paddingY="py-0.5"
+          color="c-neutral"
+          borderRadiusBottomLeft="rad-bl-0.5"
+          borderRadiusBottomRight="rad-br-0.5"
+        >
+          <Text size="title-s" color="c-inherit">
+            {cart.manager.name}
+          </Text>
+        </Flex>
+      </Button>
+    </Flex>
   );
 };
 

@@ -2,20 +2,24 @@
 import { degreeTheme, positioningTheme, scaleTheme } from './theme';
 import plugin from 'tailwindcss/plugin';
 
-export const transformUtilities = plugin(function ({
-  addUtilities,
-  matchUtilities,
-}) {
+export const transformUtilities = plugin(function ({ matchUtilities }) {
   matchUtilities(
     {
       scl: (value) => ({
-        transform: `scale(${value})`,
+        '--tw-scale-x': value,
+        '--tw-scale-y': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
       sclx: (value) => ({
-        transform: `scaleX(${value})`,
+        '--tw-scale-x': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
       scly: (value) => ({
-        transform: `scaleY(${value})`,
+        '--tw-scale-y': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
     },
     { values: scaleTheme }
@@ -23,7 +27,9 @@ export const transformUtilities = plugin(function ({
   matchUtilities(
     {
       rot: (value) => ({
-        transform: `rotate(${value})`,
+        '--tw-rotate': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
     },
     { values: degreeTheme, supportsNegativeValues: true }
@@ -31,13 +37,20 @@ export const transformUtilities = plugin(function ({
   matchUtilities(
     {
       trl: (value) => ({
-        transform: `translate(${value}, ${value})`,
+        '--tw-translate-x': value,
+        '--tw-translate-y': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
       trlx: (value) => ({
-        transform: `translateX(${value})`,
+        '--tw-translate-x': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
       trly: (value) => ({
-        transform: `translateY(${value})`,
+        '--tw-translate-y': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
     },
     {
@@ -48,44 +61,22 @@ export const transformUtilities = plugin(function ({
   matchUtilities(
     {
       skw: (value) => ({
-        transform: `skew(${value})`,
+        '--tw-skew-x': value,
+        '--tw-skew-y': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
       skwx: (value) => ({
-        transform: `skewX(${value})`,
+        '--tw-skew-x': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
       skwy: (value) => ({
-        transform: `skewY(${value})`,
+        '--tw-skew-y': value,
+        transform:
+          'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
       }),
     },
     { values: degreeTheme, supportsNegativeValues: true }
   );
-  addUtilities({
-    'org-center': {
-      'transform-origin': 'center',
-    },
-    'org-top': {
-      'transform-origin': 'top',
-    },
-    'org-top-right': {
-      'transform-origin': 'top right',
-    },
-    'org-right': {
-      'transform-origin': 'right',
-    },
-    'org-bottom-right': {
-      'transform-origin': 'bottom right',
-    },
-    'org-bottom': {
-      'transform-origin': 'bottom',
-    },
-    'org-bottom-left': {
-      'transform-origin': 'bottom left',
-    },
-    'org-left': {
-      'transform-origin': 'left',
-    },
-    'org-top-left': {
-      'transform-origin': 'top left',
-    },
-  });
 });

@@ -1,5 +1,3 @@
-import classNames from 'classnames/bind';
-import classes from './Overview.module.scss';
 // import {
 // TMP_CART_SUMMARY_DATA_COLLECTION,
 // TMP_ROUND_SUMMARY_DATA_COLLECTION,
@@ -10,6 +8,7 @@ import {
   RoundSummaryDataCollection,
 } from '@/types/home';
 import MapMode from '@/components/Home/Overview/MapMode';
+import Wrapper from '@/components/UI/Wrapper';
 
 interface Props {
   roundCollection: RoundSummaryDataCollection;
@@ -17,16 +16,13 @@ interface Props {
 }
 
 const Overview = ({ roundCollection, cartCollection }: Props) => {
-  const cx = classNames.bind(classes);
-
   return (
-    <div className={cx('overview')}>
-      {/* <div className={cx('interaction-box')}></div> */}
+    <Wrapper name="overview" size="sz-full" position="relative">
       <MapMode
         roundCollection={roundCollection}
         cartCollection={cartCollection}
       ></MapMode>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -698,15 +698,15 @@ export interface TransformStyle {
   transformSkewX?: `skwx-${Degree}` | `-skwx-${Degree}`;
   transformSkewY?: `skwy-${Degree}` | `-skwy-${Degree}`;
   transformOrigin?:
-    | `org-center`
-    | `org-top`
-    | `org-top-right`
-    | `org-right`
-    | `org-bottom-right`
-    | `org-bottom`
-    | `org-bottom-left`
-    | `org-left`
-    | `org-top-left`;
+    | `origin-center`
+    | `origin-top`
+    | `origin-top-right`
+    | `origin-right`
+    | `origin-bottom-right`
+    | `origin-bottom`
+    | `origin-bottom-left`
+    | `origin-left`
+    | `origin-top-left`;
 }
 
 export interface BaseStyle

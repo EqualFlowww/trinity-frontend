@@ -1,6 +1,4 @@
-import classNames from 'classnames/bind';
 import { useState } from 'react';
-import classes from './DashboardCartList.module.scss';
 import Flex from '@/components/UI/Flex';
 import SegmentedControl from '@/components/UI/SegmentedControl';
 import {
@@ -8,14 +6,13 @@ import {
   RoundSummaryDataCollection,
 } from '@/types/home';
 import CartEntity from '@/components/Home/Overview/CartEntity';
+import Wrapper from '@/components/UI/Wrapper';
 interface Props {
   cartCollection: CartSummaryDataCollection;
   roundCollection: RoundSummaryDataCollection;
 }
 
 const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
-  const cx = classNames.bind(classes);
-
   const [currentSegment, setCurrentSegment] = useState('round');
 
   const handleSegmentChange = (segment: string) => {
@@ -35,12 +32,12 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
         currentSegment={currentSegment}
         handleSegmentChange={handleSegmentChange}
       ></SegmentedControl>
-      <div className={cx('cart-box')}>
+      <Wrapper width="w-full" minHeight="mh-32">
         <Flex
           size="sz-full"
           minHeight="mh-inherit"
           padding="p-1"
-          gap="gap-1"
+          gap="gap-[0.65rem]"
           borderRadius="rad-1"
           color="c-neutral-container-02"
           alignItems="ai-start"
@@ -58,7 +55,7 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
               ></CartEntity>
             ))}
         </Flex>
-      </div>
+      </Wrapper>
     </Flex>
   );
 };
