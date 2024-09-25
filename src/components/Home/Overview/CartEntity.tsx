@@ -1,5 +1,5 @@
 import Flex from '@/components/UI/Flex';
-import { CartSummaryData, RoundSummaryData } from '@/types/home';
+import { CartSummaryData, MapState, RoundSummaryData } from '@/types/home';
 import IconStatusCrown from '@/components/Icon/IconStatusCrown';
 import IconStatusNinePlus from '@/components/Icon/IconStatusNinePlus';
 import IconStatusAlpha from '@/components/Icon/IconStatusAlpha';
@@ -9,13 +9,19 @@ import IconStatusBatteryAlert from '@/components/Icon/IconStatusBatteryAlert';
 import Button from '@/components/UI/Button';
 // import Wrapper from '@/components/UI/Wrapper';
 import Text from '@/components/UI/Text';
+import { Dispatch, SetStateAction } from 'react';
 
 interface Props {
   cart: CartSummaryData;
   round?: RoundSummaryData;
+  setMapState?: Dispatch<SetStateAction<MapState>>;
+  position?: {
+    x: number;
+    y: number;
+  };
 }
 
-const CartEntity = ({ cart, round }: Props) => {
+const CartEntity = ({ cart, round, setMapState, position }: Props) => {
   return (
     <Flex width="w-7.5" direction="flex-col" gap="gap-0.25">
       <Flex name="cart-status" width="w-full" justifyContent="jc-between">
@@ -41,6 +47,14 @@ const CartEntity = ({ cart, round }: Props) => {
         borderRadius="rad-0.5"
         padding="p-0"
         gap="gap-0"
+        onClick={() => {
+          setMapState &&
+            position &&
+            setMapState((prev) => ({
+              ...prev,
+              viewPosition: { x: position.x, y: position.y },
+            }));
+        }}
       >
         <Flex
           width="w-full"

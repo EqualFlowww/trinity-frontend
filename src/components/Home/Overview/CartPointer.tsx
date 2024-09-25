@@ -1,29 +1,33 @@
 import CartEntity from '@/components/Home/Overview/CartEntity';
 import Flex from '@/components/UI/Flex';
 import Hr from '@/components/UI/Hr';
-import { CartSummaryData, RoundSummaryData } from '@/types/home';
+import { CartSummaryData, MapState, RoundSummaryData } from '@/types/home';
 import Block from '@/components/UI/Block';
+import { Dispatch, SetStateAction } from 'react';
 
 interface Props {
   cart: CartSummaryData;
   round?: RoundSummaryData;
-  angle: number;
-  location?: {
+  mapState: MapState;
+  setMapState: Dispatch<SetStateAction<MapState>>;
+  position: {
     x: number;
     y: number;
   };
 }
 
-const CartPointer = ({ cart, round, angle, location }: Props) => {
-  const style = {
-    top: `${location?.y}%`,
-    left: `${location?.x}%`,
-    transform: `translate(-50%, -100%) rotate(${-angle}deg)`,
-  };
-
+const CartPointer = ({
+  cart,
+  round,
+  mapState,
+  setMapState,
+  position,
+}: Props) => {
   return (
     <Flex
       name="cart-pointer"
+      top="t-50pct"
+      left="l-50pct"
       width="w-7.5"
       direction="flex-col"
       padding="p-0"
@@ -32,9 +36,18 @@ const CartPointer = ({ cart, round, angle, location }: Props) => {
       position="absolute"
       transformOrigin="origin-bottom"
       zIndex="z-15"
-      htmlAttributes={{ style: style }}
+      htmlAttributes={{
+        style: {
+          transform: `translate(calc(-50% + ${position.x * mapState.scale}px), calc(-100% + ${position.y * mapState.scale}px)) rotate(${-mapState.rotation}deg)`,
+        },
+      }}
     >
-      <CartEntity cart={cart} round={round} />
+      <CartEntity
+        cart={cart}
+        round={round}
+        setMapState={setMapState}
+        position={position}
+      />
       <Hr
         type="vertical"
         length="len-2.5"

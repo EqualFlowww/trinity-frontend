@@ -56,3 +56,16 @@ export type CartSummaryDataCollection = {
 export type RoundSummaryDataCollection = {
   [id: string]: RoundSummaryData;
 };
+
+export interface MapState {
+  imageSize: number;
+  scale: number;
+  size: number;
+  rotation: number;
+  viewPosition: { x: number; y: number };
+  viewSize: {
+    width: number;
+    height: number;
+  };
+  boundaryRadius: number;
+}

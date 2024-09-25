@@ -4,6 +4,7 @@ import courseMapImage from '@/assets/images/trinity-course-map.webp';
 
 import {
   CartSummaryDataCollection,
+  MapState,
   RoundSummaryDataCollection,
 } from '@/types/home';
 import Wrapper from '@/components/UI/Wrapper';
@@ -23,37 +24,57 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
   // const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
   const viewRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
-  const [mapImageSize, setMapImageSize] = useState({ width: 0, height: 0 });
+
+  const mapViewPosition = useRef({ x: 0, y: 0 });
   const mapScale = useRef(1);
-  const [mapScaleTrigger, setMapScaleTrigger] = useState(false);
-  // const [mapScale, setMapScale] = useState(1);
-  const [mapRotation, setMapRotation] = useState(0);
-  const currentViewPosition = useRef({ x: 0, y: 0 });
-  const [viewPosition, setViewPosition] = useState({
-    x: 0,
-    y: 0,
+  const [mapState, setMapState] = useState<MapState>({
+    imageSize: 0,
+    scale: 1,
+    size: 0,
+    rotation: 0,
+    viewPosition: { x: 0, y: 0 },
+    viewSize: {
+      width: 0,
+      height: 0,
+    },
+    boundaryRadius: 0,
   });
-  const [limitRadius, setLimitRadius] = useState(0);
 
   const mousePosition = useRef({ x: 0, y: 0 });
 
-  const resizeMapImageToView = (width: number, height: number) => {
-    if (width > height) {
-      setMapImageSize({
-        width: height,
-        height: height,
-      });
-    } else {
-      setMapImageSize({
-        width: width,
-        height: width,
-      });
-    }
+  const getBoundaryRadius = (mapState: MapState) => {
+    const limitX = Math.max(
+      (mapState.imageSize * mapState.scale - mapState.viewSize.width) / 2,
+      0
+    );
+    const limitY = Math.max(
+      (mapState.imageSize * mapState.scale - mapState.viewSize.height) / 2,
+      0
+    );
+
+    return limitX > limitY ? limitX : limitY;
+  };
+
+  const resizeMapToView = (viewWidth: number, viewHeight: number) => {
+    const length = viewWidth > viewHeight ? viewHeight : viewWidth;
+    setMapState((prev) => {
+      const current = {
+        ...prev,
+        size: length * 3,
+        imageSize: length,
+        viewSize: { width: viewWidth, height: viewHeight },
+      };
+
+      return {
+        ...current,
+        boundaryRadius: getBoundaryRadius(current),
+      };
+    });
   };
 
   // rotate된 화면에서의 위치를 계산
   const calculateRotatedPosition = (x: number, y: number) => {
-    const rotationAngle = (mapRotation / 180) * Math.PI;
+    const rotationAngle = (mapState.rotation / 180) * Math.PI;
     const rotatedX =
       x * Math.cos(-rotationAngle) - y * Math.sin(-rotationAngle);
     const rotatedY =
@@ -68,9 +89,9 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
     const rect = element.getBoundingClientRect();
     // 마우스 위치를 div의 상대적인 좌표로 계산
     const relativeX =
-      (event.clientX - rect.left - rect.width / 2) / mapScale.current;
+      (event.clientX - rect.left - rect.width / 2) / mapState.scale;
     const relativeY =
-      (event.clientY - rect.top - rect.height / 2) / mapScale.current;
+      (event.clientY - rect.top - rect.height / 2) / mapState.scale;
     // rotate된 화면에서의 위치를 계산
     return calculateRotatedPosition(relativeX, relativeY);
   };
@@ -78,7 +99,7 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
   const panTo = (nextX: number, nextY: number) => {
     // 이동하려는 좌표까지의 거리 계산
     const distance = Math.sqrt(nextX ** 2 + nextY ** 2);
-    const radius = limitRadius; // 원의 반경을 limitPosition.x로 사용
+    const radius = mapState.boundaryRadius; // 원의 반경을 limitPosition.x로 사용
 
     // 만약 이동 거리가 반경보다 크면 원의 경계에 위치하도록 조정
     if (distance > radius) {
@@ -88,11 +109,14 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
       nextY = radius * Math.sin(angle);
     }
 
-    currentViewPosition.current = { x: nextX, y: nextY };
+    mapViewPosition.current = { x: nextX, y: nextY };
 
     requestAnimationFrame(() => {
-      setViewPosition(() => {
-        return currentViewPosition.current;
+      setMapState((prev) => {
+        return {
+          ...prev,
+          viewPosition: mapViewPosition.current,
+        };
       });
     });
   };
@@ -101,20 +125,24 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
     if (!mapRef.current) return;
     const { x: mouseX, y: mouseY } = getMousePosition(event, mapRef.current);
 
-    console.log('viewPosition.x', viewPosition.x);
-    console.log('viewPosition.y', viewPosition.y);
-
     mousePosition.current = { x: mouseX, y: mouseY };
 
     const prevMapScale = mapScale.current;
-    const deltaX = (mouseX - viewPosition.x) * prevMapScale;
-    const deltaY = (mouseY - viewPosition.y) * prevMapScale;
+    const deltaX = (mouseX - mapState.viewPosition.x) * prevMapScale;
+    const deltaY = (mouseY - mapState.viewPosition.y) * prevMapScale;
 
     mapScale.current = Math.min(
       Math.max(1, mapScale.current + event.deltaY * -0.001),
       5
     );
-    setMapScaleTrigger((prev) => !prev);
+
+    setMapState((prev) => {
+      return {
+        ...prev,
+        scale: mapScale.current,
+        boundaryRadius: getBoundaryRadius({ ...prev, scale: mapScale.current }),
+      };
+    });
 
     const nextX = mouseX - deltaX / mapScale.current;
     const nextY = mouseY - deltaY / mapScale.current;
@@ -123,7 +151,7 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
   };
 
   // debounce 적용한 handleWheel
-  const debouncedHandleWheel = useDebounce(handleWheel, 10); // 20ms 지연 적용
+  const debouncedHandleWheel = useDebounce(handleWheel, 15); // 20ms 지연 적용
 
   const handleMouseDown = (clickEvent: React.MouseEvent) => {
     clickEvent.stopPropagation();
@@ -141,8 +169,8 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
         calculateRotatedPosition(relativeX, relativeY);
 
       // // 다음 위치 계산
-      const nextX = viewPosition.x - rotatedRelativeX;
-      const nextY = viewPosition.y - rotatedRelativeY;
+      const nextX = mapState.viewPosition.x - rotatedRelativeX;
+      const nextY = mapState.viewPosition.y - rotatedRelativeY;
 
       panTo(nextX, nextY);
     };
@@ -159,11 +187,11 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
   useEffect(() => {
     if (!viewRef.current) return;
     const { clientWidth, clientHeight } = viewRef.current;
-    resizeMapImageToView(clientWidth, clientHeight);
+    resizeMapToView(clientWidth, clientHeight);
 
     const handleResize: ResizeObserverCallback = (entries) => {
       for (let entry of entries) {
-        resizeMapImageToView(entry.contentRect.width, entry.contentRect.height);
+        resizeMapToView(entry.contentRect.width, entry.contentRect.height);
       }
     };
 
@@ -178,28 +206,6 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
       }
     };
   }, []);
-
-  // mapImageSize와 mapScale이 변경될 때마다 limitPosition을 업데이트
-  useEffect(() => {
-    if (!viewRef.current) return;
-
-    const limitX =
-      (mapImageSize.width * mapScale.current - viewRef.current.clientWidth) / 2;
-    const limitY =
-      (mapImageSize.height * mapScale.current - viewRef.current.clientHeight) /
-      2;
-    if (limitX > limitY) {
-      setLimitRadius(limitX <= 0 ? 0 : limitX);
-    } else {
-      setLimitRadius(limitY <= 0 ? 0 : limitY);
-    }
-
-    // console.log('limitRadius', limitRadius);
-  }, [mapScaleTrigger, mapImageSize]);
-
-  useEffect(() => {
-    console.log('position', viewPosition);
-  }, [viewPosition]);
 
   return (
     <Wrapper
@@ -217,8 +223,10 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
         zIndex="z-10"
       >
         <CircularSlider
-          angle={mapRotation}
-          setAngle={(angle: number) => setMapRotation(angle)}
+          angle={mapState.rotation}
+          setAngle={(angle: number) =>
+            setMapState((prev) => ({ ...prev, rotation: angle }))
+          }
         ></CircularSlider>
       </Wrapper>
       <Wrapper
@@ -230,10 +238,10 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
         color="c-alert"
         htmlAttributes={{
           style: {
-            width: `${mapImageSize.width * 3 * mapScale.current}px`,
-            height: `${mapImageSize.height * 3 * mapScale.current}px`,
-            transformOrigin: `calc(50% + ${viewPosition.x * mapScale.current}px) calc(50% + ${viewPosition.y * mapScale.current}px)`,
-            transform: `translate(calc(-50% - ${viewPosition.x * mapScale.current}px), calc(-50% - ${viewPosition.y * mapScale.current}px)) rotate(${mapRotation}deg)`,
+            width: `${mapState.imageSize * 3 * mapState.scale}px`,
+            height: `${mapState.imageSize * 3 * mapState.scale}px`,
+            transformOrigin: `calc(50% + ${mapState.viewPosition.x * mapState.scale}px) calc(50% + ${mapState.viewPosition.y * mapState.scale}px)`,
+            transform: `translate(calc(-50% - ${mapState.viewPosition.x * mapState.scale}px), calc(-50% - ${mapState.viewPosition.y * mapState.scale}px)) rotate(${mapState.rotation}deg)`,
           },
         }}
         ref={mapRef}
@@ -256,7 +264,7 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
           color="c-warning"
           htmlAttributes={{
             style: {
-              transform: `translate(calc(-50% + ${viewPosition.x * mapScale.current}px), calc(-50% + ${viewPosition.y * mapScale.current}px)) rotate(${mapRotation}deg)`,
+              transform: `translate(calc(-50% + ${mapState.viewPosition.x * mapState.scale}px), calc(-50% + ${mapState.viewPosition.y * mapState.scale}px)) rotate(${mapState.rotation}deg)`,
             },
           }}
         ></Block>
@@ -272,9 +280,9 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
           borderRadius="rad-circle"
           htmlAttributes={{
             style: {
-              width: `${Math.sqrt((mousePosition.current.x - viewPosition.x) ** 2 + (mousePosition.current.y - viewPosition.y) ** 2) * mapScale.current * 2}px`,
-              height: `${Math.sqrt((mousePosition.current.x - viewPosition.x) ** 2 + (mousePosition.current.y - viewPosition.y) ** 2) * mapScale.current * 2}px`,
-              transform: `translate(calc(-50% + ${viewPosition.x * mapScale.current}px), calc(-50% + ${viewPosition.y * mapScale.current}px)) rotate(${mapRotation}deg)`,
+              width: `${Math.sqrt((mousePosition.current.x - mapState.viewPosition.x) ** 2 + (mousePosition.current.y - mapState.viewPosition.y) ** 2) * mapState.scale * 2}px`,
+              height: `${Math.sqrt((mousePosition.current.x - mapState.viewPosition.x) ** 2 + (mousePosition.current.y - mapState.viewPosition.y) ** 2) * mapState.scale * 2}px`,
+              transform: `translate(calc(-50% + ${mapState.viewPosition.x * mapState.scale}px), calc(-50% + ${mapState.viewPosition.y * mapState.scale}px)) rotate(${mapState.rotation}deg)`,
             },
           }}
         ></Block>
@@ -287,7 +295,7 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
           color="c-neutral"
           htmlAttributes={{
             style: {
-              transform: `translate(calc(-50% + ${mousePosition.current.x * mapScale.current}px), calc(-50% + ${mousePosition.current.y * mapScale.current}px)) rotate(${-mapRotation}deg)`,
+              transform: `translate(calc(-50% + ${mousePosition.current.x * mapState.scale}px), calc(-50% + ${mousePosition.current.y * mapState.scale}px)) rotate(${-mapState.rotation}deg)`,
             },
           }}
         ></Block>
@@ -312,15 +320,16 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
           transformTranslate="-trl-50pct"
           htmlAttributes={{
             style: {
-              width: `${mapImageSize.width * mapScale.current}px`,
-              height: `${mapImageSize.height * mapScale.current}px`,
+              width: `${mapState.imageSize * mapState.scale}px`,
+              height: `${mapState.imageSize * mapState.scale}px`,
             },
           }}
         />
         <MapPointers
           cartCollection={cartCollection}
           roundCollection={roundCollection}
-          mapRotation={mapRotation}
+          mapState={mapState}
+          setMapState={setMapState}
         ></MapPointers>
       </Wrapper>
     </Wrapper>
