@@ -20,7 +20,7 @@ window.common.env = {};
 window.common.env.url = 'https://trinity.dev.local';
 window.common.env.endpoint = 'trinity.dev.local';
 
-window.common.auth.username = 'admin';
+window.common.auth.username = 'testuser1';
 window.common.auth.userInfo = {
   isLogin: true,
 };
