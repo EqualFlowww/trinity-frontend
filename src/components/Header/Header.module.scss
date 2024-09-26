@@ -1,7 +1,9 @@
 .header {
-  width: 10.8rem;
+  width: 16.8rem;
   height: 100vh;
   max-height: 100vh;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
   border: {
     right: 1px solid var(--neutral-surface-container-03);
     top: 1px solid transparent;
@@ -32,29 +34,34 @@
 .provider-name {
   color: var(--Neutral-Surface-Container-04, #94a38f);
   font-family: 'SF Pro Display';
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   font-style: normal;
   font-weight: 600;
   line-height: 100%; /* 14px */
   letter-spacing: -0.028rem;
+  font-family: 'Outfit';
 }
 
 .provider-year {
   color: var(--Neutral-Surface-Container-04, #94a38f);
   font-family: 'SF Pro Display';
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 10px */
   letter-spacing: -0.02rem;
+  font-family: 'SUIT';
 }
 
 .version {
   color: var(--Neutral-Surface-Container-04, #94a38f);
   font-family: 'SF Pro Display';
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 10px */
   letter-spacing: -0.02rem;
+  margin-top: 1.6rem;
+  position: relative;
+  bottom: 1.6rem;
 }

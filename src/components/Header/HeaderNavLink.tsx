@@ -16,17 +16,17 @@ const HeaderNavLink: React.FC<Props> = ({ text, to }: Props) => {
   const cx = classNames.bind(classes);
 
   return (
-    <NavLink to={`${to}`} className={cx('link')}>
+    <NavLink to={`${to}`} className={cx('link')} style={{ margin: '0px' }}>
       {({ isActive }) =>
         isActive ? (
           <Flex
-            size="sz-full"
             justifyContent="jc-between"
             alignItems="ai-center"
-            padding="p-1"
-            gap="gap-0.5"
+            padding="p-1.25"
+            gap="gap-1.25"
             color="c-on-neutral"
             borderRadius="rad-1"
+            width="w-auto"
           >
             <Text size="title-m" color="c-inherit">
               {text}

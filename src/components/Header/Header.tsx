@@ -32,7 +32,6 @@ const Header = () => {
             gap="gap-0.5"
             alignItems="ai-start"
             alignContent="ac-start"
-            
           >
             <div className={cx('provider-name')}>Birdieswing</div>
             <div className={cx('provider-year')}>@ EQUAL 2024</div>
