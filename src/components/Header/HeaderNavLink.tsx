@@ -9,9 +9,10 @@ import IconArrow from '@/components/Icon/IconArrow';
 interface Props {
   text: string;
   to: string;
+  className?: string;
 }
 
-const HeaderNavLink = ({ text, to }: Props) => {
+const HeaderNavLink: React.FC<Props> = ({ text, to }: Props) => {
   const cx = classNames.bind(classes);
 
   return (
@@ -27,7 +28,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
             color="c-on-neutral"
             borderRadius="rad-1"
           >
-            <Text size="label-m" color="c-inherit">
+            <Text size="title-m" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />
@@ -42,7 +43,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
             color="c-neutral-container-05"
             hover={{ color: 'hover:c-on-neutral-variant' }}
           >
-            <Text size="label-l" color="c-inherit">
+            <Text size="title-m" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />

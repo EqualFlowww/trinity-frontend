@@ -23,7 +23,6 @@ const HeaderNav = () => {
       color="c-transparent"
       padding="p-0"
       gap="gap-1"
-      width="w-full"
     >
       <Flex direction="flex-col" width="w-full" gap="gap-0.5">
         <a href="./" className={cx('logo-wrapper')}>
@@ -37,12 +36,12 @@ const HeaderNav = () => {
         gap="gap-1"
         width="w-full"
       >
-        <HeaderNavLink text="Home" to="/" />
-        <HeaderNavLink text="Cart" to="/cart" />
-        <HeaderNavLink text="Course" to="/course" />
-        <HeaderNavLink text="Round" to="/round" />
-        <HeaderNavLink text="Device" to="/device" />
-        <HeaderNavLink text="Account" to="/account" />
+        <HeaderNavLink text="Home" to="/" className="header-link" />
+        <HeaderNavLink text="Cart" to="/cart" className="header-link" />
+        <HeaderNavLink text="Course" to="/course" className="header-link" />
+        <HeaderNavLink text="Round" to="/round" className="header-link" />
+        <HeaderNavLink text="Device" to="/device" className="header-link" />
+        <HeaderNavLink text="Account" to="/account" className="header-link" />
       </Flex>
       <Hr
         type="horizontal"
