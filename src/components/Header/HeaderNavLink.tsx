@@ -28,7 +28,7 @@ const HeaderNavLink: React.FC<Props> = ({ text, to }: Props) => {
             borderRadius="rad-1"
             width="w-auto"
           >
-            <Text size="title-m" color="c-inherit">
+            <Text size="body-xl" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />
@@ -43,7 +43,7 @@ const HeaderNavLink: React.FC<Props> = ({ text, to }: Props) => {
             color="c-neutral-container-05"
             hover={{ color: 'hover:c-on-neutral-variant' }}
           >
-            <Text size="title-m" color="c-inherit">
+            <Text size="body-xl" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />

@@ -27,7 +27,7 @@ const HeaderNav = () => {
       <Flex direction="flex-col" width="w-full" gap="gap-0.5">
         <a
           href="./"
-          className={`${cx('logo-wrapper')} text-[#7B8B76] text-[1.8rem] font-suit font-normal break-words`}
+          className={`${cx('logo-wrapper')}`}
           style={{
             fontSize: '1.8rem',
             fontFamily: 'SUIT',
