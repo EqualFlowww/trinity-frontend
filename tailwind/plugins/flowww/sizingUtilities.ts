@@ -9,12 +9,12 @@ export const sizingUtilities = plugin(function ({ matchUtilities }) {
         width: value === 'screen' ? '100vw' : value,
         height: value === 'screen' ? '100vh' : value,
       }),
-      w: (value) => ({
-        width: value === 'screen' ? '100vw' : value,
-      }),
-      h: (value) => ({
-        height: value === 'screen' ? '100vh' : value,
-      }),
+      // w: (value) => ({
+      //   width: value === 'screen' ? '100vw' : value,
+      // }),
+      // h: (value) => ({
+      //   height: value === 'screen' ? '100vh' : value,
+      // }),
       xw: (value) => ({
         'max-width': value === 'screen' ? '100vw' : value,
       }),
@@ -26,6 +26,19 @@ export const sizingUtilities = plugin(function ({ matchUtilities }) {
       }),
       mh: (value) => ({
         'min-height': value === 'screen' ? '100vh' : value,
+      }),
+    },
+    {
+      values: sizingTheme,
+    }
+  );
+  matchUtilities(
+    {
+      w: (value) => ({
+        width: value === 'screen' ? '100vw' : value,
+      }),
+      h: (value) => ({
+        height: value === 'screen' ? '100vh' : value,
       }),
     },
     {

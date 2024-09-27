@@ -43,16 +43,17 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
   const mousePosition = useRef({ x: 0, y: 0 });
 
   const getBoundaryRadius = (mapState: MapState) => {
-    const limitX = Math.max(
-      (mapState.imageSize * mapState.scale - mapState.viewSize.width) / 2,
-      0
-    );
-    const limitY = Math.max(
-      (mapState.imageSize * mapState.scale - mapState.viewSize.height) / 2,
-      0
-    );
+    // const limitX = Math.max(
+    //   (mapState.imageSize * mapState.scale - mapState.viewSize.width) / 2,
+    //   0
+    // );
+    // const limitY = Math.max(
+    //   (mapState.imageSize * mapState.scale - mapState.viewSize.height) / 2,
+    //   0
+    // );
 
-    return limitX > limitY ? limitX : limitY;
+    // return limitX > limitY ? limitX : limitY;
+    return (Math.sqrt(2) * mapState.imageSize * mapState.scale) / 2;
   };
 
   const resizeMapToView = (viewWidth: number, viewHeight: number) => {
@@ -213,6 +214,7 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
       position="relative"
       size="sz-full"
       overflow="ovf-hidden"
+      color="c-neutral-container-05"
       ref={viewRef}
     >
       <Wrapper
@@ -235,7 +237,6 @@ const MapMode = ({ roundCollection, cartCollection }: Props) => {
         zIndex="z-1"
         top="t-50pct"
         left="l-50pct"
-        color="c-neutral-container-05"
         htmlAttributes={{
           style: {
             width: `${mapState.imageSize * 3 * mapState.scale}px`,

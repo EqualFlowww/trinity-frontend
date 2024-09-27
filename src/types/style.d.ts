@@ -791,7 +791,7 @@ export interface TextStyle
     ContentColorStyle,
     MarginStyle,
     ShadowStyle {
-  font?: 'font-pretendard' | 'font-outfit';
+  font?: 'font-suit' | 'font-pretendard' | 'font-outfit';
   size?:
     | 'display-s'
     | 'display-m'

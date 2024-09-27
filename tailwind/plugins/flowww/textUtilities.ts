@@ -24,6 +24,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-size': '5.6rem',
         'font-weight': '800',
       },
+      '&.text, &.font-suit': {
+        'font-size': '5.6rem',
+        'font-weight': '800',
+      },
     },
     ['.display-m']: {
       '&.text, &.font-pretendard': {
@@ -31,6 +35,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '700',
       },
       '&.text, &.font-outfit': {
+        'font-size': '4.8rem',
+        'font-weight': '700',
+      },
+      '&.text, &.font-suit': {
         'font-size': '4.8rem',
         'font-weight': '700',
       },
@@ -44,6 +52,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-size': '3.6rem',
         'font-weight': '600',
       },
+      '&.text, &.font-suit': {
+        'font-size': '3.6rem',
+        'font-weight': '600',
+      },
     },
     ['.headline-l']: {
       '&.text, &.font-pretendard': {
@@ -51,6 +63,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '800',
       },
       '&.text, &.font-outfit': {
+        'font-size': '3.2rem',
+        'font-weight': '800',
+      },
+      '&.text, &.font-suit': {
         'font-size': '3.2rem',
         'font-weight': '800',
       },
@@ -64,6 +80,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-size': '2.8rem',
         'font-weight': '700',
       },
+      '&.text, &.font-suit': {
+        'font-size': '2.8rem',
+        'font-weight': '700',
+      },
     },
     ['.headline-s']: {
       '&.text, &.font-pretendard': {
@@ -71,6 +91,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '600',
       },
       '&.text, &.font-outfit': {
+        'font-size': '2.4rem',
+        'font-weight': '600',
+      },
+      '&.text, &.font-suit': {
         'font-size': '2.4rem',
         'font-weight': '600',
       },
@@ -84,6 +108,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-size': '2.4rem',
         'font-weight': '800',
       },
+      '&.text, &.font-suit': {
+        'font-size': '2.4rem',
+        'font-weight': '800',
+      },
     },
     ['.title-m']: {
       '&.text, &.font-pretendard': {
@@ -91,6 +119,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '700',
       },
       '&.text, &.font-outfit': {
+        'font-size': '1.8rem',
+        'font-weight': '700',
+      },
+      '&.text, &.font-suit': {
         'font-size': '1.8rem',
         'font-weight': '700',
       },
@@ -104,6 +136,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-size': '1.4rem',
         'font-weight': '600',
       },
+      '&.text, &.font-suit': {
+        'font-size': '1.4rem',
+        'font-weight': '600',
+      },
     },
     ['.body-l']: {
       '&.text, &.font-pretendard': {
@@ -111,6 +147,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '400',
       },
       '&.text, &.font-outfit': {
+        'font-size': '1.6rem',
+        'font-weight': '400',
+      },
+      '&.text, &.font-suit': {
         'font-size': '1.6rem',
         'font-weight': '400',
       },
@@ -124,6 +164,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-size': '1.4rem',
         'font-weight': '400',
       },
+      '&.text, &.font-suit': {
+        'font-size': '1.4rem',
+        'font-weight': '400',
+      },
     },
     ['.body-s']: {
       '&.text, &.font-pretendard': {
@@ -131,6 +175,10 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '400',
       },
       '&.text, &.font-outfit': {
+        'font-size': '1.2rem',
+        'font-weight': '400',
+      },
+      '&.text, &.font-suit': {
         'font-size': '1.2rem',
         'font-weight': '400',
       },
@@ -142,6 +190,11 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'letter-spacing': '-0.28px',
       },
       '&.text, &.font-outfit': {
+        'font-size': '1.4rem',
+        'font-weight': '400',
+        'letter-spacing': '-0.28px',
+      },
+      '&.text, &.font-suit': {
         'font-size': '1.4rem',
         'font-weight': '400',
         'letter-spacing': '-0.28px',
@@ -158,16 +211,28 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '400',
         'letter-spacing': '-0.24px',
       },
+      '&.text, &.font-suit': {
+        'font-size': '1.2rem',
+        'font-weight': '400',
+        'letter-spacing': '-0.24px',
+      },
     },
-    '&.text, &.font-pretendard': {
-      'font-size': '1rem',
-      'font-weight': '400',
-      'letter-spacing': '-0.2px',
-    },
-    '&.text, &.font-outfit': {
-      'font-size': '1rem',
-      'font-weight': '400',
-      'letter-spacing': '-0.2px',
+    ['.label-s']: {
+      '&.text, &.font-pretendard': {
+        'font-size': '1rem',
+        'font-weight': '400',
+        'letter-spacing': '-0.2px',
+      },
+      '&.text, &.font-outfit': {
+        'font-size': '1rem',
+        'font-weight': '400',
+        'letter-spacing': '-0.2px',
+      },
+      '&.text, &.font-suit': {
+        'font-size': '1rem',
+        'font-weight': '400',
+        'letter-spacing': '-0.2px',
+      },
     },
   });
 });

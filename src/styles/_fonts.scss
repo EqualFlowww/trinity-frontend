@@ -59,3 +59,9 @@ Font Weights
   src: url('../assets/fonts/outfit/Outfit-VariableFont_wght.ttf')
     format('truetype');
 }
+
+@font-face {
+  font-family: 'SUIT';
+  font-weight: 100 900;
+  src: url('./SUIT-Variable.woff2') format('woff2-variations');
+}

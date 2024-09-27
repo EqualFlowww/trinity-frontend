@@ -2,25 +2,22 @@
 // TMP_CART_SUMMARY_DATA_COLLECTION,
 // TMP_ROUND_SUMMARY_DATA_COLLECTION,
 // } from '@/data/temp-data';
-
-import {
-  CartSummaryDataCollection,
-  RoundSummaryDataCollection,
-} from '@/types/home';
 import MapMode from '@/components/Home/Overview/MapMode';
 import Wrapper from '@/components/UI/Wrapper';
+import { cartQuery, roundQuery } from '@/queries';
+import arrayToIdObject from '@/utils/arrayToIdObject';
 
-interface Props {
-  roundCollection: RoundSummaryDataCollection;
-  cartCollection: CartSummaryDataCollection;
-}
+const Overview = () => {
+  const { data: cartsData } = cartQuery.useGetCarts();
+  const { data: roundsData } = roundQuery.useGetRounds();
 
-const Overview = ({ roundCollection, cartCollection }: Props) => {
+  const cartsCollection = arrayToIdObject(cartsData);
+  const roundsCollection = arrayToIdObject(roundsData);
   return (
     <Wrapper name="overview" size="sz-full" position="relative">
       <MapMode
-        roundCollection={roundCollection}
-        cartCollection={cartCollection}
+        roundCollection={roundsCollection}
+        cartCollection={cartsCollection}
       ></MapMode>
     </Wrapper>
   );

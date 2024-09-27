@@ -23,7 +23,7 @@ const Text = ({
   const Component = tag || 'p';
 
   const defaultStyleProps: TextStyleProps = {
-    font: 'font-pretendard',
+    font: 'font-suit',
     size: 'body-m',
     color: 'c-on-neutral',
     align: 'text-left',

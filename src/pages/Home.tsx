@@ -3,73 +3,42 @@ import classes from './Home.module.scss';
 import Dashboard from '@/components/Home/Dashboard';
 import Overview from '@/components/Home/Overview/Overview';
 import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router-dom';
-import { fetchCarts, fetchRounds, queryClient } from '@/libs/http';
-import { useQuery } from '@tanstack/react-query';
 import arrayToIdObject from '@/utils/arrayToIdObject';
-import Spinner from '@/components/UI/Spinner';
-import Flex from '@/components/UI/Flex';
 import waitForLogin from '@/utils/waitForLogin';
+import Wrapper from '@/components/UI/Wrapper';
+import { useState } from 'react';
+import Button from '@/components/UI/Button';
+import IconArrow from '@/components/Icon/IconArrow';
+import { cartQuery, roundQuery } from '@/queries';
+
+type Mode = 'map' | 'track';
 
 const Home = () => {
   const cx = classNames.bind(classes);
-  const {
-    data: cartsData,
-    isPending: isCartsPending,
-    // error,
-  } = useQuery({
-    queryKey: ['carts'],
-    queryFn: ({ signal }) => fetchCarts({ signal }),
-    // refetchInterval: 1000,
-    // refetchIntervalInBackground: true, // 백그라운드에서도 폴링 유지
-  });
-  const {
-    data: roundsData,
-    isPending: isRoundsPending,
-    // error,
-  } = useQuery({
-    queryKey: ['rounds'],
-    queryFn: ({ signal }) => fetchRounds({ signal }),
-  });
+  const [isDashboard, setIsDashboard] = useState(true);
+  const [mode, setMode] = useState<Mode>('map');
 
   return (
     <div className={cx('main')}>
-      <div className={cx('dashboard')}>
-        {isCartsPending || isRoundsPending ? (
-          <Flex
-            size="sz-full"
-            justifyContent="jc-center"
-            alignItems="ai-center"
-          >
-            <Spinner color="bc-neutral-container-03" />
-          </Flex>
-        ) : (
-          cartsData &&
-          roundsData && (
-            <Dashboard
-              cartCollection={arrayToIdObject(cartsData)}
-              roundCollection={arrayToIdObject(roundsData)}
-            />
-          )
-        )}
-      </div>
+      <Wrapper
+        name="dashboard"
+        position="absolute"
+        width="w-[31.2rem]"
+        height="h-full"
+        zIndex="z-10"
+        top="t-0"
+        left="l-0"
+        transformTranslateX={isDashboard ? '-trlx-0' : '-trlx-100pct'}
+        transition="trans-all"
+        transitionDuration="dur-500"
+      >
+        <Dashboard
+          isOn={isDashboard}
+          toggleFeature={() => setIsDashboard((prev) => !prev)}
+        />
+      </Wrapper>
       <div className={cx('overview')}>
-        {isCartsPending || isRoundsPending ? (
-          <Flex
-            size="sz-full"
-            justifyContent="jc-center"
-            alignItems="ai-center"
-          >
-            <Spinner size="spinner-l" color="bc-tertiary" />
-          </Flex>
-        ) : (
-          cartsData &&
-          roundsData && (
-            <Overview
-              cartCollection={arrayToIdObject(cartsData)}
-              roundCollection={arrayToIdObject(roundsData)}
-            />
-          )
-        )}
+        <Overview />
       </div>
     </div>
   );
@@ -78,17 +47,9 @@ const Home = () => {
 const loader = async ({}: LoaderFunctionArgs) => {
   await waitForLogin();
 
-  console.log('pass');
+  await cartQuery.fetchCartsQuery();
+  await roundQuery.fetchRoundsQuery();
 
-  await queryClient.fetchQuery({
-    queryKey: ['carts'],
-    queryFn: ({ signal }) => fetchCarts({ signal }),
-    staleTime: 1000,
-  });
-  await queryClient.fetchQuery({
-    queryKey: ['rounds'],
-    queryFn: ({ signal }) => fetchRounds({ signal }),
-  });
   return null;
 };
 
