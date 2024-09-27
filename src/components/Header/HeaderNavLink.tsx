@@ -9,25 +9,26 @@ import IconArrow from '@/components/Icon/IconArrow';
 interface Props {
   text: string;
   to: string;
+  className?: string;
 }
 
-const HeaderNavLink = ({ text, to }: Props) => {
+const HeaderNavLink: React.FC<Props> = ({ text, to }: Props) => {
   const cx = classNames.bind(classes);
 
   return (
-    <NavLink to={`${to}`} className={cx('link')}>
+    <NavLink to={`${to}`} className={cx('link')} style={{ margin: '0px' }}>
       {({ isActive }) =>
         isActive ? (
           <Flex
-            size="sz-full"
             justifyContent="jc-between"
             alignItems="ai-center"
-            padding="p-1"
-            gap="gap-0.5"
+            padding="p-1.25"
+            gap="gap-1.25"
             color="c-on-neutral"
             borderRadius="rad-1"
+            width="w-auto"
           >
-            <Text size="label-m" color="c-inherit">
+            <Text size="title-m" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />
@@ -42,7 +43,7 @@ const HeaderNavLink = ({ text, to }: Props) => {
             color="c-neutral-container-05"
             hover={{ color: 'hover:c-on-neutral-variant' }}
           >
-            <Text size="label-l" color="c-inherit">
+            <Text size="title-m" color="c-inherit">
               {text}
             </Text>
             <IconArrow type="right" size="sz-2" color="c-inherit" />

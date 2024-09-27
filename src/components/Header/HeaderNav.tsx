@@ -22,11 +22,19 @@ const HeaderNav = () => {
       name="wrapper"
       color="c-transparent"
       padding="p-0"
-      gap="gap-1"
-      width="w-full"
+      gap="gap-2"
     >
       <Flex direction="flex-col" width="w-full" gap="gap-0.5">
-        <a href="./" className={cx('logo-wrapper')}>
+        <a
+          href="./"
+          className={`${cx('logo-wrapper')} text-[#7B8B76] text-[1.8rem] font-suit font-normal break-words`}
+          style={{
+            fontSize: '1.8rem',
+            fontFamily: 'SUIT',
+            fontWeight: 400,
+            wordWrap: 'break-word',
+          }}
+        >
           <IconTrinityLogo size="sz-full" color="c-neutral-container-05" />
         </a>
         <div className={cx('hr')} />
@@ -34,15 +42,17 @@ const HeaderNav = () => {
       <Flex
         name="nav-link-container"
         direction="flex-col"
-        gap="gap-1"
+        gap="gap-2"
         width="w-full"
       >
         <HeaderNavLink text="Home" to="/" />
+        <HeaderNavLink text="Round" to="/round" />
         <HeaderNavLink text="Cart" to="/cart" />
         <HeaderNavLink text="Course" to="/course" />
-        <HeaderNavLink text="Round" to="/round" />
-        <HeaderNavLink text="Device" to="/device" />
+        <HeaderNavLink text="Media" to="/media" />
         <HeaderNavLink text="Account" to="/account" />
+        <HeaderNavLink text="Store" to="/store" />
+        <HeaderNavLink text="Device" to="/device" />
       </Flex>
       <Hr
         type="horizontal"
@@ -58,7 +68,7 @@ const HeaderNav = () => {
           hover={{ color: 'hover:c-on-neutral-variant' }}
           onClick={openMessageModal}
         >
-          <IconMessage color="c-inherit" />
+          <IconMessage color="c-inherit" size="sz-4" />
         </Button>
         <Button
           form="btn-text"
@@ -67,7 +77,7 @@ const HeaderNav = () => {
           hover={{ color: 'hover:c-on-neutral-variant' }}
           onClick={openSettingModal}
         >
-          <IconSetting color="c-inherit" />
+          <IconSetting color="c-inherit" size="sz-4" />
         </Button>
       </Flex>
     </Flex>

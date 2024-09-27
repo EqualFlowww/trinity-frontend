@@ -98,6 +98,7 @@ const ViewBox = ({ cartCollection, roundCollection }: Props) => {
               setMapBoxStyle(style);
             }
           }}
+          
         />
       )}
       <CartPointerList
