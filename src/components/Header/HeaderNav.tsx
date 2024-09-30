@@ -21,7 +21,7 @@ const HeaderNav = () => {
       direction="flex-col"
       name="wrapper"
       color="c-transparent"
-      padding="p-0"
+      padding="p-auto"
       gap="gap-2"
     >
       <Flex direction="flex-col" width="w-full" gap="gap-0.5">
@@ -42,7 +42,7 @@ const HeaderNav = () => {
       <Flex
         name="nav-link-container"
         direction="flex-col"
-        gap="gap-2"
+        gap="gap-3"
         width="w-full"
       >
         <HeaderNavLink text="Home" to="/" />
