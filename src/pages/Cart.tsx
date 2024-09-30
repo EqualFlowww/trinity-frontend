@@ -2,6 +2,22 @@ import { useState } from 'react';
 import Flex from '@/components/UI/Flex';
 import Hr from '@/components/UI/Hr';
 
+const CartManagement = () => {
+  return (
+    <div>
+      <h1>카트 관리 내용</h1>
+    </div>
+  );
+};
+
+const CartRegistration = () => {
+  return (
+    <div>
+      <h1>카트 등록 내용</h1>
+    </div>
+  );
+};
+
 const Cart = () => {
   const [activeTab, setActiveTab] = useState('카트 관리');
 
@@ -25,20 +41,32 @@ const Cart = () => {
         height="h-12"
         position="relative"
       >
-        <span
+        <button
+          type="button"
           className={`mr-4 font-bold cursor-pointer ${activeTab === '카트 관리' ? 'text-black' : 'text-[#7B8B76]'} hover:text-black`}
-          style={{ fontSize: '2.4rem' }}
+          style={{
+            fontSize: '2.4rem',
+            background: 'none',
+            border: 'none',
+            padding: 0,
+          }}
           onClick={() => setActiveTab('카트 관리')}
         >
           카트 관리
-        </span>
-        <span
+        </button>
+        <button
+          type="button"
           className={`font-bold cursor-pointer ${activeTab === '카트 등록' ? 'text-black' : 'text-[#7B8B76]'} hover:text-black`}
-          style={{ fontSize: '2.4rem' }}
+          style={{
+            fontSize: '2.4rem',
+            background: 'none',
+            border: 'none',
+            padding: 0,
+          }}
           onClick={() => setActiveTab('카트 등록')}
         >
           카트 등록
-        </span>
+        </button>
       </Flex>
       <Hr
         type="horizontal"
@@ -48,6 +76,10 @@ const Cart = () => {
         marginBottom="mb-auto"
         marginLeft="ml-6"
       />
+      <div style={{ padding: '2rem' }}>
+        {activeTab === '카트 관리' && <CartManagement />}
+        {activeTab === '카트 등록' && <CartRegistration />}
+      </div>
     </Flex>
   );
 };
