@@ -8,6 +8,7 @@ interface FlexProps extends FlexStyleProps {
 }
 interface HTMLFlexProps
   extends Omit<ComponentPropsWithoutRef<'div'>, keyof FlexProps> {}
+
 interface Props extends FlexProps {
   htmlAttributes?: HTMLFlexProps;
 }
@@ -29,7 +30,10 @@ const Flex = forwardRef<HTMLDivElement, Props>(
 
     return (
       <div
-        className={`flex ${classNamesObjectToString({ ...defaultStyleProps, ...restFlexProps })}`}
+        className={`flex ${classNamesObjectToString({
+          ...defaultStyleProps,
+          ...restFlexProps,
+        })}`}
         {...htmlAttributes}
         ref={ref}
       >
@@ -40,3 +44,4 @@ const Flex = forwardRef<HTMLDivElement, Props>(
 );
 
 export default Flex;
+
