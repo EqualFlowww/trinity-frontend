@@ -38,8 +38,9 @@ const Cart = () => {
         color="c-neutral-container-03"
         justifyContent="jc-start"
         width="w-full"
-        height="h-12"
+        height="h-10"
         position="relative"
+        marginTop="mt-0"
       >
         <button
           type="button"
