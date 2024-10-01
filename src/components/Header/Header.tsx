@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className={cx('header')}>
       <Flex
-        padding="p-1"
+        padding="p-2"
         color="c-neutral-container-01"
         direction="flex-col"
         justifyContent="jc-between"

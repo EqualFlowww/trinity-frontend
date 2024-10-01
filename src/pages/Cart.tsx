@@ -1,22 +1,8 @@
 import { useState } from 'react';
 import Flex from '@/components/UI/Flex';
 import Hr from '@/components/UI/Hr';
-
-const CartManagement = () => {
-  return (
-    <div>
-      <h1>카트 관리 내용</h1>
-    </div>
-  );
-};
-
-const CartRegistration = () => {
-  return (
-    <div>
-      <h1>카트 등록 내용</h1>
-    </div>
-  );
-};
+import CartManagement from '@/components/Cart/\bCartManagement';
+import CartRegistration from '@/components/Cart/CartRegistration';
 
 const Cart = () => {
   const [activeTab, setActiveTab] = useState('카트 관리');
@@ -77,10 +63,8 @@ const Cart = () => {
         marginBottom="mb-auto"
         marginLeft="ml-6"
       />
-      <div style={{ padding: '2rem' }}>
-        {activeTab === '카트 관리' && <CartManagement />}
-        {activeTab === '카트 등록' && <CartRegistration />}
-      </div>
+      {activeTab === '카트 관리' && <CartManagement />}
+      {activeTab === '카트 등록' && <CartRegistration />}
     </Flex>
   );
 };
