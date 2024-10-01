@@ -805,6 +805,7 @@ export interface TextStyle
     | 'body-s'
     | 'body-m'
     | 'body-l'
+    | 'body-xl'
     | 'label-s'
     | 'label-m'
     | 'label-l';

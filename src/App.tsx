@@ -5,6 +5,8 @@ import '@/reset.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from '@/pages/Home.tsx';
 import Cart from '@/pages/Cart';
+// import Store from '@/pages/Store';
+// import Media from '@/pages/Media';
 import Course from '@/pages/Course';
 import Account from '@/pages/Account.tsx';
 import Device from '@/pages/Device';
@@ -23,11 +25,13 @@ const router = createBrowserRouter([
     loader: RootLayout.loader,
     children: [
       { index: true, element: <Home />, loader: Home.loader }, // path: '/'
+      { path: '/round', element: <Round /> },
       { path: '/cart', element: <Cart /> },
       { path: '/course', element: <Course /> },
-      { path: '/round', element: <Round /> },
-      { path: '/device', element: <Device /> },
+      // { path: '/media', element: <Media /> },
       { path: '/account', element: <Account />, loader: Account.loader },
+      // { path: '/store', element: <Store /> },
+      { path: '/device', element: <Device /> },
     ],
   },
 ]);
