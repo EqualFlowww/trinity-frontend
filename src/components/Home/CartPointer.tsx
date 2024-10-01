@@ -1,28 +1,22 @@
-import CartEntity from '@/components/Home/Overview/CartEntity';
+import CartEntity from '@/components/Home/CartEntity';
 import Flex from '@/components/UI/Flex';
 import Hr from '@/components/UI/Hr';
-import { CartSummaryData, MapState, RoundSummaryData } from '@/types/home';
+import { CartSummaryData, RoundSummaryData } from '@/types/home';
 import Block from '@/components/UI/Block';
-import { Dispatch, SetStateAction } from 'react';
+import { MapState } from '@/hooks/useMap';
 
 interface Props {
   cart: CartSummaryData;
   round?: RoundSummaryData;
   mapState: MapState;
-  setMapState: Dispatch<SetStateAction<MapState>>;
+  setCenter: (nextX: number, nextY: number) => void;
   position: {
     x: number;
     y: number;
   };
 }
 
-const CartPointer = ({
-  cart,
-  round,
-  mapState,
-  setMapState,
-  position,
-}: Props) => {
+const CartPointer = ({ cart, round, mapState, setCenter, position }: Props) => {
   return (
     <Flex
       name="cart-pointer"
@@ -45,7 +39,7 @@ const CartPointer = ({
       <CartEntity
         cart={cart}
         round={round}
-        setMapState={setMapState}
+        setCenter={setCenter}
         position={position}
       />
       <Hr

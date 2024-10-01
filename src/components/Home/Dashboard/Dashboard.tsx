@@ -1,22 +1,24 @@
 import classNames from 'classnames/bind';
 import classes from './Dashboard.module.scss';
 import Flex from '@/components/UI/Flex';
-import DateWidget from '@/components/Home/DateWidget';
+import DateWidget from '@/components/Home/Dashboard/DateWidget';
 import Scroll from '@/components/UI/Scroll';
-import DashboardItemHeader from '@/components/Home/DashboardItemHeader';
-import DashboardRoundList from '@/components/Home/DashboardRoundList';
-import DashboardCartList from '@/components/Home/DashboardCartList';
-import DashboardNotice from '@/components/Home/DashboardNotice'; // 공지사항 컴포넌트 임포트
+import DashboardItemHeader from '@/components/Home/Dashboard/DashboardItemHeader';
+import DashboardRoundList from '@/components/Home/Dashboard/DashboardRoundList';
+import DashboardCartList from '@/components/Home/Dashboard/DashboardCartList';
+import DashboardNotice from '@/components/Home/Dashboard/DashboardNotice'; // 공지사항 컴포넌트 임포트
 import { cartQuery, roundQuery } from '@/queries';
 import arrayToIdObject from '@/utils/arrayToIdObject';
-import DashBoardButton from '@/components/Home/DashboardButton';
+import DashBoardButton from '@/components/Home/Dashboard/DashboardButton';
+import Wrapper from '@/components/UI/Wrapper';
 
 interface Props {
   isOn: boolean;
   toggleFeature: () => void;
+  dashboardRef: React.RefObject<HTMLDivElement>;
 }
 
-const Dashboard = ({ isOn, toggleFeature }: Props) => {
+const Dashboard = ({ isOn, toggleFeature, dashboardRef }: Props) => {
   const cx = classNames.bind(classes);
 
   const { data: cartsData } = cartQuery.useGetCarts();
@@ -26,7 +28,19 @@ const Dashboard = ({ isOn, toggleFeature }: Props) => {
   const roundsCollection = arrayToIdObject(roundsData);
 
   return (
-    <>
+    <Wrapper
+      name="dashboard"
+      position="absolute"
+      width="w-[31.2rem]"
+      height="h-full"
+      zIndex="z-10"
+      top="t-0"
+      left="l-0"
+      transformTranslateX={isOn ? '-trlx-0' : '-trlx-100pct'}
+      transition="trans-all"
+      transitionDuration="dur-500"
+      ref={dashboardRef}
+    >
       <Flex
         name="dashboard-wrapper"
         direction="flex-col"
@@ -63,7 +77,7 @@ const Dashboard = ({ isOn, toggleFeature }: Props) => {
         </div>
       </Flex>
       <DashBoardButton isOn={isOn} onClick={toggleFeature}></DashBoardButton>
-    </>
+    </Wrapper>
   );
 };
 

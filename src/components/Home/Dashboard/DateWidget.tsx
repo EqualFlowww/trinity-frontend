@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import classes from './DateWidget.module.scss';
 import Flex from '@/components/UI/Flex';
-import WeatherImage from '@/components/Home/WeatherImage';
+import WeatherImage from '@/components/Home/Dashboard/WeatherImage';
 import { Weather } from '@/types/home';
 import Text from '@/components/UI/Text';
 import IconWindDirection from '@/components/Icon/IconWindDirection';

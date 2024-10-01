@@ -12,8 +12,6 @@ interface Props {
 }
 
 const DashboardItemHeader = ({ children, description }: Props) => {
-  // const cx = classNames.bind(classes);
-
   return (
     <div>
       <Flex

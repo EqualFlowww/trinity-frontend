@@ -25,7 +25,7 @@ const Wrapper = forwardRef<HTMLDivElement, Props>(
 
     return (
       <div
-        className={`wrapper ${classNamesObjectToString({ ...defaultStyleProps, ...restWrapperProps })}`}
+        className={`wrapper flex ai-center jc-center ${classNamesObjectToString({ ...defaultStyleProps, ...restWrapperProps })}`}
         {...htmlAttributes}
         ref={ref}
       >

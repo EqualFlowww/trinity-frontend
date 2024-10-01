@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { useState } from 'react';
 import classes from './DashboardRoundList.module.scss';
 import Flex from '@/components/UI/Flex';
-import DashboardRoundItem from '@/components/Home/DashboardRoundItem';
+import DashboardRoundItem from '@/components/Home/Dashboard/DashboardRoundItem';
 import Button from '@/components/UI/Button';
 import Wrapper from '@/components/UI/Wrapper';
 import IconArrow from '@/components/Icon/IconArrow';

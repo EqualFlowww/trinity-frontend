@@ -1,46 +1,80 @@
-import classNames from 'classnames/bind';
-import classes from './Home.module.scss';
-import Dashboard from '@/components/Home/Dashboard';
-import Overview from '@/components/Home/Overview/Overview';
+import Dashboard from '@/components/Home/Dashboard/Dashboard';
 import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router-dom';
-import arrayToIdObject from '@/utils/arrayToIdObject';
 import waitForLogin from '@/utils/waitForLogin';
 import Wrapper from '@/components/UI/Wrapper';
-import { useState } from 'react';
-import Button from '@/components/UI/Button';
-import IconArrow from '@/components/Icon/IconArrow';
+import { useRef, useState } from 'react';
 import { cartQuery, roundQuery } from '@/queries';
+import useMap from '@/hooks/useMap';
+import MapMode from '@/components/Home/MapMode';
+import TrackMode from '@/components/Home/TrackMode';
 
 type Mode = 'map' | 'track';
 
 const Home = () => {
-  const cx = classNames.bind(classes);
-  const [isDashboard, setIsDashboard] = useState(true);
+  const [dashboardState, setDashboardState] = useState({
+    isOn: false,
+  });
+
+  const viewRef = useRef<HTMLDivElement>(null);
+  const dashboardRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const {
+    mapState,
+    handleMouseDown,
+    handleWheel,
+    moveMap,
+    setRotation,
+    setScale,
+    setCenter,
+  } = useMap(viewRef, mapRef);
+  const [trackState, setTrackState] = useState({
+    scale: 1,
+    size: 0,
+  });
   const [mode, setMode] = useState<Mode>('map');
 
   return (
-    <div className={cx('main')}>
-      <Wrapper
-        name="dashboard"
-        position="absolute"
-        width="w-[31.2rem]"
-        height="h-full"
-        zIndex="z-10"
-        top="t-0"
-        left="l-0"
-        transformTranslateX={isDashboard ? '-trlx-0' : '-trlx-100pct'}
-        transition="trans-all"
-        transitionDuration="dur-500"
-      >
-        <Dashboard
-          isOn={isDashboard}
-          toggleFeature={() => setIsDashboard((prev) => !prev)}
-        />
+    <Wrapper
+      name="main"
+      size="sz-full"
+      position="relative"
+      overflow="ovf-hidden"
+    >
+      <Dashboard
+        isOn={dashboardState.isOn}
+        toggleFeature={() => {
+          if (!dashboardState.isOn && dashboardRef.current) {
+            moveMap(
+              -dashboardRef.current?.getBoundingClientRect().width / 2,
+              0
+            );
+          } else if (dashboardRef.current && dashboardState.isOn) {
+            moveMap(dashboardRef.current?.getBoundingClientRect().width / 2, 0);
+          }
+          setDashboardState((prev) => ({ ...prev, isOn: !prev.isOn }));
+        }}
+        dashboardRef={dashboardRef}
+      />
+      <Wrapper size="sz-full" position="relative">
+        {mode === 'map' && (
+          <MapMode
+            viewRef={viewRef}
+            mapRef={mapRef}
+            dashboardRef={dashboardRef}
+            isOpenDashboard={dashboardState.isOn}
+            mapState={mapState}
+            handleMouseDown={handleMouseDown}
+            handleWheel={handleWheel}
+            setCenter={setCenter}
+            setRotation={setRotation}
+            setScale={setScale}
+          ></MapMode>
+        )}
+        {mode === 'track' && <TrackMode></TrackMode>}
       </Wrapper>
-      <div className={cx('overview')}>
-        <Overview />
-      </div>
-    </div>
+    </Wrapper>
   );
 };
 
