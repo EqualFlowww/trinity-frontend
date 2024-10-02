@@ -31,7 +31,7 @@ const Dashboard = ({ isOn, toggleFeature, dashboardRef }: Props) => {
     <Wrapper
       name="dashboard"
       position="absolute"
-      width="w-[31.2rem]"
+      width="w-[49.2rem]"
       height="h-full"
       zIndex="z-10"
       top="t-0"
