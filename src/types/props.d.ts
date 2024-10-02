@@ -19,6 +19,7 @@ import {
   Spacing,
   SpinnerStyle,
   State,
+  TableStyle,
   TextStyle,
 } from '@/types/style';
 
@@ -171,5 +172,18 @@ interface SpinnerStyleByState
 export interface SpinnerStyleProps
   extends SpinnerStyleByState,
     ResponsiveStyle<SpinnerStyle> {
+  group?: `group/${Group}` | 'group';
+}
+
+/*----------Table----------*/
+
+interface TableStyleByState
+  extends TableStyle,
+    StateStyle<TableStyle>,
+    GroupStyle<TableStyle> {}
+
+export interface TableStyleProps
+  extends TableStyleByState,
+    ResponsiveStyle<TableStyle> {
   group?: `group/${Group}` | 'group';
 }

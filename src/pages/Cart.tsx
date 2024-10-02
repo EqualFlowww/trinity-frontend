@@ -1,86 +1,42 @@
 import { useState } from 'react';
 import Flex from '@/components/UI/Flex';
-import Hr from '@/components/UI/Hr';
-
-const CartManagement = () => {
-  return (
-    <div>
-      <h1>카트 관리 내용</h1>
-    </div>
-  );
-};
-
-const CartRegistration = () => {
-  return (
-    <div>
-      <h1>카트 등록 내용</h1>
-    </div>
-  );
-};
+import Navbar from '@/components/Header/Navbar';
+import background from '@/assets/svgs/trinity-background-pattern-B.svg';
+import CartManagement from '@/components/Cart/CartManagement';
+import CartRegistration from '@/components/Cart/CartRegistration';
 
 const Cart = () => {
   const [activeTab, setActiveTab] = useState('카트 관리');
 
   return (
     <Flex
-      name="dashboard-wrapper"
+      name="main-wrapper"
       direction="flex-col"
-      padding="p-0"
-      color="c-neutral-container-03"
-      justifyContent="jc-start"
+      color="c-neutral"
       size="sz-full"
       position="relative"
     >
+      <Navbar
+        tabs={['카트 관리', '카트 등록']}
+        activeTab={activeTab}
+        setActiveTab={(tab: string) => setActiveTab(tab)}
+      ></Navbar>
       <Flex
-        name="tab-menu"
-        direction="flex-row"
-        padding="p-3"
-        color="c-neutral-container-03"
-        justifyContent="jc-start"
         width="w-full"
-        height="h-10"
-        position="relative"
-        marginTop="mt-0"
+        grow="grow-1"
+        minHeight="mh-0"
+        paddingLeft="pl-3"
+        htmlAttributes={{
+          style: {
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '15rem',
+          },
+        }}
       >
-        <button
-          type="button"
-          className={`mr-4 font-bold cursor-pointer ${activeTab === '카트 관리' ? 'text-black' : 'text-[#7B8B76]'} hover:text-black`}
-          style={{
-            fontSize: '2.4rem',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-          }}
-          onClick={() => setActiveTab('카트 관리')}
-        >
-          카트 관리
-        </button>
-        <button
-          type="button"
-          className={`font-bold cursor-pointer ${activeTab === '카트 등록' ? 'text-black' : 'text-[#7B8B76]'} hover:text-black`}
-          style={{
-            fontSize: '2.4rem',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-          }}
-          onClick={() => setActiveTab('카트 등록')}
-        >
-          카트 등록
-        </button>
-      </Flex>
-      <Hr
-        type="horizontal"
-        length="len-full"
-        thickness="thk-0.25"
-        color="c-neutral-container-05"
-        marginBottom="mb-auto"
-        marginLeft="ml-6"
-      />
-      <div style={{ padding: '2rem' }}>
         {activeTab === '카트 관리' && <CartManagement />}
         {activeTab === '카트 등록' && <CartRegistration />}
-      </div>
+      </Flex>
     </Flex>
   );
 };

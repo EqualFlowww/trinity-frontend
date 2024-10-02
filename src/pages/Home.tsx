@@ -7,6 +7,7 @@ import { cartQuery, roundQuery } from '@/queries';
 import useMap from '@/hooks/useMap';
 import MapMode from '@/components/Home/MapMode';
 import TrackMode from '@/components/Home/TrackMode';
+import ModeSelection from '@/components/Home/ModeSelection';
 
 type Mode = 'map' | 'track';
 
@@ -28,6 +29,7 @@ const Home = () => {
     setRotation,
     setScale,
     setCenter,
+    resizeMapToView,
   } = useMap(viewRef, mapRef);
   const [trackState, setTrackState] = useState({
     scale: 1,
@@ -57,6 +59,11 @@ const Home = () => {
         }}
         dashboardRef={dashboardRef}
       />
+      <ModeSelection
+        mode={mode}
+        onClickMapMode={() => setMode('map')}
+        onClickTrackMode={() => setMode('track')}
+      />
       <Wrapper size="sz-full" position="relative">
         {mode === 'map' && (
           <MapMode
@@ -70,6 +77,7 @@ const Home = () => {
             setCenter={setCenter}
             setRotation={setRotation}
             setScale={setScale}
+            resizeMapToView={resizeMapToView}
           ></MapMode>
         )}
         {mode === 'track' && <TrackMode></TrackMode>}

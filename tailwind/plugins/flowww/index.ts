@@ -15,6 +15,7 @@ import { shadowUtilites } from './shadowUtilites';
 import { overflowUtilities } from './overflowUtilities';
 import { transformUtilities } from './transformUtilities';
 import { transitionUtilities } from './transitionUtilities';
+import { tableUtilities } from './tableUtilities';
 
 export default plugin(function (api) {
   borderUtilities.handler(api);
@@ -30,6 +31,7 @@ export default plugin(function (api) {
   sizingUtilities.handler(api);
   // spacingUtilities.handler(api);
   spinnerUtilities.handler(api);
+  tableUtilities.handler(api);
   textUtilities.handler(api);
   transformUtilities.handler(api);
   transitionUtilities.handler(api);

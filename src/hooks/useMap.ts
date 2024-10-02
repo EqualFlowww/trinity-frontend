@@ -205,37 +205,13 @@ const useMap = (
     document.addEventListener('mouseup', mouseUpHandler, { once: true });
   };
 
-  //첫 렌더링 시
-  useEffect(() => {
-    if (!viewRef.current) return;
-    const { clientWidth, clientHeight } = viewRef.current;
-    resizeMapToView(clientWidth, clientHeight);
-
-    const handleResize: ResizeObserverCallback = (entries) => {
-      for (let entry of entries) {
-        resizeMapToView(entry.contentRect.width, entry.contentRect.height);
-      }
-    };
-
-    const resizeObserver = new ResizeObserver(handleResize);
-    if (viewRef.current) {
-      resizeObserver.observe(viewRef.current);
-    }
-
-    return () => {
-      if (viewRef.current) {
-        resizeObserver.unobserve(viewRef.current);
-      }
-    };
-  }, []);
-
   return {
     mapState,
     handleWheel: debouncedHandleWheel,
     handleMouseDown,
     moveMap,
     panTo,
-    setImageSize,
+    resizeMapToView,
     setScale,
     setRotation,
     setCenter,

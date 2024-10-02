@@ -1,14 +1,43 @@
-import classNames from 'classnames/bind';
-import classes from './Course.module.scss';
-import imgSrc from '@/assets/images/Course(Tablet)@4x.webp';
+import { useState } from 'react';
+import Flex from '@/components/UI/Flex';
+import Navbar from '@/components/Header/Navbar';
+import background from '@/assets/svgs/trinity-background-pattern-B.svg';
+import CartManagement from '@/components/Cart/CartManagement';
+import CartRegistration from '@/components/Cart/CartRegistration';
 
 const Course = () => {
-  const cx = classNames.bind(classes);
+  const [activeTab, setActiveTab] = useState('그린 설정');
 
   return (
-    <div className={cx('main')}>
-      <img className={cx('img')} src={imgSrc}></img>
-    </div>
+    <Flex
+      name="main-wrapper"
+      direction="flex-col"
+      color="c-neutral"
+      size="sz-full"
+      position="relative"
+    >
+      <Navbar
+        tabs={['그린 설정', '홀 정보']}
+        activeTab={activeTab}
+        setActiveTab={(tab: string) => setActiveTab(tab)}
+      ></Navbar>
+      <Flex
+        width="w-full"
+        grow="grow-1"
+        minHeight="mh-0"
+        paddingLeft="pl-3"
+        htmlAttributes={{
+          style: {
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '15rem',
+          },
+        }}
+      >
+        {activeTab === '카트 관리' && <CartManagement />}
+        {activeTab === '카트 등록' && <CartRegistration />}
+      </Flex>
+    </Flex>
   );
 };
 

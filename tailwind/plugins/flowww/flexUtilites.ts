@@ -1,7 +1,11 @@
 // plugins/positionUtilities.js
+import { flexItemTheme, sizingTheme } from './theme';
 import plugin from 'tailwindcss/plugin';
 
-export const flexUtilities = plugin(function ({ addUtilities }) {
+export const flexUtilities = plugin(function ({
+  addUtilities,
+  matchUtilities,
+}) {
   // addUtilities({
   //   ['f-row']: { 'flex-direction': 'row' },
   //   ['f-row-reverse']: { 'flex-direction': 'row-reverse' },
@@ -68,4 +72,27 @@ export const flexUtilities = plugin(function ({ addUtilities }) {
       'align-content': 'stretch',
     },
   });
+  matchUtilities(
+    {
+      basis: (value) => ({
+        'flex-basis': value,
+      }),
+    },
+    {
+      values: sizingTheme,
+    }
+  );
+  matchUtilities(
+    {
+      grow: (value) => ({
+        'flex-grow': value,
+      }),
+      shrink: (value) => ({
+        'flex-shrink': value,
+      }),
+    },
+    {
+      values: flexItemTheme,
+    }
+  );
 });

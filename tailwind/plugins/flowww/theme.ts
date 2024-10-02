@@ -14,6 +14,7 @@ import {
   Duration,
   Scale,
   Degree,
+  Factor,
 } from '@/types/style';
 
 type SpacingTheme = { [key in Spacing]: string };
@@ -31,6 +32,7 @@ type OpacityTheme = { [key in Opacity]: string };
 type DurationTheme = { [key in Duration]: string };
 type ScaleTheme = { [key in Scale]: string };
 type DegreeTheme = { [key in Degree]: string };
+type FlexItemTheme = { [key in Factor]: string };
 
 const defaultSpacingBase = 0.8;
 export const spacingTheme: SpacingTheme = {
@@ -501,4 +503,18 @@ export const degreeTheme: DegreeTheme = {
   '150': '150deg',
   '165': '165deg',
   '180': '180deg',
+};
+
+export const flexItemTheme: FlexItemTheme = {
+  '0': '0',
+  '1': '1',
+  '2': '2',
+  '3': '3',
+  '4': '4',
+  '5': '5',
+  '6': '6',
+  '7': '7',
+  '8': '8',
+  '9': '9',
+  '10': '10',
 };

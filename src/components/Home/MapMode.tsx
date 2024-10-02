@@ -11,6 +11,7 @@ import arrayToIdObject from '@/utils/arrayToIdObject';
 import CircularMapRotationSlider from '@/components/Home/CircularMapRotationSlider';
 import Flex from '@/components/UI/Flex';
 import MapScaleSlider from '@/components/Home/MapScaleSlider';
+import { useEffect } from 'react';
 
 interface Props {
   viewRef: React.RefObject<HTMLDivElement>;
@@ -23,6 +24,7 @@ interface Props {
   setRotation: (rotation: number) => void;
   setScale: (scale: number) => void;
   setCenter: (x: number, y: number) => void;
+  resizeMapToView: (width: number, height: number) => void;
 }
 
 const MapMode = ({
@@ -36,6 +38,7 @@ const MapMode = ({
   setRotation,
   setScale,
   setCenter,
+  resizeMapToView,
 }: Props) => {
   // const tmpCartSummaryDataCollection = TMP_CART_SUMMARY_DATA_COLLECTION;
   // const tmpRoundSummaryDataCollection = TMP_ROUND_SUMMARY_DATA_COLLECTION;
@@ -52,6 +55,30 @@ const MapMode = ({
     const dashboardRect = dashboardRef.current.getBoundingClientRect();
     dashboardWidth = isOpenDashboard ? dashboardRect.width : 0;
   }
+
+  //첫 렌더링 시
+  useEffect(() => {
+    if (!viewRef.current) return;
+    const { clientWidth, clientHeight } = viewRef.current;
+    resizeMapToView(clientWidth, clientHeight);
+
+    const handleResize: ResizeObserverCallback = (entries) => {
+      for (let entry of entries) {
+        resizeMapToView(entry.contentRect.width, entry.contentRect.height);
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(handleResize);
+    if (viewRef.current) {
+      resizeObserver.observe(viewRef.current);
+    }
+
+    return () => {
+      if (viewRef.current) {
+        resizeObserver.unobserve(viewRef.current);
+      }
+    };
+  }, []);
 
   return (
     <Wrapper

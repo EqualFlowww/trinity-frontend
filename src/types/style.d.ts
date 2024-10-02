@@ -832,3 +832,11 @@ export interface SpinnerStyle extends BaseStyle, MarginStyle {
   size?: 'spinner-s' | 'spinner-m' | 'spinner-l' | 'spinner-xl';
   color?: `bc-${BorderColor}`;
 }
+
+export interface TableStyle extends ContainerStyle {
+  borderCollapse?: 'border-collapse' | 'border-separate';
+  borderSpacing?: `bsp-${Spacing}`;
+  borderSpacingX?: `bspx-${Spacing}`;
+  borderSpacingY?: `bspy-${Spacing}`;
+  tableLayout?: 'table-auto' | 'table-fixed';
+}
