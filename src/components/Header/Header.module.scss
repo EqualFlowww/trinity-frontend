@@ -46,10 +46,11 @@
   color: var(--Neutral-Surface-Container-04, #94a38f);
   font-size: 1.6rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 100%; /* 10px */
   letter-spacing: -0.02rem;
   font-family: 'SUIT';
+  word-wrap: 'break-word';
 }
 
 .version {
@@ -57,7 +58,7 @@
   font-family: 'SUIT';
   font-size: 1.6rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 100%; /* 10px */
   letter-spacing: -0.02rem;
   margin-top: 1.6rem;
