@@ -28,7 +28,7 @@ const DateWidget = ({ weather }: Props) => {
         left="l-0"
         zIndex="z-5"
       >
-        <WeatherImage type={weather} />
+        {/* <WeatherImage type={weather} /> */}
       </Flex>
       <Flex
         name="date-info"
@@ -47,7 +47,7 @@ const DateWidget = ({ weather }: Props) => {
         >
           <Text
             font="font-outfit"
-            color="c-neutral-container-01"
+            color="c-neutral-outline"
             size="body-m"
             shadow="shd-gray"
             opacity="oc-0.8"
