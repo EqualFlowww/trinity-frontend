@@ -1,4 +1,4 @@
-import { TableStyleProps, WrapperStyleProps } from '@/types/props';
+import { TableStyleProps } from '@/types/props';
 import classNamesObjectToString from '@/utils/classNamesObjectToString';
 import { ComponentPropsWithoutRef, forwardRef } from 'react';
 
