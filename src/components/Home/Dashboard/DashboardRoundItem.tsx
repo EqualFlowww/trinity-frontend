@@ -23,7 +23,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
           <Wrapper
             paddingY="py-0.25"
             paddingX="px-1"
-            height="h-full"
+            height="h-3"
             color="c-on-neutral"
             borderStyle="bs-solid"
             borderWidth="bw-0.125"
@@ -37,6 +37,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
           <Wrapper
             paddingY="py-0.25"
             paddingX="px-1"
+            height="h-3"
             color="c-neutral-container-05"
             borderStyle="bs-solid"
             borderWidth="bw-0.125"
@@ -44,13 +45,18 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             borderRightStyle="brs-none"
             borderRadiusRight="rad-r-0"
           >
-            <Text size="label-l" color="c-neutral-container-01">
+            <Text
+              size="label-m"
+              color="c-neutral-container-01"
+              font="font-suit"
+            >
               {round.half === 'first' ? 'IN' : 'OUT'}
             </Text>
           </Wrapper>
           <Wrapper
             paddingY="py-0.25"
             paddingX="px-1"
+            height="h-3"
             color="c-neutral"
             borderRadiusRight="rad-r-0.5"
             borderStyle="bs-solid"
@@ -67,7 +73,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
         <Wrapper
           paddingY="py-0.25"
           paddingX="px-1"
-          color="c-neutral-container-05"
+          color="c-neutral-container-04"
           borderRadius="rad-0.5"
         >
           <Text size="label-m" color="c-neutral-container-01">
@@ -96,15 +102,16 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
             paddingY="py-0.5"
             paddingX="px-1"
             color="c-on-neutral"
+            height="h-3"
             borderRadiusLeft="rad-l-0"
           >
-            <Text size="body-s" color="c-inherit">
+            <Text size="label-m" color="c-inherit">
               Cart No.{cartList && cartList?.length > 0 && cartList[0].name}
             </Text>
           </Wrapper>
           <Wrapper
             paddingY="py-0.5"
-            paddingX="px-1"
+            paddingX="px-1.5"
             color="c-neutral"
             borderRadiusRight="rad-r-0.5"
           >
@@ -124,7 +131,7 @@ const DashboardRoundItem = ({ round, cartList }: Props) => {
           color="c-neutral-container-05"
           borderRadius="rad-0.5"
         >
-          <Text size="label-m" color="c-neutral">
+          <Text size="title-s" color="c-neutral">
             HOLE {round.currentHole.number}
           </Text>
         </Wrapper>

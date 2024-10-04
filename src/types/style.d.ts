@@ -347,6 +347,7 @@ export type Group =
   | 'button';
 
 type Color =
+  | 'black'
   | 'primary'
   | 'on-primary'
   | 'primary-container'

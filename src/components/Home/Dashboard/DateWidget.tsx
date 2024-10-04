@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import classes from './DateWidget.module.scss';
 import Flex from '@/components/UI/Flex';
-import WeatherImage from '@/components/Home/Dashboard/WeatherImage';
+// import WeatherImage from '@/components/Home/Dashboard/WeatherImage';
 import { Weather } from '@/types/home';
 import Text from '@/components/UI/Text';
 import IconWindDirection from '@/components/Icon/IconWindDirection';
@@ -47,8 +47,8 @@ const DateWidget = ({ weather }: Props) => {
         >
           <Text
             font="font-outfit"
-            color="c-neutral-outline"
-            size="body-m"
+            color="c-on-warning"
+            size="body-l"
             shadow="shd-gray"
             opacity="oc-0.8"
           >
@@ -56,8 +56,8 @@ const DateWidget = ({ weather }: Props) => {
           </Text>
           <Text
             font="font-outfit"
-            color="c-neutral-container-01"
-            size="headline-l"
+            color="c-on-warning"
+            size="display-s"
             shadow="shd-gray"
           >
             13:42
@@ -74,18 +74,11 @@ const DateWidget = ({ weather }: Props) => {
             width="w-full"
             justifyContent="jc-end"
             opacity="oc-0.8"
+            borderRadius="rad-2"
+            borderColor="bc-error"
           >
-            <IconWindDirection
-              type="north"
-              size="sz-2"
-              color="c-neutral-container-01"
-              shadow="shd-gray"
-            />
-            <Text
-              size="label-l"
-              color="c-neutral-container-01"
-              shadow="shd-gray"
-            >
+            <IconWindDirection type="south" size="sz-2" color="c-on-warning" />
+            <Text size="body-l" color="c-on-warning">
               7m/s
             </Text>
           </Flex>
@@ -93,14 +86,10 @@ const DateWidget = ({ weather }: Props) => {
             <IconWeather
               type="clear-day"
               size="sz-3"
-              color="c-neutral-container-01"
+              color="c-on-warning"
               shadow="shd-gray"
             />
-            <Text
-              size="body-l"
-              color="c-neutral-container-01"
-              shadow="shd-gray"
-            >
+            <Text size="body-l" color="c-on-warning" shadow="shd-gray">
               31℃
             </Text>
           </Flex>
