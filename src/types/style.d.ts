@@ -347,7 +347,7 @@ export type Group =
   | 'button';
 
 type Color =
-  | 'black'
+  | 'gold'
   | 'primary'
   | 'on-primary'
   | 'primary-container'
@@ -807,6 +807,7 @@ export interface TextStyle
     | 'body-m'
     | 'body-l'
     | 'body-xl'
+    | 'body-2xl'
     | 'label-s'
     | 'label-m'
     | 'label-l';

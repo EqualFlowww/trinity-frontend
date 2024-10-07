@@ -73,7 +73,7 @@ const DateWidget = ({ weather }: Props) => {
         >
           <Flex
             gap="gap-1"
-            width="w-10"
+            width="w-12"
             justifyContent="jc-center"
             opacity="oc-0.8"
             borderRadius="rad-2"
@@ -82,14 +82,18 @@ const DateWidget = ({ weather }: Props) => {
             marginRight="-mr-2"
             height="h-4"
           >
-            <IconWindDirection type="south" size="sz-2" color="c-on-warning" />
+            <IconWindDirection
+              type="south"
+              size="sz-2.5"
+              color="c-on-warning"
+            />
             <Text size="body-xl" color="c-on-warning">
               7m/s
             </Text>
           </Flex>
           <Flex
             gap="gap-0.5"
-            width="w-12"
+            width="w-14"
             height="h-4.5"
             justifyContent="jc-center"
             borderRadius="rad-2"
@@ -97,7 +101,7 @@ const DateWidget = ({ weather }: Props) => {
             alignItems="ai-center"
           >
             <IconWeather type="clear-day" size="sz-3" color="c-gold" />
-            <Text size="body-xl" color="c-gold">
+            <Text size="body-2xl" color="c-gold">
               20℃
             </Text>
           </Flex>

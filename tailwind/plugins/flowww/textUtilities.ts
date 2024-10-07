@@ -155,6 +155,22 @@ export const textUtilities = plugin(function ({ addUtilities }) {
         'font-weight': '400',
       },
     },
+
+    ['.body-2xl']: {
+      '&.text, &.font-pretendard': {
+        'font-size': '2.4rem',
+        'font-weight': '400',
+      },
+      '&.text, &.font-outfit': {
+        'font-size': '2.4rem',
+        'font-weight': '400',
+      },
+      '&.text, &.font-suit': {
+        'font-size': '2.4rem',
+        'font-weight': '400',
+      },
+    },
+
     ['.body-l']: {
       '&.text, &.font-pretendard': {
         'font-size': '1.6rem',
