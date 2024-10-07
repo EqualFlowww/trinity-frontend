@@ -41,23 +41,25 @@ const DateWidget = ({ weather }: Props) => {
       >
         <Flex
           direction="flex-col"
-          height="h-full"
+          height="h-auto"
           gap="gap-0"
           wrap="flex-nowrap"
         >
           <Text
             font="font-outfit"
             color="c-on-warning"
-            size="body-l"
+            size="headline-s"
             shadow="shd-gray"
             opacity="oc-0.8"
+            marginBottom="-mb-3"
+            marginTop="-mt-12"
           >
             2024/08/22
           </Text>
           <Text
             font="font-outfit"
             color="c-on-warning"
-            size="display-s"
+            size="display-m"
             shadow="shd-gray"
           >
             13:42
@@ -65,32 +67,38 @@ const DateWidget = ({ weather }: Props) => {
         </Flex>
         <Flex
           direction="flex-col"
-          height="h-full"
-          gap="gap-0.5"
+          height="h-auto"
+          gap="gap-1.5"
           justifyContent="jc-center"
         >
           <Flex
-            gap="gap-0.5"
-            width="w-full"
-            justifyContent="jc-end"
+            gap="gap-1"
+            width="w-10"
+            justifyContent="jc-center"
             opacity="oc-0.8"
             borderRadius="rad-2"
-            borderColor="bc-error"
+            color="c-neutral-container-02"
+            alignItems="ai-center"
+            marginRight="-mr-2"
+            height="h-4"
           >
             <IconWindDirection type="south" size="sz-2" color="c-on-warning" />
-            <Text size="body-l" color="c-on-warning">
+            <Text size="body-xl" color="c-on-warning">
               7m/s
             </Text>
           </Flex>
-          <Flex gap="gap-0.5" width="w-full" justifyContent="jc-end">
-            <IconWeather
-              type="clear-day"
-              size="sz-3"
-              color="c-on-warning"
-              shadow="shd-gray"
-            />
-            <Text size="body-l" color="c-on-warning" shadow="shd-gray">
-              31℃
+          <Flex
+            gap="gap-0.5"
+            width="w-12"
+            height="h-4.5"
+            justifyContent="jc-center"
+            borderRadius="rad-2"
+            color="c-on-warning"
+            alignItems="ai-center"
+          >
+            <IconWeather type="clear-day" size="sz-3" color="c-gold" />
+            <Text size="body-xl" color="c-gold">
+              20℃
             </Text>
           </Flex>
         </Flex>
