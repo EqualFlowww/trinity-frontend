@@ -1,6 +1,8 @@
 @import '@/styles/_themes.scss';
 
 :root {
+  --black: #{$light-black};
+
   --primary: #{$light-primary};
   --on-primary: #{$light-on-primary};
   --primary-container: #{$light-primary-container};
@@ -50,6 +52,9 @@
 }
 
 :root[data-theme='dark'] {
+
+  --black: #{$dark-black};
+
   --primary: #{$dark-primary};
   --on-primary: #{$dark-on-primary};
   --primary-container: #{$dark-primary-container};
@@ -101,6 +106,9 @@
 // 사용자의 시스템 설정에 따라 웹 사이트의 기본 테마 감지
 @media (prefers-color-scheme: dark) {
   :root {
+
+    --black: #{$dark-black};
+    
     --primary: #{$dark-primary};
     --on-primary: #{$dark-on-primary};
     --primary-container: #{$dark-primary-container};
