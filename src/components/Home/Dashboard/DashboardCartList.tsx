@@ -37,7 +37,7 @@ const DashboardCartList = ({ cartCollection, roundCollection }: Props) => {
           size="sz-full"
           minHeight="mh-inherit"
           padding="p-1"
-          gap="gap-[0.65rem]"
+          gap="gap-[1.6rem]"
           borderRadius="rad-1"
           color="c-neutral-container-02"
           alignItems="ai-start"

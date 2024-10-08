@@ -1,8 +1,8 @@
 import CartEntity from '@/components/Home/CartEntity';
 import Flex from '@/components/UI/Flex';
-import Hr from '@/components/UI/Hr';
+// import Hr from '@/components/UI/Hr';
 import { CartSummaryData, RoundSummaryData } from '@/types/home';
-import Block from '@/components/UI/Block';
+// import Block from '@/components/UI/Block';
 import { MapState } from '@/hooks/useMap';
 
 interface Props {
@@ -41,22 +41,6 @@ const CartPointer = ({ cart, round, mapState, setCenter, position }: Props) => {
         round={round}
         setCenter={setCenter}
         position={position}
-      />
-      <Hr
-        type="vertical"
-        length="len-2.5"
-        color="c-on-neutral"
-        thickness="thk-0.125"
-      ></Hr>
-      <Block
-        position="absolute"
-        left="l-50pct"
-        bottom="b-0"
-        size="sz-0.5"
-        borderRadius="rad-circle"
-        color="c-on-neutral"
-        transformTranslateX="-trlx-50pct"
-        transformTranslateY="trly-50pct"
       />
     </Flex>
   );
